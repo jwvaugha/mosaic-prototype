@@ -102,7 +102,7 @@ for (const width of WIDTHS) {
 test.describe("Region rail", () => {
   test("collapses to a strip and expands again (wide screens push the content)", async ({ page }) => {
     await open(page, 1440, "A")
-    await page.getByRole("button", { name: "Hide reference" }).click()
+    await page.getByRole("button", { name: "Close reference" }).click()
     const main = page.locator("main")
     const before = (await main.boundingBox())!.width
     await page.getByRole("button", { name: "Collapse Regions" }).click()

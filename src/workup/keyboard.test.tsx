@@ -210,12 +210,14 @@ describe("bone headers", () => {
     expect(screen.queryByRole("complementary", { name: "Reference" })).toBeNull()
   })
 
-  it("the section header's button switches the panel too", async () => {
-    const user = setup("inc=skip-and-flag")
+  it("docked: the header button opens the panel and goes away; the panel's × closes it", async () => {
+    const user = setup("inc=skip-and-flag&ref=A")
     await user.click(screen.getByRole("button", { name: /Show reference/ }))
     expect(screen.getByRole("complementary", { name: "Reference" })).toBeInTheDocument()
-    await user.click(screen.getByRole("button", { name: /Hide reference/ }))
+    expect(screen.queryByRole("button", { name: /(Show|Hide) reference/ })).toBeNull()
+    await user.click(screen.getByRole("button", { name: "Close reference" }))
     expect(screen.queryByRole("complementary", { name: "Reference" })).toBeNull()
+    expect(screen.getByRole("button", { name: /Show reference/ })).toBeInTheDocument()
   })
 })
 

@@ -38,7 +38,7 @@ export function PanelHeader({ label, onClose }: { label: string; onClose?: () =>
         ))}
       </div>
       {onClose && (
-        <Button variant="ghost" size="icon" tabIndex={-1} aria-label="Close reference (?)" onClick={onClose}>
+        <Button variant="ghost" size="icon" tabIndex={-1} aria-label="Close reference" onClick={onClose}>
           <X />
         </Button>
       )}
