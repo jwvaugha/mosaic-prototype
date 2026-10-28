@@ -33,3 +33,4 @@ public/ref-images/*
 # Playwright
 e2e/.results/
 e2e/.shots/
+e2e/.results.json
