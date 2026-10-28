@@ -10,6 +10,7 @@ export type CharacterState = {
 export type Variable = {
   id: string
   name: string
+  fullName?: string
   // Shown only when it's a real abbreviation (requirements: Rows).
   code: string
   modality: Modality

@@ -40,27 +40,28 @@ const CRANIUM_MORPH_GROUPS: { id: string; name: string; codes: string[] }[] = [
   { id: "midface", name: "Zygomatic and orbit", codes: ["ZS", "MT", "PZTub", "IOB", "ORB"] },
 ]
 
-// DCP 2.0 numbers come from the postcranial form. Ranges are illustrative
+// Short names follow the wireframes (the bone is already in the header); the
+// full DCP 2.0 title is kept as fullName. DCP numbers come from the postcranial form. Ranges are illustrative
 // placeholders for out-of-bounds testing, not validated limits.
-const LOWER_LIMB_METRIC: { bone: string; vars: { code: string; dcp: number; range: [number, number] }[] }[] = [
+const LOWER_LIMB_METRIC: { bone: string; vars: { code: string; name: string; dcp: number; range: [number, number] }[] }[] = [
   {
     bone: "Femur",
     vars: [
-      { code: "FemXL", dcp: 75, range: [340, 560] },
-      { code: "FemBL", dcp: 76, range: [335, 555] },
-      { code: "FemEB", dcp: 77, range: [60, 100] },
-      { code: "FemHXD", dcp: 78, range: [35, 60] },
-      { code: "FemMXD", dcp: 81, range: [20, 40] },
-      { code: "FemMWD", dcp: 82, range: [18, 36] },
+      { code: "FemXL", name: "Maximum length", dcp: 75, range: [340, 560] },
+      { code: "FemBL", name: "Bicondylar length", dcp: 76, range: [335, 555] },
+      { code: "FemEB", name: "Epicondylar breadth", dcp: 77, range: [60, 100] },
+      { code: "FemHXD", name: "Head maximum diameter", dcp: 78, range: [35, 60] },
+      { code: "FemMXD", name: "Midshaft maximum diameter", dcp: 81, range: [20, 40] },
+      { code: "FemMWD", name: "Midshaft minimum diameter", dcp: 82, range: [18, 36] },
     ],
   },
   {
     bone: "Tibia",
     vars: [
-      { code: "TibCML", dcp: 86, range: [270, 470] },
-      { code: "TibPEB", dcp: 87, range: [55, 90] },
-      { code: "TibDEB", dcp: 88, range: [38, 60] },
-      { code: "TibMXD", dcp: 89, range: [22, 40] },
+      { code: "TibCML", name: "Condylo-malleolar length", dcp: 86, range: [270, 470] },
+      { code: "TibPEB", name: "Proximal epiphyseal breadth", dcp: 87, range: [55, 90] },
+      { code: "TibDEB", name: "Distal epiphyseal breadth", dcp: 88, range: [38, 60] },
+      { code: "TibMXD", name: "Midshaft maximum diameter", dcp: 89, range: [22, 40] },
     ],
   },
 ]
@@ -239,7 +240,8 @@ async function main() {
       variables[v.code] = {
         id: v.code,
         code: v.code,
-        name: def?.title ?? name,
+        name: v.name,
+        fullName: def?.title ?? name,
         modality: "metric",
         unit: "mm",
         precision: 1,

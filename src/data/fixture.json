@@ -326,7 +326,8 @@
     "FemXL": {
       "id": "FemXL",
       "code": "FemXL",
-      "name": "Maximum Length of the Femur",
+      "name": "Maximum length",
+      "fullName": "Maximum Length of the Femur",
       "modality": "metric",
       "unit": "mm",
       "precision": 1,
@@ -341,7 +342,8 @@
     "FemBL": {
       "id": "FemBL",
       "code": "FemBL",
-      "name": "Bicondylar Length of the Femur",
+      "name": "Bicondylar length",
+      "fullName": "Bicondylar Length of the Femur",
       "modality": "metric",
       "unit": "mm",
       "precision": 1,
@@ -356,7 +358,8 @@
     "FemEB": {
       "id": "FemEB",
       "code": "FemEB",
-      "name": "Epicondylar Breadth of the Femur",
+      "name": "Epicondylar breadth",
+      "fullName": "Epicondylar Breadth of the Femur",
       "modality": "metric",
       "unit": "mm",
       "precision": 1,
@@ -371,7 +374,8 @@
     "FemHXD": {
       "id": "FemHXD",
       "code": "FemHXD",
-      "name": "Maximum Diameter of the Femur Head",
+      "name": "Head maximum diameter",
+      "fullName": "Maximum Diameter of the Femur Head",
       "modality": "metric",
       "unit": "mm",
       "precision": 1,
@@ -386,7 +390,8 @@
     "FemMXD": {
       "id": "FemMXD",
       "code": "FemMXD",
-      "name": "Maximum Midshaft Diameter of the Femur",
+      "name": "Midshaft maximum diameter",
+      "fullName": "Maximum Midshaft Diameter of the Femur",
       "modality": "metric",
       "unit": "mm",
       "precision": 1,
@@ -401,7 +406,8 @@
     "FemMWD": {
       "id": "FemMWD",
       "code": "FemMWD",
-      "name": "Minimum Midshaft Diameter of the Femur",
+      "name": "Midshaft minimum diameter",
+      "fullName": "Minimum Midshaft Diameter of the Femur",
       "modality": "metric",
       "unit": "mm",
       "precision": 1,
@@ -416,7 +422,8 @@
     "TibCML": {
       "id": "TibCML",
       "code": "TibCML",
-      "name": "Length of the Tibia",
+      "name": "Condylo-malleolar length",
+      "fullName": "Length of the Tibia",
       "modality": "metric",
       "unit": "mm",
       "precision": 1,
@@ -431,7 +438,8 @@
     "TibPEB": {
       "id": "TibPEB",
       "code": "TibPEB",
-      "name": "Maximum Proximal Epiphyseal Breadth of the Tibia",
+      "name": "Proximal epiphyseal breadth",
+      "fullName": "Maximum Proximal Epiphyseal Breadth of the Tibia",
       "modality": "metric",
       "unit": "mm",
       "precision": 1,
@@ -446,7 +454,8 @@
     "TibDEB": {
       "id": "TibDEB",
       "code": "TibDEB",
-      "name": "Distal Epiphyseal Breadth of the Tibia",
+      "name": "Distal epiphyseal breadth",
+      "fullName": "Distal Epiphyseal Breadth of the Tibia",
       "modality": "metric",
       "unit": "mm",
       "precision": 1,
@@ -461,7 +470,8 @@
     "TibMXD": {
       "id": "TibMXD",
       "code": "TibMXD",
-      "name": "Maximum Midshaft Diameter of the Tibia",
+      "name": "Midshaft maximum diameter",
+      "fullName": "Maximum Midshaft Diameter of the Tibia",
       "modality": "metric",
       "unit": "mm",
       "precision": 1,
