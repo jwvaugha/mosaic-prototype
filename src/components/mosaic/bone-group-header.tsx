@@ -63,11 +63,11 @@ export function BoneGroupHeader({
         data-focused={focused || undefined}
         onFocus={(e) => e.target === e.currentTarget && onFocusHeader?.()}
         onKeyDown={onHeaderKey}
-        className="flex h-12 items-center gap-3 rounded-lg px-3 pl-10 outline-none data-focused:bg-muted/50 focus-visible:ring-[3px] focus-visible:ring-ring/50"
+        className="flex min-h-12 flex-wrap items-center gap-x-3 gap-y-1 rounded-lg px-3 py-1.5 pl-10 outline-none data-focused:bg-muted/50 focus-visible:ring-[3px] focus-visible:ring-ring/50"
       >
         <h3 className="text-lg font-semibold">{name}</h3>
         <span className="text-xs text-muted-foreground">{parts.join(" · ")}</span>
-        <div className="ml-auto flex items-center gap-5">
+        <div className="ml-auto flex flex-wrap items-center gap-x-5 gap-y-1">
           {bilateral && (
             <div className="flex items-center gap-2">
               <span className="flex items-center gap-1 text-xs text-muted-foreground">
@@ -97,13 +97,14 @@ export function BoneGroupHeader({
       </div>
       <div
         data-focused={conditionsFocused || undefined}
-        className="flex h-10 items-center gap-2 rounded-lg px-3 pl-10 data-focused:bg-muted/50"
+        className="flex min-h-10 flex-wrap items-center gap-2 rounded-lg px-3 py-1 pl-10 data-focused:bg-muted/50"
       >
         <span className="text-xs text-muted-foreground">Condition</span>
         <ToggleGroup
           ref={conditionsRef}
           type="multiple"
           spacing={2}
+          className="flex-wrap"
           aria-label={`${name} condition`}
           value={conditions}
           onValueChange={setConditions}

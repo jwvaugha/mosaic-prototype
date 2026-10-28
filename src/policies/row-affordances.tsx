@@ -1,6 +1,6 @@
 import type { ReactNode } from "react"
 import { ComeBackFlag } from "@/components/mosaic/come-back-flag"
-import { RowActions, rowActionList } from "@/components/mosaic/row-actions"
+import { rowActionList, type RowAction } from "@/components/mosaic/row-actions"
 import { Button } from "@/components/ui/button"
 import { Kbd } from "@/components/ui/kbd"
 import type { FieldState, FieldStatus, FlagReason } from "@/domain/workup"
@@ -33,7 +33,7 @@ export function rowAffordances({
   onToggleFlag: () => void
   onFlagReason: (r: FlagReason | undefined) => void
   onClear: () => void
-}): { actions?: ReactNode; gutter?: ReactNode } {
+}): { actions: RowAction[]; gutter?: ReactNode } {
   // Any field can be Skipped (a score is cleared, with Undo) and flagged to
   // come back to; a scored Morph field can be cleared back to blank. Metric
   // values clear by deleting the text.
@@ -45,7 +45,7 @@ export function rowAffordances({
     onFlag: onToggleFlag,
     onClear,
   }).filter((a) => (a.id === "skip" ? policy.allowSkip : a.id === "flag" ? policy.allowFlag : true))
-  const actions = <RowActions actions={list} showKeyHints={showKeyHints} />
+  const actions = list
   // A flagged field keeps its pill (with the optional reason) beside the row.
   const gutter =
     policy.allowFlag && field.flag ? (

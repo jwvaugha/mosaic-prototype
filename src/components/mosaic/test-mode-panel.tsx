@@ -169,11 +169,14 @@ export function TestModePanel({ fieldSummary }: { fieldSummary: string }) {
         type="button"
         tabIndex={-1}
         onClick={() => setOpen(true)}
+        aria-label="Test mode"
         className="fixed bottom-4 left-4 z-30 flex items-center gap-2 rounded-full border border-dashed border-primary bg-background px-3 py-1.5 text-xs font-medium text-primary shadow-sm"
       >
         <FlaskConical className="size-3.5" />
-        Test mode · {layout.label}
-        <Kbd className="ml-1">⌃⌥T</Kbd>
+        {/* Just "Test" below 1024 px, so it doesn't cover the bottom dock. */}
+        <span className="lg:hidden">Test</span>
+        <span className="hidden lg:inline">Test mode · {layout.label}</span>
+        <Kbd className="ml-1 hidden lg:inline-flex">⌃⌥T</Kbd>
       </button>
 
       <Sheet open={open} onOpenChange={setOpen}>

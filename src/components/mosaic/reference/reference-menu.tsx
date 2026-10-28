@@ -16,8 +16,10 @@ export function ReferenceMenu({
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <Button variant="ghost" size="sm" tabIndex={-1} className="text-xs">
-          <BookImage /> Reference panel <ChevronDown />
+        <Button variant="ghost" size="sm" tabIndex={-1} className="text-xs" aria-label="Reference panel">
+          <BookImage />
+          <span className="hidden xl:inline">Reference panel</span>
+          <ChevronDown />
         </Button>
       </PopoverTrigger>
       <PopoverContent align="end" className="flex w-72 flex-col gap-3">

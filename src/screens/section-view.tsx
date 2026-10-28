@@ -95,13 +95,14 @@ export function SectionView({
   return (
     // Rows fill the pane up to 960 px, so their Skip / Come back buttons have
     // room inline; with the docked column open the pane is about 720 px.
-    <div className="flex w-full max-w-[960px] min-w-[680px] flex-col gap-6 pb-24">
+    <div className="flex w-full max-w-[960px] min-w-0 flex-col gap-6 pb-24">
       <header className="flex w-full flex-col gap-1">
-        <div className="flex h-8 items-center gap-4">
+        <div className="flex min-h-8 flex-wrap items-center gap-x-4 gap-y-2">
           <h1 className="text-2xl font-semibold">{section.title}</h1>
           {section.modality === "metric" && (
             <Button variant="outline" size="sm" tabIndex={-1} className="ml-auto text-xs">
-              <FileUp /> Import from 3Skull / FORDISC file
+              <FileUp /> <span className="hidden md:inline">Import from 3Skull / FORDISC file</span>
+              <span className="md:hidden">Import</span>
             </Button>
           )}
         </div>
@@ -139,6 +140,7 @@ export function SectionView({
                 const field = state.fields[id]
                 const status = fieldStatus(state, id)
                 const row = {
+                  showKeyHints: config.showKeyHints,
                   spotlight: hintOpen && config.introDim && focusKey(state.focus) === id,
                   onSelectRow: () => {
                     focusField(id)

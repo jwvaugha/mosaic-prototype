@@ -29,3 +29,7 @@ dist-ssr
 public/ref-images/*
 !public/ref-images/mms/
 !public/ref-images/dental/
+
+# Playwright
+e2e/.results/
+e2e/.shots/

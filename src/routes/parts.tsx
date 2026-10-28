@@ -1,6 +1,7 @@
 import type { ReactNode } from "react"
 import { BoneGroupHeader } from "@/components/mosaic/bone-group-header"
 import { KeyHint } from "@/components/mosaic/key-hint"
+import { rowActionList } from "@/components/mosaic/row-actions"
 import { MetricVariableRow } from "@/components/mosaic/metric-variable-row"
 import { MorphVariableRow } from "@/components/mosaic/morph-variable-row"
 import { fixture } from "@/data"
@@ -81,7 +82,7 @@ export function Parts() {
             onSelect={noop}
             onClear={noop}
             onFocus={noop}
-            actions={<KeyHint keys="-" label={c.status === "skipped" ? "Un-skip" : "Skip"} />}
+            actions={rowActionList({ skipped: c.status === "skipped", flagged: false, scoredMorph: false, onSkip: noop, onFlag: noop, onClear: noop })}
           />
         ))}
       </Group>
@@ -100,7 +101,7 @@ export function Parts() {
             onFocus={noop}
             onAcknowledge={noop}
             onUnacknowledge={noop}
-            actions={<KeyHint keys="-" label={c.status === "skipped" ? "Un-skip" : "Skip"} />}
+            actions={rowActionList({ skipped: c.status === "skipped", flagged: false, scoredMorph: false, onSkip: noop, onFlag: noop, onClear: noop })}
           />
         ))}
       </Group>

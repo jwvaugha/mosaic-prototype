@@ -12,7 +12,11 @@ Open **Test mode** with the pill in the bottom-left corner or `⌃⌥T`. Changin
 
 Every Region and section from the data dictionaries can be entered: 369 Variables in 15 sections, built by `npm run fixture` (see `scripts/manifest-report.md`). The 38 calculated cranial Variables are read-only. Add `start=<section id>` to the URL to open on a given section, e.g. `start=cranium-morph`.
 
-The Region rail itself works in full: expand and collapse Regions, **+ add** a Region left out at Inventory (Thorax), **add back** a Set-aside one (Shoulder & upper limb), remove a Region from its ⋯ menu (it's set aside if it has Observations), and **Edit order** (drag, or ⌥↑/⌥↓). The order you set changes where Continue and `⌃⌥↓` go.
+The Region rail collapses to a strip of Region codes (the panel icon beside Edit order); below 1024 px it starts collapsed and opens over the content. It works in full: expand and collapse Regions, **+ add** a Region left out at Inventory (Thorax), **add back** a Set-aside one (Shoulder & upper limb), remove a Region from its ⋯ menu (it's set aside if it has Observations), and **Edit order** (drag, or ⌥↑/⌥↓). The order you set changes where Continue and `⌃⌥↓` go.
+
+## Screen sizes
+
+Laptop and tablet widths down to 768 px are supported (phones aren't yet). Below 1280 px the header turns labels into icons and the docked column narrows; below 1024 px the docked column becomes a drawer, the header's links fold into a menu, and the rail starts collapsed. `npm run e2e` checks all of this.
 
 ## Keys
 

@@ -53,7 +53,7 @@ export function MetricVariableRow({
 
   if (row.status === "skipped") {
     return (
-      <VariableRow {...row} message={message} labelWidth={324} reserveActions>
+      <VariableRow {...row} message={message} labelWidth={324}>
         <div
           ref={inputRef as Ref<HTMLDivElement>}
           tabIndex={0}
@@ -67,7 +67,7 @@ export function MetricVariableRow({
   }
 
   return (
-    <VariableRow {...row} message={message} labelWidth={324} reserveActions>
+    <VariableRow {...row} message={message} labelWidth={324}>
       <InputGroup
         className={cn("h-9 w-[200px] bg-background", row.status === "warning" && "border-warning")}
       >

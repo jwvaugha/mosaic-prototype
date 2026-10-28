@@ -1,4 +1,5 @@
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
+import { useMediaQuery } from "@/lib/use-media-query"
 import { toast } from "sonner"
 import { AppHeader } from "@/components/mosaic/app-header"
 import { BottomDock, DOCK_HEIGHT, DockedColumn } from "@/components/mosaic/reference/presenters"
@@ -96,6 +97,31 @@ function AppShell() {
     if (next) dispatch({ type: "goToSection", section: next })
   }
 
+  // The rail collapses to a strip of Region codes. Below 1024 px it starts
+  // collapsed and, when opened, floats over the content; the choice is
+  // remembered on wider screens.
+  const narrow = useMediaQuery("(max-width: 1023px)")
+  const [railPref, setRailPref] = useState(() => {
+    try {
+      return localStorage.getItem("mosaic-proto:rail-collapsed") === "1"
+    } catch {
+      return false
+    }
+  })
+  const [overlayOpen, setOverlayOpen] = useState(false)
+  const railCollapsed = narrow ? !overlayOpen : railPref
+  const setRailCollapsed = (c: boolean) => {
+    if (narrow) return setOverlayOpen(!c)
+    setRailPref(c)
+    try {
+      localStorage.setItem("mosaic-proto:rail-collapsed", c ? "1" : "0")
+    } catch {
+      // ignore
+    }
+  }
+  // Choosing a section closes the floating rail.
+  useEffect(() => setOverlayOpen(false), [state.section, narrow])
+
   return (
     <div
       className="flex h-svh flex-col"
@@ -111,7 +137,7 @@ function AppShell() {
           <ReferenceMenu autoShow={config.autoShow} onChange={(autoShow) => setConfig((c) => ({ ...c, autoShow }))} />
         }
       />
-      <SidebarProvider className="min-h-0 flex-1" style={{ "--sidebar-width": "280px" } as React.CSSProperties}>
+      <SidebarProvider className="relative min-h-0 flex-1" style={{ "--sidebar-width": "280px" } as React.CSSProperties}>
         <RegionRail
           regions={railRegions}
           totals={totals}
@@ -129,11 +155,14 @@ function AppShell() {
           onSaveDefault={railState.saveDefault}
           onResetOrder={railState.resetOrder}
           onUnavailable={(title) => toast(`${title} is display-only in this prototype.`)}
+          collapsed={railCollapsed}
+          overlay={narrow}
+          onCollapse={setRailCollapsed}
         />
         <div className="relative flex min-w-0 flex-1" onKeyDown={onKeyDown}>
           <main
             ref={mainRef}
-            className="min-w-0 flex-1 overflow-y-auto px-10 pt-8"
+            className="min-w-0 flex-1 overflow-x-hidden overflow-y-auto px-4 pt-6 md:px-6 lg:px-10 lg:pt-8"
             // With the bottom dock, keep the focused row scrolled above it.
             style={
               dock

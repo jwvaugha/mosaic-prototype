@@ -1,10 +1,8 @@
-import { BookImage, FilePlus } from "lucide-react"
 import type { ReactNode } from "react"
-import { Button } from "@/components/ui/button"
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
 import type { Variable } from "@/data/types"
 import type { FieldStatus } from "@/domain/workup"
 import { cn } from "@/lib/utils"
+import { RowActions, type RowAction } from "./row-actions"
 import { RowStatus } from "./row-status"
 
 // The shared shell for Metric and Morphological rows (library: Metric /
@@ -17,7 +15,7 @@ import { RowStatus } from "./row-status"
 // uses `below`.
 
 export type RowSlots = {
-  actions?: ReactNode
+  actions?: RowAction[]
   gutter?: ReactNode
   below?: ReactNode
   // Shown under the row, e.g. an out-of-range message.
@@ -25,6 +23,7 @@ export type RowSlots = {
 }
 
 export type RowProps = RowSlots & {
+  showKeyHints?: boolean
   // Lifted above the intro-dim overlay while the intro card is open.
   spotlight?: boolean
   // Pressing anywhere on the row selects it (not just its input).
@@ -49,13 +48,10 @@ export function VariableRow({
   labelWidth,
   onSelectRow,
   spotlight,
-  reserveActions,
+  showKeyHints = true,
   children,
 }: RowProps & {
   labelWidth: number
-  // Keep room for two action buttons plus the icons (Metric rows, whose
-  // input is narrow and fixed).
-  reserveActions?: boolean
   children: ReactNode
 }) {
   // The code is shown only when it's a real abbreviation (requirements: Rows).
@@ -80,11 +76,13 @@ export function VariableRow({
         data-focused={focused || undefined}
         className="group/row flex w-full flex-col gap-1 rounded-lg px-3 py-2 hover:bg-muted/50 data-focused:bg-muted/50"
       >
-        <div className="flex min-h-9 items-center gap-3">
+        {/* On narrow panes the input and then the actions wrap below the name. */}
+        <div className="flex min-h-9 flex-wrap items-center gap-x-3 gap-y-2">
           <RowStatus status={status} className="size-4" />
-          {/* The name column gives up width (down to 160 px; long names wrap)
-              before the Skip / Come back buttons fold into "⋯". */}
-          <div className="leading-5" style={{ flex: `0 1 ${labelWidth}px`, minWidth: 160 }}>
+          {/* The name column starts at 160 px and grows to its full width, so
+              a narrow pane shrinks it (long names wrap) before the input has to
+              move below it. */}
+          <div className="leading-5" style={{ flex: "1 1 160px", maxWidth: labelWidth }}>
             <span className={cn("text-sm font-medium", status === "skipped" && "text-muted-foreground")}>
               {variable.name}
             </span>
@@ -92,58 +90,27 @@ export function VariableRow({
               <span className="ml-2 inline-block font-mono text-xs text-muted-foreground">{variable.code}</span>
             )}
           </div>
-          <div className="flex shrink-0 items-center">{children}</div>
-          {/* A flagged field's pill stays visible after the input. */}
-          {gutter && <div className="shrink-0">{gutter}</div>}
-          <div
-            className={cn(
-              // Fills what's left of the row, so the actions can tell whether
-              // they fit inline or fold into "⋯" (see RowActions).
-              "flex min-w-0 flex-1 items-center justify-end gap-1",
-              reserveActions && "min-w-[264px]",
-              "opacity-0 group-hover/row:opacity-100 group-data-focused/row:opacity-100 focus-within:opacity-100 has-data-[state=open]:opacity-100",
-            )}
-          >
-            {actions}
-            {hasReference && (
-              <RowIconButton label="Reference" shortcut="R" onClick={onOpenReference}>
-                <BookImage />
-              </RowIconButton>
-            )}
-            <RowIconButton label="Add note">
-              <FilePlus />
-            </RowIconButton>
+          {/* The input and its actions stay together: on a narrow pane they
+              move below the name as one line, never apart. */}
+          <div className="flex min-w-fit flex-1 items-center gap-3">
+            <div className="flex shrink-0 items-center">{children}</div>
+            {/* A flagged field's pill stays visible after the input. */}
+            {gutter && <div className="shrink-0">{gutter}</div>}
+            <div
+              className={cn(
+                // Fills what's left of the line; RowActions decides whether the
+                // actions fit inline or fold into "⋯".
+                "flex min-w-9 flex-1 items-center justify-end",
+                "opacity-0 group-hover/row:opacity-100 group-data-focused/row:opacity-100 focus-within:opacity-100 has-data-[state=open]:opacity-100",
+              )}
+            >
+              <RowActions actions={actions ?? []} showKeyHints={showKeyHints} onReference={hasReference ? onOpenReference : undefined} />
+            </div>
           </div>
         </div>
         {message}
       </div>
       {below}
     </div>
-  )
-}
-
-function RowIconButton({
-  label,
-  shortcut,
-  onClick,
-  children,
-}: {
-  label: string
-  shortcut?: string
-  onClick?: () => void
-  children: ReactNode
-}) {
-  return (
-    <Tooltip>
-      <TooltipTrigger asChild>
-        <Button variant="ghost" size="icon" tabIndex={-1} aria-label={label} onClick={onClick}>
-          {children}
-        </Button>
-      </TooltipTrigger>
-      <TooltipContent>
-        {label}
-        {shortcut && <span className="ml-2 opacity-70">{shortcut}</span>}
-      </TooltipContent>
-    </Tooltip>
   )
 }

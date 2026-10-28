@@ -9,6 +9,8 @@ import {
   Flag,
   GripVertical,
   ListOrdered,
+  PanelLeftClose,
+  PanelLeftOpen,
   Plus,
   RotateCcw,
   TriangleAlert,
@@ -33,6 +35,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { Sidebar } from "@/components/ui/sidebar"
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
 import { cn } from "@/lib/utils"
 import { Progress } from "./progress-bar"
 
@@ -90,11 +93,94 @@ export type RegionRailProps = {
   onResetOrder: () => void
   // A display-only section was chosen.
   onUnavailable: (title: string) => void
+  // Collapsed to a strip of Region codes; `overlay` (narrow screens) floats
+  // the expanded rail over the content instead of pushing it aside.
+  collapsed: boolean
+  overlay: boolean
+  onCollapse: (collapsed: boolean) => void
 }
 
 const sum = (xs: (number | undefined)[]) => xs.reduce<number>((a, x) => a + (x ?? 0), 0)
 
 export function RegionRail(props: RegionRailProps) {
+  if (props.collapsed) return <CollapsedRail {...props} />
+  const rail = <ExpandedRail {...props} />
+  if (!props.overlay) return rail
+  // Narrow screens: a 56 px strip keeps its place, and the full rail floats
+  // over the content with a scrim; choosing a section or the scrim closes it.
+  return (
+    <div className="relative w-14 shrink-0">
+      <div className="fixed inset-0 top-14 z-30 bg-black/30" aria-hidden onClick={() => props.onCollapse(true)} />
+      <div className="absolute inset-y-0 left-0 z-40 w-[280px] shadow-xl">{rail}</div>
+    </div>
+  )
+}
+
+// Two-letter codes for the collapsed rail.
+const REGION_CODES: Record<string, string> = {
+  Cranium: "Cr",
+  Mandible: "Ma",
+  Dentition: "De",
+  Vertebrae: "Ve",
+  Thorax: "Th",
+  "Shoulder & upper limb": "SU",
+  Pelvis: "Pe",
+  "Lower limb": "LL",
+  "Whole skeleton": "WS",
+}
+
+function CollapsedRail({ regions, totals, onCollapse }: RegionRailProps) {
+  return (
+    <Sidebar className="top-14 h-[calc(100svh-3.5rem)] w-14 shrink-0 border-r" collapsible="none" aria-label="Regions">
+      <div className="flex flex-col items-center gap-1 overflow-y-auto py-3">
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <Button variant="ghost" size="icon" aria-label="Expand Regions" onClick={() => onCollapse(false)}>
+              <PanelLeftOpen />
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent side="right">Expand Regions</TooltipContent>
+        </Tooltip>
+        <Progress
+          className="my-2 h-1.5 w-8 bg-primary/20"
+          value={totals.total ? totals.recorded / totals.total : 0}
+        />
+        {regions.map((r) => {
+          const current = r.modalities.some((m) => m.current)
+          const first = r.modalities.find((m) => m.onSelect)
+          const recorded = sum(r.modalities.map((m) => m.recorded))
+          const total = sum(r.modalities.map((m) => m.total))
+          const inWorkup = r.membership === "in"
+          return (
+            <Tooltip key={r.name}>
+              <TooltipTrigger asChild>
+                <button
+                  type="button"
+                  aria-label={`${r.name}, ${recorded} of ${total}`}
+                  aria-current={current || undefined}
+                  disabled={!inWorkup || !first}
+                  onClick={() => first?.onSelect?.()}
+                  className={cn(
+                    "relative flex size-10 items-center justify-center rounded-lg text-xs font-semibold text-sidebar-foreground hover:bg-sidebar-accent disabled:text-muted-foreground disabled:hover:bg-transparent",
+                    current && "bg-sidebar-accent",
+                  )}
+                >
+                  {current && <span className="absolute top-3 left-0 h-4 w-[3px] rounded-sm bg-sidebar-primary" />}
+                  {REGION_CODES[r.name] ?? r.name.slice(0, 2)}
+                </button>
+              </TooltipTrigger>
+              <TooltipContent side="right">
+                {r.name} · {inWorkup ? `${recorded} / ${total}` : r.membership === "set-aside" ? "set aside" : "not in this Workup"}
+              </TooltipContent>
+            </Tooltip>
+          )
+        })}
+      </div>
+    </Sidebar>
+  )
+}
+
+function ExpandedRail(props: RegionRailProps) {
   const { totals, mode } = props
   const [announcement, setAnnouncement] = useState("")
   const rootRef = useRef<HTMLDivElement>(null)
@@ -146,6 +232,14 @@ export function RegionRail(props: RegionRailProps) {
                 >
                   <ListOrdered /> Edit order
                 </Button>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Button variant="ghost" size="icon-sm" aria-label="Collapse Regions" onClick={() => props.onCollapse(true)}>
+                      <PanelLeftClose />
+                    </Button>
+                  </TooltipTrigger>
+                  <TooltipContent>Collapse Regions</TooltipContent>
+                </Tooltip>
               </div>
               <span className="text-xs text-muted-foreground">
                 {totals.recorded} of {totals.total} recorded
