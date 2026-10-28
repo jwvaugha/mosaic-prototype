@@ -34,7 +34,9 @@ export type WorkupState = {
   fields: Record<string, FieldState>
   section: string
   focus: Focus
-  reference: { open: boolean; openedBy: "auto" | "manual" | null }
+  // `open`: opened by hand (button, ?). `dismissed`: closed by hand, which
+  // also keeps auto-show from reopening it until it's opened again.
+  reference: { open: boolean; dismissed: boolean }
   firstUseHintSeen: boolean
 }
 
@@ -50,7 +52,7 @@ export type Action =
   | { type: "unacknowledge"; id: string }
   | { type: "focus"; focus: Focus }
   | { type: "goToSection"; section: string; focus?: Focus }
-  | { type: "openReference"; by: "auto" | "manual" }
+  | { type: "openReference" }
   | { type: "closeReference" }
   | { type: "dismissHint" }
   | { type: "load"; seed: SeedId }
@@ -126,7 +128,7 @@ export function initialState(seed: SeedId = "fresh"): WorkupState {
     fields,
     section: first.id,
     focus: null,
-    reference: { open: false, openedBy: null },
+    reference: { open: false, dismissed: false },
     firstUseHintSeen: false,
   }
   // A Workup opens on its first blank field, like any section.
@@ -206,9 +208,9 @@ function reduce(state: WorkupState, action: Action): WorkupState {
       return { ...state, section: action.section, focus }
     }
     case "openReference":
-      return { ...state, reference: { open: true, openedBy: action.by } }
+      return { ...state, reference: { open: true, dismissed: false } }
     case "closeReference":
-      return { ...state, reference: { open: false, openedBy: null } }
+      return { ...state, reference: { open: false, dismissed: true } }
     case "dismissHint":
       return { ...state, firstUseHintSeen: true }
     case "load":
@@ -301,4 +303,12 @@ export function railBadges(state: WorkupState): Record<string, RailBadge> {
       return [s.id, { blank: c.blank, flagged: c.flagged, warnings: c.warnings, complete: c.blank === 0 }]
     }),
   )
+}
+
+// The reference shows for the focused field when opened by hand, or when
+// auto-show is on for its modality and the user hasn't closed it.
+export function referenceVisible(state: WorkupState, autoShow: Record<"metric" | "morph", boolean>): boolean {
+  const f = state.focus
+  if (f?.kind !== "field") return false
+  return state.reference.open || (autoShow[variable(f.id).modality] && !state.reference.dismissed)
 }

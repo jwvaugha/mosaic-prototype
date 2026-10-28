@@ -1,9 +1,14 @@
 import { AppHeader } from "@/components/mosaic/app-header"
+import { BottomDock, DOCK_HEIGHT, DockedColumn } from "@/components/mosaic/reference/presenters"
+import { ReferenceMenu } from "@/components/mosaic/reference/reference-menu"
 import { RegionRail, type RailRegion } from "@/components/mosaic/region-rail"
+import { TestModePanel } from "@/components/mosaic/test-mode-panel"
+import { logEvent } from "@/lib/event-log"
 import { SidebarProvider } from "@/components/ui/sidebar"
 import { useConfig } from "@/config/config-context"
 import { flaggedFields } from "@/domain/workup"
 import { regionCounts } from "@/workup/chrome-counts"
+import { useReference } from "@/workup/use-reference"
 import { useSectionFlow } from "@/workup/use-section-flow"
 import { useWorkup, WorkupProvider } from "@/workup/workup-context"
 import { useWorkupKeyboard } from "@/workup/use-workup-keyboard"
@@ -21,8 +26,10 @@ export function Prototype() {
 
 function AppShell() {
   const { state, dispatch } = useWorkup()
-  const { policy } = useConfig()
+  const { policy, config, setConfig } = useConfig()
   const { onKeyDown } = useWorkupKeyboard()
+  const ref = useReference()
+  const dock = ref.data && ref.layout === "D"
   const { onContinue, onAnalyze, dialogs } = useSectionFlow()
   const { regions, totals } = regionCounts(state)
 
@@ -40,15 +47,38 @@ function AppShell() {
   }))
 
   return (
-    <div className="flex h-svh flex-col">
-      <AppHeader flagBadge={policy.analyzeBadge ? flaggedFields(state).length : 0} onAnalyze={onAnalyze} />
+    <div
+      className="flex h-svh flex-col"
+      onClickCapture={(e) => {
+        const t = (e.target as HTMLElement).closest("button, [role=radio], input")
+        if (t) logEvent({ kind: "click", name: t.textContent?.trim().slice(0, 40) || t.tagName, mode: policy.id })
+      }}
+    >
+      <AppHeader
+        flagBadge={policy.analyzeBadge ? flaggedFields(state).length : 0}
+        onAnalyze={onAnalyze}
+        referenceMenu={
+          <ReferenceMenu autoShow={config.autoShow} onChange={(autoShow) => setConfig((c) => ({ ...c, autoShow }))} />
+        }
+      />
       <SidebarProvider className="min-h-0 flex-1" style={{ "--sidebar-width": "280px" } as React.CSSProperties}>
         <RegionRail regions={rail} totals={totals} showFlags={policy.allowFlag} />
-        <main className="min-w-0 flex-1 overflow-y-auto px-10 pt-8" onKeyDown={onKeyDown}>
-          <SectionView onContinue={onContinue} />
-        </main>
+        <div className="relative flex min-w-0 flex-1" onKeyDown={onKeyDown}>
+          <main
+            className="min-w-0 flex-1 overflow-y-auto px-10 pt-8"
+            // With the bottom dock, keep the focused row scrolled above it.
+            style={dock ? { paddingBottom: DOCK_HEIGHT, scrollPaddingBottom: DOCK_HEIGHT + 16 } : undefined}
+          >
+            <SectionView onContinue={onContinue} inlineReference={ref.data && ref.layout === "C" ? ref : null} />
+          </main>
+          {dock && <BottomDock data={ref.data!} onClose={ref.close} />}
+        </div>
+        {ref.data && ref.layout === "A" && <DockedColumn data={ref.data} onClose={ref.close} />}
       </SidebarProvider>
       {dialogs}
+      <TestModePanel
+        fieldSummary={`This Workup: ${totals.recorded} recorded · ${totals.skipped} skipped · ${flaggedFields(state).length} flagged (of ${totals.total}).`}
+      />
     </div>
   )
 }

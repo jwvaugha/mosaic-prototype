@@ -21,6 +21,13 @@ const SCENARIOS = {
   "2.5.3-pre": { q: "?inc=flag-end&seed=midway", steps: [["dismiss"], ["alt", "KeyF"], ["click", "button::-p-text(Analyze)"]] },
   "1-pre": { q: "?inc=skip-section&seed=midway", steps: [["dismiss"], ["click", "button::-p-text(Analyze)"]] },
   "metric": { q: "?inc=skip-section&seed=midway", steps: [["dismiss"], ["chord", "ArrowDown"]] },
+  "panel": { q: "?inc=flag-end&seed=midway&ref=D,C&auto=morph", steps: [["dismiss"], ["click", "button::-p-text(Test mode)"]] },
+  "ref-A-morph": { q: "?inc=skip-section&seed=midway&ref=A,A&auto=morph,metric", steps: [["dismiss"]] },
+  "ref-C-morph": { q: "?inc=skip-section&seed=midway&ref=C,C&auto=morph,metric", steps: [["dismiss"]] },
+  "ref-D-morph": { q: "?inc=skip-section&seed=midway&ref=D,D&auto=morph,metric", steps: [["dismiss"]] },
+  "ref-A-metric": { q: "?inc=skip-section&seed=midway&ref=A,A&auto=morph,metric", steps: [["dismiss"], ["chord", "ArrowDown"]] },
+  "ref-C-metric": { q: "?inc=skip-section&seed=midway&ref=C,C&auto=morph,metric", steps: [["dismiss"], ["chord", "ArrowDown"]] },
+  "ref-D-metric": { q: "?inc=skip-section&seed=midway&ref=D,D&auto=morph,metric", steps: [["dismiss"], ["chord", "ArrowDown"]] },
 }
 
 const launch = () =>

@@ -1,6 +1,6 @@
 import { useEffect, type KeyboardEvent } from "react"
 import { useConfig } from "@/config/config-context"
-import { adjacentSection, nextTabTarget, sectionOf, variable, type Focus } from "@/domain/workup"
+import { adjacentSection, nextTabTarget, referenceVisible, sectionOf, variable, type Focus } from "@/domain/workup"
 import { logEvent } from "@/lib/event-log"
 import { useWorkup } from "./workup-context"
 
@@ -21,7 +21,7 @@ import { useWorkup } from "./workup-context"
 
 export function useWorkupKeyboard() {
   const { state, dispatch } = useWorkup()
-  const { policy } = useConfig()
+  const { policy, config } = useConfig()
   const mode = policy.id
 
   const log = (name: string, field?: string) => logEvent({ kind: "key", name, field, mode })
@@ -60,7 +60,9 @@ export function useWorkupKeyboard() {
       return
     }
 
-    if (e.key === "Escape" && state.reference.open) {
+    const refShown = referenceVisible(state, config.autoShow)
+
+    if (e.key === "Escape" && refShown) {
       e.preventDefault()
       log("Esc")
       dispatch({ type: "closeReference" })
@@ -72,7 +74,7 @@ export function useWorkupKeyboard() {
     if (e.key === "?") {
       e.preventDefault()
       log("?", fieldId)
-      dispatch(state.reference.open ? { type: "closeReference" } : { type: "openReference", by: "manual" })
+      dispatch(refShown ? { type: "closeReference" } : { type: "openReference" })
       return
     }
 

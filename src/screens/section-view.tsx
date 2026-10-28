@@ -4,6 +4,8 @@ import { BoneGroupHeader } from "@/components/mosaic/bone-group-header"
 import { ContinueFooter } from "@/components/mosaic/continue-footer"
 import { MetricVariableRow } from "@/components/mosaic/metric-variable-row"
 import { FirstUseHint } from "@/components/mosaic/first-use-hint"
+import { InlineExpansion } from "@/components/mosaic/reference/presenters"
+import type { ReferenceData } from "@/components/mosaic/reference/reference-parts"
 import { MorphVariableRow } from "@/components/mosaic/morph-variable-row"
 import { Button } from "@/components/ui/button"
 import { useConfig } from "@/config/config-context"
@@ -23,7 +25,14 @@ import { focusKey, useWorkup } from "@/workup/workup-context"
 // The main pane (wireframe "Main pane"): header, bone groups 24 px apart with
 // rows 4 px apart, then the section footer.
 
-export function SectionView({ onContinue }: { onContinue: () => void }) {
+export function SectionView({
+  onContinue,
+  inlineReference,
+}: {
+  onContinue: () => void
+  // Presenter C renders under the focused row.
+  inlineReference: { data: ReferenceData | null; close: () => void } | null
+}) {
   const { state, dispatch, register } = useWorkup()
   const { config, policy } = useConfig()
   const section = sections.find((s) => s.id === state.section)!
@@ -111,7 +120,7 @@ export function SectionView({ onContinue }: { onContinue: () => void }) {
                   hasReference: imageManifest[id]?.kind !== "none",
                   onOpenReference: () => {
                     focusField(id)
-                    dispatch({ type: "openReference", by: "manual" })
+                    dispatch({ type: "openReference" })
                   },
                   ...rowAffordances({
                     policy,
@@ -123,6 +132,10 @@ export function SectionView({ onContinue }: { onContinue: () => void }) {
                     onToggleFlag: () => dispatch({ type: "toggleFlag", id }),
                     onFlagReason: (reason) => dispatch({ type: "setFlagReason", id, reason }),
                   }),
+                  below:
+                    inlineReference?.data?.variable.id === id ? (
+                      <InlineExpansion data={inlineReference.data} onClose={inlineReference.close} />
+                    ) : undefined,
                 }
                 return v.modality === "metric" ? (
                   <MetricVariableRow
