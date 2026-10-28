@@ -20,6 +20,7 @@ import {
   variable,
 } from "@/domain/workup"
 import { boneAffordances, rowAffordances } from "@/policies/row-affordances"
+import { useRail } from "@/workup/rail-context"
 import { focusKey, useWorkup } from "@/workup/workup-context"
 
 // The main pane (wireframe "Main pane"): header, bone groups 24 px apart with
@@ -36,7 +37,8 @@ export function SectionView({
   const { state, dispatch, register } = useWorkup()
   const { config, policy } = useConfig()
   const section = sections.find((s) => s.id === state.section)!
-  const next = adjacentSection(section.id, 1)
+  const { sectionOrder } = useRail()
+  const next = adjacentSection(section.id, 1, sectionOrder)
   const c = sectionCounts(state, section.id)
 
   const head = [`${c.recorded} of ${c.total} recorded`]

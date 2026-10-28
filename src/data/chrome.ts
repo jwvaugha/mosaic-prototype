@@ -12,7 +12,10 @@ export type ChromeModality = {
 
 export type ChromeRegion = {
   name: string
+  // Starting membership: set aside with Observations kept, or left out at
+  // Inventory ("+ add"). Both can change from the rail.
   setAside?: { kept: number }
+  notInWorkup?: boolean
   modalities: ChromeModality[]
   // Static issue counts shown on collapsed regions.
   errors?: number
@@ -30,7 +33,7 @@ export const REGIONS: ChromeRegion[] = [
   { name: "Mandible", modalities: [{ label: "Metric", total: 4, recorded: 0 }, { label: "Morphological", total: 5, recorded: 0 }] },
   { name: "Dentition", modalities: [{ label: "Metric", total: 32, recorded: 0 }, { label: "Morphological", total: 55, recorded: 0 }] },
   { name: "Vertebrae", modalities: [{ label: "Metric", total: 22, recorded: 0 }] },
-  { name: "Thorax", modalities: [{ label: "Morphological", total: 9, recorded: 0 }] },
+  { name: "Thorax", notInWorkup: true, modalities: [{ label: "Morphological", total: 9, recorded: 0 }] },
   { name: "Shoulder & upper limb", setAside: { kept: 8 }, modalities: [{ label: "Metric", total: 35, recorded: 8 }] },
   {
     name: "Pelvis",

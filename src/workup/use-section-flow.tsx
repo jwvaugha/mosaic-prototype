@@ -14,6 +14,7 @@ import {
 } from "@/domain/workup"
 import { logEvent } from "@/lib/event-log"
 import { flaggedItems, regionCounts, whereOf } from "./chrome-counts"
+import { useRail } from "./rail-context"
 import { useWorkup } from "./workup-context"
 
 // What Continue and Analyze do under each policy (Flows page):
@@ -26,11 +27,12 @@ import { useWorkup } from "./workup-context"
 export function useSectionFlow() {
   const { state, dispatch } = useWorkup()
   const { policy } = useConfig()
+  const { rail, sectionOrder } = useRail()
   const [dialog, setDialog] = useState<null | "skip" | "flags" | "analysis">(null)
   const undo = useRef<WorkupState | null>(null)
 
   const section = sections.find((s) => s.id === state.section)!
-  const next = adjacentSection(section.id, 1)
+  const next = adjacentSection(section.id, 1, sectionOrder)
   const blanks = blankFields(state, section.id)
   const sectionFlags = flaggedItems(state, section.id)
 
@@ -80,7 +82,7 @@ export function useSectionFlow() {
     return () => window.removeEventListener("keydown", onKey)
   }, [dispatch])
 
-  const { regions, totals } = regionCounts(state)
+  const { regions, totals } = regionCounts(state, rail)
 
   const dialogs = (
     <>
@@ -118,7 +120,7 @@ export function useSectionFlow() {
           }
         })}
         blankByRegion={regions
-          .filter((r) => !r.setAside)
+          .filter((r) => r.membership === "in")
           .map((r) => ({
             region: r.name,
             blank: r.blank,

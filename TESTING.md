@@ -12,7 +12,9 @@ The prototype compares two open decisions in MOSAIC data entry:
 
 Open **Test mode** with the pill in the bottom-left corner or `⌃⌥T`. Changing the incomplete-fields option or the scenario starts the Workup again. **Copy link** shares the exact setup.
 
-Two sections can be entered: Cranium · Morphological and Lower limb · Metric. Everything else in the sidebar and header is there to show how dense a real Workup is, and doesn't respond.
+Two sections can be entered: Cranium · Morphological and Lower limb · Metric. The other sections' counts are there to show how dense a real Workup is.
+
+The Region rail itself works in full: expand and collapse Regions, **+ add** a Region left out at Inventory (Thorax), **add back** a Set-aside one (Shoulder & upper limb), remove a Region from its ⋯ menu (it's set aside if it has Observations), and **Edit order** (drag, or ⌥↑/⌥↓). The order you set changes where Continue and `⌃⌥↓` go.
 
 ## Keys
 
@@ -24,7 +26,11 @@ Two sections can be entered: Cranium · Morphological and Lower limb · Metric. 
 | `-` / `⇧-` | Skip the field / the bone (version 1 only) |
 | `⌥F` | Mark the field to come back to (versions 2 and 2.5) |
 | `?` / Esc | Open or close the reference for the field |
-| `⌃⌥↓` / `⌃⌥↑` | Next / previous section |
+| `⌃⌥↓` / `⌃⌥↑` | Next / previous section, in rail order |
+| F6 / Esc | Move into the Region rail / back to where you were |
+| ↑ ↓ ← → Enter | In the rail: move, collapse or expand, open a section or add a Region |
+| `⇧F10` | In the rail: open the Region menu |
+| `⌥↑` / `⌥↓` | In Edit order: move the focused Region |
 
 ## Suggested tasks
 

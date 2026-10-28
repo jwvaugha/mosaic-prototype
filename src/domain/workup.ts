@@ -86,9 +86,17 @@ function boneFields(boneId: string): string[] {
   return []
 }
 
-export function adjacentSection(sectionId: string, dir: 1 | -1): Section | null {
-  const i = sections.findIndex((s) => s.id === sectionId)
-  return sections[i + dir] ?? null
+// `order` is the enterable sections in rail order (Edit order, Regions left
+// out of the Workup); it defaults to the fixture's order.
+export function adjacentSection(
+  sectionId: string,
+  dir: 1 | -1,
+  order: string[] = sections.map((s) => s.id),
+): Section | null {
+  const i = order.indexOf(sectionId)
+  // From a section that just left the Workup, "next" is the first one left.
+  const id = i === -1 ? (dir === 1 ? order[0] : order.at(-1)) : order[i + dir]
+  return sections.find((s) => s.id === id) ?? null
 }
 
 // ---------------------------------------------------------------------------

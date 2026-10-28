@@ -2,6 +2,7 @@ import { useEffect, type KeyboardEvent } from "react"
 import { useConfig } from "@/config/config-context"
 import { adjacentSection, nextTabTarget, referenceVisible, sectionOf, variable, type Focus } from "@/domain/workup"
 import { logEvent } from "@/lib/event-log"
+import { useRail } from "./rail-context"
 import { useWorkup } from "./workup-context"
 
 // All data-entry keys in one place (spec: Keyboard controller). What each key
@@ -22,6 +23,7 @@ import { useWorkup } from "./workup-context"
 export function useWorkupKeyboard() {
   const { state, dispatch } = useWorkup()
   const { policy, config } = useConfig()
+  const { sectionOrder } = useRail()
   const mode = policy.id
 
   const log = (name: string, field?: string) => logEvent({ kind: "key", name, field, mode })
@@ -37,7 +39,7 @@ export function useWorkupKeyboard() {
     const onKey = (e: globalThis.KeyboardEvent) => {
       if (!(e.ctrlKey && e.altKey) || (e.key !== "ArrowDown" && e.key !== "ArrowUp")) return
       e.preventDefault()
-      const next = adjacentSection(state.section, e.key === "ArrowDown" ? 1 : -1)
+      const next = adjacentSection(state.section, e.key === "ArrowDown" ? 1 : -1, sectionOrder)
       log(e.key === "ArrowDown" ? "⌃⌥↓" : "⌃⌥↑")
       if (next) dispatch({ type: "goToSection", section: next.id })
     }
