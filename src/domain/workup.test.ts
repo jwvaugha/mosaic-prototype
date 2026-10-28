@@ -9,6 +9,7 @@ import {
   nextTabTarget,
   railBadges,
   reducer,
+  referenceVisible,
   sectionCounts,
   type Action,
   type Focus,
@@ -147,5 +148,33 @@ describe("sections", () => {
       [METRIC]: { blank: 5, flagged: 1, warnings: 1, complete: false },
     })
     expect(blankFields(s, METRIC)).toEqual(["FemEB", "FemMXD", "FemMWD", "TibPEB", "TibMXD"])
+  })
+})
+
+describe("reference visibility", () => {
+  const auto = { morph: true, metric: true }
+  const off = { morph: false, metric: false }
+
+  it("auto-shows for the focused field and comes back on the next field after closing", () => {
+    let s = initialState()
+    expect(referenceVisible(s, auto)).toBe(true)
+    s = run(s, { type: "closeReference" })
+    expect(referenceVisible(s, auto)).toBe(false)
+    s = run(s, { type: "focus", focus: field("NAW") })
+    expect(referenceVisible(s, auto)).toBe(true)
+  })
+
+  it("follows focus once opened by hand, until closed", () => {
+    let s = run(initialState(), { type: "openReference" })
+    expect(referenceVisible(s, off)).toBe(true)
+    s = run(s, { type: "focus", focus: field("TibCML") })
+    expect(referenceVisible(s, off)).toBe(true)
+    s = run(s, { type: "closeReference" }, { type: "focus", focus: field("TibPEB") })
+    expect(referenceVisible(s, off)).toBe(false)
+  })
+
+  it("hides on the Continue footer", () => {
+    const s = run(initialState(), { type: "focus", focus: { kind: "continue", section: MORPH } })
+    expect(referenceVisible(s, auto)).toBe(false)
   })
 })

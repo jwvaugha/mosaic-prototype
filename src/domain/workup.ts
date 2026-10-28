@@ -34,9 +34,10 @@ export type WorkupState = {
   fields: Record<string, FieldState>
   section: string
   focus: Focus
-  // `open`: opened by hand (button, ?). `dismissed`: closed by hand, which
-  // also keeps auto-show from reopening it until it's opened again.
-  reference: { open: boolean; dismissed: boolean }
+  // `open`: opened by hand (button, ?); it then follows focus until closed.
+  // `dismissedFor`: the field it was closed on. Auto-show stays off for that
+  // field only and comes back on the next one.
+  reference: { open: boolean; dismissedFor: string | null }
   firstUseHintSeen: boolean
 }
 
@@ -128,7 +129,7 @@ export function initialState(seed: SeedId = "fresh"): WorkupState {
     fields,
     section: first.id,
     focus: null,
-    reference: { open: false, dismissed: false },
+    reference: { open: false, dismissedFor: null },
     firstUseHintSeen: false,
   }
   // A Workup opens on its first blank field, like any section.
@@ -208,9 +209,12 @@ function reduce(state: WorkupState, action: Action): WorkupState {
       return { ...state, section: action.section, focus }
     }
     case "openReference":
-      return { ...state, reference: { open: true, dismissed: false } }
+      return { ...state, reference: { open: true, dismissedFor: null } }
     case "closeReference":
-      return { ...state, reference: { open: false, dismissed: true } }
+      return {
+        ...state,
+        reference: { open: false, dismissedFor: state.focus?.kind === "field" ? state.focus.id : null },
+      }
     case "dismissHint":
       return { ...state, firstUseHintSeen: true }
     case "load":
@@ -310,5 +314,6 @@ export function railBadges(state: WorkupState): Record<string, RailBadge> {
 export function referenceVisible(state: WorkupState, autoShow: Record<"metric" | "morph", boolean>): boolean {
   const f = state.focus
   if (f?.kind !== "field") return false
-  return state.reference.open || (autoShow[variable(f.id).modality] && !state.reference.dismissed)
+  if (state.reference.dismissedFor === f.id) return false
+  return state.reference.open || autoShow[variable(f.id).modality]
 }

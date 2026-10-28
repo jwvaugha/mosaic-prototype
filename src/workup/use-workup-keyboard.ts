@@ -62,6 +62,13 @@ export function useWorkupKeyboard() {
 
     const refShown = referenceVisible(state, config.autoShow)
 
+    if (e.key === "Escape" && !state.firstUseHintSeen && focus?.kind === "field") {
+      e.preventDefault()
+      log("Esc")
+      dispatch({ type: "dismissHint" })
+      return
+    }
+
     if (e.key === "Escape" && refShown) {
       e.preventDefault()
       log("Esc")

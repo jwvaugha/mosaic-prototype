@@ -20,7 +20,7 @@ export type TestConfig = {
 export const DEFAULT_CONFIG: TestConfig = {
   refLayout: { morph: "A", metric: "A" },
   refOnDemandLayout: "same",
-  autoShow: { morph: true, metric: false },
+  autoShow: { morph: true, metric: true },
   incompletion: "skip-section",
   showKeyHints: true,
   seed: "fresh",
@@ -61,7 +61,8 @@ export function fromQuery(query: string, base: TestConfig = DEFAULT_CONFIG): Tes
   return c
 }
 
-const STORAGE_KEY = "mosaic-prototype-config"
+// Bumped when defaults change, so earlier visits don't keep stale settings.
+const STORAGE_KEY = "mosaic-prototype-config-v2"
 
 export function loadConfig(): TestConfig {
   let stored = DEFAULT_CONFIG
