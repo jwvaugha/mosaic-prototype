@@ -1,4 +1,4 @@
-import { BookImage, FileUp } from "lucide-react"
+import { BookImage, CircleHelp, FileUp } from "lucide-react"
 import { useLayoutEffect, useState } from "react"
 import { BoneGroupHeader } from "@/components/mosaic/bone-group-header"
 import { CalculatedGroup } from "@/components/mosaic/calculated-group"
@@ -10,6 +10,8 @@ import type { ReferenceData } from "@/components/mosaic/reference/reference-part
 import { MorphVariableRow } from "@/components/mosaic/morph-variable-row"
 import { RowNote } from "@/components/mosaic/row-note"
 import { Button } from "@/components/ui/button"
+import { ButtonGroup } from "@/components/ui/button-group"
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
 import { Kbd } from "@/components/ui/kbd"
 import { useConfig } from "@/config/config-context"
 import { imageManifest } from "@/data"
@@ -120,23 +122,38 @@ export function SectionView({
         <div className="flex min-h-8 flex-wrap items-center gap-x-3 gap-y-2">
           <h1 className="mr-auto text-2xl font-semibold">{section.title}</h1>
           {section.modality === "metric" && (
-            <Button variant="outline" size="sm" tabIndex={-1} className="text-xs">
-              <FileUp /> <span className="hidden md:inline">Import from 3Skull / FORDISC file</span>
-              <span className="md:hidden">Import</span>
-            </Button>
+            // Generic on purpose: which file formats apply depends on the
+            // Region (3Skull and FORDISC are cranial). Display-only.
+            <ButtonGroup>
+              <Button variant="outline" size="sm" tabIndex={-1} className="text-xs">
+                <FileUp /> Import data
+              </Button>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button variant="outline" size="icon-sm" tabIndex={-1} aria-label="About importing data">
+                    <CircleHelp />
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent className="max-w-xs">
+                  Fill this section's measurements from a file instead of typing them, for example a 3Skull or FORDISC
+                  export. Imported values arrive for you to review before they count.
+                </TooltipContent>
+              </Tooltip>
+            </ButtonGroup>
           )}
-          {referenceToggle && (
+          {/* Shown only while the panel is off; once on, the panel's own ×
+              (or R) turns it off. */}
+          {referenceToggle && !referenceToggle.open && (
             <Button
-              variant={referenceToggle.open ? "secondary" : "outline"}
+              variant="outline"
               size="sm"
               tabIndex={-1}
-              aria-pressed={referenceToggle.open}
               className="text-xs"
               onMouseDown={(e) => e.preventDefault()}
               onClick={referenceToggle.onToggle}
             >
               <BookImage />
-              {referenceToggle.open ? "Hide reference" : "Show reference"}
+              Show reference
               <Kbd>R</Kbd>
             </Button>
           )}

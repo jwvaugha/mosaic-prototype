@@ -175,9 +175,9 @@ function AppShell() {
               inlineReference={inline ? ref : null}
               // Docked and inline layouts switch the panel from the sticky
               // section header; the bottom dock has its own strip.
-              // In the docked layout the button goes away once the panel is
-              // open; the panel's own × closes it.
-              referenceToggle={dockLayout || (ref.layout === "A" && ref.open) ? null : { open: ref.open, onToggle: ref.toggle }}
+              // The header's button only turns the panel on; the panel's own ×
+              // (or R) turns it off.
+              referenceToggle={dockLayout ? null : { open: ref.open, onToggle: ref.toggle }}
             />
           </main>
           {dockLayout && (dock ? <BottomDock data={ref.data} onClose={ref.close} /> : <DockStrip onOpen={ref.toggle} />)}

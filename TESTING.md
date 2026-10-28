@@ -4,7 +4,7 @@
 
 Live: https://jwvaugha.github.io/mosaic-prototype/
 
-The prototype compares one open decision: **where the reference panel appears**: A (docked column), C (inline under the field) or D (bottom dock). Since 2026-10-28 the panel is a single on/off switch that stays as set. It starts **off**, so testers have to find it: the "Show reference" button in the sticky section header (A and C), the thin strip along the bottom (D), or `R`. With focus off a field (a bone header, say), A and D show a placeholder.
+The prototype compares one open decision: **where the reference panel appears**: A (docked column), C (inline under the field) or D (bottom dock). Since 2026-10-28 the panel is a single on/off switch that stays as set. It starts **off**, so testers have to find it: the "Show reference" button in the sticky section header (A and C; it goes away while the panel is on, and the panel's × or `R` turns it off), the thin strip along the bottom (D), or `R`. With focus off a field (a bone header, say), A and D show a placeholder.
 
 Skip and "come back to" are both available on every field, as buttons that show their shortcut (`−`, `⌥F`). When a row hasn't room for them, they fold into a "⋯" menu. The three earlier versions (Flows page 1, 2 and 2.5) can still be reached with `?inc=skip-section`, `flag-section` or `flag-end`.
 
