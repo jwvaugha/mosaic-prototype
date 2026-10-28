@@ -14,7 +14,7 @@ The prototype compares two open decisions in MOSAIC data entry:
 
 Open **Test mode** with the pill in the bottom-left corner or `⌃⌥T`. Changing the incomplete-fields option or the scenario starts the Workup again. **Copy link** shares the exact setup.
 
-Two sections can be entered: Cranium · Morphological and Lower limb · Metric. The other sections' counts are there to show how dense a real Workup is.
+Every Region and section from the data dictionaries can be entered: 369 Variables in 15 sections, built by `npm run fixture` (see `scripts/manifest-report.md`). The 38 calculated cranial Variables are read-only. Add `start=<section id>` to the URL to open on a given section, e.g. `start=cranium-morph`.
 
 The Region rail itself works in full: expand and collapse Regions, **+ add** a Region left out at Inventory (Thorax), **add back** a Set-aside one (Shoulder & upper limb), remove a Region from its ⋯ menu (it's set aside if it has Observations), and **Edit order** (drag, or ⌥↑/⌥↓). The order you set changes where Continue and `⌃⌥↓` go.
 
