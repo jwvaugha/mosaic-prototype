@@ -133,7 +133,11 @@ export function Guide() {
 
       <Step n="1" title="Before you start">
         <ul className="list-disc space-y-1.5 pl-5 text-sm">
-          <li>Use a laptop or desktop with a keyboard, in Chrome, Safari, Firefox or Edge. Touch screens aren't supported yet.</li>
+          <li>
+            Use a laptop or desktop with a keyboard, in Chrome, Safari, Firefox or Edge. Windows from 768 px wide work;
+            on smaller screens the Regions list starts folded (open it with the button at the top left). Touch screens
+            aren't supported yet.
+          </li>
           <li>
             The data is made up. <strong>Don't enter real case information.</strong> Nothing you type leaves your
             browser.
