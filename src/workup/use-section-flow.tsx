@@ -109,7 +109,7 @@ export function useSectionFlow() {
       <PreAnalysisDialog
         open={dialog === "analysis"}
         onOpenChange={(o) => setDialog(o ? "analysis" : null)}
-        mode={policy.allowFlag ? "flag" : "skip"}
+        mode={policy.allowFlag && policy.allowSkip ? "both" : policy.allowFlag ? "flag" : "skip"}
         flagged={flaggedItems(state)}
         warnings={warningFields(state).map((id) => {
           const v = variable(id)

@@ -11,7 +11,8 @@ import { ComeBackListItem } from "./come-back-list-item"
 export type PreAnalysisProps = {
   open: boolean
   onOpenChange: (open: boolean) => void
-  mode: "skip" | "flag"
+  // "both": Skip and flags together (the default since 2026-10-28)
+  mode: "skip" | "flag" | "both"
   flagged: { id: string; title: string; where: string }[]
   warnings: { id: string; title: string; detail: string }[]
   blankByRegion: { region: string; blank: number; onGoTo?: () => void }[]
@@ -34,7 +35,7 @@ function Block({ icon, title, count, children }: { icon: ReactNode; title: strin
 }
 
 export function PreAnalysisDialog(p: PreAnalysisProps) {
-  const [byRegion, setByRegion] = useState(p.mode === "skip")
+  const [byRegion, setByRegion] = useState(p.mode !== "flag")
   const blank = p.blankByRegion.reduce((a, r) => a + r.blank, 0)
   const regionsWithBlanks = p.blankByRegion.filter((r) => r.blank > 0)
 
@@ -49,7 +50,7 @@ export function PreAnalysisDialog(p: PreAnalysisProps) {
           </DialogDescription>
         </div>
 
-        {p.mode === "flag" && p.flagged.length > 0 && (
+        {p.mode !== "skip" && p.flagged.length > 0 && (
           <Block icon={<Flag className="size-4 text-primary" />} title="Fields you flagged to come back to" count={String(p.flagged.length)}>
             <div className="flex flex-col gap-1">
               {p.flagged.map((f) => (
@@ -61,10 +62,10 @@ export function PreAnalysisDialog(p: PreAnalysisProps) {
 
         <Block
           icon={<CircleDashed className="size-4 text-muted-foreground" />}
-          title={p.mode === "skip" ? "Unreached Variables" : "Blank fields"}
+          title={p.mode === "flag" ? "Blank fields" : "Unreached Variables"}
           count={`${blank} of ${p.totals.total}`}
         >
-          {p.mode === "flag" && (
+          {p.mode !== "skip" && (
             <p className="text-xs text-muted-foreground">
               Spread across {regionsWithBlanks.length} Regions. Blank fields are left out of the Analysis.{" "}
               <button type="button" className="inline-flex items-center font-medium text-foreground" onClick={() => setByRegion((b) => !b)}>
@@ -107,9 +108,10 @@ export function PreAnalysisDialog(p: PreAnalysisProps) {
         )}
 
         <p className="text-xs text-muted-foreground">
-          {p.mode === "flag" ? "Flags never block the Analysis. " : ""}
-          Data dictionary v1.0 · {p.totals.recorded} recorded ·{" "}
-          {p.mode === "flag" ? `${p.flagged.length} flagged` : `${p.totals.skipped} skipped`}
+          {p.mode !== "skip" ? "Flags never block the Analysis. " : ""}
+          Data dictionary v1.0 · {p.totals.recorded} recorded
+          {p.mode !== "flag" && ` · ${p.totals.skipped} skipped`}
+          {p.mode !== "skip" && ` · ${p.flagged.length} flagged`}
         </p>
 
         <div className="flex justify-end gap-2">

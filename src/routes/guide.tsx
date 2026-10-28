@@ -14,57 +14,44 @@ const base = import.meta.env.BASE_URL
 
 type Setup = { id: string; title: string; what: string; query: string }
 
-const PART_1: Setup[] = [
-  {
-    id: "1",
-    title: "Setup 1 · Skip",
-    what: "Press − to Skip a field you can't score. Leaving a section with blank fields asks whether to Skip them all.",
-    query: "inc=skip-section&ref=A&auto=morph,metric&seed=fresh&start=cranium-morph",
-  },
-  {
-    id: "2",
-    title: "Setup 2 · Come back to, checked per section",
-    what: "No Skip. Press ⌥F to flag a field to come back to. Leaving a section lists your flags.",
-    query: "inc=flag-section&ref=A&auto=morph,metric&seed=fresh&start=cranium-morph",
-  },
-  {
-    id: "2.5",
-    title: "Setup 3 · Come back to, checked at the end",
-    what: "Same flags, but nothing stops you between sections. Flags are listed once, before the Analysis.",
-    query: "inc=flag-end&ref=A&auto=morph,metric&seed=fresh&start=cranium-morph",
-  },
-]
-
-const PART_2: Setup[] = [
+// Since the PI meeting of 2026-10-28, Skip and "come back to" are both always
+// available, so the only comparison is where the reference panel goes.
+const SETUPS: Setup[] = [
   {
     id: "A",
-    title: "Setup 4 · Docked column",
+    title: "Setup 1 · Docked column",
     what: "The reference sits in a column on the right and never moves.",
-    query: "inc=flag-end&ref=A&auto=morph,metric&seed=fresh&start=cranium-morph",
+    query: "inc=skip-and-flag&ref=A&auto=morph,metric&seed=fresh&start=cranium-morph",
   },
   {
     id: "C",
-    title: "Setup 5 · Inline, under the field",
+    title: "Setup 2 · Inline, under the field",
     what: "The reference opens directly under the field you're on. The page scrolls to keep your place.",
-    query: "inc=flag-end&ref=C&auto=morph,metric&seed=fresh&start=cranium-morph",
+    query: "inc=skip-and-flag&ref=C&auto=morph,metric&seed=fresh&start=cranium-morph",
   },
   {
     id: "D",
-    title: "Setup 6 · Bottom dock",
+    title: "Setup 3 · Bottom dock",
     what: "The reference is a strip across the bottom of the screen.",
-    query: "inc=flag-end&ref=D&auto=morph,metric&seed=fresh&start=cranium-morph",
+    query: "inc=skip-and-flag&ref=D&auto=morph,metric&seed=fresh&start=cranium-morph",
+  },
+  {
+    id: "C-on-demand",
+    title: "Setup 4 · Only when you ask",
+    what: "Nothing appears on its own. Press R (or the row's drawing button) and the reference opens under the field.",
+    query: "inc=skip-and-flag&ref=A&ondemand=C&auto=none&seed=fresh&start=cranium-morph",
   },
 ]
 
 const KEYS: [ReactNode, string][] = [
-  [<Kbd key="t">Tab</Kbd>, "Next field (⇧Tab goes back). The last Tab in a section lands on Continue."],
+  [<Kbd key="t">Tab</Kbd>, "Next stop (⇧Tab goes back): each bone's header, its Condition chips, then its fields. The last Tab lands on Continue."],
   [<Kbd key="d">0–9</Kbd>, "Score a Morphological trait by its number, and move on"],
   [<KbdGroup key="a"><Kbd>←</Kbd><Kbd>→</Kbd></KbdGroup>, "Move between a trait's states; the reference drawing follows. Enter picks the one you're on."],
   [<Kbd key="e">Enter</Kbd>, "Keep a measurement and move on; on Continue, go to the next section"],
   [<Kbd key="b">⌫</Kbd>, "Clear a Morphological score (or click the chosen state again). For a measurement, delete the number."],
-  [<Kbd key="m">−</Kbd>, "Skip the field, even if it has a value (Undo appears). ⇧− skips the bone's blanks. − again un-Skips."],
-  [<KbdGroup key="f"><Kbd>⌥</Kbd><Kbd>F</Kbd></KbdGroup>, "Mark the field to come back to (Setups 2–6). Press again to unmark."],
-  [<Kbd key="q">?</Kbd>, "Show or hide the reference for the field. Esc hides it."],
+  [<Kbd key="m">−</Kbd>, "Skip the field, even if it has a value (Undo appears); − again un-Skips. On a bone's header, − skips the bone's blanks."],
+  [<KbdGroup key="f"><Kbd>⌥</Kbd><Kbd>F</Kbd></KbdGroup>, "Mark the field to come back to; press again to unmark. Skip and come back to can both be used."],
+  [<Kbd key="q">R</Kbd>, "Show or hide the reference for the field (? works too). Esc hides it."],
   [<KbdGroup key="s"><Kbd>⌃</Kbd><Kbd>⌥</Kbd><Kbd>↓</Kbd></KbdGroup>, "Next section from anywhere (↑ for the previous one)"],
   [<Kbd key="f6">F6</Kbd>, "Jump to the Regions list on the left; arrows move, Enter opens, Esc comes back"],
 ]
@@ -125,7 +112,7 @@ export function Guide() {
           ← Back to the prototype
         </a>
         <Badge variant="outline" className="w-fit">
-          <FlaskConical /> Prototype · about 30 minutes
+          <FlaskConical /> Prototype · about 20 minutes
         </Badge>
         <h1 className="text-3xl font-semibold">Testing the MOSAIC data-entry prototype</h1>
         <p className="text-muted-foreground">
@@ -135,21 +122,13 @@ export function Guide() {
         </p>
       </header>
 
-      <div className="grid gap-3 sm:grid-cols-2">
-        <div className="rounded-xl border p-4">
-          <span className="text-sm font-medium">Question 1 · Fields you can't do yet</span>
-          <p className="mt-1 text-sm text-muted-foreground">
-            When you can't score something right now, should you mark it <em>Skipped</em>, or flag it to{" "}
-            <em>come back to</em>? And when should MOSAIC remind you?
-          </p>
-        </div>
-        <div className="rounded-xl border p-4">
-          <span className="text-sm font-medium">Question 2 · The reference drawings</span>
-          <p className="mt-1 text-sm text-muted-foreground">
-            Where should the reference drawing for the field you're on appear, so it helps without getting in the
-            way?
-          </p>
-        </div>
+      <div className="rounded-xl border p-4">
+        <span className="text-sm font-medium">The question · Where should the reference drawings go?</span>
+        <p className="mt-1 text-sm text-muted-foreground">
+          As you score each trait or measurement, MOSAIC shows a reference drawing for it. Where should that drawing
+          appear, so it helps without getting in the way? You'll try the same short task with the drawings in four
+          different places.
+        </p>
       </div>
 
       <Step n="1" title="Before you start">
@@ -175,62 +154,32 @@ export function Guide() {
         </ul>
       </Step>
 
-      <Step n="2" title="Part 1 · Fields you can't do yet (setups 1–3)">
+      <Step n="2" title="Try each setup (1–4)">
         <p className="text-sm">
           Do the <strong>same task</strong> in each setup, in order:
         </p>
         <ol className="list-decimal space-y-1.5 rounded-xl border p-4 pl-9 text-sm">
           <li>
             Each setup opens on <strong>Cranium · Morphological</strong>. Score the first two groups,{" "}
-            <strong>Nasal aperture and bones</strong> and <strong>Zygomatic and orbit</strong>. Any state will do:
-            compare with the drawing if you like.
+            <strong>Nasal aperture and bones</strong> and <strong>Zygomatic and orbit</strong>, by comparing each
+            trait with the drawings. Use ←/→ on a trait, or hover the small drawings, to compare states.
           </li>
           <li>
-            <strong>Except</strong> Posterior zygomatic tubercle and Interorbital breadth: imagine a colleague has
-            the skull for now. Deal with those two however the setup suggests.
-          </li>
-          <li>
-            Leave the rest of the section and press <strong>Continue</strong> at the bottom (or keep pressing Tab to
-            reach it). Respond to whatever it asks.
+            Two traits you can't do right now. <strong>Skip</strong> Posterior zygomatic tubercle (the bone is
+            damaged), and mark Interorbital breadth to <strong>come back to</strong> (a colleague has the skull). The
+            buttons appear on the row, or press − and ⌥F.
           </li>
           <li>
             Open <strong>Lower limb › Metric</strong> from the Regions list. Enter FemXL <strong>452</strong>, FemBL{" "}
-            <strong>448</strong>, FemHXD <strong>64</strong> and TibCML <strong>371</strong>. You'll measure the rest
-            later.
+            <strong>448</strong>, FemHXD <strong>64</strong> and TibCML <strong>371</strong>, reading each definition
+            as you go.
           </li>
           <li>
             Click <strong>Analyze</strong> in the top right, look over the check, then <strong>Run analysis</strong>.
           </li>
         </ol>
         <div className="flex flex-col gap-2">
-          {PART_1.map((s) => (
-            <SetupCard key={s.id} s={s} />
-          ))}
-        </div>
-        <Questions
-          items={[
-            "Was it clear how to mark the two fields you couldn't do?",
-            "Did the reminder (when leaving a section, or before the Analysis) help, or get in the way?",
-            "Before running, could you tell what was still left, and why?",
-          ]}
-        />
-      </Step>
-
-      <Step n="3" title="Part 2 · The reference drawings (setups 4–6)">
-        <p className="text-sm">In each setup:</p>
-        <ol className="list-decimal space-y-1.5 rounded-xl border p-4 pl-9 text-sm">
-          <li>
-            Tab through the first two groups of <strong>Cranium · Morphological</strong> and score each trait by
-            comparing it with the drawings. Hover the small drawings to compare states; click a drawing to enlarge
-            it.
-          </li>
-          <li>
-            Open <strong>Lower limb › Metric</strong> from the Regions list and tab through a few measurements,
-            reading each definition.
-          </li>
-        </ol>
-        <div className="flex flex-col gap-2">
-          {PART_2.map((s) => (
+          {SETUPS.map((s) => (
             <SetupCard key={s.id} s={s} />
           ))}
         </div>
@@ -239,19 +188,20 @@ export function Guide() {
             "Where did your eyes go after each key press: the field, or the drawing?",
             "Did anything move when you didn't expect it to?",
             "Could you make out the differences between states?",
-            "Which of the three would you want for a long session at the bench?",
+            "Was it clear how to Skip one trait and come back to the other?",
+            "Which setup would you want for a long session at the bench?",
           ]}
         />
         <p className="text-xs text-muted-foreground">
-          The Morphological drawings (MSU and FoRDent) are the real ones; click a drawing to choose that state. The Metric drawings are shown as grey boxes of the right size for
-          now; that's expected.
+          The Morphological drawings (MSU and FoRDent) are the real ones; click a drawing to choose that state. The
+          Metric drawings are shown as grey boxes of the right size for now; that's expected.
         </p>
       </Step>
 
-      <Step n="4" title="Send your results">
+      <Step n="3" title="Send your results">
         <p className="text-sm">
           Copy your session log and paste it into a message to Jackson, along with your notes and your favourite
-          setup from each part. The log has only keys, clicks and timings: no values you typed.
+          setup. The log has only keys, clicks and timings: no values you typed.
         </p>
         <div className="flex flex-wrap items-center gap-3">
           <Button

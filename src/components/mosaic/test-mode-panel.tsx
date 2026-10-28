@@ -1,4 +1,4 @@
-import { BookImage, Copy, Flag, FlaskConical, Link, RotateCcw, RefreshCw, ScrollText } from "lucide-react"
+import { BookImage, Copy, FlaskConical, Link, RotateCcw, RefreshCw, ScrollText } from "lucide-react"
 import { useEffect, useState, useSyncExternalStore, type ReactNode } from "react"
 import { toast } from "sonner"
 import { Badge } from "@/components/ui/badge"
@@ -13,15 +13,16 @@ import { useConfig } from "@/config/config-context"
 import { DEFAULT_CONFIG, type RefLayout, type TestConfig } from "@/config/test-config"
 import { fixture, localImages } from "@/data"
 import { SEEDS, type SeedId } from "@/data/seeds"
-import { POLICIES, type IncompletionId } from "@/policies/incompletion"
 import { clearEvents, getEvents, subscribeEvents } from "@/lib/event-log"
 import { cn } from "@/lib/utils"
 
 // Prototype controls (not part of MOSAIC), opened with the pill in the
-// bottom-left corner or ⌃⌥T. Three groups:
-//   Reference panel            how the reference appears (layout, auto-show)
-//   Skipping and coming back   the incomplete-fields version being tried
-//   Testing                    scenario, opening section, resets, session log
+// bottom-left corner or ⌃⌥T. Two groups:
+//   Reference panel   how the reference appears (layout, auto-show), which
+//                     is what the prototype now compares
+//   Testing           scenario, opening section, hints, resets, session log
+// Skip and "come back to" used to be a third, compared choice; since the PI
+// meeting of 2026-10-28 both are always available.
 // Everything but the log is kept in the URL, so "Copy link" shares the setup.
 
 const LAYOUTS: { id: RefLayout; label: string; hint: string }[] = [
@@ -30,11 +31,6 @@ const LAYOUTS: { id: RefLayout; label: string; hint: string }[] = [
   { id: "D", label: "Bottom dock", hint: "A strip along the bottom of the screen" },
 ]
 
-const VERSIONS: Record<IncompletionId, string> = {
-  "skip-section": "Press − to Skip a field. Leaving a section with blanks asks to Skip them.",
-  "flag-section": "No Skip. ⌥F marks a field to come back to; leaving a section lists them.",
-  "flag-end": "No Skip. ⌥F marks a field to come back to; they're listed only before the Analysis.",
-}
 
 function Group({ icon, title, note, children }: { icon: ReactNode; title: string; note?: string; children: ReactNode }) {
   return (
@@ -174,7 +170,7 @@ export function TestModePanel({ fieldSummary }: { fieldSummary: string }) {
         className="fixed bottom-4 left-4 z-30 flex items-center gap-2 rounded-full border border-dashed border-primary bg-background px-3 py-1.5 text-xs font-medium text-primary shadow-sm"
       >
         <FlaskConical className="size-3.5" />
-        Test mode · {POLICIES[config.incompletion].short} · {layout.label}
+        Test mode · {layout.label}
         <Kbd className="ml-1">⌃⌥T</Kbd>
       </button>
 
@@ -226,24 +222,6 @@ export function TestModePanel({ fieldSummary }: { fieldSummary: string }) {
               </p>
             </Group>
 
-            <Group icon={<Flag />} title="Skipping and coming back" note="Restarts the Workup">
-              <Choices
-                name="version"
-                value={config.incompletion}
-                options={(Object.keys(POLICIES) as IncompletionId[]).map((id) => ({
-                  id,
-                  label: POLICIES[id].label,
-                  hint: VERSIONS[id],
-                }))}
-                onChange={(v) => set((c) => ({ ...c, incompletion: v }), true)}
-              />
-              <Toggle
-                label="Show keyboard hints on rows"
-                checked={config.showKeyHints}
-                onChange={(v) => set((c) => ({ ...c, showKeyHints: v }))}
-              />
-            </Group>
-
             <Group icon={<ScrollText />} title="Testing">
               <Field label="Scenario (restarts the Workup)">
                 <Choices
@@ -270,6 +248,11 @@ export function TestModePanel({ fieldSummary }: { fieldSummary: string }) {
                   </SelectContent>
                 </Select>
               </Field>
+              <Toggle
+                label="Show keyboard hints on rows"
+                checked={config.showKeyHints}
+                onChange={(v) => set((c) => ({ ...c, showKeyHints: v }))}
+              />
               <div className="flex flex-wrap gap-2">
                 <Button
                   size="sm"

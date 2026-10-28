@@ -4,15 +4,11 @@
 
 Live: https://jwvaugha.github.io/mosaic-prototype/
 
-The prototype compares two open decisions in MOSAIC data entry:
+The prototype compares one open decision: **where the reference panel appears**. The options are A (docked column), C (inline under the field) and D (bottom dock), with one layout for both modalities. A fourth option shows the panel only when asked for (`R`), opening inline.
 
-1. **How the reference panel appears**: A (docked column), C (inline under the row) or D (bottom dock), set separately for Morphological and Metric fields.
-2. **How incomplete fields are handled**:
-   - 1 · Skip, with a check at the end of each section
-   - 2 · "Come back to" flags, with a check at the end of each section
-   - 2.5 · Flags, collected only in the check before the Analysis
+Since the PI meeting of 2026-10-28, Skip and "come back to" are no longer alternatives. Both are available on every field, as buttons that show their shortcut (`−`, `⌥F`). When a row hasn't room for them, they fold into a "⋯" menu. The three earlier versions (Flows page 1, 2 and 2.5) can still be reached with `?inc=skip-section`, `flag-section` or `flag-end`.
 
-Open **Test mode** with the pill in the bottom-left corner or `⌃⌥T`. Changing the incomplete-fields option or the scenario starts the Workup again. **Copy link** shares the exact setup.
+Open **Test mode** with the pill in the bottom-left corner or `⌃⌥T`. Changing the scenario or the opening section starts the Workup again. **Copy link** shares the exact setup.
 
 Every Region and section from the data dictionaries can be entered: 369 Variables in 15 sections, built by `npm run fixture` (see `scripts/manifest-report.md`). The 38 calculated cranial Variables are read-only. Add `start=<section id>` to the URL to open on a given section, e.g. `start=cranium-morph`.
 
@@ -22,12 +18,15 @@ The Region rail itself works in full: expand and collapse Regions, **+ add** a R
 
 | Key | Does |
 | --- | --- |
-| Tab / ⇧Tab | Next / previous field, then the Continue button |
+| Tab / ⇧Tab | Next / previous stop: each bone's header, its Condition chips, its fields, then Continue |
 | 0–9 | Score a Morphological field and move on |
+| ← / → | On a Morphological field: move between states (previewed in the reference); Enter picks one |
+| ← / → | On a bone header: switch Side. On Condition chips: move between chips; Space ticks one |
 | Enter | Keep a Metric value and move on |
-| `-` / `⇧-` | Skip the field / the bone (version 1 only) |
-| `⌥F` | Mark the field to come back to (versions 2 and 2.5) |
-| `?` / Esc | Open or close the reference for the field |
+| `⌫` / Delete | Clear a Morphological score, or un-Skip |
+| `-` | Skip the field, even a scored one (Undo appears). On a bone header: Skip the bone's blanks |
+| `⌥F` | Mark the field to come back to |
+| `R` / `?` / Esc | Open or close the reference for the field |
 | `⌃⌥↓` / `⌃⌥↑` | Next / previous section, in rail order |
 | F6 / Esc | Move into the Region rail / back to where you were |
 | ↑ ↓ ← → Enter | In the rail: move, collapse or expand, open a section or add a Region |
@@ -36,11 +35,7 @@ The Region rail itself works in full: expand and collapse Regions, **+ add** a R
 
 ## Suggested tasks
 
-Do each one under at least two setups. Use **Copy as JSON** in Test mode to send back your session log.
-
-1. **Score all of Cranium · Morphological.** You can't decide Interorbital breadth yet, so leave it for later, then move on to Lower limb · Metric.
-2. **In Lower limb · Metric, enter:** FemXL 452, FemBL 448, FemEB 81, FemHXD 64. Leave the midshaft diameters for later. Then run the Analysis.
-3. **Compare reference layouts.** With auto-show on, Tab through Cranium · Morphological under A, then C, then D. Which one let you keep your eyes on the row?
+See the in-app guide (`#/guide`): one task, repeated under the four reference-panel setups.
 
 ## Reference images
 

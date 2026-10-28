@@ -15,6 +15,7 @@ import {
   adjacentSection,
   fieldStatus,
   sameFocus,
+  type Focus,
   sectionCounts,
   sections,
   variable,
@@ -58,7 +59,15 @@ export function SectionView({
   const scoreIt = hintField?.states
     ? `Type or click ${hintField.states[0].code}–${hintField.states.at(-1)!.code} to score ${hintField.name}.`
     : `Type the ${hintField?.name.toLowerCase()} in ${hintField?.unit}.`
-  const hintCopy = policy.allowSkip
+  const hintCopy = policy.allowSkip && policy.allowFlag
+    ? {
+        title: "Score it, Skip it, or come back to it",
+        body: `${scoreIt} If it can't be scored, press “−” to Skip it. If you'll score it later, press ⌥F to come back to it; MOSAIC lists those again before the Analysis.`,
+        note: "Both are also on the row's buttons. Press R to show or hide the reference drawing.",
+        keys: "-",
+        keyLabel: "Skip · ⌥F come back",
+      }
+    : policy.allowSkip
     ? {
         title: "Score it, or Skip it",
         body: `${scoreIt} If you can't score it, press “−” to Skip. Skipped fields count as done, and MOSAIC won't ask about them again.`,
@@ -73,6 +82,10 @@ export function SectionView({
         keys: "⌥F",
         keyLabel: "Come back to this",
       }
+
+  const focusStop = (f: Focus) => {
+    if (!sameFocus(state.focus, f)) dispatch({ type: "focus", focus: f })
+  }
 
   const focusField = (id: string) => {
     if (!sameFocus(state.focus, { kind: "field", id })) dispatch({ type: "focus", focus: { kind: "field", id } })
@@ -105,11 +118,18 @@ export function SectionView({
           return (
             <section key={bone.id} aria-label={bone.name} className="flex flex-col gap-1">
               <BoneGroupHeader
+                id={bone.id}
                 name={bone.name}
+                focused={state.focus?.kind === "bone" && state.focus.id === bone.id}
+                conditionsFocused={state.focus?.kind === "conditions" && state.focus.id === bone.id}
+                headerRef={register(`bone:${bone.id}`)}
+                conditionsRef={register(`conditions:${bone.id}`)}
+                onFocusHeader={() => focusStop({ kind: "bone", id: bone.id })}
+                onFocusConditions={() => focusStop({ kind: "conditions", id: bone.id })}
                 counts={boneCounts}
                 bilateral={!!bone.bilateral}
                 sideLabel={section.modality === "morph" ? "Side scored" : "Side"}
-                actions={boneAffordances(policy, config.showKeyHints)}
+                actions={boneAffordances(policy, config.showKeyHints, () => dispatch({ type: "toggleSkipBone", boneId: bone.id }))}
               />
               {bone.variableIds.map((id) => {
                 const v = variable(id)
@@ -136,7 +156,9 @@ export function SectionView({
                     status,
                     focused: focusKey(state.focus) === id,
                     showKeyHints: config.showKeyHints,
+                    onToggleSkip: () => dispatch({ type: "toggleSkip", id }),
                     onToggleFlag: () => dispatch({ type: "toggleFlag", id }),
+                    onClear: () => dispatch({ type: "clear", id }),
                     onFlagReason: (reason) => dispatch({ type: "setFlagReason", id, reason }),
                   }),
                   below:

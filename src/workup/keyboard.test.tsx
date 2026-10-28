@@ -55,7 +55,9 @@ describe("keyboard: all modes", () => {
   it("Tabs through every row to the Continue footer, then Enter moves on", async () => {
     const user = setup("inc=flag-section")
     await focusFirst(user)
-    for (let i = 1; i < fieldIds(MORPH).length; i++) await user.keyboard("{Tab}")
+    // Each later bone adds its header and Condition chips as Tab stops.
+    const bones = 7
+    for (let i = 1; i < fieldIds(MORPH).length + (bones - 1) * 2; i++) await user.keyboard("{Tab}")
     expect(focusedRow()).toBe(fieldIds(MORPH).at(-1))
     await user.keyboard("{Tab}")
     expect(document.activeElement).toHaveTextContent("Continue to Mandible · Metric")
@@ -170,5 +172,38 @@ describe("changing a score", () => {
     await user.keyboard("{Enter}")
     expect(within(row("NAS")).getByRole("radio", { name: /^2/ })).toHaveAttribute("aria-checked", "true")
     expect(focusedRow()).toBe("NAW")
+  })
+})
+
+describe("bone headers", () => {
+  it("Tab reaches the next bone's header and Condition chips before its fields", async () => {
+    const user = setup("inc=skip-and-flag")
+    act(() => document.getElementById("field-NaOvg")!.querySelector<HTMLElement>('[role="radio"]')!.focus())
+    await user.keyboard("{Escape}{Tab}")
+    expect(document.activeElement).toHaveAccessibleName("Zygomatic and orbit")
+    await user.keyboard("-")
+    for (const id of ["ZS", "MT", "PZTub", "IOB", "ORB"]) expect(statusOf(id)).toBe("Skipped")
+    await user.keyboard("{Tab}")
+    expect(document.activeElement).toHaveTextContent("Autopsy cut")
+    await user.keyboard("{ArrowRight} ")
+    expect(screen.getAllByRole("button", { name: /Postmortem damage/ })[1]).toHaveAttribute("aria-pressed", "true")
+  })
+
+  it("Skip and come back to are both offered, as buttons", async () => {
+    const user = setup("inc=skip-and-flag")
+    await user.click(within(row("NAW")).getByRole("button", { name: /Skip/ }))
+    expect(statusOf("NAW")).toBe("Skipped")
+    await user.click(within(row("NBS")).getByRole("button", { name: /Come back/ }))
+    expect(within(row("NBS")).getByRole("button", { pressed: true })).toHaveTextContent("Come back to this")
+  })
+
+  it("R opens and closes the reference for the field", async () => {
+    const user = setup("inc=skip-and-flag&auto=none")
+    await focusFirst(user)
+    expect(screen.queryByRole("complementary", { name: "Reference" })).toBeNull()
+    await user.keyboard("r")
+    expect(screen.getByRole("complementary", { name: "Reference" })).toBeInTheDocument()
+    await user.keyboard("r")
+    expect(screen.queryByRole("complementary", { name: "Reference" })).toBeNull()
   })
 })

@@ -80,16 +80,18 @@ export function VariableRow({
               <span className="ml-2 inline-block font-mono text-xs text-muted-foreground">{variable.code}</span>
             )}
           </div>
-          <div className="flex items-center">{children}</div>
+          <div className="flex shrink-0 items-center">{children}</div>
           <div
             className={cn(
-              "ml-auto flex items-center gap-2",
-              "opacity-0 group-hover/row:opacity-100 group-data-focused/row:opacity-100 focus-within:opacity-100",
+              // Fills what's left of the row, so the actions can tell whether
+              // they fit inline or fold into "⋯" (see RowActions).
+              "flex min-w-0 flex-1 items-center justify-end gap-1",
+              "opacity-0 group-hover/row:opacity-100 group-data-focused/row:opacity-100 focus-within:opacity-100 has-data-[state=open]:opacity-100",
             )}
           >
             {actions}
             {hasReference && (
-              <RowIconButton label="Reference" shortcut="?" onClick={onOpenReference}>
+              <RowIconButton label="Reference" shortcut="R" onClick={onOpenReference}>
                 <BookImage />
               </RowIconButton>
             )}

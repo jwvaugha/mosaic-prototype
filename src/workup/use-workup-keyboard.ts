@@ -26,7 +26,7 @@ import { useWorkup } from "./workup-context"
 //   ⌫ / Delete     clear a Morph score, or un-Skip a field
 //   - / ⇧-         Skip / un-Skip the field, Skip the bone   (allowSkip)
 //   ⌥F             toggle "come back to"                     (allowFlag)
-//   ?              open or close the reference for the field
+//   R / ?          open or close the reference for the field
 //   Esc            close the reference
 //   ⌃⌥↓ / ⌃⌥↑      next / previous section (anywhere)
 //
@@ -92,11 +92,35 @@ export function useWorkupKeyboard() {
       return
     }
 
+    // On a bone header: − (or ⇧−) Skips the bone's blanks; Enter moves on.
+    // ←/→ for Side are handled by the header itself.
+    if (focus?.kind === "bone" && !e.altKey && !e.ctrlKey && !e.metaKey) {
+      if (e.code === "Minus" || e.key === "-" || e.key === "_") {
+        e.preventDefault()
+        if (!policy.allowSkip) return
+        log("-", `bone:${focus.id}`)
+        dispatch({ type: "toggleSkipBone", boneId: focus.id })
+        return
+      }
+      if (e.key === "Enter") {
+        e.preventDefault()
+        move(focus, 1)
+        return
+      }
+    }
+    if (focus?.kind === "conditions" && e.key === "Enter") {
+      e.preventDefault()
+      move(focus, 1)
+      return
+    }
+
     if (!fieldId || !v) return
 
-    if (e.key === "?") {
+    // R (or ?) opens or closes the reference for the field. R is never part of
+    // a value (measurements are numbers, states are numeric codes).
+    if (e.key === "?" || ((e.key === "r" || e.key === "R") && !e.altKey && !e.ctrlKey && !e.metaKey)) {
       e.preventDefault()
-      log("?", fieldId)
+      log(e.key === "?" ? "?" : "R", fieldId)
       dispatch(refShown ? { type: "closeReference" } : { type: "openReference" })
       return
     }

@@ -1,27 +1,43 @@
-import { CircleHelp } from "lucide-react"
-import { useState, type ReactNode } from "react"
-import { Checkbox } from "@/components/ui/checkbox"
+import { Check, CircleHelp } from "lucide-react"
+import { useState, type KeyboardEvent, type ReactNode, type Ref } from "react"
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
 import { cn } from "@/lib/utils"
 
 // Library: Bone Group Header. Title row (bone, counts, Side, Skip bone) and a
-// Condition row of chips. Side and Condition are display-only in the
-// prototype: they toggle visually but aren't stored, and they stay out of the
-// Tab order, which only visits fields.
+// Condition row of chips. Both rows are Tab stops before the bone's fields:
+//   header      ←/→ switch Side; − Skips the bone (keyboard controller)
+//   conditions  ←/→ move between chips; Space ticks one
+// Side and Condition are display-only in the prototype: they change on
+// screen but aren't stored.
 
 const CONDITIONS = ["Autopsy cut", "Postmortem damage", "Pathology"]
 
 export function BoneGroupHeader({
+  id,
   name,
   counts,
   bilateral,
   sideLabel = "Side",
   actions,
+  focused,
+  conditionsFocused,
+  headerRef,
+  conditionsRef,
+  onFocusHeader,
+  onFocusConditions,
 }: {
+  id?: string
   name: string
   counts: { total: number; recorded: number; skipped: number; flagged: number }
   bilateral: boolean
   sideLabel?: string
   actions?: ReactNode
+  focused?: boolean
+  conditionsFocused?: boolean
+  headerRef?: Ref<HTMLDivElement>
+  conditionsRef?: Ref<HTMLDivElement>
+  onFocusHeader?: () => void
+  onFocusConditions?: () => void
 }) {
   const [side, setSide] = useState<"Left" | "Right">("Left")
   const [conditions, setConditions] = useState<string[]>([])
@@ -29,9 +45,26 @@ export function BoneGroupHeader({
   if (counts.skipped) parts.push(`${counts.skipped} skipped`)
   if (counts.flagged) parts.push(`${counts.flagged} to come back to`)
 
+  const onHeaderKey = (e: KeyboardEvent) => {
+    if (!bilateral || e.altKey || e.ctrlKey || e.metaKey) return
+    if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
+      e.preventDefault()
+      setSide(e.key === "ArrowLeft" ? "Left" : "Right")
+    }
+  }
+
   return (
-    <div className="flex w-[760px] flex-col gap-2 rounded-lg px-3 py-2">
-      <div className="flex h-8 items-center gap-3 pl-7">
+    <div data-bone={id} className="flex w-[760px] flex-col gap-1">
+      <div
+        ref={headerRef}
+        tabIndex={0}
+        role="group"
+        aria-label={`${name}${bilateral ? `, side ${side}` : ""}`}
+        data-focused={focused || undefined}
+        onFocus={(e) => e.target === e.currentTarget && onFocusHeader?.()}
+        onKeyDown={onHeaderKey}
+        className="flex h-12 items-center gap-3 rounded-lg px-3 pl-10 outline-none data-focused:bg-muted/50 focus-visible:ring-[3px] focus-visible:ring-ring/50"
+      >
         <h3 className="text-lg font-semibold">{name}</h3>
         <span className="text-xs text-muted-foreground">{parts.join(" · ")}</span>
         <div className="ml-auto flex items-center gap-5">
@@ -62,24 +95,41 @@ export function BoneGroupHeader({
           {actions}
         </div>
       </div>
-      <div className="flex h-7 items-center gap-2 pl-7">
+      <div
+        data-focused={conditionsFocused || undefined}
+        className="flex h-10 items-center gap-2 rounded-lg px-3 pl-10 data-focused:bg-muted/50"
+      >
         <span className="text-xs text-muted-foreground">Condition</span>
-        {CONDITIONS.map((c) => {
-          const on = conditions.includes(c)
-          return (
-            <label
-              key={c}
-              className="flex h-7 cursor-pointer items-center gap-1.5 rounded-full border px-3 text-xs font-medium"
-            >
-              <Checkbox
-                tabIndex={-1}
-                checked={on}
-                onCheckedChange={() => setConditions(on ? conditions.filter((x) => x !== c) : [...conditions, c])}
-              />
-              {c}
-            </label>
-          )
-        })}
+        <ToggleGroup
+          ref={conditionsRef}
+          type="multiple"
+          spacing={2}
+          aria-label={`${name} condition`}
+          value={conditions}
+          onValueChange={setConditions}
+          onFocus={onFocusConditions}
+        >
+          {CONDITIONS.map((c) => {
+            const on = conditions.includes(c)
+            return (
+              <ToggleGroupItem
+                key={c}
+                value={c}
+                className="h-7 gap-1.5 rounded-full border bg-background px-3 text-xs font-medium aria-pressed:bg-background data-[state=on]:bg-background"
+              >
+                <span
+                  className={cn(
+                    "flex size-4 items-center justify-center rounded-[4px] border border-input",
+                    on && "border-primary bg-primary text-primary-foreground",
+                  )}
+                >
+                  {on && <Check className="size-3" />}
+                </span>
+                {c}
+              </ToggleGroupItem>
+            )
+          })}
+        </ToggleGroup>
       </div>
     </div>
   )

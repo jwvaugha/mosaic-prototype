@@ -25,13 +25,13 @@ export const DEFAULT_CONFIG: TestConfig = {
   refLayout: "A",
   refOnDemandLayout: "same",
   autoShow: { morph: true, metric: true },
-  incompletion: "skip-section",
+  incompletion: "skip-and-flag",
   showKeyHints: true,
   seed: "fresh",
 }
 
 const LAYOUTS = ["A", "C", "D"]
-const INCOMPLETION = ["skip-section", "flag-section", "flag-end"]
+const INCOMPLETION = ["skip-and-flag", "skip-section", "flag-section", "flag-end"]
 const SEEDS = ["fresh", "midway"]
 
 // ?ref=D&ondemand=C&auto=morph,metric&inc=flag-end&hints=0&seed=midway
@@ -69,7 +69,7 @@ export function fromQuery(query: string, base: TestConfig = DEFAULT_CONFIG): Tes
 }
 
 // Bumped when defaults change, so earlier visits don't keep stale settings.
-const STORAGE_KEY = "mosaic-prototype-config-v3"
+const STORAGE_KEY = "mosaic-prototype-config-v4"
 
 export function loadConfig(): TestConfig {
   let stored = DEFAULT_CONFIG

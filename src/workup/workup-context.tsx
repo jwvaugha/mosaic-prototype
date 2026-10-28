@@ -31,16 +31,20 @@ const WorkupContext = createContext<WorkupContextValue | null>(null)
 // A Morph field's focus target is its state group; focus goes to the
 // selected state (or the first) so arrow keys and the preview start there.
 function focusInto(el: HTMLElement) {
+  // State and chip groups (Radix ToggleGroup) go to their chosen item, or
+  // the first, so arrow keys and the preview start there.
   const target =
-    el.getAttribute("role") === "radiogroup"
-      ? (el.querySelector<HTMLElement>('[role="radio"][aria-checked="true"]') ?? el.querySelector<HTMLElement>('[role="radio"]') ?? el)
+    el.dataset.slot === "toggle-group"
+      ? (el.querySelector<HTMLElement>('[aria-checked="true"]') ?? el.querySelector<HTMLElement>('[data-slot="toggle-group-item"]') ?? el)
       : el
   target.focus({ preventScroll: true })
 }
 
 export function focusKey(f: Focus): string | null {
   if (!f) return null
-  return f.kind === "field" ? f.id : `continue:${f.section}`
+  if (f.kind === "field") return f.id
+  if (f.kind === "continue") return `continue:${f.section}`
+  return `${f.kind}:${f.id}`
 }
 
 export function WorkupProvider({ children }: { children: ReactNode }) {
@@ -85,7 +89,7 @@ export function WorkupProvider({ children }: { children: ReactNode }) {
     if (el !== document.activeElement && !el.contains(document.activeElement)) {
       focusInto(el)
     }
-    el.closest("[data-variable], [data-continue]")?.scrollIntoView({ block: "nearest" })
+    el.closest("[data-variable], [data-continue], [data-bone]")?.scrollIntoView({ block: "nearest" })
   }, [key, state.section])
 
   const focusNow = useCallback((k: string) => {

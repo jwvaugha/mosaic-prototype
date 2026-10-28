@@ -24,6 +24,10 @@ const SCENARIOS = {
   "panel": { q: "?inc=flag-end&seed=midway&ref=D&auto=morph&start=cranium-morph", steps: [["dismiss"], ["click", "button::-p-text(Test mode)"]] },
   "arrow-preview": { q: "?inc=skip-section&seed=fresh&ref=A&auto=morph,metric&start=cranium-morph", steps: [["dismiss"], ["key", "ArrowRight"], ["key", "ArrowRight"]] },
   "dental-A": { q: "?inc=flag-end&seed=fresh&ref=A&auto=morph,metric&start=dentition-morph", steps: [["dismiss"], ["key", "Tab"], ["key", "Tab"], ["key", "Tab"], ["key", "ArrowRight"]] },
+  "actions-morph": { q: "?seed=midway&ref=A&start=cranium-morph", steps: [["dismiss"]] },
+  "actions-dental": { q: "?seed=fresh&ref=A&start=dentition-morph", steps: [["dismiss"], ...Array(13).fill(["key", "Tab"])] },
+  "bone-focus": { q: "?seed=fresh&ref=A&start=cranium-morph", steps: [["dismiss"], ["shift-tab"], ["shift-tab"], ["key", "Minus"]] },
+  "conditions-focus": { q: "?seed=fresh&ref=A&start=cranium-morph", steps: [["dismiss"], ["shift-tab"], ["key", "ArrowRight"], ["key", "Space"]] },
   "ref-A-morph": { q: "?inc=skip-section&seed=midway&ref=A&auto=morph,metric&start=cranium-morph", steps: [["dismiss"]] },
   "ref-C-morph": { q: "?inc=skip-section&seed=midway&ref=C&auto=morph,metric&start=cranium-morph", steps: [["dismiss"]] },
   "ref-D-morph": { q: "?inc=skip-section&seed=midway&ref=D&auto=morph,metric&start=cranium-morph", steps: [["dismiss"]] },
@@ -51,6 +55,7 @@ async function shoot(name, s) {
     await new Promise((r) => setTimeout(r, 300))
     for (const [kind, arg] of s.steps) {
       if (kind === "key") await page.keyboard.press(arg)
+      if (kind === "shift-tab") { await page.keyboard.down("Shift"); await page.keyboard.press("Tab"); await page.keyboard.up("Shift") }
       if (kind === "alt") { await page.keyboard.down("Alt"); await page.keyboard.press(arg); await page.keyboard.up("Alt") }
       if (kind === "chord") { await page.keyboard.down("Control"); await page.keyboard.down("Alt"); await page.keyboard.press(arg); await page.keyboard.up("Alt"); await page.keyboard.up("Control") }
       if (kind === "click") await (await page.waitForSelector(arg)).click()

@@ -7,6 +7,7 @@ import {
   initialState,
   landingFocus,
   nextTabTarget,
+  tabStops,
   railBadges,
   reducer,
   referenceVisible,
@@ -23,12 +24,14 @@ const run = (state: WorkupState, ...actions: Action[]) => actions.reduce(reducer
 const field = (id: string): Focus => ({ kind: "field", id })
 
 // Follows Tab from the first field to the end and returns the stops visited.
+const label = (f: NonNullable<Focus>) => (f.kind === "field" ? f.id : f.kind === "continue" ? "continue" : `${f.kind}:${f.id}`)
+
+// Follows Tab from the section's first stop (or Shift+Tab from its footer).
 function tabPath(state: WorkupState, section: string, dir: 1 | -1 = 1): string[] {
-  const ids = fieldIds(section)
-  let at: Focus = dir === 1 ? field(ids[0]) : { kind: "continue", section }
+  let at: Focus = dir === 1 ? tabStops(section)[0] : { kind: "continue", section }
   const path: string[] = []
   while (at) {
-    path.push(at.kind === "field" ? at.id : "continue")
+    path.push(label(at))
     at = nextTabTarget(state, at, dir)
   }
   return path
@@ -109,8 +112,11 @@ describe("come back to flags", () => {
 })
 
 describe("Tab order", () => {
-  it("visits every field then the Continue footer", () => {
-    expect(tabPath(initialState(), MORPH)).toEqual([...fieldIds(MORPH), "continue"])
+  it("visits each bone's header and Condition chips, then its fields, then the Continue footer", () => {
+    const path = tabPath(initialState(), MORPH)
+    expect(path.slice(0, 4)).toEqual(["bone:nasal", "conditions:nasal", "NAS", "NAW"])
+    expect(path.filter((p) => !p.includes(":"))).toEqual([...fieldIds(MORPH), "continue"])
+    expect(path.filter((p) => p.startsWith("bone:"))).toHaveLength(7)
   })
 
   it("passes over Skipped rows going forward, but not backward", () => {
@@ -120,15 +126,16 @@ describe("Tab order", () => {
     expect(tabPath(s, MORPH, -1)).toContain("NBS")
   })
 
-  it("visits flagged rows like any other (no Skip in the flag versions)", () => {
+  it("visits flagged rows like any other", () => {
     const s = run(initialState(), { type: "toggleFlag", id: "NBS" })
-    expect(tabPath(s, MORPH)).toEqual([...fieldIds(MORPH), "continue"])
+    expect(tabPath(s, MORPH)).toContain("NBS")
   })
 
   it("stops at the section's ends", () => {
     const s = initialState()
     expect(nextTabTarget(s, { kind: "continue", section: MORPH }, 1)).toBeNull()
-    expect(nextTabTarget(s, field(fieldIds(MORPH)[0]), -1)).toBeNull()
+    expect(nextTabTarget(s, { kind: "bone", id: "nasal" }, -1)).toBeNull()
+    expect(nextTabTarget(s, field(fieldIds(MORPH)[0]), -1)).toEqual({ kind: "conditions", id: "nasal" })
   })
 })
 

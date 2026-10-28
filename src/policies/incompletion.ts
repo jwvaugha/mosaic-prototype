@@ -1,8 +1,14 @@
-// The three ways of handling incomplete fields, from the Flows page
-// (MOSAIC-Wireframing page 202:8167). Components read these flags; they never
+// Ways of handling incomplete fields. Components read these flags; they never
 // branch on the policy id.
+//
+// Since the PI meeting of 2026-10-28, Skip and "come back to" are no longer
+// alternatives: both are available on every field ("skip-and-flag", the
+// default), and nothing interrupts the move between sections. The three
+// versions compared on the Flows page (MOSAIC-Wireframing page 202:8167)
+// stay reachable through the URL (?inc=…) for reference, but Test mode no
+// longer offers them.
 
-export type IncompletionId = "skip-section" | "flag-section" | "flag-end"
+export type IncompletionId = "skip-and-flag" | "skip-section" | "flag-section" | "flag-end"
 
 export type IncompletionPolicy = {
   id: IncompletionId
@@ -21,6 +27,16 @@ export type IncompletionPolicy = {
 }
 
 export const POLICIES: Record<IncompletionId, IncompletionPolicy> = {
+  "skip-and-flag": {
+    id: "skip-and-flag",
+    label: "Skip and come back to",
+    short: "Skip + flag",
+    allowSkip: true,
+    allowFlag: true,
+    sectionCheck: "none",
+    railBadge: "flagged",
+    analyzeBadge: true,
+  },
   "skip-section": {
     id: "skip-section",
     label: "1 · Skip, with a per-section check",

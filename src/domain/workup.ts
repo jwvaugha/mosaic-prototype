@@ -27,6 +27,10 @@ export type FieldState = {
 
 export type Focus =
   | { kind: "field"; id: string }
+  // A bone's header (Side, Skip bone) and its Condition chips: the two Tab
+  // stops before the bone's fields.
+  | { kind: "bone"; id: string }
+  | { kind: "conditions"; id: string }
   | { kind: "continue"; section: string }
   | null
 
@@ -88,6 +92,18 @@ function boneFields(boneId: string): string[] {
 
 // `order` is the enterable sections in rail order (Edit order, Regions left
 // out of the Workup); it defaults to the fixture's order.
+export function sectionOfBone(boneId: string): Section {
+  return sections.find((s) => s.bones.some((b) => b.id === boneId))!
+}
+
+// The section a focus stop belongs to.
+export function sectionOfFocus(f: Focus, fallback: string): string {
+  if (!f) return fallback
+  if (f.kind === "field") return sectionOf(f.id).id
+  if (f.kind === "continue") return f.section
+  return sectionOfBone(f.id).id
+}
+
 export function adjacentSection(
   sectionId: string,
   dir: 1 | -1,
@@ -210,7 +226,7 @@ function reduce(state: WorkupState, action: Action): WorkupState {
       return patch(state, action.id, { acknowledged: false })
     case "focus": {
       const f = action.focus
-      const section = f?.kind === "field" ? sectionOf(f.id).id : f?.kind === "continue" ? f.section : state.section
+      const section = sectionOfFocus(f, state.section)
       return { ...state, focus: f, section }
     }
     case "goToSection": {
@@ -286,15 +302,28 @@ export function landingFocus(state: WorkupState, sectionId: string): Focus {
 // Tab order within a section: fields in fixture order, then the Continue
 // footer. Tab passes over Skipped rows; Shift+Tab still reaches them
 // (requirements: Keyboard).
+// Tab order within a section: for each bone, its header, its Condition chips,
+// then its fields; after the last bone, the Continue footer. Tab passes over
+// Skipped fields; Shift+Tab still reaches them (requirements: Keyboard).
+export function tabStops(sectionId: string): NonNullable<Focus>[] {
+  const s = sections.find((x) => x.id === sectionId)
+  if (!s) return []
+  return [
+    ...s.bones.flatMap((b) => [
+      { kind: "bone", id: b.id } as const,
+      { kind: "conditions", id: b.id } as const,
+      ...b.variableIds.map((id) => ({ kind: "field", id }) as const),
+    ]),
+    { kind: "continue", section: sectionId },
+  ]
+}
+
 export function nextTabTarget(state: WorkupState, from: Focus, dir: 1 | -1): Focus {
-  const sectionId =
-    from?.kind === "field" ? sectionOf(from.id).id : from?.kind === "continue" ? from.section : state.section
-  const ids = fieldIds(sectionId)
-  const stops: Focus[] = [...ids.map((id) => ({ kind: "field", id }) as const), { kind: "continue", section: sectionId }]
+  const stops = tabStops(sectionOfFocus(from, state.section))
   const at = from ? stops.findIndex((s) => sameFocus(s, from)) : -1
   for (let i = at + dir; i >= 0 && i < stops.length; i += dir) {
     const stop = stops[i]
-    if (dir === 1 && stop?.kind === "field" && state.fields[stop.id].skipped) continue
+    if (dir === 1 && stop.kind === "field" && state.fields[stop.id].skipped) continue
     return stop
   }
   return null
@@ -302,9 +331,9 @@ export function nextTabTarget(state: WorkupState, from: Focus, dir: 1 | -1): Foc
 
 export function sameFocus(a: Focus, b: Focus): boolean {
   if (a === null || b === null) return a === b
-  if (a.kind === "field" && b.kind === "field") return a.id === b.id
-  if (a.kind === "continue" && b.kind === "continue") return a.section === b.section
-  return false
+  if (a.kind !== b.kind) return false
+  if (a.kind === "continue") return a.section === (b as { section: string }).section
+  return a.id === (b as { id: string }).id
 }
 
 export type RailBadge = { blank: number; flagged: number; warnings: number; complete: boolean }
