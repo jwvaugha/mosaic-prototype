@@ -19,19 +19,19 @@ const PART_1: Setup[] = [
     id: "1",
     title: "Setup 1 · Skip",
     what: "Press − to Skip a field you can't score. Leaving a section with blank fields asks whether to Skip them all.",
-    query: "inc=skip-section&ref=A,A&auto=morph,metric&seed=fresh&start=cranium-morph",
+    query: "inc=skip-section&ref=A&auto=morph,metric&seed=fresh&start=cranium-morph",
   },
   {
     id: "2",
     title: "Setup 2 · Come back to, checked per section",
     what: "No Skip. Press ⌥F to flag a field to come back to. Leaving a section lists your flags.",
-    query: "inc=flag-section&ref=A,A&auto=morph,metric&seed=fresh&start=cranium-morph",
+    query: "inc=flag-section&ref=A&auto=morph,metric&seed=fresh&start=cranium-morph",
   },
   {
     id: "2.5",
     title: "Setup 3 · Come back to, checked at the end",
     what: "Same flags, but nothing stops you between sections. Flags are listed once, before the Analysis.",
-    query: "inc=flag-end&ref=A,A&auto=morph,metric&seed=fresh&start=cranium-morph",
+    query: "inc=flag-end&ref=A&auto=morph,metric&seed=fresh&start=cranium-morph",
   },
 ]
 
@@ -40,27 +40,29 @@ const PART_2: Setup[] = [
     id: "A",
     title: "Setup 4 · Docked column",
     what: "The reference sits in a column on the right and never moves.",
-    query: "inc=flag-end&ref=A,A&auto=morph,metric&seed=fresh&start=cranium-morph",
+    query: "inc=flag-end&ref=A&auto=morph,metric&seed=fresh&start=cranium-morph",
   },
   {
     id: "C",
     title: "Setup 5 · Inline, under the field",
     what: "The reference opens directly under the field you're on. The page scrolls to keep your place.",
-    query: "inc=flag-end&ref=C,C&auto=morph,metric&seed=fresh&start=cranium-morph",
+    query: "inc=flag-end&ref=C&auto=morph,metric&seed=fresh&start=cranium-morph",
   },
   {
     id: "D",
     title: "Setup 6 · Bottom dock",
     what: "The reference is a strip across the bottom of the screen.",
-    query: "inc=flag-end&ref=D,D&auto=morph,metric&seed=fresh&start=cranium-morph",
+    query: "inc=flag-end&ref=D&auto=morph,metric&seed=fresh&start=cranium-morph",
   },
 ]
 
 const KEYS: [ReactNode, string][] = [
   [<Kbd key="t">Tab</Kbd>, "Next field (⇧Tab goes back). The last Tab in a section lands on Continue."],
   [<Kbd key="d">0–9</Kbd>, "Score a Morphological trait by its number, and move on"],
+  [<KbdGroup key="a"><Kbd>←</Kbd><Kbd>→</Kbd></KbdGroup>, "Move between a trait's states; the reference drawing follows. Enter picks the one you're on."],
   [<Kbd key="e">Enter</Kbd>, "Keep a measurement and move on; on Continue, go to the next section"],
-  [<Kbd key="m">−</Kbd>, "Skip the field (Setup 1). ⇧− skips the whole bone. Press − again to un-Skip."],
+  [<Kbd key="b">⌫</Kbd>, "Clear a Morphological score (or click the chosen state again). For a measurement, delete the number."],
+  [<Kbd key="m">−</Kbd>, "Skip the field, even if it has a value (Undo appears). ⇧− skips the bone's blanks. − again un-Skips."],
   [<KbdGroup key="f"><Kbd>⌥</Kbd><Kbd>F</Kbd></KbdGroup>, "Mark the field to come back to (Setups 2–6). Press again to unmark."],
   [<Kbd key="q">?</Kbd>, "Show or hide the reference for the field. Esc hides it."],
   [<KbdGroup key="s"><Kbd>⌃</Kbd><Kbd>⌥</Kbd><Kbd>↓</Kbd></KbdGroup>, "Next section from anywhere (↑ for the previous one)"],
@@ -241,7 +243,7 @@ export function Guide() {
           ]}
         />
         <p className="text-xs text-muted-foreground">
-          The Morphological drawings are MSU's own. The Metric drawings are shown as grey boxes of the right size for
+          The Morphological drawings (MSU and FoRDent) are the real ones; click a drawing to choose that state. The Metric drawings are shown as grey boxes of the right size for
           now; that's expected.
         </p>
       </Step>

@@ -5,12 +5,12 @@ import type { Fixture, ImageAsset, ImageManifest } from "./types"
 export const fixture = fixtureJson as Fixture
 export const imageManifest = manifestJson as ImageManifest
 
-// Which reference images can go on the public site. The MSU drawings (MMS,
-// delivered in "MOSAIC Photos") are cleared: the PIs hold the rights as their
-// creators (2026-10-28). The DCP 2.0 figures come from a UTK manual, so they
-// stay in local builds (VITE_REAL_IMAGES=1) until that's confirmed. Anything
-// not shown draws a placeholder at the same aspect ratio.
-const PUBLISHED = ["ref-images/mms/"]
+// Which reference images can go on the public site (cleared 2026-10-28):
+// the MSU drawings (MMS), whose creators are the PIs, and the FoRDent dental
+// drawings. The DCP 2.0 figures come from a UTK manual, so they stay in local
+// builds (VITE_REAL_IMAGES=1) until that's confirmed. Anything not shown
+// draws a placeholder at the same aspect ratio.
+const PUBLISHED = ["ref-images/mms/", "ref-images/dental/"]
 
 export const localImages = import.meta.env.VITE_REAL_IMAGES === "1"
 

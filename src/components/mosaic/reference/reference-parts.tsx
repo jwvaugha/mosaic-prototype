@@ -118,18 +118,21 @@ function HighlightBox({ h }: { h: Highlight }) {
   )
 }
 
-// Thumbnails of every Character state; the selected one is outlined, hover
-// previews it in the large image.
+// Thumbnails of every Character state. They mirror the row's state buttons:
+// the selected state is filled, a previewed one is outlined, hovering here
+// previews it in both places, and clicking a drawing selects that state.
 export function StateStrip({
   data,
   preview,
   onPreview,
+  onSelect,
   thumbClassName,
   showImages = true,
 }: {
   data: ReferenceData
   preview: string | null
   onPreview: (code: string | null) => void
+  onSelect?: (code: string) => void
   thumbClassName?: string
   showImages?: boolean
 }) {
@@ -145,18 +148,29 @@ export function StateStrip({
             key={s.code}
             type="button"
             tabIndex={-1}
-            title={s.label}
+            title={s.label ? `${s.code}: ${s.label}` : `State ${s.code}`}
+            aria-pressed={selected}
             onMouseEnter={() => onPreview(s.code)}
+            // Keep focus on the field, so typing carries on after a click.
+            onMouseDown={(e) => e.preventDefault()}
+            onClick={() => onSelect?.(s.code)}
             className={cn(
-              "flex min-w-0 flex-1 flex-col items-center justify-center gap-1 overflow-hidden rounded-lg border bg-muted p-1.5",
+              "flex min-w-0 flex-1 cursor-pointer flex-col items-center justify-center gap-1 overflow-hidden rounded-lg border bg-muted p-1.5 hover:border-primary/60",
               url && "bg-white",
-              (selected || preview === s.code) && "border-primary",
-              selected && "ring-1 ring-primary",
+              selected && "border-primary",
+              preview === s.code && "ring-2 ring-primary",
               thumbClassName,
             )}
           >
             {showImages && url && <img src={url} alt="" className="min-h-0 w-full flex-1 object-contain" />}
-            <span className="text-xs text-muted-foreground">{s.code}</span>
+            <span
+              className={cn(
+                "rounded px-1.5 text-xs text-muted-foreground",
+                selected && "bg-primary font-medium text-primary-foreground",
+              )}
+            >
+              {s.code}
+            </span>
           </button>
         )
       })}
@@ -178,7 +192,7 @@ export function LargeState({
   const code = preview ?? data.value ?? states[0]?.code
   const state = states.find((s) => s.code === code)
   const asset = data.entry.kind === "states" ? data.entry.states[code ?? ""] ?? null : null
-  const how = preview ? "hovered" : data.value ? "selected" : "first"
+  const how = preview ? "previewing" : data.value ? "selected" : "first"
   return (
     <RefImage
       asset={asset}
@@ -206,7 +220,8 @@ export function MetricFigure({ data, className }: { data: ReferenceData; classNa
   )
 }
 
-export const morphHint = "Hover a state to preview it; the selected state stays large. Click the image to enlarge."
+export const morphHint =
+  "Hover a drawing, or use ←/→ on the field, to preview a state; click a drawing (or press Enter) to choose it. Click the large image to enlarge."
 
 export function definitionOf(v: Variable): string {
   if (v.modality === "metric") {

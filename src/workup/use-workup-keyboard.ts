@@ -1,8 +1,18 @@
 import { useEffect, type KeyboardEvent } from "react"
 import { useConfig } from "@/config/config-context"
-import { adjacentSection, nextTabTarget, referenceVisible, sectionOf, variable, type Focus } from "@/domain/workup"
+import {
+  adjacentSection,
+  nextTabTarget,
+  reducer,
+  referenceVisible,
+  sectionOf,
+  variable,
+  type Focus,
+} from "@/domain/workup"
+import { showUndoToast } from "@/components/mosaic/undo-toast"
 import { logEvent } from "@/lib/event-log"
 import { useRail } from "./rail-context"
+import { usePreview } from "./preview-context"
 import { useWorkup } from "./workup-context"
 
 // All data-entry keys in one place (spec: Keyboard controller). What each key
@@ -10,7 +20,10 @@ import { useWorkup } from "./workup-context"
 //
 //   Tab / ⇧Tab     next / previous stop; Tab passes over Skipped rows
 //   0–9            Morph: select that Character state, then advance
-//   Enter          Metric: commit and advance; Morph: advance
+//   ←/→            Morph: move between states (previewed in the reference)
+//   Enter          Metric: commit and advance; Morph: pick the state moved to,
+//                  then advance
+//   ⌫ / Delete     clear a Morph score, or un-Skip a field
 //   - / ⇧-         Skip / un-Skip the field, Skip the bone   (allowSkip)
 //   ⌥F             toggle "come back to"                     (allowFlag)
 //   ?              open or close the reference for the field
@@ -23,6 +36,7 @@ import { useWorkup } from "./workup-context"
 export function useWorkupKeyboard() {
   const { state, dispatch } = useWorkup()
   const { policy, config } = useConfig()
+  const { preview } = usePreview()
   const { sectionOrder } = useRail()
   const mode = policy.id
 
@@ -102,11 +116,32 @@ export function useWorkupKeyboard() {
       }
       const f = state.fields[fieldId]
       const draft = e.target instanceof HTMLInputElement ? e.target.value.trim() : ""
-      if (f.value !== null || draft !== "") return
+      const had = f.value ?? (draft || null)
       log("-", fieldId)
-      dispatch({ type: "toggleSkip", id: fieldId })
+      if (had !== null) {
+        // Skipping a scored field drops its value, so offer to put it back.
+        // Undo brings back what was there, including an uncommitted draft.
+        const before = f.value === null ? reducer(state, { type: "enter", id: fieldId, value: draft }) : state
+        dispatch({ type: "toggleSkip", id: fieldId })
+        showUndoToast(`Skipped ${v.name}; cleared ${had}${v.unit ? ` ${v.unit}` : ""}`, () =>
+          dispatch({ type: "restore", state: before }),
+        )
+      } else dispatch({ type: "toggleSkip", id: fieldId })
       // Skipping moves on; un-Skipping stays put so the field can be scored.
       if (!f.skipped) move(focus, 1)
+      return
+    }
+
+    // Backspace / Delete clear a Morphological score, or un-Skip a field.
+    // In a Metric input they edit the text as usual; an emptied input clears
+    // the value when the field is left.
+    if ((e.key === "Backspace" || e.key === "Delete") && !e.altKey && !e.ctrlKey && !e.metaKey) {
+      if (e.target instanceof HTMLInputElement) return
+      const f = state.fields[fieldId]
+      if (f.value === null && !f.skipped) return
+      e.preventDefault()
+      log(e.key === "Delete" ? "Delete" : "⌫", fieldId)
+      dispatch({ type: "clear", id: fieldId })
       return
     }
 
@@ -121,6 +156,10 @@ export function useWorkupKeyboard() {
     if (e.key === "Enter" && !e.altKey && !e.ctrlKey && !e.metaKey) {
       e.preventDefault()
       log("Enter", fieldId)
+      // On a Morph field, Enter picks the state the arrow keys moved to.
+      if (v.modality === "morph" && preview?.id === fieldId && preview.source === "focus" && preview.code !== state.fields[fieldId].value) {
+        dispatch({ type: "enter", id: fieldId, value: preview.code })
+      }
       // Moving focus blurs a Metric input, which commits its draft.
       move(focus, 1)
       return

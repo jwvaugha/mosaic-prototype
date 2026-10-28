@@ -276,18 +276,18 @@
     "states": {
       "1": {
         "src": "ref-images/mms/NAW_1.webp",
-        "width": 1397,
-        "height": 980
+        "width": 1000,
+        "height": 702
       },
       "2": {
         "src": "ref-images/mms/NAW_2.webp",
-        "width": 1397,
-        "height": 936
+        "width": 1000,
+        "height": 670
       },
       "3": {
         "src": "ref-images/mms/NAW_3.webp",
-        "width": 1397,
-        "height": 927
+        "width": 1000,
+        "height": 664
       }
     }
   },
@@ -321,28 +321,28 @@
     "states": {
       "0": {
         "src": "ref-images/mms/NBC_0.webp",
-        "width": 1222,
-        "height": 700
+        "width": 1000,
+        "height": 573
       },
       "1": {
         "src": "ref-images/mms/NBC_1.webp",
-        "width": 1222,
-        "height": 701
+        "width": 1000,
+        "height": 574
       },
       "2": {
         "src": "ref-images/mms/NBC_2.webp",
-        "width": 1222,
-        "height": 706
+        "width": 1000,
+        "height": 578
       },
       "3": {
         "src": "ref-images/mms/NBC_3.webp",
-        "width": 1222,
-        "height": 730
+        "width": 1000,
+        "height": 597
       },
       "4": {
         "src": "ref-images/mms/NBC_4.webp",
-        "width": 1222,
-        "height": 747
+        "width": 1000,
+        "height": 611
       }
     }
   },
@@ -351,18 +351,18 @@
     "states": {
       "1": {
         "src": "ref-images/mms/ANS_1.webp",
-        "width": 873,
-        "height": 1048
+        "width": 833,
+        "height": 1000
       },
       "2": {
         "src": "ref-images/mms/ANS_2.webp",
-        "width": 868,
-        "height": 1046
+        "width": 830,
+        "height": 1000
       },
       "3": {
         "src": "ref-images/mms/ANS_3.webp",
-        "width": 871,
-        "height": 1051
+        "width": 829,
+        "height": 1000
       }
     }
   },
@@ -416,18 +416,18 @@
     "states": {
       "0": {
         "src": "ref-images/mms/ZS_0.webp",
-        "width": 1324,
-        "height": 842
+        "width": 1000,
+        "height": 636
       },
       "1": {
         "src": "ref-images/mms/ZS_1.webp",
-        "width": 1324,
-        "height": 842
+        "width": 1000,
+        "height": 636
       },
       "2": {
         "src": "ref-images/mms/ZS_2.webp",
-        "width": 1324,
-        "height": 842
+        "width": 1000,
+        "height": 636
       }
     }
   },
@@ -436,23 +436,23 @@
     "states": {
       "0": {
         "src": "ref-images/mms/MT_0.webp",
-        "width": 1310,
-        "height": 928
+        "width": 1000,
+        "height": 708
       },
       "1": {
         "src": "ref-images/mms/MT_1.webp",
-        "width": 1321,
-        "height": 896
+        "width": 1000,
+        "height": 678
       },
       "2": {
         "src": "ref-images/mms/MT_2.webp",
-        "width": 1290,
-        "height": 852
+        "width": 1000,
+        "height": 660
       },
       "3": {
         "src": "ref-images/mms/MT_3.webp",
-        "width": 1290,
-        "height": 861
+        "width": 1000,
+        "height": 667
       }
     }
   },
@@ -461,23 +461,23 @@
     "states": {
       "0": {
         "src": "ref-images/mms/PZTub_0.webp",
-        "width": 861,
-        "height": 1344
+        "width": 641,
+        "height": 1000
       },
       "1": {
         "src": "ref-images/mms/PZTub_1.webp",
-        "width": 860,
-        "height": 1317
+        "width": 653,
+        "height": 1000
       },
       "2": {
         "src": "ref-images/mms/PZTub_2.webp",
-        "width": 860,
-        "height": 1311
+        "width": 656,
+        "height": 1000
       },
       "3": {
         "src": "ref-images/mms/PZTub_3.webp",
-        "width": 860,
-        "height": 1303
+        "width": 660,
+        "height": 1000
       }
     }
   },
@@ -486,18 +486,18 @@
     "states": {
       "1": {
         "src": "ref-images/mms/IOB_1.webp",
-        "width": 1123,
-        "height": 558
+        "width": 1000,
+        "height": 497
       },
       "2": {
         "src": "ref-images/mms/IOB_2.webp",
-        "width": 1183,
-        "height": 554
+        "width": 1000,
+        "height": 468
       },
       "3": {
         "src": "ref-images/mms/IOB_3.webp",
-        "width": 1243,
-        "height": 560
+        "width": 1000,
+        "height": 451
       }
     }
   },
@@ -506,18 +506,18 @@
     "states": {
       "1": {
         "src": "ref-images/mms/ORB_1.webp",
-        "width": 1397,
-        "height": 974
+        "width": 1000,
+        "height": 697
       },
       "2": {
         "src": "ref-images/mms/ORB_2.webp",
-        "width": 1397,
-        "height": 980
+        "width": 1000,
+        "height": 702
       },
       "3": {
         "src": "ref-images/mms/ORB_3.webp",
-        "width": 1397,
-        "height": 919
+        "width": 1000,
+        "height": 658
       }
     }
   },
@@ -563,18 +563,18 @@
     "states": {
       "0": {
         "src": "ref-images/mms/SnSut_0.webp",
-        "width": 1605,
-        "height": 734
+        "width": 1000,
+        "height": 457
       },
       "1": {
         "src": "ref-images/mms/SnSut_1.webp",
-        "width": 1605,
-        "height": 720
+        "width": 1000,
+        "height": 449
       },
       "2": {
         "src": "ref-images/mms/SnSut_2.webp",
-        "width": 1605,
-        "height": 715
+        "width": 1000,
+        "height": 445
       }
     }
   },
@@ -598,23 +598,23 @@
     "states": {
       "1": {
         "src": "ref-images/mms/TPS_1.webp",
-        "width": 1014,
-        "height": 1067
+        "width": 950,
+        "height": 1000
       },
       "2": {
         "src": "ref-images/mms/TPS_2.webp",
-        "width": 1014,
-        "height": 1066
+        "width": 951,
+        "height": 1000
       },
       "3": {
         "src": "ref-images/mms/TPS_3.webp",
-        "width": 1014,
-        "height": 1059
+        "width": 958,
+        "height": 1000
       },
       "4": {
         "src": "ref-images/mms/TPS_4.webp",
-        "width": 1014,
-        "height": 1061
+        "width": 956,
+        "height": 1000
       }
     }
   },
@@ -774,23 +774,23 @@
     "states": {
       "1": {
         "src": "ref-images/dental/WING_1.webp",
-        "width": 873,
-        "height": 374
+        "width": 800,
+        "height": 343
       },
       "2": {
         "src": "ref-images/dental/WING_2.webp",
-        "width": 873,
-        "height": 374
+        "width": 800,
+        "height": 343
       },
       "3": {
         "src": "ref-images/dental/WING_3.webp",
-        "width": 873,
-        "height": 374
+        "width": 800,
+        "height": 343
       },
       "4": {
         "src": "ref-images/dental/WING_4.webp",
-        "width": 873,
-        "height": 374
+        "width": 800,
+        "height": 343
       }
     }
   },
@@ -799,13 +799,13 @@
     "states": {
       "0": {
         "src": "ref-images/dental/DIAS_0.webp",
-        "width": 873,
-        "height": 717
+        "width": 800,
+        "height": 657
       },
       "1": {
         "src": "ref-images/dental/DIAS_1.webp",
-        "width": 873,
-        "height": 717
+        "width": 800,
+        "height": 657
       }
     }
   },
@@ -814,34 +814,34 @@
     "states": {
       "0": {
         "src": "ref-images/dental/UI1LC_0.webp",
-        "width": 873,
-        "height": 613
+        "width": 800,
+        "height": 562
       },
       "1": {
         "src": "ref-images/dental/UI1LC_1.webp",
-        "width": 873,
-        "height": 613
+        "width": 800,
+        "height": 562
       },
       "2": {
         "src": "ref-images/dental/UI1LC_2.webp",
-        "width": 873,
-        "height": 641
+        "width": 800,
+        "height": 587
       },
       "3": {
         "src": "ref-images/dental/UI1LC_3.webp",
-        "width": 873,
-        "height": 668
+        "width": 800,
+        "height": 612
       },
       "4": {
         "src": "ref-images/dental/UI1LC_4.webp",
-        "width": 873,
-        "height": 682
+        "width": 800,
+        "height": 625
       }
     },
     "location": {
       "src": "ref-images/dental/UI1LC_loc.webp",
-      "width": 873,
-      "height": 613
+      "width": 800,
+      "height": 562
     }
   },
   "UI1SS": {
@@ -849,44 +849,44 @@
     "states": {
       "0": {
         "src": "ref-images/dental/UI1SS_0.webp",
-        "width": 873,
-        "height": 1233
+        "width": 566,
+        "height": 800
       },
       "1": {
         "src": "ref-images/dental/UI1SS_1.webp",
-        "width": 873,
-        "height": 1233
+        "width": 566,
+        "height": 800
       },
       "2": {
         "src": "ref-images/dental/UI1SS_2.webp",
-        "width": 873,
-        "height": 1233
+        "width": 566,
+        "height": 800
       },
       "3": {
         "src": "ref-images/dental/UI1SS_3.webp",
-        "width": 873,
-        "height": 1233
+        "width": 566,
+        "height": 800
       },
       "4": {
         "src": "ref-images/dental/UI1SS_4.webp",
-        "width": 873,
-        "height": 1233
+        "width": 566,
+        "height": 800
       },
       "5": {
         "src": "ref-images/dental/UI1SS_5.webp",
-        "width": 873,
-        "height": 1233
+        "width": 566,
+        "height": 800
       },
       "6": {
         "src": "ref-images/dental/UI1SS_6.webp",
-        "width": 873,
-        "height": 1233
+        "width": 566,
+        "height": 800
       }
     },
     "location": {
       "src": "ref-images/dental/UI1SS_loc.webp",
-      "width": 873,
-      "height": 1233
+      "width": 566,
+      "height": 800
     }
   },
   "UI2SS": {
@@ -894,59 +894,59 @@
     "states": {
       "0": {
         "src": "ref-images/dental/UI2SS_0.webp",
-        "width": 873,
-        "height": 1184
+        "width": 590,
+        "height": 800
       },
       "1": {
         "src": "ref-images/dental/UI2SS_1.webp",
-        "width": 873,
-        "height": 1184
+        "width": 590,
+        "height": 800
       },
       "2": {
         "src": "ref-images/dental/UI2SS_2.webp",
-        "width": 873,
-        "height": 1184
+        "width": 590,
+        "height": 800
       },
       "3": {
         "src": "ref-images/dental/UI2SS_3.webp",
-        "width": 873,
-        "height": 1184
+        "width": 590,
+        "height": 800
       },
       "4": {
         "src": "ref-images/dental/UI2SS_4.webp",
-        "width": 873,
-        "height": 1184
+        "width": 590,
+        "height": 800
       },
       "7": {
         "src": "ref-images/dental/UI2SS_7.webp",
-        "width": 873,
-        "height": 1184
+        "width": 590,
+        "height": 800
       },
       "5.1": {
         "src": "ref-images/dental/UI2SS_5.1.webp",
-        "width": 873,
-        "height": 1184
+        "width": 590,
+        "height": 800
       },
       "5.2": {
         "src": "ref-images/dental/UI2SS_5.2.webp",
-        "width": 873,
-        "height": 1184
+        "width": 590,
+        "height": 800
       },
       "6.1": {
         "src": "ref-images/dental/UI2SS_6.1.webp",
-        "width": 873,
-        "height": 1184
+        "width": 590,
+        "height": 800
       },
       "6.2": {
         "src": "ref-images/dental/UI2SS_6.2.webp",
-        "width": 873,
-        "height": 1184
+        "width": 590,
+        "height": 800
       }
     },
     "location": {
       "src": "ref-images/dental/UI2SS_loc.webp",
-      "width": 873,
-      "height": 1184
+      "width": 590,
+      "height": 800
     }
   },
   "UI1DS": {
@@ -954,49 +954,49 @@
     "states": {
       "0": {
         "src": "ref-images/dental/UI1DS_0.webp",
-        "width": 873,
-        "height": 1007
+        "width": 694,
+        "height": 800
       },
       "1": {
         "src": "ref-images/dental/UI1DS_1.webp",
-        "width": 873,
-        "height": 1007
+        "width": 694,
+        "height": 800
       },
       "2": {
         "src": "ref-images/dental/UI1DS_2.webp",
-        "width": 873,
-        "height": 1007
+        "width": 694,
+        "height": 800
       },
       "3": {
         "src": "ref-images/dental/UI1DS_3.webp",
-        "width": 873,
-        "height": 1007
+        "width": 694,
+        "height": 800
       },
       "4": {
         "src": "ref-images/dental/UI1DS_4.webp",
-        "width": 873,
-        "height": 1007
+        "width": 694,
+        "height": 800
       },
       "5": {
         "src": "ref-images/dental/UI1DS_5.webp",
-        "width": 873,
-        "height": 1007
+        "width": 694,
+        "height": 800
       },
       "6.1": {
         "src": "ref-images/dental/UI1DS_6.1.webp",
-        "width": 873,
-        "height": 1007
+        "width": 694,
+        "height": 800
       },
       "6.2": {
         "src": "ref-images/dental/UI1DS_6.2.webp",
-        "width": 873,
-        "height": 1007
+        "width": 694,
+        "height": 800
       }
     },
     "location": {
       "src": "ref-images/dental/UI1DS_loc.webp",
-      "width": 873,
-      "height": 1007
+      "width": 694,
+      "height": 800
     }
   },
   "UI2DS": {
@@ -1004,44 +1004,44 @@
     "states": {
       "0": {
         "src": "ref-images/dental/UI2DS_0.webp",
-        "width": 873,
-        "height": 935
+        "width": 747,
+        "height": 800
       },
       "1": {
         "src": "ref-images/dental/UI2DS_1.webp",
-        "width": 873,
-        "height": 935
+        "width": 747,
+        "height": 800
       },
       "2": {
         "src": "ref-images/dental/UI2DS_2.webp",
-        "width": 873,
-        "height": 935
+        "width": 747,
+        "height": 800
       },
       "3": {
         "src": "ref-images/dental/UI2DS_3.webp",
-        "width": 873,
-        "height": 935
+        "width": 747,
+        "height": 800
       },
       "4": {
         "src": "ref-images/dental/UI2DS_4.webp",
-        "width": 873,
-        "height": 935
+        "width": 747,
+        "height": 800
       },
       "5": {
         "src": "ref-images/dental/UI2DS_5.webp",
-        "width": 873,
-        "height": 935
+        "width": 747,
+        "height": 800
       },
       "6": {
         "src": "ref-images/dental/UI2DS_6.webp",
-        "width": 873,
-        "height": 935
+        "width": 747,
+        "height": 800
       }
     },
     "location": {
       "src": "ref-images/dental/UI2DS_loc.webp",
-      "width": 873,
-      "height": 935
+      "width": 747,
+      "height": 800
     }
   },
   "UI2PEG": {
@@ -1049,29 +1049,29 @@
     "states": {
       "0": {
         "src": "ref-images/dental/UI2PEG_0.webp",
-        "width": 873,
-        "height": 873
+        "width": 800,
+        "height": 800
       },
       "1": {
         "src": "ref-images/dental/UI2PEG_1.webp",
-        "width": 873,
-        "height": 873
+        "width": 800,
+        "height": 800
       },
       "2.1": {
         "src": "ref-images/dental/UI2PEG_2.1.webp",
-        "width": 873,
-        "height": 873
+        "width": 800,
+        "height": 800
       },
       "2.2": {
         "src": "ref-images/dental/UI2PEG_2.2.webp",
-        "width": 873,
-        "height": 873
+        "width": 800,
+        "height": 800
       }
     },
     "location": {
       "src": "ref-images/dental/UI2PEG_loc.webp",
-      "width": 873,
-      "height": 873
+      "width": 800,
+      "height": 800
     }
   },
   "UI2CA": {
@@ -1079,14 +1079,14 @@
     "states": {
       "0": {
         "src": "ref-images/dental/UI2CA_0.webp",
-        "width": 873,
-        "height": 781
+        "width": 800,
+        "height": 716
       }
     },
     "location": {
       "src": "ref-images/dental/UI2CA_loc.webp",
-      "width": 873,
-      "height": 781
+      "width": 800,
+      "height": 716
     }
   },
   "UI1IG": {
@@ -1094,34 +1094,34 @@
     "states": {
       "0": {
         "src": "ref-images/dental/UI1IG_0.webp",
-        "width": 873,
-        "height": 1309
+        "width": 534,
+        "height": 800
       },
       "1": {
         "src": "ref-images/dental/UI1IG_1.webp",
-        "width": 873,
-        "height": 1309
+        "width": 534,
+        "height": 800
       },
       "2": {
         "src": "ref-images/dental/UI1IG_2.webp",
-        "width": 873,
-        "height": 1309
+        "width": 534,
+        "height": 800
       },
       "3": {
         "src": "ref-images/dental/UI1IG_3.webp",
-        "width": 873,
-        "height": 1309
+        "width": 534,
+        "height": 800
       },
       "4": {
         "src": "ref-images/dental/UI1IG_4.webp",
-        "width": 873,
-        "height": 1309
+        "width": 534,
+        "height": 800
       }
     },
     "location": {
       "src": "ref-images/dental/UI1IG_loc.webp",
-      "width": 873,
-      "height": 1309
+      "width": 534,
+      "height": 800
     }
   },
   "UI2IG": {
@@ -1129,34 +1129,34 @@
     "states": {
       "0": {
         "src": "ref-images/dental/UI2IG_0.webp",
-        "width": 873,
-        "height": 1396
+        "width": 500,
+        "height": 800
       },
       "1": {
         "src": "ref-images/dental/UI2IG_1.webp",
-        "width": 873,
-        "height": 1396
+        "width": 500,
+        "height": 800
       },
       "2": {
         "src": "ref-images/dental/UI2IG_2.webp",
-        "width": 873,
-        "height": 1396
+        "width": 500,
+        "height": 800
       },
       "3": {
         "src": "ref-images/dental/UI2IG_3.webp",
-        "width": 873,
-        "height": 1396
+        "width": 500,
+        "height": 800
       },
       "4": {
         "src": "ref-images/dental/UI2IG_4.webp",
-        "width": 873,
-        "height": 1396
+        "width": 500,
+        "height": 800
       }
     },
     "location": {
       "src": "ref-images/dental/UI2IG_loc.webp",
-      "width": 873,
-      "height": 1396
+      "width": 500,
+      "height": 800
     }
   },
   "UI1TD": {
@@ -1164,54 +1164,54 @@
     "states": {
       "0": {
         "src": "ref-images/dental/UI1TD_0.webp",
-        "width": 873,
-        "height": 1233
+        "width": 566,
+        "height": 800
       },
       "1": {
         "src": "ref-images/dental/UI1TD_1.webp",
-        "width": 873,
-        "height": 1233
+        "width": 566,
+        "height": 800
       },
       "2": {
         "src": "ref-images/dental/UI1TD_2.webp",
-        "width": 873,
-        "height": 1233
+        "width": 566,
+        "height": 800
       },
       "3": {
         "src": "ref-images/dental/UI1TD_3.webp",
-        "width": 873,
-        "height": 1233
+        "width": 566,
+        "height": 800
       },
       "4": {
         "src": "ref-images/dental/UI1TD_4.webp",
-        "width": 873,
-        "height": 1233
+        "width": 566,
+        "height": 800
       },
       "5": {
         "src": "ref-images/dental/UI1TD_5.webp",
-        "width": 873,
-        "height": 1233
+        "width": 566,
+        "height": 800
       },
       "6": {
         "src": "ref-images/dental/UI1TD_6.webp",
-        "width": 873,
-        "height": 1233
+        "width": 566,
+        "height": 800
       },
       "3.1": {
         "src": "ref-images/dental/UI1TD_3.1.webp",
-        "width": 873,
-        "height": 1233
+        "width": 566,
+        "height": 800
       },
       "4.1": {
         "src": "ref-images/dental/UI1TD_4.1.webp",
-        "width": 873,
-        "height": 1233
+        "width": 566,
+        "height": 800
       }
     },
     "location": {
       "src": "ref-images/dental/UI1TD_loc.webp",
-      "width": 873,
-      "height": 1233
+      "width": 566,
+      "height": 800
     }
   },
   "UI2TD": {
@@ -1219,59 +1219,59 @@
     "states": {
       "0": {
         "src": "ref-images/dental/UI2TD_0.webp",
-        "width": 873,
-        "height": 1180
+        "width": 592,
+        "height": 800
       },
       "1": {
         "src": "ref-images/dental/UI2TD_1.webp",
-        "width": 873,
-        "height": 1180
+        "width": 592,
+        "height": 800
       },
       "2": {
         "src": "ref-images/dental/UI2TD_2.webp",
-        "width": 873,
-        "height": 1180
+        "width": 592,
+        "height": 800
       },
       "3": {
         "src": "ref-images/dental/UI2TD_3.webp",
-        "width": 873,
-        "height": 1180
+        "width": 592,
+        "height": 800
       },
       "4": {
         "src": "ref-images/dental/UI2TD_4.webp",
-        "width": 873,
-        "height": 1180
+        "width": 592,
+        "height": 800
       },
       "5": {
         "src": "ref-images/dental/UI2TD_5.webp",
-        "width": 873,
-        "height": 1180
+        "width": 592,
+        "height": 800
       },
       "6": {
         "src": "ref-images/dental/UI2TD_6.webp",
-        "width": 873,
-        "height": 1180
+        "width": 592,
+        "height": 800
       },
       "3.1": {
         "src": "ref-images/dental/UI2TD_3.1.webp",
-        "width": 873,
-        "height": 1180
+        "width": 592,
+        "height": 800
       },
       "3.2": {
         "src": "ref-images/dental/UI2TD_3.2.webp",
-        "width": 873,
-        "height": 1180
+        "width": 592,
+        "height": 800
       },
       "4.1": {
         "src": "ref-images/dental/UI2TD_4.1.webp",
-        "width": 873,
-        "height": 1180
+        "width": 592,
+        "height": 800
       }
     },
     "location": {
       "src": "ref-images/dental/UI2TD_loc.webp",
-      "width": 873,
-      "height": 1180
+      "width": 592,
+      "height": 800
     }
   },
   "UCSS": {
@@ -1279,44 +1279,44 @@
     "states": {
       "0": {
         "src": "ref-images/dental/UCSS_0.webp",
-        "width": 873,
-        "height": 1196
+        "width": 584,
+        "height": 800
       },
       "1": {
         "src": "ref-images/dental/UCSS_1.webp",
-        "width": 873,
-        "height": 1196
+        "width": 584,
+        "height": 800
       },
       "2": {
         "src": "ref-images/dental/UCSS_2.webp",
-        "width": 873,
-        "height": 1196
+        "width": 584,
+        "height": 800
       },
       "3": {
         "src": "ref-images/dental/UCSS_3.webp",
-        "width": 873,
-        "height": 1196
+        "width": 584,
+        "height": 800
       },
       "4": {
         "src": "ref-images/dental/UCSS_4.webp",
-        "width": 873,
-        "height": 1196
+        "width": 584,
+        "height": 800
       },
       "5": {
         "src": "ref-images/dental/UCSS_5.webp",
-        "width": 873,
-        "height": 1196
+        "width": 584,
+        "height": 800
       },
       "6": {
         "src": "ref-images/dental/UCSS_6.webp",
-        "width": 873,
-        "height": 1196
+        "width": 584,
+        "height": 800
       }
     },
     "location": {
       "src": "ref-images/dental/UCSS_loc.webp",
-      "width": 873,
-      "height": 1196
+      "width": 584,
+      "height": 800
     }
   },
   "UCTD": {
@@ -1324,44 +1324,44 @@
     "states": {
       "0": {
         "src": "ref-images/dental/UCTD_0.webp",
-        "width": 873,
-        "height": 1164
+        "width": 600,
+        "height": 800
       },
       "1": {
         "src": "ref-images/dental/UCTD_1.webp",
-        "width": 873,
-        "height": 1164
+        "width": 600,
+        "height": 800
       },
       "2": {
         "src": "ref-images/dental/UCTD_2.webp",
-        "width": 873,
-        "height": 1164
+        "width": 600,
+        "height": 800
       },
       "3": {
         "src": "ref-images/dental/UCTD_3.webp",
-        "width": 873,
-        "height": 1164
+        "width": 600,
+        "height": 800
       },
       "4": {
         "src": "ref-images/dental/UCTD_4.webp",
-        "width": 873,
-        "height": 1164
+        "width": 600,
+        "height": 800
       },
       "5": {
         "src": "ref-images/dental/UCTD_5.webp",
-        "width": 873,
-        "height": 1164
+        "width": 600,
+        "height": 800
       },
       "6": {
         "src": "ref-images/dental/UCTD_6.webp",
-        "width": 873,
-        "height": 1164
+        "width": 600,
+        "height": 800
       }
     },
     "location": {
       "src": "ref-images/dental/UCTD_loc.webp",
-      "width": 873,
-      "height": 1164
+      "width": 600,
+      "height": 800
     }
   },
   "UCMR": {
@@ -1369,29 +1369,29 @@
     "states": {
       "0": {
         "src": "ref-images/dental/UCMR_0.webp",
-        "width": 873,
-        "height": 1222
+        "width": 572,
+        "height": 800
       },
       "1": {
         "src": "ref-images/dental/UCMR_1.webp",
-        "width": 873,
-        "height": 1222
+        "width": 572,
+        "height": 800
       },
       "2": {
         "src": "ref-images/dental/UCMR_2.webp",
-        "width": 873,
-        "height": 1222
+        "width": 572,
+        "height": 800
       },
       "3": {
         "src": "ref-images/dental/UCMR_3.webp",
-        "width": 873,
-        "height": 1222
+        "width": 572,
+        "height": 800
       }
     },
     "location": {
       "src": "ref-images/dental/UCMR_loc.webp",
-      "width": 873,
-      "height": 1222
+      "width": 572,
+      "height": 800
     }
   },
   "UCDR": {
@@ -1399,44 +1399,44 @@
     "states": {
       "0": {
         "src": "ref-images/dental/UCDR_0.webp",
-        "width": 873,
-        "height": 1164
+        "width": 600,
+        "height": 800
       },
       "1": {
         "src": "ref-images/dental/UCDR_1.webp",
-        "width": 873,
-        "height": 1164
+        "width": 600,
+        "height": 800
       },
       "2": {
         "src": "ref-images/dental/UCDR_2.webp",
-        "width": 873,
-        "height": 1164
+        "width": 600,
+        "height": 800
       },
       "4": {
         "src": "ref-images/dental/UCDR_4.webp",
-        "width": 873,
-        "height": 1164
+        "width": 600,
+        "height": 800
       },
       "5": {
         "src": "ref-images/dental/UCDR_5.webp",
-        "width": 873,
-        "height": 1164
+        "width": 600,
+        "height": 800
       },
       "3.1": {
         "src": "ref-images/dental/UCDR_3.1.webp",
-        "width": 873,
-        "height": 1164
+        "width": 600,
+        "height": 800
       },
       "3.2": {
         "src": "ref-images/dental/UCDR_3.2.webp",
-        "width": 873,
-        "height": 1164
+        "width": 600,
+        "height": 800
       }
     },
     "location": {
       "src": "ref-images/dental/UCDR_loc.webp",
-      "width": 873,
-      "height": 1164
+      "width": 600,
+      "height": 800
     }
   },
   "UP3AC": {
@@ -1444,29 +1444,29 @@
     "states": {
       "0": {
         "src": "ref-images/dental/UP3AC_0.webp",
-        "width": 873,
-        "height": 1153
+        "width": 606,
+        "height": 800
       },
       "1": {
         "src": "ref-images/dental/UP3AC_1.webp",
-        "width": 873,
-        "height": 1113
+        "width": 627,
+        "height": 800
       },
       "2": {
         "src": "ref-images/dental/UP3AC_2.webp",
-        "width": 873,
-        "height": 1113
+        "width": 627,
+        "height": 800
       },
       "3": {
         "src": "ref-images/dental/UP3AC_3.webp",
-        "width": 873,
-        "height": 1113
+        "width": 627,
+        "height": 800
       }
     },
     "location": {
       "src": "ref-images/dental/UP3AC_loc.webp",
-      "width": 873,
-      "height": 1153
+      "width": 606,
+      "height": 800
     }
   },
   "UP4AC": {
@@ -1474,29 +1474,29 @@
     "states": {
       "0": {
         "src": "ref-images/dental/UP4AC_0.webp",
-        "width": 873,
-        "height": 1143
+        "width": 611,
+        "height": 800
       },
       "1": {
         "src": "ref-images/dental/UP4AC_1.webp",
-        "width": 873,
-        "height": 1143
+        "width": 611,
+        "height": 800
       },
       "2": {
         "src": "ref-images/dental/UP4AC_2.webp",
-        "width": 873,
-        "height": 1143
+        "width": 611,
+        "height": 800
       },
       "3": {
         "src": "ref-images/dental/UP4AC_3.webp",
-        "width": 873,
-        "height": 1143
+        "width": 611,
+        "height": 800
       }
     },
     "location": {
       "src": "ref-images/dental/UP4AC_loc.webp",
-      "width": 873,
-      "height": 1143
+      "width": 611,
+      "height": 800
     }
   },
   "UP3DS": {
@@ -1504,19 +1504,19 @@
     "states": {
       "0": {
         "src": "ref-images/dental/UP3DS_0.webp",
-        "width": 873,
-        "height": 1155
+        "width": 605,
+        "height": 800
       },
       "1": {
         "src": "ref-images/dental/UP3DS_1.webp",
-        "width": 873,
-        "height": 1155
+        "width": 605,
+        "height": 800
       }
     },
     "location": {
       "src": "ref-images/dental/UP3DS_loc.webp",
-      "width": 873,
-      "height": 1155
+      "width": 605,
+      "height": 800
     }
   },
   "UP3MMXPAR": {
@@ -1524,34 +1524,34 @@
     "states": {
       "0": {
         "src": "ref-images/dental/UP3MMXPAR_0.webp",
-        "width": 873,
-        "height": 1153
+        "width": 606,
+        "height": 800
       },
       "1": {
         "src": "ref-images/dental/UP3MMXPAR_1.webp",
-        "width": 873,
-        "height": 1153
+        "width": 606,
+        "height": 800
       },
       "2": {
         "src": "ref-images/dental/UP3MMXPAR_2.webp",
-        "width": 873,
-        "height": 1153
+        "width": 606,
+        "height": 800
       },
       "3": {
         "src": "ref-images/dental/UP3MMXPAR_3.webp",
-        "width": 873,
-        "height": 1153
+        "width": 606,
+        "height": 800
       },
       "4": {
         "src": "ref-images/dental/UP3MMXPAR_4.webp",
-        "width": 873,
-        "height": 1153
+        "width": 606,
+        "height": 800
       }
     },
     "location": {
       "src": "ref-images/dental/UP3MMXPAR_loc.webp",
-      "width": 873,
-      "height": 1153
+      "width": 606,
+      "height": 800
     }
   },
   "UP3DMXPAR": {
@@ -1559,34 +1559,34 @@
     "states": {
       "0": {
         "src": "ref-images/dental/UP3DMXPAR_0.webp",
-        "width": 873,
-        "height": 1153
+        "width": 606,
+        "height": 800
       },
       "1": {
         "src": "ref-images/dental/UP3DMXPAR_1.webp",
-        "width": 873,
-        "height": 1153
+        "width": 606,
+        "height": 800
       },
       "2": {
         "src": "ref-images/dental/UP3DMXPAR_2.webp",
-        "width": 873,
-        "height": 1153
+        "width": 606,
+        "height": 800
       },
       "3": {
         "src": "ref-images/dental/UP3DMXPAR_3.webp",
-        "width": 873,
-        "height": 1153
+        "width": 606,
+        "height": 800
       },
       "4": {
         "src": "ref-images/dental/UP3DMXPAR_4.webp",
-        "width": 873,
-        "height": 1153
+        "width": 606,
+        "height": 800
       }
     },
     "location": {
       "src": "ref-images/dental/UP3DMXPAR_loc.webp",
-      "width": 873,
-      "height": 1153
+      "width": 606,
+      "height": 800
     }
   },
   "UP4MMXPAR": {
@@ -1594,34 +1594,34 @@
     "states": {
       "0": {
         "src": "ref-images/dental/UP4MMXPAR_0.webp",
-        "width": 873,
-        "height": 1143
+        "width": 611,
+        "height": 800
       },
       "1": {
         "src": "ref-images/dental/UP4MMXPAR_1.webp",
-        "width": 873,
-        "height": 1143
+        "width": 611,
+        "height": 800
       },
       "2": {
         "src": "ref-images/dental/UP4MMXPAR_2.webp",
-        "width": 873,
-        "height": 1143
+        "width": 611,
+        "height": 800
       },
       "3": {
         "src": "ref-images/dental/UP4MMXPAR_3.webp",
-        "width": 873,
-        "height": 1143
+        "width": 611,
+        "height": 800
       },
       "4": {
         "src": "ref-images/dental/UP4MMXPAR_4.webp",
-        "width": 873,
-        "height": 1143
+        "width": 611,
+        "height": 800
       }
     },
     "location": {
       "src": "ref-images/dental/UP4MMXPAR_loc.webp",
-      "width": 873,
-      "height": 1143
+      "width": 611,
+      "height": 800
     }
   },
   "UP4DMXPAR": {
@@ -1629,34 +1629,34 @@
     "states": {
       "0": {
         "src": "ref-images/dental/UP4DMXPAR_0.webp",
-        "width": 873,
-        "height": 1143
+        "width": 611,
+        "height": 800
       },
       "1": {
         "src": "ref-images/dental/UP4DMXPAR_1.webp",
-        "width": 873,
-        "height": 1143
+        "width": 611,
+        "height": 800
       },
       "2": {
         "src": "ref-images/dental/UP4DMXPAR_2.webp",
-        "width": 873,
-        "height": 1143
+        "width": 611,
+        "height": 800
       },
       "3": {
         "src": "ref-images/dental/UP4DMXPAR_3.webp",
-        "width": 873,
-        "height": 1143
+        "width": 611,
+        "height": 800
       },
       "4": {
         "src": "ref-images/dental/UP4DMXPAR_4.webp",
-        "width": 873,
-        "height": 1143
+        "width": 611,
+        "height": 800
       }
     },
     "location": {
       "src": "ref-images/dental/UP4DMXPAR_loc.webp",
-      "width": 873,
-      "height": 1143
+      "width": 611,
+      "height": 800
     }
   },
   "UM3PEG": {
@@ -1664,29 +1664,29 @@
     "states": {
       "0": {
         "src": "ref-images/dental/UM3PEG_0.webp",
-        "width": 873,
-        "height": 1615
+        "width": 432,
+        "height": 800
       },
       "1": {
         "src": "ref-images/dental/UM3PEG_1.webp",
-        "width": 873,
-        "height": 1615
+        "width": 432,
+        "height": 800
       },
       "2.1": {
         "src": "ref-images/dental/UM3PEG_2.1.webp",
-        "width": 873,
-        "height": 1615
+        "width": 432,
+        "height": 800
       },
       "2.2": {
         "src": "ref-images/dental/UM3PEG_2.2.webp",
-        "width": 873,
-        "height": 1615
+        "width": 432,
+        "height": 800
       }
     },
     "location": {
       "src": "ref-images/dental/UM3PEG_loc.webp",
-      "width": 873,
-      "height": 1615
+      "width": 432,
+      "height": 800
     }
   },
   "UM3CA": {
@@ -1694,14 +1694,14 @@
     "states": {
       "0": {
         "src": "ref-images/dental/UM3CA_0.webp",
-        "width": 873,
-        "height": 781
+        "width": 800,
+        "height": 716
       }
     },
     "location": {
       "src": "ref-images/dental/UM3CA_loc.webp",
-      "width": 873,
-      "height": 781
+      "width": 800,
+      "height": 716
     }
   },
   "UM1MC": {
@@ -1709,44 +1709,44 @@
     "states": {
       "0": {
         "src": "ref-images/dental/UM1MC_0.webp",
-        "width": 873,
-        "height": 783
+        "width": 800,
+        "height": 718
       },
       "1": {
         "src": "ref-images/dental/UM1MC_1.webp",
-        "width": 873,
-        "height": 783
+        "width": 800,
+        "height": 718
       },
       "2": {
         "src": "ref-images/dental/UM1MC_2.webp",
-        "width": 873,
-        "height": 783
+        "width": 800,
+        "height": 718
       },
       "3": {
         "src": "ref-images/dental/UM1MC_3.webp",
-        "width": 873,
-        "height": 783
+        "width": 800,
+        "height": 718
       },
       "4": {
         "src": "ref-images/dental/UM1MC_4.webp",
-        "width": 873,
-        "height": 783
+        "width": 800,
+        "height": 718
       },
       "5": {
         "src": "ref-images/dental/UM1MC_5.webp",
-        "width": 873,
-        "height": 783
+        "width": 800,
+        "height": 718
       },
       "6": {
         "src": "ref-images/dental/UM1MC_6.webp",
-        "width": 873,
-        "height": 783
+        "width": 800,
+        "height": 718
       }
     },
     "location": {
       "src": "ref-images/dental/UM1MC_loc.webp",
-      "width": 873,
-      "height": 783
+      "width": 800,
+      "height": 718
     }
   },
   "UM2MC": {
@@ -1754,44 +1754,44 @@
     "states": {
       "0": {
         "src": "ref-images/dental/UM2MC_0.webp",
-        "width": 873,
-        "height": 763
+        "width": 800,
+        "height": 699
       },
       "1": {
         "src": "ref-images/dental/UM2MC_1.webp",
-        "width": 873,
-        "height": 763
+        "width": 800,
+        "height": 699
       },
       "2": {
         "src": "ref-images/dental/UM2MC_2.webp",
-        "width": 873,
-        "height": 763
+        "width": 800,
+        "height": 699
       },
       "3": {
         "src": "ref-images/dental/UM2MC_3.webp",
-        "width": 873,
-        "height": 763
+        "width": 800,
+        "height": 699
       },
       "4": {
         "src": "ref-images/dental/UM2MC_4.webp",
-        "width": 873,
-        "height": 763
+        "width": 800,
+        "height": 699
       },
       "5": {
         "src": "ref-images/dental/UM2MC_5.webp",
-        "width": 873,
-        "height": 763
+        "width": 800,
+        "height": 699
       },
       "6": {
         "src": "ref-images/dental/UM2MC_6.webp",
-        "width": 873,
-        "height": 763
+        "width": 800,
+        "height": 699
       }
     },
     "location": {
       "src": "ref-images/dental/UM2MC_loc.webp",
-      "width": 873,
-      "height": 763
+      "width": 800,
+      "height": 699
     }
   },
   "max_metacone_m3": {
@@ -1799,44 +1799,44 @@
     "states": {
       "0": {
         "src": "ref-images/dental/max_metacone_m3_0.webp",
-        "width": 873,
-        "height": 763
+        "width": 800,
+        "height": 699
       },
       "1": {
         "src": "ref-images/dental/max_metacone_m3_1.webp",
-        "width": 873,
-        "height": 763
+        "width": 800,
+        "height": 699
       },
       "2": {
         "src": "ref-images/dental/max_metacone_m3_2.webp",
-        "width": 873,
-        "height": 763
+        "width": 800,
+        "height": 699
       },
       "3": {
         "src": "ref-images/dental/max_metacone_m3_3.webp",
-        "width": 873,
-        "height": 763
+        "width": 800,
+        "height": 699
       },
       "4": {
         "src": "ref-images/dental/max_metacone_m3_4.webp",
-        "width": 873,
-        "height": 763
+        "width": 800,
+        "height": 699
       },
       "5": {
         "src": "ref-images/dental/max_metacone_m3_5.webp",
-        "width": 873,
-        "height": 763
+        "width": 800,
+        "height": 699
       },
       "6": {
         "src": "ref-images/dental/max_metacone_m3_6.webp",
-        "width": 873,
-        "height": 763
+        "width": 800,
+        "height": 699
       }
     },
     "location": {
       "src": "ref-images/dental/max_metacone_m3_loc.webp",
-      "width": 873,
-      "height": 763
+      "width": 800,
+      "height": 699
     }
   },
   "UM1HC": {
@@ -1844,44 +1844,44 @@
     "states": {
       "0": {
         "src": "ref-images/dental/UM1HC_0.webp",
-        "width": 873,
-        "height": 748
+        "width": 800,
+        "height": 685
       },
       "1": {
         "src": "ref-images/dental/UM1HC_1.webp",
-        "width": 873,
-        "height": 748
+        "width": 800,
+        "height": 685
       },
       "2": {
         "src": "ref-images/dental/UM1HC_2.webp",
-        "width": 873,
-        "height": 748
+        "width": 800,
+        "height": 685
       },
       "3": {
         "src": "ref-images/dental/UM1HC_3.webp",
-        "width": 873,
-        "height": 748
+        "width": 800,
+        "height": 685
       },
       "4": {
         "src": "ref-images/dental/UM1HC_4.webp",
-        "width": 873,
-        "height": 748
+        "width": 800,
+        "height": 685
       },
       "5": {
         "src": "ref-images/dental/UM1HC_5.webp",
-        "width": 873,
-        "height": 748
+        "width": 800,
+        "height": 685
       },
       "6": {
         "src": "ref-images/dental/UM1HC_6.webp",
-        "width": 873,
-        "height": 753
+        "width": 800,
+        "height": 690
       }
     },
     "location": {
       "src": "ref-images/dental/UM1HC_loc.webp",
-      "width": 873,
-      "height": 748
+      "width": 800,
+      "height": 685
     }
   },
   "UM2HC": {
@@ -1889,44 +1889,44 @@
     "states": {
       "0": {
         "src": "ref-images/dental/UM2HC_0.webp",
-        "width": 873,
-        "height": 727
+        "width": 800,
+        "height": 666
       },
       "1": {
         "src": "ref-images/dental/UM2HC_1.webp",
-        "width": 873,
-        "height": 721
+        "width": 800,
+        "height": 661
       },
       "2": {
         "src": "ref-images/dental/UM2HC_2.webp",
-        "width": 873,
-        "height": 721
+        "width": 800,
+        "height": 661
       },
       "3": {
         "src": "ref-images/dental/UM2HC_3.webp",
-        "width": 873,
-        "height": 721
+        "width": 800,
+        "height": 661
       },
       "4": {
         "src": "ref-images/dental/UM2HC_4.webp",
-        "width": 873,
-        "height": 721
+        "width": 800,
+        "height": 661
       },
       "5": {
         "src": "ref-images/dental/UM2HC_5.webp",
-        "width": 873,
-        "height": 721
+        "width": 800,
+        "height": 661
       },
       "6": {
         "src": "ref-images/dental/UM2HC_6.webp",
-        "width": 873,
-        "height": 721
+        "width": 800,
+        "height": 661
       }
     },
     "location": {
       "src": "ref-images/dental/UM2HC_loc.webp",
-      "width": 873,
-      "height": 727
+      "width": 800,
+      "height": 666
     }
   },
   "max_hypocone_m3": {
@@ -1934,44 +1934,44 @@
     "states": {
       "0": {
         "src": "ref-images/dental/max_hypocone_m3_0.webp",
-        "width": 873,
-        "height": 727
+        "width": 800,
+        "height": 666
       },
       "1": {
         "src": "ref-images/dental/max_hypocone_m3_1.webp",
-        "width": 873,
-        "height": 721
+        "width": 800,
+        "height": 661
       },
       "2": {
         "src": "ref-images/dental/max_hypocone_m3_2.webp",
-        "width": 873,
-        "height": 721
+        "width": 800,
+        "height": 661
       },
       "3": {
         "src": "ref-images/dental/max_hypocone_m3_3.webp",
-        "width": 873,
-        "height": 721
+        "width": 800,
+        "height": 661
       },
       "4": {
         "src": "ref-images/dental/max_hypocone_m3_4.webp",
-        "width": 873,
-        "height": 721
+        "width": 800,
+        "height": 661
       },
       "5": {
         "src": "ref-images/dental/max_hypocone_m3_5.webp",
-        "width": 873,
-        "height": 721
+        "width": 800,
+        "height": 661
       },
       "6": {
         "src": "ref-images/dental/max_hypocone_m3_6.webp",
-        "width": 873,
-        "height": 721
+        "width": 800,
+        "height": 661
       }
     },
     "location": {
       "src": "ref-images/dental/max_hypocone_m3_loc.webp",
-      "width": 873,
-      "height": 727
+      "width": 800,
+      "height": 666
     }
   },
   "UM1C5": {
@@ -1979,39 +1979,39 @@
     "states": {
       "0": {
         "src": "ref-images/dental/UM1C5_0.webp",
-        "width": 873,
-        "height": 766
+        "width": 800,
+        "height": 702
       },
       "1": {
         "src": "ref-images/dental/UM1C5_1.webp",
-        "width": 873,
-        "height": 766
+        "width": 800,
+        "height": 702
       },
       "2": {
         "src": "ref-images/dental/UM1C5_2.webp",
-        "width": 873,
-        "height": 766
+        "width": 800,
+        "height": 702
       },
       "3": {
         "src": "ref-images/dental/UM1C5_3.webp",
-        "width": 873,
-        "height": 766
+        "width": 800,
+        "height": 702
       },
       "4": {
         "src": "ref-images/dental/UM1C5_4.webp",
-        "width": 873,
-        "height": 766
+        "width": 800,
+        "height": 702
       },
       "5": {
         "src": "ref-images/dental/UM1C5_5.webp",
-        "width": 873,
-        "height": 766
+        "width": 800,
+        "height": 702
       }
     },
     "location": {
       "src": "ref-images/dental/UM1C5_loc.webp",
-      "width": 873,
-      "height": 766
+      "width": 800,
+      "height": 702
     }
   },
   "UM2C5": {
@@ -2019,39 +2019,39 @@
     "states": {
       "0": {
         "src": "ref-images/dental/UM2C5_0.webp",
-        "width": 873,
-        "height": 695
+        "width": 800,
+        "height": 637
       },
       "1": {
         "src": "ref-images/dental/UM2C5_1.webp",
-        "width": 873,
-        "height": 695
+        "width": 800,
+        "height": 637
       },
       "2": {
         "src": "ref-images/dental/UM2C5_2.webp",
-        "width": 873,
-        "height": 695
+        "width": 800,
+        "height": 637
       },
       "3": {
         "src": "ref-images/dental/UM2C5_3.webp",
-        "width": 873,
-        "height": 695
+        "width": 800,
+        "height": 637
       },
       "4": {
         "src": "ref-images/dental/UM2C5_4.webp",
-        "width": 873,
-        "height": 695
+        "width": 800,
+        "height": 637
       },
       "5": {
         "src": "ref-images/dental/UM2C5_5.webp",
-        "width": 873,
-        "height": 695
+        "width": 800,
+        "height": 637
       }
     },
     "location": {
       "src": "ref-images/dental/UM2C5_loc.webp",
-      "width": 873,
-      "height": 695
+      "width": 800,
+      "height": 637
     }
   },
   "max_cusp_m3": {
@@ -2059,39 +2059,39 @@
     "states": {
       "0": {
         "src": "ref-images/dental/max_cusp_m3_0.webp",
-        "width": 873,
-        "height": 695
+        "width": 800,
+        "height": 637
       },
       "1": {
         "src": "ref-images/dental/max_cusp_m3_1.webp",
-        "width": 873,
-        "height": 695
+        "width": 800,
+        "height": 637
       },
       "2": {
         "src": "ref-images/dental/max_cusp_m3_2.webp",
-        "width": 873,
-        "height": 695
+        "width": 800,
+        "height": 637
       },
       "3": {
         "src": "ref-images/dental/max_cusp_m3_3.webp",
-        "width": 873,
-        "height": 695
+        "width": 800,
+        "height": 637
       },
       "4": {
         "src": "ref-images/dental/max_cusp_m3_4.webp",
-        "width": 873,
-        "height": 695
+        "width": 800,
+        "height": 637
       },
       "5": {
         "src": "ref-images/dental/max_cusp_m3_5.webp",
-        "width": 873,
-        "height": 695
+        "width": 800,
+        "height": 637
       }
     },
     "location": {
       "src": "ref-images/dental/max_cusp_m3_loc.webp",
-      "width": 873,
-      "height": 695
+      "width": 800,
+      "height": 637
     }
   },
   "UM1CB": {
@@ -2099,49 +2099,49 @@
     "states": {
       "0": {
         "src": "ref-images/dental/UM1CB_0.webp",
-        "width": 873,
-        "height": 766
+        "width": 800,
+        "height": 702
       },
       "1": {
         "src": "ref-images/dental/UM1CB_1.webp",
-        "width": 873,
-        "height": 766
+        "width": 800,
+        "height": 702
       },
       "2": {
         "src": "ref-images/dental/UM1CB_2.webp",
-        "width": 873,
-        "height": 766
+        "width": 800,
+        "height": 702
       },
       "3": {
         "src": "ref-images/dental/UM1CB_3.webp",
-        "width": 873,
-        "height": 766
+        "width": 800,
+        "height": 702
       },
       "4": {
         "src": "ref-images/dental/UM1CB_4.webp",
-        "width": 873,
-        "height": 766
+        "width": 800,
+        "height": 702
       },
       "5": {
         "src": "ref-images/dental/UM1CB_5.webp",
-        "width": 873,
-        "height": 766
+        "width": 800,
+        "height": 702
       },
       "6": {
         "src": "ref-images/dental/UM1CB_6.webp",
-        "width": 873,
-        "height": 766
+        "width": 800,
+        "height": 702
       },
       "7": {
         "src": "ref-images/dental/UM1CB_7.webp",
-        "width": 873,
-        "height": 682
+        "width": 800,
+        "height": 625
       }
     },
     "location": {
       "src": "ref-images/dental/UM1CB_loc.webp",
-      "width": 873,
-      "height": 766
+      "width": 800,
+      "height": 702
     }
   },
   "UM2CB": {
@@ -2149,49 +2149,49 @@
     "states": {
       "0": {
         "src": "ref-images/dental/UM2CB_0.webp",
-        "width": 873,
-        "height": 745
+        "width": 800,
+        "height": 683
       },
       "1": {
         "src": "ref-images/dental/UM2CB_1.webp",
-        "width": 873,
-        "height": 715
+        "width": 800,
+        "height": 655
       },
       "2": {
         "src": "ref-images/dental/UM2CB_2.webp",
-        "width": 873,
-        "height": 715
+        "width": 800,
+        "height": 655
       },
       "3": {
         "src": "ref-images/dental/UM2CB_3.webp",
-        "width": 873,
-        "height": 715
+        "width": 800,
+        "height": 655
       },
       "4": {
         "src": "ref-images/dental/UM2CB_4.webp",
-        "width": 873,
-        "height": 715
+        "width": 800,
+        "height": 655
       },
       "5": {
         "src": "ref-images/dental/UM2CB_5.webp",
-        "width": 873,
-        "height": 715
+        "width": 800,
+        "height": 655
       },
       "6": {
         "src": "ref-images/dental/UM2CB_6.webp",
-        "width": 873,
-        "height": 715
+        "width": 800,
+        "height": 655
       },
       "7": {
         "src": "ref-images/dental/UM2CB_7.webp",
-        "width": 873,
-        "height": 715
+        "width": 800,
+        "height": 655
       }
     },
     "location": {
       "src": "ref-images/dental/UM2CB_loc.webp",
-      "width": 873,
-      "height": 745
+      "width": 800,
+      "height": 683
     }
   },
   "max_carabelli_m3": {
@@ -2199,49 +2199,49 @@
     "states": {
       "0": {
         "src": "ref-images/dental/max_carabelli_m3_0.webp",
-        "width": 873,
-        "height": 745
+        "width": 800,
+        "height": 683
       },
       "1": {
         "src": "ref-images/dental/max_carabelli_m3_1.webp",
-        "width": 873,
-        "height": 715
+        "width": 800,
+        "height": 655
       },
       "2": {
         "src": "ref-images/dental/max_carabelli_m3_2.webp",
-        "width": 873,
-        "height": 715
+        "width": 800,
+        "height": 655
       },
       "3": {
         "src": "ref-images/dental/max_carabelli_m3_3.webp",
-        "width": 873,
-        "height": 715
+        "width": 800,
+        "height": 655
       },
       "4": {
         "src": "ref-images/dental/max_carabelli_m3_4.webp",
-        "width": 873,
-        "height": 715
+        "width": 800,
+        "height": 655
       },
       "5": {
         "src": "ref-images/dental/max_carabelli_m3_5.webp",
-        "width": 873,
-        "height": 715
+        "width": 800,
+        "height": 655
       },
       "6": {
         "src": "ref-images/dental/max_carabelli_m3_6.webp",
-        "width": 873,
-        "height": 715
+        "width": 800,
+        "height": 655
       },
       "7": {
         "src": "ref-images/dental/max_carabelli_m3_7.webp",
-        "width": 873,
-        "height": 715
+        "width": 800,
+        "height": 655
       }
     },
     "location": {
       "src": "ref-images/dental/max_carabelli_m3_loc.webp",
-      "width": 873,
-      "height": 745
+      "width": 800,
+      "height": 683
     }
   },
   "UM1PS": {
@@ -2249,44 +2249,44 @@
     "states": {
       "0": {
         "src": "ref-images/dental/UM1PS_0.webp",
-        "width": 873,
-        "height": 1047
+        "width": 667,
+        "height": 800
       },
       "1": {
         "src": "ref-images/dental/UM1PS_1.webp",
-        "width": 873,
-        "height": 1047
+        "width": 667,
+        "height": 800
       },
       "2": {
         "src": "ref-images/dental/UM1PS_2.webp",
-        "width": 873,
-        "height": 1047
+        "width": 667,
+        "height": 800
       },
       "3": {
         "src": "ref-images/dental/UM1PS_3.webp",
-        "width": 873,
-        "height": 1047
+        "width": 667,
+        "height": 800
       },
       "4": {
         "src": "ref-images/dental/UM1PS_4.webp",
-        "width": 873,
-        "height": 1047
+        "width": 667,
+        "height": 800
       },
       "5": {
         "src": "ref-images/dental/UM1PS_5.webp",
-        "width": 873,
-        "height": 1047
+        "width": 667,
+        "height": 800
       },
       "6": {
         "src": "ref-images/dental/UM1PS_6.webp",
-        "width": 873,
-        "height": 1047
+        "width": 667,
+        "height": 800
       }
     },
     "location": {
       "src": "ref-images/dental/UM1PS_loc.webp",
-      "width": 873,
-      "height": 1047
+      "width": 667,
+      "height": 800
     }
   },
   "UM2PS": {
@@ -2294,44 +2294,44 @@
     "states": {
       "0": {
         "src": "ref-images/dental/UM2PS_0.webp",
-        "width": 873,
-        "height": 1079
+        "width": 647,
+        "height": 800
       },
       "1": {
         "src": "ref-images/dental/UM2PS_1.webp",
-        "width": 873,
-        "height": 1079
+        "width": 647,
+        "height": 800
       },
       "2": {
         "src": "ref-images/dental/UM2PS_2.webp",
-        "width": 873,
-        "height": 1079
+        "width": 647,
+        "height": 800
       },
       "3": {
         "src": "ref-images/dental/UM2PS_3.webp",
-        "width": 873,
-        "height": 1079
+        "width": 647,
+        "height": 800
       },
       "4": {
         "src": "ref-images/dental/UM2PS_4.webp",
-        "width": 873,
-        "height": 1079
+        "width": 647,
+        "height": 800
       },
       "5": {
         "src": "ref-images/dental/UM2PS_5.webp",
-        "width": 873,
-        "height": 1079
+        "width": 647,
+        "height": 800
       },
       "6": {
         "src": "ref-images/dental/UM2PS_6.webp",
-        "width": 873,
-        "height": 1079
+        "width": 647,
+        "height": 800
       }
     },
     "location": {
       "src": "ref-images/dental/UM2PS_loc.webp",
-      "width": 873,
-      "height": 1079
+      "width": 647,
+      "height": 800
     }
   },
   "max_para_m3": {
@@ -2339,44 +2339,44 @@
     "states": {
       "0": {
         "src": "ref-images/dental/max_para_m3_0.webp",
-        "width": 873,
-        "height": 1079
+        "width": 647,
+        "height": 800
       },
       "1": {
         "src": "ref-images/dental/max_para_m3_1.webp",
-        "width": 873,
-        "height": 1079
+        "width": 647,
+        "height": 800
       },
       "2": {
         "src": "ref-images/dental/max_para_m3_2.webp",
-        "width": 873,
-        "height": 1079
+        "width": 647,
+        "height": 800
       },
       "3": {
         "src": "ref-images/dental/max_para_m3_3.webp",
-        "width": 873,
-        "height": 1079
+        "width": 647,
+        "height": 800
       },
       "4": {
         "src": "ref-images/dental/max_para_m3_4.webp",
-        "width": 873,
-        "height": 1079
+        "width": 647,
+        "height": 800
       },
       "5": {
         "src": "ref-images/dental/max_para_m3_5.webp",
-        "width": 873,
-        "height": 1079
+        "width": 647,
+        "height": 800
       },
       "6": {
         "src": "ref-images/dental/max_para_m3_6.webp",
-        "width": 873,
-        "height": 1079
+        "width": 647,
+        "height": 800
       }
     },
     "location": {
       "src": "ref-images/dental/max_para_m3_loc.webp",
-      "width": 873,
-      "height": 1079
+      "width": 647,
+      "height": 800
     }
   },
   "UM1EE": {
@@ -2384,29 +2384,29 @@
     "states": {
       "0": {
         "src": "ref-images/dental/UM1EE_0.webp",
-        "width": 873,
-        "height": 1079
+        "width": 647,
+        "height": 800
       },
       "1": {
         "src": "ref-images/dental/UM1EE_1.webp",
-        "width": 873,
-        "height": 1079
+        "width": 647,
+        "height": 800
       },
       "2": {
         "src": "ref-images/dental/UM1EE_2.webp",
-        "width": 873,
-        "height": 1079
+        "width": 647,
+        "height": 800
       },
       "3": {
         "src": "ref-images/dental/UM1EE_3.webp",
-        "width": 873,
-        "height": 1079
+        "width": 647,
+        "height": 800
       }
     },
     "location": {
       "src": "ref-images/dental/UM1EE_loc.webp",
-      "width": 873,
-      "height": 1079
+      "width": 647,
+      "height": 800
     }
   },
   "UM2EE": {
@@ -2414,29 +2414,29 @@
     "states": {
       "0": {
         "src": "ref-images/dental/UM2EE_0.webp",
-        "width": 873,
-        "height": 1079
+        "width": 647,
+        "height": 800
       },
       "1": {
         "src": "ref-images/dental/UM2EE_1.webp",
-        "width": 873,
-        "height": 1079
+        "width": 647,
+        "height": 800
       },
       "2": {
         "src": "ref-images/dental/UM2EE_2.webp",
-        "width": 873,
-        "height": 1079
+        "width": 647,
+        "height": 800
       },
       "3": {
         "src": "ref-images/dental/UM2EE_3.webp",
-        "width": 873,
-        "height": 1079
+        "width": 647,
+        "height": 800
       }
     },
     "location": {
       "src": "ref-images/dental/UM2EE_loc.webp",
-      "width": 873,
-      "height": 1079
+      "width": 647,
+      "height": 800
     }
   },
   "max_ext_m3": {
@@ -2444,29 +2444,29 @@
     "states": {
       "0": {
         "src": "ref-images/dental/max_ext_m3_0.webp",
-        "width": 873,
-        "height": 1079
+        "width": 647,
+        "height": 800
       },
       "1": {
         "src": "ref-images/dental/max_ext_m3_1.webp",
-        "width": 873,
-        "height": 1079
+        "width": 647,
+        "height": 800
       },
       "2": {
         "src": "ref-images/dental/max_ext_m3_2.webp",
-        "width": 873,
-        "height": 1079
+        "width": 647,
+        "height": 800
       },
       "3": {
         "src": "ref-images/dental/max_ext_m3_3.webp",
-        "width": 873,
-        "height": 1079
+        "width": 647,
+        "height": 800
       }
     },
     "location": {
       "src": "ref-images/dental/max_ext_m3_loc.webp",
-      "width": 873,
-      "height": 1079
+      "width": 647,
+      "height": 800
     }
   },
   "LI1SS": {
@@ -2474,29 +2474,29 @@
     "states": {
       "0": {
         "src": "ref-images/dental/LI1SS_0.webp",
-        "width": 873,
-        "height": 1470
+        "width": 475,
+        "height": 800
       },
       "1": {
         "src": "ref-images/dental/LI1SS_1.webp",
-        "width": 873,
-        "height": 1148
+        "width": 608,
+        "height": 800
       },
       "2": {
         "src": "ref-images/dental/LI1SS_2.webp",
-        "width": 873,
-        "height": 1148
+        "width": 608,
+        "height": 800
       },
       "3": {
         "src": "ref-images/dental/LI1SS_3.webp",
-        "width": 873,
-        "height": 1148
+        "width": 608,
+        "height": 800
       }
     },
     "location": {
       "src": "ref-images/dental/LI1SS_loc.webp",
-      "width": 873,
-      "height": 1470
+      "width": 475,
+      "height": 800
     }
   },
   "LI2SS": {
@@ -2504,29 +2504,29 @@
     "states": {
       "0": {
         "src": "ref-images/dental/LI2SS_0.webp",
-        "width": 873,
-        "height": 1164
+        "width": 600,
+        "height": 800
       },
       "1": {
         "src": "ref-images/dental/LI2SS_1.webp",
-        "width": 873,
-        "height": 1164
+        "width": 600,
+        "height": 800
       },
       "2": {
         "src": "ref-images/dental/LI2SS_2.webp",
-        "width": 873,
-        "height": 1164
+        "width": 600,
+        "height": 800
       },
       "3": {
         "src": "ref-images/dental/LI2SS_3.webp",
-        "width": 873,
-        "height": 1164
+        "width": 600,
+        "height": 800
       }
     },
     "location": {
       "src": "ref-images/dental/LI2SS_loc.webp",
-      "width": 873,
-      "height": 1164
+      "width": 600,
+      "height": 800
     }
   },
   "LI1CA": {
@@ -2537,39 +2537,39 @@
     "states": {
       "0": {
         "src": "ref-images/dental/LCDR_0.webp",
-        "width": 873,
-        "height": 1289
+        "width": 542,
+        "height": 800
       },
       "1": {
         "src": "ref-images/dental/LCDR_1.webp",
-        "width": 873,
-        "height": 1292
+        "width": 541,
+        "height": 800
       },
       "2": {
         "src": "ref-images/dental/LCDR_2.webp",
-        "width": 873,
-        "height": 1292
+        "width": 541,
+        "height": 800
       },
       "3": {
         "src": "ref-images/dental/LCDR_3.webp",
-        "width": 873,
-        "height": 1292
+        "width": 541,
+        "height": 800
       },
       "4": {
         "src": "ref-images/dental/LCDR_4.webp",
-        "width": 873,
-        "height": 1292
+        "width": 541,
+        "height": 800
       },
       "5": {
         "src": "ref-images/dental/LCDR_5.webp",
-        "width": 873,
-        "height": 1292
+        "width": 541,
+        "height": 800
       }
     },
     "location": {
       "src": "ref-images/dental/LCDR_loc.webp",
-      "width": 873,
-      "height": 1289
+      "width": 542,
+      "height": 800
     }
   },
   "LP3LC": {
@@ -2577,69 +2577,69 @@
     "states": {
       "0": {
         "src": "ref-images/dental/LP3LC_0.webp",
-        "width": 873,
-        "height": 1013
+        "width": 689,
+        "height": 800
       },
       "1": {
         "src": "ref-images/dental/LP3LC_1.webp",
-        "width": 873,
-        "height": 1013
+        "width": 689,
+        "height": 800
       },
       "2": {
         "src": "ref-images/dental/LP3LC_2.webp",
-        "width": 873,
-        "height": 1013
+        "width": 689,
+        "height": 800
       },
       "3": {
         "src": "ref-images/dental/LP3LC_3.webp",
-        "width": 873,
-        "height": 1013
+        "width": 689,
+        "height": 800
       },
       "5": {
         "src": "ref-images/dental/LP3LC_5.webp",
-        "width": 873,
-        "height": 1013
+        "width": 689,
+        "height": 800
       },
       "6": {
         "src": "ref-images/dental/LP3LC_6.webp",
-        "width": 873,
-        "height": 1013
+        "width": 689,
+        "height": 800
       },
       "8": {
         "src": "ref-images/dental/LP3LC_8.webp",
-        "width": 873,
-        "height": 1013
+        "width": 689,
+        "height": 800
       },
       "9": {
         "src": "ref-images/dental/LP3LC_9.webp",
-        "width": 873,
-        "height": 1013
+        "width": 689,
+        "height": 800
       },
       "4.1": {
         "src": "ref-images/dental/LP3LC_4.1.webp",
-        "width": 873,
-        "height": 1013
+        "width": 689,
+        "height": 800
       },
       "4.2": {
         "src": "ref-images/dental/LP3LC_4.2.webp",
-        "width": 873,
-        "height": 1013
+        "width": 689,
+        "height": 800
       },
       "7.1": {
         "src": "ref-images/dental/LP3LC_7.1.webp",
-        "width": 873,
-        "height": 1013
+        "width": 689,
+        "height": 800
       },
       "7.2": {
         "src": "ref-images/dental/LP3LC_7.2.webp",
-        "width": 873,
-        "height": 1013
+        "width": 689,
+        "height": 800
       }
     },
     "location": {
       "src": "ref-images/dental/LP3LC_loc.webp",
-      "width": 873,
-      "height": 1013
+      "width": 689,
+      "height": 800
     }
   },
   "LP4LC": {
@@ -2647,64 +2647,64 @@
     "states": {
       "0": {
         "src": "ref-images/dental/LP4LC_0.webp",
-        "width": 873,
-        "height": 1175
+        "width": 594,
+        "height": 800
       },
       "1": {
         "src": "ref-images/dental/LP4LC_1.webp",
-        "width": 873,
-        "height": 1175
+        "width": 594,
+        "height": 800
       },
       "2": {
         "src": "ref-images/dental/LP4LC_2.webp",
-        "width": 873,
-        "height": 1175
+        "width": 594,
+        "height": 800
       },
       "3": {
         "src": "ref-images/dental/LP4LC_3.webp",
-        "width": 873,
-        "height": 1175
+        "width": 594,
+        "height": 800
       },
       "4": {
         "src": "ref-images/dental/LP4LC_4.webp",
-        "width": 873,
-        "height": 1175
+        "width": 594,
+        "height": 800
       },
       "5": {
         "src": "ref-images/dental/LP4LC_5.webp",
-        "width": 873,
-        "height": 1175
+        "width": 594,
+        "height": 800
       },
       "6": {
         "src": "ref-images/dental/LP4LC_6.webp",
-        "width": 873,
-        "height": 1175
+        "width": 594,
+        "height": 800
       },
       "7": {
         "src": "ref-images/dental/LP4LC_7.webp",
-        "width": 873,
-        "height": 1175
+        "width": 594,
+        "height": 800
       },
       "9": {
         "src": "ref-images/dental/LP4LC_9.webp",
-        "width": 873,
-        "height": 1175
+        "width": 594,
+        "height": 800
       },
       "8.1": {
         "src": "ref-images/dental/LP4LC_8.1.webp",
-        "width": 873,
-        "height": 1175
+        "width": 594,
+        "height": 800
       },
       "8.2": {
         "src": "ref-images/dental/LP4LC_8.2.webp",
-        "width": 873,
-        "height": 1175
+        "width": 594,
+        "height": 800
       }
     },
     "location": {
       "src": "ref-images/dental/LP4LC_loc.webp",
-      "width": 873,
-      "height": 1175
+      "width": 594,
+      "height": 800
     }
   },
   "LP3EF": {
@@ -2712,13 +2712,13 @@
     "states": {
       "0": {
         "src": "ref-images/dental/LP3EF_0.webp",
-        "width": 873,
-        "height": 770
+        "width": 800,
+        "height": 706
       },
       "1": {
         "src": "ref-images/dental/LP3EF_1.webp",
-        "width": 873,
-        "height": 770
+        "width": 800,
+        "height": 706
       }
     }
   },
@@ -2727,13 +2727,13 @@
     "states": {
       "0": {
         "src": "ref-images/dental/mand_elong_pm2_0.webp",
-        "width": 873,
-        "height": 770
+        "width": 800,
+        "height": 706
       },
       "1": {
         "src": "ref-images/dental/mand_elong_pm2_1.webp",
-        "width": 873,
-        "height": 770
+        "width": 800,
+        "height": 706
       }
     }
   },
@@ -2745,34 +2745,34 @@
     "states": {
       "0": {
         "src": "ref-images/dental/LM1AF_0.webp",
-        "width": 873,
-        "height": 931
+        "width": 750,
+        "height": 800
       },
       "1": {
         "src": "ref-images/dental/LM1AF_1.webp",
-        "width": 873,
-        "height": 931
+        "width": 750,
+        "height": 800
       },
       "2": {
         "src": "ref-images/dental/LM1AF_2.webp",
-        "width": 873,
-        "height": 931
+        "width": 750,
+        "height": 800
       },
       "3": {
         "src": "ref-images/dental/LM1AF_3.webp",
-        "width": 873,
-        "height": 931
+        "width": 750,
+        "height": 800
       },
       "4": {
         "src": "ref-images/dental/LM1AF_4.webp",
-        "width": 873,
-        "height": 931
+        "width": 750,
+        "height": 800
       }
     },
     "location": {
       "src": "ref-images/dental/LM1AF_loc.webp",
-      "width": 873,
-      "height": 931
+      "width": 750,
+      "height": 800
     }
   },
   "LM1GP": {
@@ -2780,24 +2780,24 @@
     "states": {
       "0": {
         "src": "ref-images/dental/LM1GP_0.webp",
-        "width": 873,
-        "height": 960
+        "width": 728,
+        "height": 800
       },
       "1": {
         "src": "ref-images/dental/LM1GP_1.webp",
-        "width": 873,
-        "height": 960
+        "width": 728,
+        "height": 800
       },
       "2": {
         "src": "ref-images/dental/LM1GP_2.webp",
-        "width": 873,
-        "height": 960
+        "width": 728,
+        "height": 800
       }
     },
     "location": {
       "src": "ref-images/dental/LM1GP_loc.webp",
-      "width": 873,
-      "height": 960
+      "width": 728,
+      "height": 800
     }
   },
   "LM2PG": {
@@ -2805,24 +2805,24 @@
     "states": {
       "0": {
         "src": "ref-images/dental/LM2PG_0.webp",
-        "width": 873,
-        "height": 916
+        "width": 762,
+        "height": 800
       },
       "1": {
         "src": "ref-images/dental/LM2PG_1.webp",
-        "width": 873,
-        "height": 916
+        "width": 762,
+        "height": 800
       },
       "2": {
         "src": "ref-images/dental/LM2PG_2.webp",
-        "width": 873,
-        "height": 916
+        "width": 762,
+        "height": 800
       }
     },
     "location": {
       "src": "ref-images/dental/LM2PG_loc.webp",
-      "width": 873,
-      "height": 916
+      "width": 762,
+      "height": 800
     }
   },
   "mand_groove_m3": {
@@ -2830,24 +2830,24 @@
     "states": {
       "0": {
         "src": "ref-images/dental/mand_groove_m3_0.webp",
-        "width": 873,
-        "height": 916
+        "width": 762,
+        "height": 800
       },
       "1": {
         "src": "ref-images/dental/mand_groove_m3_1.webp",
-        "width": 873,
-        "height": 916
+        "width": 762,
+        "height": 800
       },
       "2": {
         "src": "ref-images/dental/mand_groove_m3_2.webp",
-        "width": 873,
-        "height": 916
+        "width": 762,
+        "height": 800
       }
     },
     "location": {
       "src": "ref-images/dental/mand_groove_m3_loc.webp",
-      "width": 873,
-      "height": 916
+      "width": 762,
+      "height": 800
     }
   },
   "LM1CN": {
@@ -2855,24 +2855,24 @@
     "states": {
       "4": {
         "src": "ref-images/dental/LM1CN_4.webp",
-        "width": 873,
-        "height": 960
+        "width": 728,
+        "height": 800
       },
       "5": {
         "src": "ref-images/dental/LM1CN_5.webp",
-        "width": 873,
-        "height": 960
+        "width": 728,
+        "height": 800
       },
       "6": {
         "src": "ref-images/dental/LM1CN_6.webp",
-        "width": 873,
-        "height": 960
+        "width": 728,
+        "height": 800
       }
     },
     "location": {
       "src": "ref-images/dental/LM1CN_loc.webp",
-      "width": 873,
-      "height": 960
+      "width": 728,
+      "height": 800
     }
   },
   "LM2CN": {
@@ -2880,29 +2880,29 @@
     "states": {
       "3": {
         "src": "ref-images/dental/LM2CN_3.webp",
-        "width": 873,
-        "height": 789
+        "width": 800,
+        "height": 723
       },
       "4": {
         "src": "ref-images/dental/LM2CN_4.webp",
-        "width": 873,
-        "height": 831
+        "width": 800,
+        "height": 762
       },
       "5": {
         "src": "ref-images/dental/LM2CN_5.webp",
-        "width": 873,
-        "height": 831
+        "width": 800,
+        "height": 762
       },
       "6": {
         "src": "ref-images/dental/LM2CN_6.webp",
-        "width": 873,
-        "height": 831
+        "width": 800,
+        "height": 762
       }
     },
     "location": {
       "src": "ref-images/dental/LM2CN_loc.webp",
-      "width": 873,
-      "height": 789
+      "width": 800,
+      "height": 723
     }
   },
   "mand_cusp_m3": {
@@ -2910,29 +2910,29 @@
     "states": {
       "3": {
         "src": "ref-images/dental/mand_cusp_m3_3.webp",
-        "width": 873,
-        "height": 789
+        "width": 800,
+        "height": 723
       },
       "4": {
         "src": "ref-images/dental/mand_cusp_m3_4.webp",
-        "width": 873,
-        "height": 831
+        "width": 800,
+        "height": 762
       },
       "5": {
         "src": "ref-images/dental/mand_cusp_m3_5.webp",
-        "width": 873,
-        "height": 831
+        "width": 800,
+        "height": 762
       },
       "6": {
         "src": "ref-images/dental/mand_cusp_m3_6.webp",
-        "width": 873,
-        "height": 831
+        "width": 800,
+        "height": 762
       }
     },
     "location": {
       "src": "ref-images/dental/mand_cusp_m3_loc.webp",
-      "width": 873,
-      "height": 789
+      "width": 800,
+      "height": 723
     }
   },
   "LM1DW": {
@@ -2940,29 +2940,29 @@
     "states": {
       "0": {
         "src": "ref-images/dental/LM1DW_0.webp",
-        "width": 873,
-        "height": 902
+        "width": 774,
+        "height": 800
       },
       "1": {
         "src": "ref-images/dental/LM1DW_1.webp",
-        "width": 873,
-        "height": 902
+        "width": 774,
+        "height": 800
       },
       "2": {
         "src": "ref-images/dental/LM1DW_2.webp",
-        "width": 873,
-        "height": 902
+        "width": 774,
+        "height": 800
       },
       "3": {
         "src": "ref-images/dental/LM1DW_3.webp",
-        "width": 873,
-        "height": 902
+        "width": 774,
+        "height": 800
       }
     },
     "location": {
       "src": "ref-images/dental/LM1DW_loc.webp",
-      "width": 873,
-      "height": 902
+      "width": 774,
+      "height": 800
     }
   },
   "LM1PR": {
@@ -2970,54 +2970,54 @@
     "states": {
       "0": {
         "src": "ref-images/dental/LM1PR_0.webp",
-        "width": 873,
-        "height": 682
+        "width": 800,
+        "height": 625
       },
       "1": {
         "src": "ref-images/dental/LM1PR_1.webp",
-        "width": 873,
-        "height": 682
+        "width": 800,
+        "height": 625
       },
       "2": {
         "src": "ref-images/dental/LM1PR_2.webp",
-        "width": 873,
-        "height": 682
+        "width": 800,
+        "height": 625
       },
       "3": {
         "src": "ref-images/dental/LM1PR_3.webp",
-        "width": 873,
-        "height": 682
+        "width": 800,
+        "height": 625
       },
       "5": {
         "src": "ref-images/dental/LM1PR_5.webp",
-        "width": 873,
-        "height": 682
+        "width": 800,
+        "height": 625
       },
       "6": {
         "src": "ref-images/dental/LM1PR_6.webp",
-        "width": 873,
-        "height": 682
+        "width": 800,
+        "height": 625
       },
       "7": {
         "src": "ref-images/dental/LM1PR_7.webp",
-        "width": 873,
-        "height": 682
+        "width": 800,
+        "height": 625
       },
       "4.1": {
         "src": "ref-images/dental/LM1PR_4.1.webp",
-        "width": 873,
-        "height": 682
+        "width": 800,
+        "height": 625
       },
       "4.2": {
         "src": "ref-images/dental/LM1PR_4.2.webp",
-        "width": 873,
-        "height": 682
+        "width": 800,
+        "height": 625
       }
     },
     "location": {
       "src": "ref-images/dental/LM1PR_loc.webp",
-      "width": 873,
-      "height": 682
+      "width": 800,
+      "height": 625
     }
   },
   "LM2PR": {
@@ -3025,54 +3025,54 @@
     "states": {
       "0": {
         "src": "ref-images/dental/LM2PR_0.webp",
-        "width": 873,
-        "height": 709
+        "width": 800,
+        "height": 650
       },
       "1": {
         "src": "ref-images/dental/LM2PR_1.webp",
-        "width": 873,
-        "height": 709
+        "width": 800,
+        "height": 650
       },
       "2": {
         "src": "ref-images/dental/LM2PR_2.webp",
-        "width": 873,
-        "height": 709
+        "width": 800,
+        "height": 650
       },
       "3": {
         "src": "ref-images/dental/LM2PR_3.webp",
-        "width": 873,
-        "height": 709
+        "width": 800,
+        "height": 650
       },
       "5": {
         "src": "ref-images/dental/LM2PR_5.webp",
-        "width": 873,
-        "height": 709
+        "width": 800,
+        "height": 650
       },
       "6": {
         "src": "ref-images/dental/LM2PR_6.webp",
-        "width": 873,
-        "height": 709
+        "width": 800,
+        "height": 650
       },
       "7": {
         "src": "ref-images/dental/LM2PR_7.webp",
-        "width": 873,
-        "height": 709
+        "width": 800,
+        "height": 650
       },
       "4.1": {
         "src": "ref-images/dental/LM2PR_4.1.webp",
-        "width": 873,
-        "height": 709
+        "width": 800,
+        "height": 650
       },
       "4.2": {
         "src": "ref-images/dental/LM2PR_4.2.webp",
-        "width": 873,
-        "height": 709
+        "width": 800,
+        "height": 650
       }
     },
     "location": {
       "src": "ref-images/dental/LM2PR_loc.webp",
-      "width": 873,
-      "height": 709
+      "width": 800,
+      "height": 650
     }
   },
   "mand_proto_m3": {
@@ -3080,54 +3080,54 @@
     "states": {
       "0": {
         "src": "ref-images/dental/mand_proto_m3_0.webp",
-        "width": 873,
-        "height": 709
+        "width": 800,
+        "height": 650
       },
       "1": {
         "src": "ref-images/dental/mand_proto_m3_1.webp",
-        "width": 873,
-        "height": 709
+        "width": 800,
+        "height": 650
       },
       "2": {
         "src": "ref-images/dental/mand_proto_m3_2.webp",
-        "width": 873,
-        "height": 709
+        "width": 800,
+        "height": 650
       },
       "3": {
         "src": "ref-images/dental/mand_proto_m3_3.webp",
-        "width": 873,
-        "height": 709
+        "width": 800,
+        "height": 650
       },
       "5": {
         "src": "ref-images/dental/mand_proto_m3_5.webp",
-        "width": 873,
-        "height": 709
+        "width": 800,
+        "height": 650
       },
       "6": {
         "src": "ref-images/dental/mand_proto_m3_6.webp",
-        "width": 873,
-        "height": 709
+        "width": 800,
+        "height": 650
       },
       "7": {
         "src": "ref-images/dental/mand_proto_m3_7.webp",
-        "width": 873,
-        "height": 709
+        "width": 800,
+        "height": 650
       },
       "4.1": {
         "src": "ref-images/dental/mand_proto_m3_4.1.webp",
-        "width": 873,
-        "height": 709
+        "width": 800,
+        "height": 650
       },
       "4.2": {
         "src": "ref-images/dental/mand_proto_m3_4.2.webp",
-        "width": 873,
-        "height": 709
+        "width": 800,
+        "height": 650
       }
     },
     "location": {
       "src": "ref-images/dental/mand_proto_m3_loc.webp",
-      "width": 873,
-      "height": 709
+      "width": 800,
+      "height": 650
     }
   },
   "LM1TC": {
@@ -3135,19 +3135,19 @@
     "states": {
       "0": {
         "src": "ref-images/dental/LM1TC_0.webp",
-        "width": 873,
-        "height": 956
+        "width": 731,
+        "height": 800
       },
       "1": {
         "src": "ref-images/dental/LM1TC_1.webp",
-        "width": 873,
-        "height": 956
+        "width": 731,
+        "height": 800
       }
     },
     "location": {
       "src": "ref-images/dental/LM1TC_loc.webp",
-      "width": 873,
-      "height": 956
+      "width": 731,
+      "height": 800
     }
   },
   "LM2TC": {
@@ -3155,19 +3155,19 @@
     "states": {
       "0": {
         "src": "ref-images/dental/LM2TC_0.webp",
-        "width": 873,
-        "height": 916
+        "width": 762,
+        "height": 800
       },
       "1": {
         "src": "ref-images/dental/LM2TC_1.webp",
-        "width": 873,
-        "height": 916
+        "width": 762,
+        "height": 800
       }
     },
     "location": {
       "src": "ref-images/dental/LM2TC_loc.webp",
-      "width": 873,
-      "height": 916
+      "width": 762,
+      "height": 800
     }
   },
   "mand_trigonid_m3": {
@@ -3175,19 +3175,19 @@
     "states": {
       "0": {
         "src": "ref-images/dental/mand_trigonid_m3_0.webp",
-        "width": 873,
-        "height": 916
+        "width": 762,
+        "height": 800
       },
       "1": {
         "src": "ref-images/dental/mand_trigonid_m3_1.webp",
-        "width": 873,
-        "height": 916
+        "width": 762,
+        "height": 800
       }
     },
     "location": {
       "src": "ref-images/dental/mand_trigonid_m3_loc.webp",
-      "width": 873,
-      "height": 916
+      "width": 762,
+      "height": 800
     }
   },
   "LM1C5": {
@@ -3195,39 +3195,39 @@
     "states": {
       "0": {
         "src": "ref-images/dental/LM1C5_0.webp",
-        "width": 873,
-        "height": 1003
+        "width": 696,
+        "height": 800
       },
       "1": {
         "src": "ref-images/dental/LM1C5_1.webp",
-        "width": 873,
-        "height": 1003
+        "width": 696,
+        "height": 800
       },
       "2": {
         "src": "ref-images/dental/LM1C5_2.webp",
-        "width": 873,
-        "height": 1003
+        "width": 696,
+        "height": 800
       },
       "3": {
         "src": "ref-images/dental/LM1C5_3.webp",
-        "width": 873,
-        "height": 1003
+        "width": 696,
+        "height": 800
       },
       "4": {
         "src": "ref-images/dental/LM1C5_4.webp",
-        "width": 873,
-        "height": 1003
+        "width": 696,
+        "height": 800
       },
       "5": {
         "src": "ref-images/dental/LM1C5_5.webp",
-        "width": 873,
-        "height": 1003
+        "width": 696,
+        "height": 800
       }
     },
     "location": {
       "src": "ref-images/dental/LM1C5_loc.webp",
-      "width": 873,
-      "height": 1003
+      "width": 696,
+      "height": 800
     }
   },
   "LM2C5": {
@@ -3235,39 +3235,39 @@
     "states": {
       "0": {
         "src": "ref-images/dental/LM2C5_0.webp",
-        "width": 873,
-        "height": 831
+        "width": 800,
+        "height": 762
       },
       "1": {
         "src": "ref-images/dental/LM2C5_1.webp",
-        "width": 873,
-        "height": 873
+        "width": 800,
+        "height": 800
       },
       "2": {
         "src": "ref-images/dental/LM2C5_2.webp",
-        "width": 873,
-        "height": 873
+        "width": 800,
+        "height": 800
       },
       "3": {
         "src": "ref-images/dental/LM2C5_3.webp",
-        "width": 873,
-        "height": 873
+        "width": 800,
+        "height": 800
       },
       "4": {
         "src": "ref-images/dental/LM2C5_4.webp",
-        "width": 873,
-        "height": 873
+        "width": 800,
+        "height": 800
       },
       "5": {
         "src": "ref-images/dental/LM2C5_5.webp",
-        "width": 873,
-        "height": 873
+        "width": 800,
+        "height": 800
       }
     },
     "location": {
       "src": "ref-images/dental/LM2C5_loc.webp",
-      "width": 873,
-      "height": 831
+      "width": 800,
+      "height": 762
     }
   },
   "mand_cusp5_m3": {
@@ -3275,39 +3275,39 @@
     "states": {
       "0": {
         "src": "ref-images/dental/mand_cusp5_m3_0.webp",
-        "width": 873,
-        "height": 831
+        "width": 800,
+        "height": 762
       },
       "1": {
         "src": "ref-images/dental/mand_cusp5_m3_1.webp",
-        "width": 873,
-        "height": 873
+        "width": 800,
+        "height": 800
       },
       "2": {
         "src": "ref-images/dental/mand_cusp5_m3_2.webp",
-        "width": 873,
-        "height": 873
+        "width": 800,
+        "height": 800
       },
       "3": {
         "src": "ref-images/dental/mand_cusp5_m3_3.webp",
-        "width": 873,
-        "height": 873
+        "width": 800,
+        "height": 800
       },
       "4": {
         "src": "ref-images/dental/mand_cusp5_m3_4.webp",
-        "width": 873,
-        "height": 873
+        "width": 800,
+        "height": 800
       },
       "5": {
         "src": "ref-images/dental/mand_cusp5_m3_5.webp",
-        "width": 873,
-        "height": 873
+        "width": 800,
+        "height": 800
       }
     },
     "location": {
       "src": "ref-images/dental/mand_cusp5_m3_loc.webp",
-      "width": 873,
-      "height": 831
+      "width": 800,
+      "height": 762
     }
   },
   "LM1C6": {
@@ -3315,39 +3315,39 @@
     "states": {
       "0": {
         "src": "ref-images/dental/LM1C6_0.webp",
-        "width": 873,
-        "height": 960
+        "width": 728,
+        "height": 800
       },
       "1": {
         "src": "ref-images/dental/LM1C6_1.webp",
-        "width": 873,
-        "height": 1047
+        "width": 667,
+        "height": 800
       },
       "2": {
         "src": "ref-images/dental/LM1C6_2.webp",
-        "width": 873,
-        "height": 1047
+        "width": 667,
+        "height": 800
       },
       "3": {
         "src": "ref-images/dental/LM1C6_3.webp",
-        "width": 873,
-        "height": 1047
+        "width": 667,
+        "height": 800
       },
       "4": {
         "src": "ref-images/dental/LM1C6_4.webp",
-        "width": 873,
-        "height": 1047
+        "width": 667,
+        "height": 800
       },
       "5": {
         "src": "ref-images/dental/LM1C6_5.webp",
-        "width": 873,
-        "height": 1047
+        "width": 667,
+        "height": 800
       }
     },
     "location": {
       "src": "ref-images/dental/LM1C6_loc.webp",
-      "width": 873,
-      "height": 960
+      "width": 728,
+      "height": 800
     }
   },
   "LM2C6": {
@@ -3355,39 +3355,39 @@
     "states": {
       "0": {
         "src": "ref-images/dental/LM2C6_0.webp",
-        "width": 873,
-        "height": 914
+        "width": 764,
+        "height": 800
       },
       "1": {
         "src": "ref-images/dental/LM2C6_1.webp",
-        "width": 873,
-        "height": 914
+        "width": 764,
+        "height": 800
       },
       "2": {
         "src": "ref-images/dental/LM2C6_2.webp",
-        "width": 873,
-        "height": 914
+        "width": 764,
+        "height": 800
       },
       "3": {
         "src": "ref-images/dental/LM2C6_3.webp",
-        "width": 873,
-        "height": 914
+        "width": 764,
+        "height": 800
       },
       "4": {
         "src": "ref-images/dental/LM2C6_4.webp",
-        "width": 873,
-        "height": 914
+        "width": 764,
+        "height": 800
       },
       "5": {
         "src": "ref-images/dental/LM2C6_5.webp",
-        "width": 873,
-        "height": 914
+        "width": 764,
+        "height": 800
       }
     },
     "location": {
       "src": "ref-images/dental/LM2C6_loc.webp",
-      "width": 873,
-      "height": 914
+      "width": 764,
+      "height": 800
     }
   },
   "mand_cusp6_m3": {
@@ -3395,39 +3395,39 @@
     "states": {
       "0": {
         "src": "ref-images/dental/mand_cusp6_m3_0.webp",
-        "width": 873,
-        "height": 914
+        "width": 764,
+        "height": 800
       },
       "1": {
         "src": "ref-images/dental/mand_cusp6_m3_1.webp",
-        "width": 873,
-        "height": 914
+        "width": 764,
+        "height": 800
       },
       "2": {
         "src": "ref-images/dental/mand_cusp6_m3_2.webp",
-        "width": 873,
-        "height": 914
+        "width": 764,
+        "height": 800
       },
       "3": {
         "src": "ref-images/dental/mand_cusp6_m3_3.webp",
-        "width": 873,
-        "height": 914
+        "width": 764,
+        "height": 800
       },
       "4": {
         "src": "ref-images/dental/mand_cusp6_m3_4.webp",
-        "width": 873,
-        "height": 914
+        "width": 764,
+        "height": 800
       },
       "5": {
         "src": "ref-images/dental/mand_cusp6_m3_5.webp",
-        "width": 873,
-        "height": 914
+        "width": 764,
+        "height": 800
       }
     },
     "location": {
       "src": "ref-images/dental/mand_cusp6_m3_loc.webp",
-      "width": 873,
-      "height": 914
+      "width": 764,
+      "height": 800
     }
   },
   "LM1C7": {
@@ -3435,34 +3435,34 @@
     "states": {
       "0": {
         "src": "ref-images/dental/LM1C7_0.webp",
-        "width": 873,
-        "height": 966
+        "width": 723,
+        "height": 800
       },
       "1": {
         "src": "ref-images/dental/LM1C7_1.webp",
-        "width": 873,
-        "height": 966
+        "width": 723,
+        "height": 800
       },
       "2": {
         "src": "ref-images/dental/LM1C7_2.webp",
-        "width": 873,
-        "height": 966
+        "width": 723,
+        "height": 800
       },
       "3": {
         "src": "ref-images/dental/LM1C7_3.webp",
-        "width": 873,
-        "height": 966
+        "width": 723,
+        "height": 800
       },
       "4": {
         "src": "ref-images/dental/LM1C7_4.webp",
-        "width": 873,
-        "height": 966
+        "width": 723,
+        "height": 800
       }
     },
     "location": {
       "src": "ref-images/dental/LM1C7_loc.webp",
-      "width": 873,
-      "height": 966
+      "width": 723,
+      "height": 800
     }
   },
   "LM2C7": {
@@ -3470,34 +3470,34 @@
     "states": {
       "0": {
         "src": "ref-images/dental/LM2C7_0.webp",
-        "width": 873,
-        "height": 895
+        "width": 780,
+        "height": 800
       },
       "1": {
         "src": "ref-images/dental/LM2C7_1.webp",
-        "width": 873,
-        "height": 895
+        "width": 780,
+        "height": 800
       },
       "2": {
         "src": "ref-images/dental/LM2C7_2.webp",
-        "width": 873,
-        "height": 895
+        "width": 780,
+        "height": 800
       },
       "3": {
         "src": "ref-images/dental/LM2C7_3.webp",
-        "width": 873,
-        "height": 895
+        "width": 780,
+        "height": 800
       },
       "4": {
         "src": "ref-images/dental/LM2C7_4.webp",
-        "width": 873,
-        "height": 895
+        "width": 780,
+        "height": 800
       }
     },
     "location": {
       "src": "ref-images/dental/LM2C7_loc.webp",
-      "width": 873,
-      "height": 895
+      "width": 780,
+      "height": 800
     }
   },
   "mand_cusp7_m3": {
@@ -3505,34 +3505,34 @@
     "states": {
       "0": {
         "src": "ref-images/dental/mand_cusp7_m3_0.webp",
-        "width": 873,
-        "height": 895
+        "width": 780,
+        "height": 800
       },
       "1": {
         "src": "ref-images/dental/mand_cusp7_m3_1.webp",
-        "width": 873,
-        "height": 895
+        "width": 780,
+        "height": 800
       },
       "2": {
         "src": "ref-images/dental/mand_cusp7_m3_2.webp",
-        "width": 873,
-        "height": 895
+        "width": 780,
+        "height": 800
       },
       "3": {
         "src": "ref-images/dental/mand_cusp7_m3_3.webp",
-        "width": 873,
-        "height": 895
+        "width": 780,
+        "height": 800
       },
       "4": {
         "src": "ref-images/dental/mand_cusp7_m3_4.webp",
-        "width": 873,
-        "height": 895
+        "width": 780,
+        "height": 800
       }
     },
     "location": {
       "src": "ref-images/dental/mand_cusp7_m3_loc.webp",
-      "width": 873,
-      "height": 895
+      "width": 780,
+      "height": 800
     }
   },
   "LM1EE": {
@@ -3540,29 +3540,29 @@
     "states": {
       "0": {
         "src": "ref-images/dental/LM1EE_0.webp",
-        "width": 873,
-        "height": 1200
+        "width": 582,
+        "height": 800
       },
       "1": {
         "src": "ref-images/dental/LM1EE_1.webp",
-        "width": 873,
-        "height": 1200
+        "width": 582,
+        "height": 800
       },
       "2": {
         "src": "ref-images/dental/LM1EE_2.webp",
-        "width": 873,
-        "height": 1200
+        "width": 582,
+        "height": 800
       },
       "3": {
         "src": "ref-images/dental/LM1EE_3.webp",
-        "width": 873,
-        "height": 1200
+        "width": 582,
+        "height": 800
       }
     },
     "location": {
       "src": "ref-images/dental/LM1EE_loc.webp",
-      "width": 873,
-      "height": 1200
+      "width": 582,
+      "height": 800
     }
   },
   "LM2EE": {
@@ -3570,29 +3570,29 @@
     "states": {
       "0": {
         "src": "ref-images/dental/LM2EE_0.webp",
-        "width": 873,
-        "height": 1200
+        "width": 582,
+        "height": 800
       },
       "1": {
         "src": "ref-images/dental/LM2EE_1.webp",
-        "width": 873,
-        "height": 1200
+        "width": 582,
+        "height": 800
       },
       "2": {
         "src": "ref-images/dental/LM2EE_2.webp",
-        "width": 873,
-        "height": 1200
+        "width": 582,
+        "height": 800
       },
       "3": {
         "src": "ref-images/dental/LM2EE_3.webp",
-        "width": 873,
-        "height": 1200
+        "width": 582,
+        "height": 800
       }
     },
     "location": {
       "src": "ref-images/dental/LM2EE_loc.webp",
-      "width": 873,
-      "height": 1200
+      "width": 582,
+      "height": 800
     }
   },
   "mand_ext_m3": {
@@ -3600,29 +3600,29 @@
     "states": {
       "0": {
         "src": "ref-images/dental/mand_ext_m3_0.webp",
-        "width": 873,
-        "height": 1200
+        "width": 582,
+        "height": 800
       },
       "1": {
         "src": "ref-images/dental/mand_ext_m3_1.webp",
-        "width": 873,
-        "height": 1200
+        "width": 582,
+        "height": 800
       },
       "2": {
         "src": "ref-images/dental/mand_ext_m3_2.webp",
-        "width": 873,
-        "height": 1200
+        "width": 582,
+        "height": 800
       },
       "3": {
         "src": "ref-images/dental/mand_ext_m3_3.webp",
-        "width": 873,
-        "height": 1200
+        "width": 582,
+        "height": 800
       }
     },
     "location": {
       "src": "ref-images/dental/mand_ext_m3_loc.webp",
-      "width": 873,
-      "height": 1200
+      "width": 582,
+      "height": 800
     }
   },
   "C1_lipping": {

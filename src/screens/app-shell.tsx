@@ -38,10 +38,11 @@ function useGuidePrompt() {
 
 export function Prototype() {
   useGuidePrompt()
-  const { config } = useConfig()
-  // Changing the policy or the seed starts a fresh Workup.
+  const { config, resetKey } = useConfig()
+  // Changing the policy, the scenario or the opening section starts a fresh
+  // Workup, as does "Start again" in Test mode.
   return (
-    <WorkupProvider key={`${config.incompletion}:${config.seed}`}>
+    <WorkupProvider key={`${config.incompletion}:${config.seed}:${config.start}:${resetKey}`}>
       <RailProvider>
         <AppShell />
       </RailProvider>

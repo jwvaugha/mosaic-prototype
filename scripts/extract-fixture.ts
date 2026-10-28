@@ -455,7 +455,15 @@ async function toWebp(srcFile: string, outRel: string): Promise<ImageAsset> {
     input = path.join(os.tmpdir(), `mosaic-${path.basename(srcFile)}.png`)
     execFileSync("sips", ["-s", "format", "png", srcFile, "--out", input], { stdio: "ignore" })
   }
-  const info = await sharp(input).flatten({ background: "#ffffff" }).webp({ quality: 85 }).toFile(outFile)
+  // Capped in size: the enlarged view is the largest place they appear. The
+  // FoRDent pencil drawings are grayscale and compress poorly, so they go
+  // smaller and lose their (empty) colour channels.
+  const pencil = outRel.startsWith("dental/")
+  let img = sharp(input)
+    .flatten({ background: "#ffffff" })
+    .resize({ width: pencil ? 800 : 1000, height: pencil ? 800 : 1000, fit: "inside", withoutEnlargement: true })
+  if (pencil) img = img.grayscale()
+  const info = await img.webp({ quality: pencil ? 70 : 78 }).toFile(outFile)
   return { src: `ref-images/${outRel}`, width: info.width, height: info.height }
 }
 

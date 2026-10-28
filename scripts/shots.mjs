@@ -21,13 +21,15 @@ const SCENARIOS = {
   "2.5.3-pre": { q: "?inc=flag-end&seed=midway&start=cranium-morph", steps: [["dismiss"], ["alt", "KeyF"], ["click", "button::-p-text(Analyze)"]] },
   "1-pre": { q: "?inc=skip-section&seed=midway&start=cranium-morph", steps: [["dismiss"], ["click", "button::-p-text(Analyze)"]] },
   "metric": { q: "?inc=skip-section&seed=midway&start=lower-limb-metric", steps: [["dismiss"]] },
-  "panel": { q: "?inc=flag-end&seed=midway&ref=D,C&auto=morph&start=cranium-morph", steps: [["dismiss"], ["click", "button::-p-text(Test mode)"]] },
-  "ref-A-morph": { q: "?inc=skip-section&seed=midway&ref=A,A&auto=morph,metric&start=cranium-morph", steps: [["dismiss"]] },
-  "ref-C-morph": { q: "?inc=skip-section&seed=midway&ref=C,C&auto=morph,metric&start=cranium-morph", steps: [["dismiss"]] },
-  "ref-D-morph": { q: "?inc=skip-section&seed=midway&ref=D,D&auto=morph,metric&start=cranium-morph", steps: [["dismiss"]] },
-  "ref-A-metric": { q: "?inc=skip-section&seed=midway&ref=A,A&auto=morph,metric&start=lower-limb-metric", steps: [["dismiss"]] },
-  "ref-C-metric": { q: "?inc=skip-section&seed=midway&ref=C,C&auto=morph,metric&start=lower-limb-metric", steps: [["dismiss"]] },
-  "ref-D-metric": { q: "?inc=skip-section&seed=midway&ref=D,D&auto=morph,metric&start=lower-limb-metric", steps: [["dismiss"]] },
+  "panel": { q: "?inc=flag-end&seed=midway&ref=D&auto=morph&start=cranium-morph", steps: [["dismiss"], ["click", "button::-p-text(Test mode)"]] },
+  "arrow-preview": { q: "?inc=skip-section&seed=fresh&ref=A&auto=morph,metric&start=cranium-morph", steps: [["dismiss"], ["key", "ArrowRight"], ["key", "ArrowRight"]] },
+  "dental-A": { q: "?inc=flag-end&seed=fresh&ref=A&auto=morph,metric&start=dentition-morph", steps: [["dismiss"], ["key", "Tab"], ["key", "Tab"], ["key", "Tab"], ["key", "ArrowRight"]] },
+  "ref-A-morph": { q: "?inc=skip-section&seed=midway&ref=A&auto=morph,metric&start=cranium-morph", steps: [["dismiss"]] },
+  "ref-C-morph": { q: "?inc=skip-section&seed=midway&ref=C&auto=morph,metric&start=cranium-morph", steps: [["dismiss"]] },
+  "ref-D-morph": { q: "?inc=skip-section&seed=midway&ref=D&auto=morph,metric&start=cranium-morph", steps: [["dismiss"]] },
+  "ref-A-metric": { q: "?inc=skip-section&seed=midway&ref=A&auto=morph,metric&start=lower-limb-metric", steps: [["dismiss"]] },
+  "ref-C-metric": { q: "?inc=skip-section&seed=midway&ref=C&auto=morph,metric&start=lower-limb-metric", steps: [["dismiss"]] },
+  "ref-D-metric": { q: "?inc=skip-section&seed=midway&ref=D&auto=morph,metric&start=lower-limb-metric", steps: [["dismiss"]] },
 }
 
 const launch = () =>

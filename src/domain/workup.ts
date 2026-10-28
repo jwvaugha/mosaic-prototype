@@ -175,11 +175,12 @@ function reduce(state: WorkupState, action: Action): WorkupState {
       })
     }
     case "clear":
-      return patch(state, action.id, { value: null, acknowledged: false })
+      // Back to blank: no value, not Skipped.
+      return patch(state, action.id, { value: null, skipped: false, acknowledged: false })
     case "toggleSkip": {
       const f = state.fields[action.id]
-      // Only a blank field can be Skipped; a value has to be cleared first.
-      if (f.value !== null) return state
+      // Skipping a scored field clears its value (the keyboard offers Undo).
+      if (f.value !== null) return patch(state, action.id, { value: null, skipped: true, acknowledged: false })
       return patch(state, action.id, { skipped: !f.skipped })
     }
     case "toggleSkipBone": {

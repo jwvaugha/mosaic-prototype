@@ -8,7 +8,8 @@ import type { IncompletionId } from "@/policies/incompletion"
 export type RefLayout = "A" | "C" | "D"
 
 export type TestConfig = {
-  refLayout: Record<Modality, RefLayout>
+  // One layout for both modalities.
+  refLayout: RefLayout
   // Annotation 9 on Explorations: C on demand, A or D for auto-show.
   refOnDemandLayout: "same" | "C"
   autoShow: Record<Modality, boolean>
@@ -21,7 +22,7 @@ export type TestConfig = {
 }
 
 export const DEFAULT_CONFIG: TestConfig = {
-  refLayout: { morph: "A", metric: "A" },
+  refLayout: "A",
   refOnDemandLayout: "same",
   autoShow: { morph: true, metric: true },
   incompletion: "skip-section",
@@ -33,10 +34,10 @@ const LAYOUTS = ["A", "C", "D"]
 const INCOMPLETION = ["skip-section", "flag-section", "flag-end"]
 const SEEDS = ["fresh", "midway"]
 
-// ?ref=A,D&ondemand=C&auto=morph,metric&inc=flag-end&hints=0&seed=midway
+// ?ref=D&ondemand=C&auto=morph,metric&inc=flag-end&hints=0&seed=midway
 export function toQuery(c: TestConfig): string {
   const p = new URLSearchParams()
-  p.set("ref", `${c.refLayout.morph},${c.refLayout.metric}`)
+  p.set("ref", c.refLayout)
   if (c.refOnDemandLayout === "C") p.set("ondemand", "C")
   p.set("auto", (["morph", "metric"] as const).filter((m) => c.autoShow[m]).join(",") || "none")
   p.set("inc", c.incompletion)
@@ -49,9 +50,9 @@ export function toQuery(c: TestConfig): string {
 export function fromQuery(query: string, base: TestConfig = DEFAULT_CONFIG): TestConfig {
   const p = new URLSearchParams(query)
   const c = structuredClone(base)
-  const [morph, metric] = (p.get("ref") ?? "").split(",")
-  if (LAYOUTS.includes(morph)) c.refLayout.morph = morph as RefLayout
-  if (LAYOUTS.includes(metric)) c.refLayout.metric = metric as RefLayout
+  // Older links carried one layout per modality ("A,C"); the first wins.
+  const ref = (p.get("ref") ?? "").split(",")[0]
+  if (LAYOUTS.includes(ref)) c.refLayout = ref as RefLayout
   if (p.has("ondemand")) c.refOnDemandLayout = p.get("ondemand") === "C" ? "C" : "same"
   if (p.has("auto")) {
     const auto = p.get("auto")!.split(",")
@@ -68,7 +69,7 @@ export function fromQuery(query: string, base: TestConfig = DEFAULT_CONFIG): Tes
 }
 
 // Bumped when defaults change, so earlier visits don't keep stale settings.
-const STORAGE_KEY = "mosaic-prototype-config-v2"
+const STORAGE_KEY = "mosaic-prototype-config-v3"
 
 export function loadConfig(): TestConfig {
   let stored = DEFAULT_CONFIG

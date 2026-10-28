@@ -7,12 +7,17 @@ type ConfigContextValue = {
   config: TestConfig
   policy: IncompletionPolicy
   setConfig: (update: (c: TestConfig) => TestConfig) => void
+  // Starts the Workup again with the current setup.
+  resetKey: number
+  resetWorkup: () => void
 }
 
 const ConfigContext = createContext<ConfigContextValue | null>(null)
 
 export function ConfigProvider({ children }: { children: ReactNode }) {
   const [config, set] = useState(loadConfig)
+  const [resetKey, setResetKey] = useState(0)
+  const resetWorkup = useCallback(() => setResetKey((k) => k + 1), [])
   const setConfig = useCallback((update: (c: TestConfig) => TestConfig) => {
     set((c) => {
       const next = update(c)
@@ -22,7 +27,7 @@ export function ConfigProvider({ children }: { children: ReactNode }) {
   }, [])
   setLogSetup(toQuery(config).replaceAll("&", " ").replaceAll("%2C", ","))
   return (
-    <ConfigContext.Provider value={{ config, policy: POLICIES[config.incompletion], setConfig }}>
+    <ConfigContext.Provider value={{ config, policy: POLICIES[config.incompletion], setConfig, resetKey, resetWorkup }}>
       {children}
     </ConfigContext.Provider>
   )

@@ -5,6 +5,7 @@ import { MetricVariableRow } from "@/components/mosaic/metric-variable-row"
 import { MorphVariableRow } from "@/components/mosaic/morph-variable-row"
 import { fixture } from "@/data"
 import type { FieldStatus } from "@/domain/workup"
+import { PreviewProvider } from "@/workup/preview-context"
 
 // Every MOSAIC component in every state, in isolation (spec: components are
 // checked here before they're used in a screen).
@@ -39,6 +40,7 @@ const metricCases: { id: string; status: FieldStatus; value: string | null; focu
 
 export function Parts() {
   return (
+    <PreviewProvider>
     <main className="flex flex-col gap-10 p-8">
       <header className="flex flex-col gap-1">
         <a className="text-sm text-muted-foreground" href="#/">
@@ -77,6 +79,7 @@ export function Parts() {
             focused={!!c.focused}
             hasReference
             onSelect={noop}
+            onClear={noop}
             onFocus={noop}
             actions={<KeyHint keys="-" label={c.status === "skipped" ? "Un-skip" : "Skip"} />}
           />
@@ -102,5 +105,6 @@ export function Parts() {
         ))}
       </Group>
     </main>
+    </PreviewProvider>
   )
 }

@@ -1,6 +1,7 @@
 import { act, render, screen, within } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { beforeEach, describe, expect, it } from "vitest"
+import { Toaster } from "@/components/ui/sonner"
 import { TooltipProvider } from "@/components/ui/tooltip"
 import { ConfigProvider } from "@/config/config-context"
 import { fieldIds } from "@/domain/workup"
@@ -19,6 +20,7 @@ function setup(query: string) {
       <ConfigProvider>
         <Prototype />
       </ConfigProvider>
+      <Toaster />
     </TooltipProvider>,
   )
   return userEvent.setup()
@@ -31,7 +33,7 @@ const focusedRow = () => document.activeElement?.closest<HTMLElement>("[data-var
 async function focusFirst(user: ReturnType<typeof userEvent.setup>) {
   // Clicking a state would score it, so focus the group directly.
   const first = fieldIds(MORPH)[0]
-  act(() => document.getElementById(`field-${first}`)!.focus())
+  act(() => document.getElementById(`field-${first}`)!.querySelector<HTMLElement>('[role="radio"]')!.focus())
   await user.keyboard("{Escape}")
   return first
 }
@@ -93,10 +95,13 @@ describe("keyboard: 1 · Skip", () => {
     expect(statusOf("ZS")).toBe("Blank")
   })
 
-  it("never types a dash into a Metric field", async () => {
+  it("never types a dash: - Skips a Metric field mid-entry, and Undo brings the value back", async () => {
     const user = setup("inc=skip-section&start=lower-limb-metric")
-    await user.keyboard("4-5")
-    expect(screen.getByLabelText("Maximum length")).toHaveValue("45")
+    await user.keyboard("450-")
+    expect(statusOf("FemXL")).toBe("Skipped")
+    await user.click(await screen.findByRole("button", { name: "Undo" }))
+    expect(statusOf("FemXL")).toBe("Recorded")
+    expect(screen.getByLabelText("Maximum length")).toHaveValue("450")
   })
 })
 
@@ -130,5 +135,40 @@ describe("selecting a row by clicking", () => {
     const user = setup("inc=skip-section&start=lower-limb-metric")
     await user.click(within(row("TibPEB")).getByText("Proximal epiphyseal breadth"))
     expect(document.activeElement).toBe(screen.getByLabelText("Proximal epiphyseal breadth"))
+  })
+})
+
+describe("changing a score", () => {
+  it("Skips a scored Morph field with -, and ⌫ clears a score", async () => {
+    const user = setup("inc=skip-section")
+    await focusFirst(user)
+    await user.keyboard("2")
+    await user.keyboard("{Shift>}{Tab}{/Shift}")
+    expect(statusOf("NAS")).toBe("Recorded")
+    await user.keyboard("{Backspace}")
+    expect(statusOf("NAS")).toBe("Blank")
+    await user.keyboard("2{Shift>}{Tab}{/Shift}-")
+    expect(statusOf("NAS")).toBe("Skipped")
+    await user.keyboard("{Shift>}{Tab}{/Shift}{Backspace}")
+    expect(statusOf("NAS")).toBe("Blank")
+  })
+
+  it("clicking the selected state again clears it", async () => {
+    const user = setup("inc=flag-end")
+    const state2 = () => within(row("NAW")).getByRole("radio", { name: /^2/ })
+    await user.click(state2())
+    expect(statusOf("NAW")).toBe("Recorded")
+    await user.click(state2())
+    expect(statusOf("NAW")).toBe("Blank")
+  })
+
+  it("arrow keys preview a state; Enter picks it and moves on", async () => {
+    const user = setup("inc=flag-end")
+    await focusFirst(user)
+    await user.keyboard("{ArrowRight}")
+    expect(within(row("NAS")).getByRole("radio", { name: /^2/ })).toHaveAttribute("data-previewed")
+    await user.keyboard("{Enter}")
+    expect(within(row("NAS")).getByRole("radio", { name: /^2/ })).toHaveAttribute("aria-checked", "true")
+    expect(focusedRow()).toBe("NAW")
   })
 })

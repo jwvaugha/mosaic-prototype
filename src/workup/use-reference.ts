@@ -17,7 +17,7 @@ export function useReference(): { data: ReferenceData | null; layout: RefLayout;
   }
   const v = variable(state.focus.id)
   const auto = config.autoShow[v.modality]
-  const layout = config.refOnDemandLayout === "C" && !auto ? "C" : config.refLayout[v.modality]
+  const layout = config.refOnDemandLayout === "C" && !auto ? "C" : config.refLayout
   return {
     data: { variable: v, entry: imageManifest[v.id] ?? { kind: "none" }, value: state.fields[v.id].value },
     layout,

@@ -10,6 +10,7 @@ import type { IncompletionPolicy } from "./incompletion"
 export function rowAffordances({
   policy,
   name,
+  modality,
   field,
   status,
   focused,
@@ -19,6 +20,7 @@ export function rowAffordances({
 }: {
   policy: IncompletionPolicy
   name: string
+  modality: "metric" | "morph"
   field: FieldState
   status: FieldStatus
   focused: boolean
@@ -26,11 +28,16 @@ export function rowAffordances({
   onToggleFlag: () => void
   onFlagReason: (r: FlagReason | undefined) => void
 }): { actions?: ReactNode; gutter?: ReactNode } {
-  const blankOrSkipped = status === "unreached" || status === "skipped"
-  const actions =
-    policy.allowSkip && blankOrSkipped && showKeyHints ? (
-      <KeyHint keys="-" label={status === "skipped" ? "Un-skip" : "Skip"} />
-    ) : undefined
+  // Any field can be Skipped (a score is cleared, with Undo), and a scored
+  // Morph field can be cleared back to blank. Metric values clear by deleting
+  // the text.
+  const scored = field.value !== null
+  const actions = showKeyHints ? (
+    <>
+      {scored && modality === "morph" && <KeyHint keys="⌫" label="Clear" />}
+      {policy.allowSkip && <KeyHint keys="-" label={status === "skipped" ? "Un-skip" : "Skip"} />}
+    </>
+  ) : undefined
   const gutter = policy.allowFlag ? (
     <ComeBackFlag
       name={name}

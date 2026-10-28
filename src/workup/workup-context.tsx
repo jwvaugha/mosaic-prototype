@@ -10,6 +10,7 @@ import {
 import { useConfig } from "@/config/config-context"
 import { initialState, reducer, type Action, type Focus, type WorkupState } from "@/domain/workup"
 import { logEvent } from "@/lib/event-log"
+import { PreviewProvider } from "./preview-context"
 
 // Holds the Workup reducer and a registry of focus targets. Focus lives in
 // state; whenever it changes, the matching DOM element is focused and
@@ -26,6 +27,16 @@ type WorkupContextValue = {
 }
 
 const WorkupContext = createContext<WorkupContextValue | null>(null)
+
+// A Morph field's focus target is its state group; focus goes to the
+// selected state (or the first) so arrow keys and the preview start there.
+function focusInto(el: HTMLElement) {
+  const target =
+    el.getAttribute("role") === "radiogroup"
+      ? (el.querySelector<HTMLElement>('[role="radio"][aria-checked="true"]') ?? el.querySelector<HTMLElement>('[role="radio"]') ?? el)
+      : el
+  target.focus({ preventScroll: true })
+}
 
 export function focusKey(f: Focus): string | null {
   if (!f) return null
@@ -61,7 +72,7 @@ export function WorkupProvider({ children }: { children: ReactNode }) {
       // A row can swap its focus target while focused (Skip ↔ un-Skip);
       // keep focus on the replacement instead of dropping it to <body>.
       if (k === currentKey.current && (!document.activeElement || document.activeElement === document.body)) {
-        el.focus({ preventScroll: true })
+        focusInto(el)
       }
     },
     [],
@@ -72,17 +83,21 @@ export function WorkupProvider({ children }: { children: ReactNode }) {
     const el = elements.current.get(key)
     if (!el) return
     if (el !== document.activeElement && !el.contains(document.activeElement)) {
-      el.focus({ preventScroll: true })
+      focusInto(el)
     }
     el.closest("[data-variable], [data-continue]")?.scrollIntoView({ block: "nearest" })
   }, [key, state.section])
 
   const focusNow = useCallback((k: string) => {
     const el = elements.current.get(k)
-    if (el && el !== document.activeElement && !el.contains(document.activeElement)) el.focus({ preventScroll: true })
+    if (el && el !== document.activeElement && !el.contains(document.activeElement)) focusInto(el)
   }, [])
 
-  return <WorkupContext.Provider value={{ state, dispatch, register, focusNow }}>{children}</WorkupContext.Provider>
+  return (
+    <WorkupContext.Provider value={{ state, dispatch, register, focusNow }}>
+      <PreviewProvider>{children}</PreviewProvider>
+    </WorkupContext.Provider>
+  )
 }
 
 export function useWorkup() {

@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react"
+import { usePreviewFor } from "@/workup/preview-context"
+import { useWorkup } from "@/workup/workup-context"
 import {
   definitionOf,
   Facts,
@@ -17,10 +18,17 @@ import {
 //   D  Bottom dock: a strip across the bottom of the pane
 // Each takes the same data; only the arrangement differs.
 
-function usePreview(id: string) {
-  const [preview, setPreview] = useState<string | null>(null)
-  useEffect(() => setPreview(null), [id])
-  return [preview, setPreview] as const
+// The preview is shared with the row's state buttons (preview-context), so
+// arrowing through states in the row shows them here, and hovering here
+// outlines them in the row. Clicking a drawing selects that state.
+function useStates(id: string) {
+  const p = usePreviewFor(id)
+  const { dispatch } = useWorkup()
+  return {
+    preview: p.code,
+    onPreview: (code: string | null) => (code ? p.show(code, "hover") : p.clear("hover")),
+    onSelect: (code: string) => dispatch({ type: "enter", id, value: code }),
+  }
 }
 
 const factsOf = (d: ReferenceData): [string, string][] => {
@@ -35,7 +43,8 @@ const factsOf = (d: ReferenceData): [string, string][] => {
 
 export function DockedColumn({ data, onClose }: { data: ReferenceData; onClose: () => void }) {
   const v = data.variable
-  const [preview, setPreview] = usePreview(v.id)
+  const states = useStates(v.id)
+  const preview = states.preview
   return (
     <aside className="flex w-[360px] shrink-0 flex-col gap-4 overflow-y-auto border-l bg-background p-6" aria-label="Reference">
       <PanelHeader label="Reference" onClose={onClose} />
@@ -46,7 +55,7 @@ export function DockedColumn({ data, onClose }: { data: ReferenceData; onClose: 
       {v.modality === "morph" ? (
         <>
           <LargeState data={data} preview={preview} className="h-[220px]" />
-          <StateStrip data={data} preview={preview} onPreview={setPreview} thumbClassName="h-24" />
+          <StateStrip data={data} preview={preview} onPreview={states.onPreview} onSelect={states.onSelect} thumbClassName="h-24" />
           <p className="text-xs text-muted-foreground">{morphHint}</p>
         </>
       ) : (
@@ -64,7 +73,8 @@ export function DockedColumn({ data, onClose }: { data: ReferenceData; onClose: 
 
 export function InlineExpansion({ data, onClose }: { data: ReferenceData; onClose: () => void }) {
   const v = data.variable
-  const [preview, setPreview] = usePreview(v.id)
+  const states = useStates(v.id)
+  const preview = states.preview
   const wide = data.entry.kind === "figure" && data.entry.figure.width / data.entry.figure.height > 2
   return (
     <div className="w-[760px] pb-2 pl-7">
@@ -79,7 +89,7 @@ export function InlineExpansion({ data, onClose }: { data: ReferenceData; onClos
           <PanelHeader label={`Reference · ${v.code}`} onClose={onClose} />
           {v.modality === "morph" && (
             <>
-              <StateStrip data={data} preview={preview} onPreview={setPreview} thumbClassName="h-20" />
+              <StateStrip data={data} preview={preview} onPreview={states.onPreview} onSelect={states.onSelect} thumbClassName="h-20" />
               <p className="text-xs text-muted-foreground">{morphHint}</p>
             </>
           )}
@@ -96,7 +106,8 @@ export const DOCK_HEIGHT = 260
 
 export function BottomDock({ data, onClose }: { data: ReferenceData; onClose: () => void }) {
   const v = data.variable
-  const [preview, setPreview] = usePreview(v.id)
+  const states = useStates(v.id)
+  const preview = states.preview
   return (
     <div
       className="absolute inset-x-0 bottom-0 z-10 flex gap-5 border-t bg-background px-10 pt-5 pb-6 shadow-[0_-4px_12px_-4px_rgb(12_23_62/0.08)]"
@@ -112,7 +123,7 @@ export function BottomDock({ data, onClose }: { data: ReferenceData; onClose: ()
         <PanelHeader label={`Reference · ${v.name} (${v.code})`} onClose={onClose} />
         {v.modality === "morph" ? (
           <>
-            <StateStrip data={data} preview={preview} onPreview={setPreview} thumbClassName="h-[104px]" />
+            <StateStrip data={data} preview={preview} onPreview={states.onPreview} onSelect={states.onSelect} thumbClassName="h-[104px]" />
             <p className="line-clamp-2 text-sm">{definitionOf(v)}</p>
           </>
         ) : (

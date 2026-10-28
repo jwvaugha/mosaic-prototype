@@ -23,8 +23,9 @@ dist-ssr
 *.sln
 *.sw?
 
-# Reference images: the MSU drawings (mms/) are cleared for the public site
-# (2026-10-28). Everything else stays local until cleared; the Pages build
+# Reference images: the MSU (mms/) and FoRDent (dental/) drawings are cleared
+# for the public site (2026-10-28). Everything else stays local until cleared; the Pages build
 # draws placeholders for it.
 public/ref-images/*
 !public/ref-images/mms/
+!public/ref-images/dental/

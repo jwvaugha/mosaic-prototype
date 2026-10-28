@@ -1,41 +1,113 @@
-import { Copy, FlaskConical, Link, RotateCcw } from "lucide-react"
+import { BookImage, Copy, Flag, FlaskConical, Link, RotateCcw, RefreshCw, ScrollText } from "lucide-react"
 import { useEffect, useState, useSyncExternalStore, type ReactNode } from "react"
 import { toast } from "sonner"
+import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Kbd } from "@/components/ui/kbd"
 import { Label } from "@/components/ui/label"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
-import { Separator } from "@/components/ui/separator"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from "@/components/ui/sheet"
 import { Switch } from "@/components/ui/switch"
 import { useConfig } from "@/config/config-context"
 import { DEFAULT_CONFIG, type RefLayout, type TestConfig } from "@/config/test-config"
+import { fixture, localImages } from "@/data"
 import { SEEDS, type SeedId } from "@/data/seeds"
-import { localImages } from "@/data"
 import { POLICIES, type IncompletionId } from "@/policies/incompletion"
 import { clearEvents, getEvents, subscribeEvents } from "@/lib/event-log"
 import { cn } from "@/lib/utils"
 
-// Prototype controls (not part of MOSAIC). Opened with the pill in the
-// bottom-left corner or ⌃⌥T. Everything here is stored in the URL, so "Copy
-// link" shares the exact setup.
+// Prototype controls (not part of MOSAIC), opened with the pill in the
+// bottom-left corner or ⌃⌥T. Three groups:
+//   Reference panel            how the reference appears (layout, auto-show)
+//   Skipping and coming back   the incomplete-fields version being tried
+//   Testing                    scenario, opening section, resets, session log
+// Everything but the log is kept in the URL, so "Copy link" shares the setup.
 
 const LAYOUTS: { id: RefLayout; label: string; hint: string }[] = [
-  { id: "A", label: "A · Docked column", hint: "360 px column right of the rows; never moves" },
-  { id: "C", label: "C · Inline expansion", hint: "Opens under the focused row; rows below move" },
-  { id: "D", label: "D · Bottom dock", hint: "Strip across the bottom; fewer rows visible" },
+  { id: "A", label: "Docked column", hint: "Beside the rows on the right; never moves" },
+  { id: "C", label: "Inline", hint: "Opens under the field; the page keeps your place" },
+  { id: "D", label: "Bottom dock", hint: "A strip along the bottom of the screen" },
 ]
 
-function Group({ title, children }: { title: string; children: ReactNode }) {
+const VERSIONS: Record<IncompletionId, string> = {
+  "skip-section": "Press − to Skip a field. Leaving a section with blanks asks to Skip them.",
+  "flag-section": "No Skip. ⌥F marks a field to come back to; leaving a section lists them.",
+  "flag-end": "No Skip. ⌥F marks a field to come back to; they're listed only before the Analysis.",
+}
+
+function Group({ icon, title, note, children }: { icon: ReactNode; title: string; note?: string; children: ReactNode }) {
   return (
-    <section className="flex flex-col gap-3">
-      <h3 className="text-xs font-medium tracking-wide text-muted-foreground uppercase">{title}</h3>
+    <section className="flex flex-col gap-4 rounded-xl border bg-background p-4">
+      <header className="flex items-center gap-2">
+        <span className="flex size-7 items-center justify-center rounded-md bg-muted text-muted-foreground [&_svg]:size-4">
+          {icon}
+        </span>
+        <h3 className="text-sm font-semibold">{title}</h3>
+        {note && (
+          <Badge variant="outline" className="ml-auto font-normal text-muted-foreground">
+            {note}
+          </Badge>
+        )}
+      </header>
       {children}
     </section>
   )
 }
 
-function Cards<T extends string>({
+function Field({ label, children }: { label: string; children: ReactNode }) {
+  return (
+    <div className="flex flex-col gap-2">
+      <span className="text-xs font-medium text-muted-foreground">{label}</span>
+      {children}
+    </div>
+  )
+}
+
+function Toggle({ label, checked, onChange }: { label: string; checked: boolean; onChange: (v: boolean) => void }) {
+  return (
+    <label className="flex items-center justify-between gap-3 text-sm">
+      {label}
+      <Switch checked={checked} onCheckedChange={onChange} />
+    </label>
+  )
+}
+
+// Compact segmented cards: one row of choices, each with a one-line hint.
+function Segments<T extends string>({
+  name,
+  value,
+  options,
+  onChange,
+}: {
+  name: string
+  value: T
+  options: { id: T; label: string; hint?: string }[]
+  onChange: (v: T) => void
+}) {
+  return (
+    <RadioGroup value={value} onValueChange={(v) => onChange(v as T)} className="grid grid-cols-3 gap-1.5">
+      {options.map((o) => (
+        <Label
+          key={o.id}
+          htmlFor={`${name}-${o.id}`}
+          className={cn(
+            "flex cursor-pointer flex-col items-start gap-1 rounded-lg border p-2.5 font-normal",
+            value === o.id && "border-primary bg-primary/5",
+          )}
+        >
+          <span className="flex items-center gap-2">
+            <RadioGroupItem id={`${name}-${o.id}`} value={o.id} />
+            <span className="text-sm font-medium">{o.label}</span>
+          </span>
+          {o.hint && <span className="text-xs leading-snug text-muted-foreground">{o.hint}</span>}
+        </Label>
+      ))}
+    </RadioGroup>
+  )
+}
+
+function Choices<T extends string>({
   name,
   value,
   options,
@@ -69,7 +141,7 @@ function Cards<T extends string>({
 }
 
 export function TestModePanel({ fieldSummary }: { fieldSummary: string }) {
-  const { config, setConfig } = useConfig()
+  const { config, setConfig, resetWorkup } = useConfig()
   const [open, setOpen] = useState(false)
   const events = useSyncExternalStore(subscribeEvents, getEvents)
   const count = (kind: string) => events.filter((e) => e.kind === kind).length
@@ -85,12 +157,13 @@ export function TestModePanel({ fieldSummary }: { fieldSummary: string }) {
     return () => window.removeEventListener("keydown", onKey)
   }, [])
 
-  const set = (update: (c: TestConfig) => TestConfig, resets = false) => {
+  const set = (update: (c: TestConfig) => TestConfig, restarts = false) => {
     setConfig(update)
-    if (resets) toast("Workup reset for the new setting.")
+    if (restarts) toast("Workup started again for the new setting.")
   }
 
   const minutes = events.length ? ((events.at(-1)!.t - events[0].t) / 60000).toFixed(1) : "0"
+  const layout = LAYOUTS.find((l) => l.id === config.refLayout)!
 
   return (
     <>
@@ -101,138 +174,163 @@ export function TestModePanel({ fieldSummary }: { fieldSummary: string }) {
         className="fixed bottom-4 left-4 z-30 flex items-center gap-2 rounded-full border border-dashed border-primary bg-background px-3 py-1.5 text-xs font-medium text-primary shadow-sm"
       >
         <FlaskConical className="size-3.5" />
-        Test mode · {POLICIES[config.incompletion].short} · {config.refLayout.morph}/{config.refLayout.metric}
+        Test mode · {POLICIES[config.incompletion].short} · {layout.label}
         <Kbd className="ml-1">⌃⌥T</Kbd>
       </button>
 
       <Sheet open={open} onOpenChange={setOpen}>
-        <SheetContent side="left" className="w-[400px] gap-0 overflow-y-auto border-r-2 border-dashed border-r-primary sm:max-w-[400px]">
-          <SheetHeader className="border-b">
+        <SheetContent
+          side="left"
+          className="w-[420px] gap-0 overflow-y-auto border-r-2 border-dashed border-r-primary bg-muted/40 sm:max-w-[420px]"
+        >
+          <SheetHeader className="border-b bg-background">
             <SheetTitle className="flex items-center gap-2">
               <FlaskConical className="size-4" /> Prototype controls
             </SheetTitle>
             <SheetDescription>
-              Not part of MOSAIC. Switch between the directions being compared; the URL keeps the setup.
+              Not part of MOSAIC. The link keeps the setup, so you can share it.
             </SheetDescription>
           </SheetHeader>
 
-          <div className="flex flex-col gap-6 p-4">
-            <Group title="Reference panel · Morphological">
-              <Cards
-                name="ref-morph"
-                value={config.refLayout.morph}
-                options={LAYOUTS}
-                onChange={(v) => set((c) => ({ ...c, refLayout: { ...c.refLayout, morph: v } }))}
+          <div className="flex flex-col gap-3 p-3">
+            <Group icon={<BookImage />} title="Reference panel">
+              <Field label="Layout">
+                <Segments
+                  name="layout"
+                  value={config.refLayout}
+                  options={LAYOUTS}
+                  onChange={(v) => set((c) => ({ ...c, refLayout: v }))}
+                />
+              </Field>
+              <Field label="Show automatically for">
+                <Toggle
+                  label="Metric fields"
+                  checked={config.autoShow.metric}
+                  onChange={(v) => set((c) => ({ ...c, autoShow: { ...c.autoShow, metric: v } }))}
+                />
+                <Toggle
+                  label="Morphological fields"
+                  checked={config.autoShow.morph}
+                  onChange={(v) => set((c) => ({ ...c, autoShow: { ...c.autoShow, morph: v } }))}
+                />
+              </Field>
+              <Toggle
+                label="Open inline when opened by hand (? or the row button)"
+                checked={config.refOnDemandLayout === "C"}
+                onChange={(v) => set((c) => ({ ...c, refOnDemandLayout: v ? "C" : "same" }))}
               />
-            </Group>
-            <Group title="Reference panel · Metric">
-              <Cards
-                name="ref-metric"
-                value={config.refLayout.metric}
-                options={LAYOUTS}
-                onChange={(v) => set((c) => ({ ...c, refLayout: { ...c.refLayout, metric: v } }))}
-              />
-            </Group>
-            <Group title="Reference panel · behaviour">
-              <Cards
-                name="ondemand"
-                value={config.refOnDemandLayout}
-                options={[
-                  { id: "same", label: "Same layout when opened by hand" },
-                  { id: "C", label: "Inline (C) when opened by hand", hint: "Auto-show keeps the layout above (Explorations note 9)" },
-                ]}
-                onChange={(v) => set((c) => ({ ...c, refOnDemandLayout: v }))}
-              />
-              {(["morph", "metric"] as const).map((m) => (
-                <label key={m} className="flex items-center justify-between text-sm">
-                  Auto-show for {m === "morph" ? "Morphological" : "Metric"} fields
-                  <Switch
-                    checked={config.autoShow[m]}
-                    onCheckedChange={(v) => set((c) => ({ ...c, autoShow: { ...c.autoShow, [m]: v } }))}
-                  />
-                </label>
-              ))}
               <p className="text-xs text-muted-foreground">
                 {localImages
                   ? "Showing every reference image (local build)."
-                  : "Morphological drawings are MSU's own. Metric figures (DCP 2.0) are placeholders at their real sizes until they're cleared."}
+                  : "MSU and FoRDent drawings are shown. Metric figures from DCP 2.0 are grey placeholders until cleared."}
               </p>
             </Group>
 
-            <Separator />
-
-            <Group title="Incomplete fields">
-              <Cards
-                name="inc"
+            <Group icon={<Flag />} title="Skipping and coming back" note="Restarts the Workup">
+              <Choices
+                name="version"
                 value={config.incompletion}
-                options={(Object.keys(POLICIES) as IncompletionId[]).map((id) => ({ id, label: POLICIES[id].label }))}
+                options={(Object.keys(POLICIES) as IncompletionId[]).map((id) => ({
+                  id,
+                  label: POLICIES[id].label,
+                  hint: VERSIONS[id],
+                }))}
                 onChange={(v) => set((c) => ({ ...c, incompletion: v }), true)}
               />
-            </Group>
-
-            <Group title="Scenario">
-              <Cards
-                name="seed"
-                value={config.seed}
-                options={(Object.keys(SEEDS) as SeedId[]).map((id) => ({ id, label: SEEDS[id].label }))}
-                onChange={(v) => set((c) => ({ ...c, seed: v }), true)}
+              <Toggle
+                label="Show keyboard hints on rows"
+                checked={config.showKeyHints}
+                onChange={(v) => set((c) => ({ ...c, showKeyHints: v }))}
               />
-              <label className="flex items-center justify-between text-sm">
-                Show keyboard hints
-                <Switch checked={config.showKeyHints} onCheckedChange={(v) => set((c) => ({ ...c, showKeyHints: v }))} />
-              </label>
             </Group>
 
-            <Separator />
-
-            <Group title="Session log">
-              <dl className="grid grid-cols-2 gap-2 text-sm">
-                {[
-                  ["Keys handled", count("key")],
-                  ["Clicks", count("click")],
-                  ["Dialogs shown", count("dialog")],
-                  ["Minutes", minutes],
-                ].map(([k, v]) => (
-                  <div key={k} className="rounded-lg border p-2">
-                    <dt className="text-xs text-muted-foreground">{k}</dt>
-                    <dd className="text-lg font-semibold tabular-nums">{v}</dd>
-                  </div>
-                ))}
-              </dl>
-              <p className="text-xs text-muted-foreground">{fieldSummary}</p>
+            <Group icon={<ScrollText />} title="Testing">
+              <Field label="Scenario (restarts the Workup)">
+                <Choices
+                  name="seed"
+                  value={config.seed}
+                  options={(Object.keys(SEEDS) as SeedId[]).map((id) => ({ id, label: SEEDS[id].label }))}
+                  onChange={(v) => set((c) => ({ ...c, seed: v }), true)}
+                />
+              </Field>
+              <Field label="Open on (restarts the Workup)">
+                <Select
+                  value={config.start ?? fixture.sections[0].id}
+                  onValueChange={(v) => set((c) => ({ ...c, start: v }), true)}
+                >
+                  <SelectTrigger className="w-full">
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {fixture.sections.map((s) => (
+                      <SelectItem key={s.id} value={s.id}>
+                        {s.title}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </Field>
               <div className="flex flex-wrap gap-2">
                 <Button
                   size="sm"
                   variant="outline"
                   onClick={() => {
-                    navigator.clipboard.writeText(JSON.stringify({ config, fields: fieldSummary, events }, null, 2))
-                    toast("Session log copied.")
+                    resetWorkup()
+                    toast("Workup started again.")
                   }}
                 >
-                  <Copy /> Copy as JSON
+                  <RefreshCw /> Start again
                 </Button>
-                <Button size="sm" variant="ghost" onClick={clearEvents}>
-                  Clear
+                <Button
+                  size="sm"
+                  variant="outline"
+                  onClick={() => {
+                    navigator.clipboard.writeText(window.location.href)
+                    toast("Link to this setup copied.")
+                  }}
+                >
+                  <Link /> Copy link
+                </Button>
+                <Button size="sm" variant="ghost" onClick={() => set(() => DEFAULT_CONFIG, true)}>
+                  <RotateCcw /> Reset all settings
                 </Button>
               </div>
+
+              <Field label="Session log">
+                <dl className="grid grid-cols-4 gap-1.5 text-sm">
+                  {[
+                    ["Keys", count("key")],
+                    ["Clicks", count("click")],
+                    ["Dialogs", count("dialog")],
+                    ["Minutes", minutes],
+                  ].map(([k, v]) => (
+                    <div key={k} className="rounded-lg border bg-background p-2">
+                      <dt className="text-xs text-muted-foreground">{k}</dt>
+                      <dd className="text-base font-semibold tabular-nums">{v}</dd>
+                    </div>
+                  ))}
+                </dl>
+                <p className="text-xs text-muted-foreground">{fieldSummary}</p>
+                <div className="flex flex-wrap gap-2">
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    onClick={() => {
+                      navigator.clipboard.writeText(JSON.stringify({ config, fields: fieldSummary, events }, null, 2))
+                      toast("Session log copied.")
+                    }}
+                  >
+                    <Copy /> Copy as JSON
+                  </Button>
+                  <Button size="sm" variant="ghost" onClick={clearEvents}>
+                    Clear log
+                  </Button>
+                  <Button size="sm" variant="link" asChild>
+                    <a href="#/guide">Tester guide</a>
+                  </Button>
+                </div>
+              </Field>
             </Group>
-
-            <Separator />
-
-            <div className="flex flex-wrap gap-2">
-              <Button
-                size="sm"
-                onClick={() => {
-                  navigator.clipboard.writeText(window.location.href)
-                  toast("Link to this setup copied.")
-                }}
-              >
-                <Link /> Copy link
-              </Button>
-              <Button size="sm" variant="outline" onClick={() => set(() => DEFAULT_CONFIG, true)}>
-                <RotateCcw /> Reset everything
-              </Button>
-            </div>
           </div>
         </SheetContent>
       </Sheet>

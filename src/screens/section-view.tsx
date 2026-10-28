@@ -131,6 +131,7 @@ export function SectionView({
                   ...rowAffordances({
                     policy,
                     name: v.name,
+                    modality: v.modality,
                     field,
                     status,
                     focused: focusKey(state.focus) === id,
@@ -162,6 +163,7 @@ export function SectionView({
                     groupRef={register(id)}
                     onFocus={() => focusField(id)}
                     onSelect={(code) => dispatch({ type: "enter", id, value: code })}
+                    onClear={() => dispatch({ type: "clear", id })}
                   />
                 )
               })}

@@ -70,9 +70,12 @@ describe("Skip", () => {
     expect(fieldStatus(s, "NAS")).toBe("recorded")
   })
 
-  it("can't Skip a field that has a value", () => {
-    const s = run(initialState("midway"), { type: "toggleSkip", id: "NAS" })
-    expect(fieldStatus(s, "NAS")).toBe("recorded")
+  it("Skipping a scored field clears its value; clear makes it blank again", () => {
+    let s = run(initialState("midway"), { type: "toggleSkip", id: "NAS" })
+    expect(fieldStatus(s, "NAS")).toBe("skipped")
+    expect(s.fields.NAS.value).toBeNull()
+    s = run(s, { type: "clear", id: "NAS" })
+    expect(fieldStatus(s, "NAS")).toBe("unreached")
   })
 
   it("Skips a bone's blanks, and un-Skips them when all are Skipped", () => {

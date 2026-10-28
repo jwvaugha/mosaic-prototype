@@ -4,7 +4,7 @@ import { DEFAULT_CONFIG, fromQuery, toQuery, type TestConfig } from "./test-conf
 describe("test config URL", () => {
   it("round-trips through the query string", () => {
     const c: TestConfig = {
-      refLayout: { morph: "D", metric: "C" },
+      refLayout: "D",
       refOnDemandLayout: "C",
       autoShow: { morph: false, metric: true },
       incompletion: "flag-end",
@@ -12,6 +12,10 @@ describe("test config URL", () => {
       seed: "midway",
     }
     expect(fromQuery(toQuery(c))).toEqual(c)
+  })
+
+  it("reads older two-layout links by their first layout", () => {
+    expect(fromQuery("ref=C,A").refLayout).toBe("C")
   })
 
   it("ignores unknown values", () => {

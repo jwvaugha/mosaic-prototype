@@ -2,6 +2,7 @@ import type { Ref } from "react"
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
 import { cn } from "@/lib/utils"
+import { usePreviewFor } from "@/workup/preview-context"
 import { VariableRow, type RowProps } from "./variable-row"
 
 // Segmented Character-state buttons. The group is one Tab stop (Radix roving
@@ -10,12 +11,14 @@ import { VariableRow, type RowProps } from "./variable-row"
 export function MorphVariableRow({
   value,
   onSelect,
+  onClear,
   onFocus,
   groupRef,
   ...row
 }: RowProps & {
   value: string | null
   onSelect: (code: string) => void
+  onClear: () => void
   onFocus: () => void
   groupRef?: Ref<HTMLDivElement>
 }) {
@@ -42,6 +45,7 @@ export function MorphVariableRow({
         states={v.states ?? []}
         value={value}
         onSelect={onSelect}
+        onClear={onClear}
         onFocus={onFocus}
         groupRef={groupRef}
       />
@@ -49,12 +53,16 @@ export function MorphVariableRow({
   )
 }
 
+// Hovering a state, or arrowing onto it, previews it wherever this field's
+// states appear (the reference panel too); a state previewed from the panel
+// is outlined here. Clicking the selected state again clears the score.
 export function CharacterStateGroup({
   id,
   label,
   states,
   value,
   onSelect,
+  onClear,
   onFocus,
   groupRef,
 }: {
@@ -63,9 +71,11 @@ export function CharacterStateGroup({
   states: { code: string; label: string }[]
   value: string | null
   onSelect: (code: string) => void
+  onClear?: () => void
   onFocus?: () => void
   groupRef?: Ref<HTMLDivElement>
 }) {
+  const preview = usePreviewFor(id)
   return (
     <ToggleGroup
       ref={groupRef}
@@ -75,8 +85,12 @@ export function CharacterStateGroup({
       variant="outline"
       spacing={0}
       value={value ?? ""}
-      onValueChange={(code) => code && onSelect(code)}
+      onValueChange={(code) => (code ? onSelect(code) : onClear?.())}
       onFocus={onFocus}
+      onMouseLeave={() => preview.clear("hover")}
+      onBlur={(e) => {
+        if (!e.currentTarget.contains(e.relatedTarget as Node)) preview.clear("focus")
+      }}
     >
       {states.map((s) => (
         // Many dictionary states have no label yet; those get no tooltip.
@@ -86,10 +100,14 @@ export function CharacterStateGroup({
             <ToggleGroupItem
               value={s.code}
               aria-label={s.label ? `${s.code}: ${s.label}` : s.code}
+              data-previewed={preview.code === s.code || undefined}
+              onMouseEnter={() => preview.show(s.code, "hover")}
+              onFocus={() => preview.show(s.code, "focus")}
               className={cn(
                 "h-9 min-w-9 bg-background px-2.5 text-sm",
                 // The Tooltip trigger overwrites data-state, so style on aria-checked.
                 "aria-checked:bg-primary aria-checked:text-primary-foreground aria-checked:hover:bg-primary/90",
+                "data-previewed:z-10 data-previewed:ring-2 data-previewed:ring-primary data-previewed:ring-inset",
               )}
             >
               {s.code}
