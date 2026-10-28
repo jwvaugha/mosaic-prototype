@@ -23,14 +23,14 @@ export function MorphVariableRow({
   if (row.status === "skipped") {
     return (
       <VariableRow {...row}>
-        <span
+        <div
           ref={groupRef}
           tabIndex={0}
           onFocus={onFocus}
           className="rounded-md px-1 text-[15px] text-muted-foreground outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50"
         >
           Skipped
-        </span>
+        </div>
       </VariableRow>
     )
   }
