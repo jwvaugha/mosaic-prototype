@@ -49,39 +49,40 @@ export function SectionView({
   const footer = [...head, `${c.blank} unreached`].join(" · ")
 
   const hintField = state.focus?.kind === "field" ? variable(state.focus.id) : null
-  // The row exists only after render, so find it in an effect.
+  // The card sits to the right of the field's input (its state buttons or
+  // number box). The row exists only after render, so find it in an effect.
   const [hintAnchor, setHintAnchor] = useState<HTMLElement | null>(null)
   useLayoutEffect(() => {
-    setHintAnchor(
-      hintField ? document.querySelector<HTMLElement>(`[data-variable="${hintField.id}"] > div`) : null,
-    )
+    const row = hintField ? document.querySelector<HTMLElement>(`[data-variable="${hintField.id}"]`) : null
+    setHintAnchor(row?.querySelector<HTMLElement>(`[id="field-${hintField!.id}"]`) ?? row)
   }, [hintField?.id, section.id])
-  const scoreIt = hintField?.states
-    ? `Type or click ${hintField.states[0].code}–${hintField.states.at(-1)!.code} to score ${hintField.name}.`
-    : `Type the ${hintField?.name.toLowerCase()} in ${hintField?.unit}.`
-  const hintCopy = policy.allowSkip && policy.allowFlag
-    ? {
-        title: "Score it, Skip it, or come back to it",
-        body: `${scoreIt} If it can't be scored, press “−” to Skip it. If you'll score it later, press ⌥F to come back to it; MOSAIC lists those again before the Analysis.`,
-        note: "Both are also on the row's buttons. Press R to show or hide the reference drawing.",
-        keys: "-",
-        keyLabel: "Skip · ⌥F come back",
-      }
-    : policy.allowSkip
-    ? {
-        title: "Score it, or Skip it",
-        body: `${scoreIt} If you can't score it, press “−” to Skip. Skipped fields count as done, and MOSAIC won't ask about them again.`,
-        note: "Leave a field blank only if you mean to come back to it.",
-        keys: "-",
-        keyLabel: "Skip this field",
-      }
-    : {
-        title: "Score it, or come back to it",
-        body: `${scoreIt} Not ready to score it? Press ⌥F to flag it, and MOSAIC will list it again before the Analysis.`,
-        note: "Fields you leave blank are fine: they're left out of the Analysis.",
-        keys: "⌥F",
-        keyLabel: "Come back to this",
-      }
+  // General on purpose: it explains the pattern, not the field it opens on.
+  const hintCopy =
+    policy.allowSkip && policy.allowFlag
+      ? {
+          title: "Score it, Skip it, or come back to it",
+          body: "Click or type a state's number to score a trait, or type a measurement. If something can't be scored, Skip it. If you'll score it later, mark it to come back to; MOSAIC lists those again before the Analysis.",
+          note: "Both are also on each row's buttons when you point at it.",
+          keys: [
+            ["−", "Skip"],
+            ["⌥F", "Come back"],
+            ["R", "Reference"],
+          ] as [string, string][],
+        }
+      : policy.allowSkip
+        ? {
+            title: "Score it, or Skip it",
+            body: "Click or type a state's number to score a trait, or type a measurement. If something can't be scored, Skip it. Skipped fields count as done, and MOSAIC won't ask about them again.",
+            note: "Leave a field blank only if you mean to come back to it.",
+            keys: [["−", "Skip"]] as [string, string][],
+          }
+        : {
+            title: "Score it, or come back to it",
+            body: "Click or type a state's number to score a trait, or type a measurement. Not ready to score something? Mark it to come back to, and MOSAIC lists it again before the Analysis.",
+            note: "Fields you leave blank are fine: they're left out of the Analysis.",
+            keys: [["⌥F", "Come back"]] as [string, string][],
+          }
+  const hintOpen = !state.firstUseHintSeen && state.focus?.kind === "field"
 
   const focusStop = (f: Focus) => {
     if (!sameFocus(state.focus, f)) dispatch({ type: "focus", focus: f })
@@ -92,8 +93,10 @@ export function SectionView({
   }
 
   return (
-    <div className="flex flex-col gap-6 pb-24">
-      <header className="flex w-[720px] flex-col gap-1">
+    // Rows fill the pane up to 960 px, so their Skip / Come back buttons have
+    // room inline; with the docked column open the pane is about 720 px.
+    <div className="flex w-full max-w-[960px] min-w-[680px] flex-col gap-6 pb-24">
+      <header className="flex w-full flex-col gap-1">
         <div className="flex h-8 items-center gap-4">
           <h1 className="text-2xl font-semibold">{section.title}</h1>
           {section.modality === "metric" && (
@@ -136,6 +139,7 @@ export function SectionView({
                 const field = state.fields[id]
                 const status = fieldStatus(state, id)
                 const row = {
+                  spotlight: hintOpen && config.introDim && focusKey(state.focus) === id,
                   onSelectRow: () => {
                     focusField(id)
                     focusNow(id)
@@ -196,8 +200,20 @@ export function SectionView({
 
       {section.calculated && <CalculatedGroup variables={section.calculated.map(variable)} />}
 
+      {/* intro-dim: everything but the field's row is dimmed while the card shows. */}
+      {hintOpen && config.introDim && (
+        <div
+          aria-hidden
+          className="fixed inset-0 z-40 bg-black/40"
+          onMouseDown={(e) => {
+            e.preventDefault()
+            dispatch({ type: "dismissHint" })
+          }}
+        />
+      )}
+
       <FirstUseHint
-        open={!state.firstUseHintSeen && state.focus?.kind === "field"}
+        open={hintOpen}
         anchor={hintAnchor}
         onDismiss={() => dispatch({ type: "dismissHint" })}
         {...hintCopy}

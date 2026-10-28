@@ -9,6 +9,7 @@ describe("test config URL", () => {
       autoShow: { morph: false, metric: true },
       incompletion: "flag-end",
       showKeyHints: false,
+      introDim: false,
       seed: "midway",
     }
     expect(fromQuery(toQuery(c))).toEqual(c)

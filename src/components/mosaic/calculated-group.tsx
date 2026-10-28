@@ -12,7 +12,7 @@ import type { Variable } from "@/data/types"
 export function CalculatedGroup({ variables }: { variables: Variable[] }) {
   const [open, setOpen] = useState(false)
   return (
-    <section aria-label="Calculated" className="flex w-[760px] flex-col gap-1">
+    <section aria-label="Calculated" className="flex w-full flex-col gap-1">
       <button
         type="button"
         tabIndex={-1}

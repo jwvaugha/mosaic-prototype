@@ -8,7 +8,7 @@ The prototype compares one open decision: **where the reference panel appears**.
 
 Since the PI meeting of 2026-10-28, Skip and "come back to" are no longer alternatives. Both are available on every field, as buttons that show their shortcut (`−`, `⌥F`). When a row hasn't room for them, they fold into a "⋯" menu. The three earlier versions (Flows page 1, 2 and 2.5) can still be reached with `?inc=skip-section`, `flag-section` or `flag-end`.
 
-Open **Test mode** with the pill in the bottom-left corner or `⌃⌥T`. Changing the scenario or the opening section starts the Workup again. **Copy link** shares the exact setup.
+Open **Test mode** with the pill in the bottom-left corner or `⌃⌥T`. Changing the scenario or the opening section starts the Workup again. **Intro card** toggles intro-dim (dimming everything but the field while the first-use card shows; `dim=0` in the URL turns it off) and can show the card again. **Copy link** shares the exact setup.
 
 Every Region and section from the data dictionaries can be entered: 369 Variables in 15 sections, built by `npm run fixture` (see `scripts/manifest-report.md`). The 38 calculated cranial Variables are read-only. Add `start=<section id>` to the URL to open on a given section, e.g. `start=cranium-morph`.
 

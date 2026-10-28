@@ -56,12 +56,12 @@ export function rowActionList({
 }
 
 export function RowActions({ actions, showKeyHints }: { actions: RowAction[]; showKeyHints: boolean }) {
-  // Room needed to show them inline, about 95 px each. Tailwind only sees
-  // literal class names, so both sizes are spelled out.
+  // Room needed to show them inline: Skip ≈ 66 px, Come back ≈ 102, Clear ≈ 72.
+  // Tailwind only sees literal class names, so both sizes are spelled out.
   const three = actions.length > 2
   return (
     <div className="@container flex min-w-0 flex-1 justify-end">
-      <div className={three ? "hidden items-center gap-0.5 @min-[290px]:flex" : "hidden items-center gap-0.5 @min-[200px]:flex"}>
+      <div className={three ? "hidden items-center gap-0.5 @min-[250px]:flex" : "hidden items-center gap-0.5 @min-[176px]:flex"}>
         {actions.map((a) => (
           <Button
             key={a.id}
@@ -76,7 +76,7 @@ export function RowActions({ actions, showKeyHints }: { actions: RowAction[]; sh
           </Button>
         ))}
       </div>
-      <div className={three ? "@min-[290px]:hidden" : "@min-[200px]:hidden"}>
+      <div className={three ? "@min-[250px]:hidden" : "@min-[176px]:hidden"}>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="ghost" size="icon" tabIndex={-1} aria-label="More actions">

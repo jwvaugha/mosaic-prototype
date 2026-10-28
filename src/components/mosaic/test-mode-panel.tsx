@@ -15,6 +15,7 @@ import { fixture, localImages } from "@/data"
 import { SEEDS, type SeedId } from "@/data/seeds"
 import { clearEvents, getEvents, subscribeEvents } from "@/lib/event-log"
 import { cn } from "@/lib/utils"
+import { useWorkup } from "@/workup/workup-context"
 
 // Prototype controls (not part of MOSAIC), opened with the pill in the
 // bottom-left corner or ⌃⌥T. Two groups:
@@ -138,6 +139,7 @@ function Choices<T extends string>({
 
 export function TestModePanel({ fieldSummary }: { fieldSummary: string }) {
   const { config, setConfig, resetWorkup } = useConfig()
+  const { dispatch } = useWorkup()
   const [open, setOpen] = useState(false)
   const events = useSyncExternalStore(subscribeEvents, getEvents)
   const count = (kind: string) => events.filter((e) => e.kind === kind).length
@@ -253,6 +255,24 @@ export function TestModePanel({ fieldSummary }: { fieldSummary: string }) {
                 checked={config.showKeyHints}
                 onChange={(v) => set((c) => ({ ...c, showKeyHints: v }))}
               />
+              <Field label="Intro card">
+                <Toggle
+                  label="Dim the rest of the screen (intro-dim)"
+                  checked={config.introDim}
+                  onChange={(v) => set((c) => ({ ...c, introDim: v }))}
+                />
+                <Button
+                  size="sm"
+                  variant="outline"
+                  className="w-fit"
+                  onClick={() => {
+                    dispatch({ type: "showHint" })
+                    setOpen(false)
+                  }}
+                >
+                  Show the intro card again
+                </Button>
+              </Field>
               <div className="flex flex-wrap gap-2">
                 <Button
                   size="sm"

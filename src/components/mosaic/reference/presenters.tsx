@@ -77,7 +77,7 @@ export function InlineExpansion({ data, onClose }: { data: ReferenceData; onClos
   const preview = states.preview
   const wide = data.entry.kind === "figure" && data.entry.figure.width / data.entry.figure.height > 2
   return (
-    <div className="w-[760px] pb-2 pl-7">
+    <div className="w-full pb-2 pl-7">
       <div className={`flex gap-5 rounded-lg border bg-muted/50 p-4 ${wide ? "flex-col" : ""}`}>
         {v.modality === "morph" ? (
           <LargeState data={data} preview={preview} className="h-[190px] w-[280px] shrink-0" />

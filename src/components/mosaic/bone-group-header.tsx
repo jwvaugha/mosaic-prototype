@@ -54,7 +54,7 @@ export function BoneGroupHeader({
   }
 
   return (
-    <div data-bone={id} className="flex w-[760px] flex-col gap-1">
+    <div data-bone={id} className="flex w-full flex-col gap-1">
       <div
         ref={headerRef}
         tabIndex={0}

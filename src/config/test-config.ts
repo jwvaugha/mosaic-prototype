@@ -15,6 +15,8 @@ export type TestConfig = {
   autoShow: Record<Modality, boolean>
   incompletion: IncompletionId
   showKeyHints: boolean
+  // "intro-dim": dim everything but the field while the intro card shows.
+  introDim: boolean
   seed: SeedId
   // Section the Workup opens on (default: the first in rail order). Used by
   // the guide's setup links and by tests.
@@ -27,6 +29,7 @@ export const DEFAULT_CONFIG: TestConfig = {
   autoShow: { morph: true, metric: true },
   incompletion: "skip-and-flag",
   showKeyHints: true,
+  introDim: true,
   seed: "fresh",
 }
 
@@ -42,6 +45,7 @@ export function toQuery(c: TestConfig): string {
   p.set("auto", (["morph", "metric"] as const).filter((m) => c.autoShow[m]).join(",") || "none")
   p.set("inc", c.incompletion)
   if (!c.showKeyHints) p.set("hints", "0")
+  if (!c.introDim) p.set("dim", "0")
   if (c.seed !== "fresh") p.set("seed", c.seed)
   if (c.start) p.set("start", c.start)
   return p.toString()
@@ -61,6 +65,7 @@ export function fromQuery(query: string, base: TestConfig = DEFAULT_CONFIG): Tes
   const inc = p.get("inc")
   if (inc && INCOMPLETION.includes(inc)) c.incompletion = inc as IncompletionId
   if (p.has("hints")) c.showKeyHints = p.get("hints") !== "0"
+  if (p.has("dim")) c.introDim = p.get("dim") !== "0"
   const seed = p.get("seed")
   if (seed && SEEDS.includes(seed)) c.seed = seed as SeedId
   const start = p.get("start")

@@ -26,7 +26,7 @@ export function ContinueFooter({
   onContinue: () => void
 }) {
   return (
-    <div data-continue className="flex w-[760px] items-center gap-4 rounded-xl border px-5 py-4">
+    <div data-continue className="flex w-full items-center gap-4 rounded-xl border px-5 py-4">
       <div className="flex flex-1 flex-col gap-0.5">
         <span className="text-base font-semibold">End of {title}</span>
         <span className="text-sm text-muted-foreground">{summary}</span>

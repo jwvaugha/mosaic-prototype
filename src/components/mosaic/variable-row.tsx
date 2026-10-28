@@ -25,6 +25,8 @@ export type RowSlots = {
 }
 
 export type RowProps = RowSlots & {
+  // Lifted above the intro-dim overlay while the intro card is open.
+  spotlight?: boolean
   // Pressing anywhere on the row selects it (not just its input).
   onSelectRow?: () => void
   variable: Variable
@@ -46,13 +48,21 @@ export function VariableRow({
   message,
   labelWidth,
   onSelectRow,
+  spotlight,
+  reserveActions,
   children,
-}: RowProps & { labelWidth: number; children: ReactNode }) {
+}: RowProps & {
+  labelWidth: number
+  // Keep room for two action buttons plus the icons (Metric rows, whose
+  // input is narrow and fixed).
+  reserveActions?: boolean
+  children: ReactNode
+}) {
   // The code is shown only when it's a real abbreviation (requirements: Rows).
   const showCode = variable.code !== variable.name && !/_/.test(variable.code)
   return (
     <div
-      className="group/gutter relative"
+      className={cn("group/gutter relative", spotlight && "z-50 rounded-lg bg-background")}
       data-variable={variable.id}
       onMouseDown={(e) => {
         // Ignore events bubbling from portals (popovers, the enlarge dialog).
@@ -68,11 +78,13 @@ export function VariableRow({
     >
       <div
         data-focused={focused || undefined}
-        className="group/row flex w-[760px] flex-col gap-1 rounded-lg px-3 py-2 hover:bg-muted/50 data-focused:bg-muted/50"
+        className="group/row flex w-full flex-col gap-1 rounded-lg px-3 py-2 hover:bg-muted/50 data-focused:bg-muted/50"
       >
         <div className="flex min-h-9 items-center gap-3">
           <RowStatus status={status} className="size-4" />
-          <div className="shrink-0 leading-5" style={{ width: labelWidth }}>
+          {/* The name column gives up width (down to 160 px; long names wrap)
+              before the Skip / Come back buttons fold into "⋯". */}
+          <div className="leading-5" style={{ flex: `0 1 ${labelWidth}px`, minWidth: 160 }}>
             <span className={cn("text-sm font-medium", status === "skipped" && "text-muted-foreground")}>
               {variable.name}
             </span>
@@ -81,11 +93,14 @@ export function VariableRow({
             )}
           </div>
           <div className="flex shrink-0 items-center">{children}</div>
+          {/* A flagged field's pill stays visible after the input. */}
+          {gutter && <div className="shrink-0">{gutter}</div>}
           <div
             className={cn(
               // Fills what's left of the row, so the actions can tell whether
               // they fit inline or fold into "⋯" (see RowActions).
               "flex min-w-0 flex-1 items-center justify-end gap-1",
+              reserveActions && "min-w-[264px]",
               "opacity-0 group-hover/row:opacity-100 group-data-focused/row:opacity-100 focus-within:opacity-100 has-data-[state=open]:opacity-100",
             )}
           >
@@ -102,7 +117,6 @@ export function VariableRow({
         </div>
         {message}
       </div>
-      {gutter && <div className="absolute top-2 left-[772px]">{gutter}</div>}
       {below}
     </div>
   )

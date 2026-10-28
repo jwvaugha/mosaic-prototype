@@ -60,6 +60,7 @@ export type Action =
   | { type: "openReference" }
   | { type: "closeReference" }
   | { type: "dismissHint" }
+  | { type: "showHint" }
   | { type: "load"; seed: SeedId }
   // Undo for "Skip N and continue": puts back a snapshot.
   | { type: "restore"; state: WorkupState }
@@ -242,6 +243,8 @@ function reduce(state: WorkupState, action: Action): WorkupState {
       }
     case "dismissHint":
       return { ...state, firstUseHintSeen: true }
+    case "showHint":
+      return { ...state, firstUseHintSeen: false }
     case "load":
       return initialState(action.seed, state.section)
     case "restore":
