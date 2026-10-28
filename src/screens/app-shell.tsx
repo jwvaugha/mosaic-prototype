@@ -18,7 +18,26 @@ import { useWorkup, WorkupProvider } from "@/workup/workup-context"
 import { useWorkupKeyboard } from "@/workup/use-workup-keyboard"
 import { SectionView } from "./section-view"
 
+// First visit: point testers at the guide, once.
+function useGuidePrompt() {
+  useEffect(() => {
+    const KEY = "mosaic-proto:guide-prompted"
+    try {
+      if (localStorage.getItem(KEY)) return
+      localStorage.setItem(KEY, "1")
+    } catch {
+      return
+    }
+    toast("New here? The testing guide takes 3 minutes to read.", {
+      duration: 15000,
+      position: "top-center",
+      action: { label: "Open the guide", onClick: () => (window.location.hash = "#/guide") },
+    })
+  }, [])
+}
+
 export function Prototype() {
+  useGuidePrompt()
   const { config } = useConfig()
   // Changing the policy or the seed starts a fresh Workup.
   return (

@@ -27,7 +27,9 @@ export function AppHeader({
       </span>
       <nav className="flex gap-4 text-sm text-muted-foreground">
         <span>Workups</span>
-        <span>Help</span>
+        <a href="#/guide" tabIndex={-1} className="hover:text-foreground hover:underline">
+          Help
+        </a>
         <span>About</span>
       </nav>
       <span className="flex-1" />

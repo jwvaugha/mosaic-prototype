@@ -1,5 +1,7 @@
 # Trying the prototype
 
+**Testers:** use the in-app guide at https://jwvaugha.github.io/mosaic-prototype/#/guide (also under **Help** in the header). It has a Start button for each setup, the tasks and questions, and a button to copy your session log. The rest of this file is for the team.
+
 Live: https://jwvaugha.github.io/mosaic-prototype/
 
 The prototype compares two open decisions in MOSAIC data entry:
@@ -42,7 +44,7 @@ Do each one under at least two setups. Use **Copy as JSON** in Test mode to send
 
 ## Reference images
 
-The public site shows placeholders at the real image sizes, because the drawings aren't cleared for a public URL yet. To see the real drawings, run the prototype locally. It needs the MOSAIC `References` folder beside this one, plus macOS `sips` and poppler:
+The MSU (MMS) drawings are on the public site; the PIs cleared them on 2026-10-28. The DCP 2.0 figures used for Metric fields come from a UTK manual and stay local until cleared, so Pages shows placeholders at their real sizes. To see them, run the prototype locally. It needs the MOSAIC `References` folder beside this one, plus macOS `sips` and poppler:
 
 ```sh
 npm install

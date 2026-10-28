@@ -1,6 +1,7 @@
 import { createContext, useCallback, useContext, useState, type ReactNode } from "react"
 import { POLICIES, type IncompletionPolicy } from "@/policies/incompletion"
-import { loadConfig, saveConfig, type TestConfig } from "./test-config"
+import { setLogSetup } from "@/lib/event-log"
+import { loadConfig, saveConfig, toQuery, type TestConfig } from "./test-config"
 
 type ConfigContextValue = {
   config: TestConfig
@@ -19,6 +20,7 @@ export function ConfigProvider({ children }: { children: ReactNode }) {
       return next
     })
   }, [])
+  setLogSetup(toQuery(config).replaceAll("&", " ").replaceAll("%2C", ","))
   return (
     <ConfigContext.Provider value={{ config, policy: POLICIES[config.incompletion], setConfig }}>
       {children}

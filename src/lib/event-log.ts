@@ -1,5 +1,7 @@
-// In-memory log of handled keys and actions, for comparing modes. Nothing
-// leaves the browser. The test-mode panel (issue 09) reads it.
+// Log of handled keys, clicks, actions and dialogs, for comparing setups.
+// It's kept in localStorage so it survives reloads and setup links, and every
+// entry records the setup it happened in. Nothing leaves the browser unless
+// the tester copies it from Test mode.
 
 export type LogEvent = {
   t: number
@@ -7,13 +9,41 @@ export type LogEvent = {
   name: string
   field?: string
   mode?: string
+  // e.g. "inc=flag-end ref=A,C auto=morph,metric seed=fresh"
+  setup?: string
 }
 
-const events: LogEvent[] = []
+const KEY = "mosaic-proto:events"
+const MAX = 5000
+
+function load(): LogEvent[] {
+  try {
+    const raw = JSON.parse(localStorage.getItem(KEY) ?? "[]")
+    return Array.isArray(raw) ? raw : []
+  } catch {
+    return []
+  }
+}
+
+let events: LogEvent[] = load()
+let setup = ""
 const listeners = new Set<() => void>()
 
-export function logEvent(e: Omit<LogEvent, "t">) {
-  events.push({ ...e, t: Date.now() })
+function save() {
+  try {
+    localStorage.setItem(KEY, JSON.stringify(events))
+  } catch {
+    // Storage full or blocked: the in-memory log still works.
+  }
+}
+
+export function setLogSetup(s: string) {
+  setup = s
+}
+
+export function logEvent(e: Omit<LogEvent, "t" | "setup">) {
+  events = [...events.slice(-(MAX - 1)), { ...e, t: Date.now(), setup }]
+  save()
   listeners.forEach((l) => l())
 }
 
@@ -22,7 +52,8 @@ export function getEvents(): readonly LogEvent[] {
 }
 
 export function clearEvents() {
-  events.length = 0
+  events = []
+  save()
   listeners.forEach((l) => l())
 }
 
