@@ -1,8 +1,9 @@
 # MOSAIC prototype
 
 A throwaway, test-mode prototype for comparing where MOSAIC's reference panel
-appears during data entry (docked column A, inline C, bottom dock D, or only
-when asked for). Skip and "come back to" are both available on every field.
+appears during data entry (docked column A, inline C, bottom dock D). The panel
+is one on/off switch, off at first. Skip and "come back to" are both available
+on every field.
 
 Spec and tickets live in the MOSAIC project folder under `.scratch/test-mode-prototype/`.
 

@@ -131,7 +131,7 @@ const REGION_CODES: Record<string, string> = {
 
 function CollapsedRail({ regions, totals, onCollapse }: RegionRailProps) {
   return (
-    <Sidebar className="top-14 h-[calc(100svh-3.5rem)] w-14 shrink-0 border-r" collapsible="none" aria-label="Regions">
+    <Sidebar className="h-full w-14 shrink-0 border-r" collapsible="none" aria-label="Regions">
       <div className="flex flex-col items-center gap-1 overflow-y-auto py-3">
         <Tooltip>
           <TooltipTrigger asChild>
@@ -212,7 +212,7 @@ function ExpandedRail(props: RegionRailProps) {
   }
 
   return (
-    <Sidebar className="top-14 h-[calc(100svh-3.5rem)] border-r" collapsible="none">
+    <Sidebar className="h-full border-r" collapsible="none">
       <div ref={rootRef} className="flex flex-col gap-4 overflow-y-auto p-4" onKeyDown={onRootKeyDown}>
         {mode === "edit" ? (
           <>

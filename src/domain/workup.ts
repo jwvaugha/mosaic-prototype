@@ -23,6 +23,8 @@ export type FieldState = {
   skipped: boolean
   acknowledged: boolean
   flag: { reason?: FlagReason } | null
+  // Free-text note; stays on this device (requirements: Notes privacy).
+  note?: string
 }
 
 export type Focus =
@@ -38,11 +40,13 @@ export type WorkupState = {
   fields: Record<string, FieldState>
   section: string
   focus: Focus
-  // `open`: opened by hand (button, ?); it then follows focus until closed.
-  // `dismissedFor`: the field it was closed on. Auto-show stays off for that
-  // field only and comes back on the next one.
-  reference: { open: boolean; dismissedFor: string | null }
+  // The reference panel is one on/off switch: once on it stays on, whatever
+  // has focus, until turned off (2026-10-28). It starts off; the first-run
+  // tour (not built) is meant to prompt users to turn it on.
+  reference: { open: boolean }
   firstUseHintSeen: boolean
+  // The field whose note editor is open.
+  noteEditor: string | null
 }
 
 export type Action =
@@ -59,6 +63,10 @@ export type Action =
   | { type: "goToSection"; section: string; focus?: Focus }
   | { type: "openReference" }
   | { type: "closeReference" }
+  | { type: "toggleReference" }
+  | { type: "openNote"; id: string }
+  | { type: "closeNote" }
+  | { type: "setNote"; id: string; note: string }
   | { type: "dismissHint" }
   | { type: "showHint" }
   | { type: "load"; seed: SeedId }
@@ -142,20 +150,21 @@ export function fieldStatus(state: WorkupState, id: string): FieldStatus {
 
 const emptyField = (): FieldState => ({ value: null, skipped: false, acknowledged: false, flag: null })
 
-export function initialState(seed: SeedId = "fresh", start?: string): WorkupState {
+export function initialState(seed: SeedId = "fresh", start?: string, referenceOn = false): WorkupState {
   const s = SEEDS[seed]
   const fields: Record<string, FieldState> = {}
   for (const id of Object.keys(fixture.variables)) {
     const value = s.values[id] ?? null
-    fields[id] = { ...emptyField(), value, acknowledged: s.acknowledged.includes(id) }
+    fields[id] = { ...emptyField(), value, acknowledged: s.acknowledged.includes(id), note: s.notes?.[id] }
   }
   const first = sections.find((x) => x.id === start) ?? sections[0]
   const state: WorkupState = {
     fields,
     section: first.id,
     focus: null,
-    reference: { open: false, dismissedFor: null },
+    reference: { open: referenceOn },
     firstUseHintSeen: false,
+    noteEditor: null,
   }
   // A Workup opens on its first blank field, like any section.
   return { ...state, focus: landingFocus(state, first.id) }
@@ -235,12 +244,19 @@ function reduce(state: WorkupState, action: Action): WorkupState {
       return { ...state, section: action.section, focus }
     }
     case "openReference":
-      return { ...state, reference: { open: true, dismissedFor: null } }
+      return { ...state, reference: { open: true } }
     case "closeReference":
-      return {
-        ...state,
-        reference: { open: false, dismissedFor: state.focus?.kind === "field" ? state.focus.id : null },
-      }
+      return { ...state, reference: { open: false } }
+    case "toggleReference":
+      return { ...state, reference: { open: !state.reference.open } }
+    case "openNote":
+      return { ...state, noteEditor: action.id }
+    case "closeNote":
+      return { ...state, noteEditor: null }
+    case "setNote": {
+      const note = action.note.trim()
+      return { ...patch(state, action.id, { note: note || undefined }), noteEditor: null }
+    }
     case "dismissHint":
       return { ...state, firstUseHintSeen: true }
     case "showHint":
@@ -350,11 +366,8 @@ export function railBadges(state: WorkupState): Record<string, RailBadge> {
   )
 }
 
-// The reference shows for the focused field when opened by hand, or when
-// auto-show is on for its modality and the user hasn't closed it.
-export function referenceVisible(state: WorkupState, autoShow: Record<"metric" | "morph", boolean>): boolean {
-  const f = state.focus
-  if (f?.kind !== "field") return false
-  if (state.reference.dismissedFor === f.id) return false
-  return state.reference.open || autoShow[variable(f.id).modality]
+// Whether the reference panel is on. What it shows depends on focus: the
+// focused field's reference, or a placeholder.
+export function referenceVisible(state: WorkupState): boolean {
+  return state.reference.open
 }

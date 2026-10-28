@@ -12,16 +12,16 @@ const LAYOUTS = ["A", "C", "D"] as const
 
 async function open(page: Page, width: number, layout: string, section = "cranium-morph") {
   await page.setViewportSize({ width, height: 900 })
-  await page.goto(`./?seed=midway&ref=${layout}&auto=morph,metric&dim=0&start=${section}`)
+  await page.goto(`./?seed=midway&ref=${layout}&refon=1&dim=0&start=${section}`)
   await page.evaluate(() => localStorage.setItem("mosaic-proto:guide-prompted", "1"))
   await page.getByRole("button", { name: "Got it" }).click({ timeout: 2000 }).catch(() => {})
   await page.waitForTimeout(300)
 }
 
 // Pairs of direct header children whose boxes overlap.
-async function headerOverlaps(page: Page) {
-  return page.evaluate(() => {
-    const header = document.querySelector("header")!
+async function headerOverlaps(page: Page, selector = "body > div header, #root header") {
+  return page.evaluate((sel) => {
+    const header = document.querySelector(sel)!
     const kids = [...header.children].filter((el) => (el as HTMLElement).offsetWidth > 0)
     const boxes = kids.map((el) => ({ el: (el.textContent || el.getAttribute("aria-label") || el.tagName).trim().slice(0, 30), r: el.getBoundingClientRect() }))
     const out: string[] = []
@@ -32,7 +32,7 @@ async function headerOverlaps(page: Page) {
       }
     const offscreen = boxes.filter((b) => b.r.right > innerWidth + 1).map((b) => b.el)
     return { overlaps: out, offscreen, height: header.getBoundingClientRect().height }
-  })
+  }, selector)
 }
 
 for (const width of WIDTHS) {
@@ -49,6 +49,12 @@ for (const width of WIDTHS) {
         expect.soft(h.overlaps, "header items overlap").toEqual([])
         expect.soft(h.offscreen, "header items off screen").toEqual([])
         expect.soft(h.height, "header wraps").toBeLessThanOrEqual(57)
+
+        // The Workup footer (dataset actions) fits on one line too.
+        const foot = await headerOverlaps(page, "#root footer")
+        expect.soft(foot.overlaps, "footer items overlap").toEqual([])
+        expect.soft(foot.offscreen, "footer items off screen").toEqual([])
+        expect.soft(foot.height, "footer wraps").toBeLessThanOrEqual(57)
 
         const pane = await page.evaluate(() => {
           const m = document.querySelector("main")!
@@ -96,6 +102,7 @@ for (const width of WIDTHS) {
 test.describe("Region rail", () => {
   test("collapses to a strip and expands again (wide screens push the content)", async ({ page }) => {
     await open(page, 1440, "A")
+    await page.getByRole("button", { name: "Hide reference" }).click()
     const main = page.locator("main")
     const before = (await main.boundingBox())!.width
     await page.getByRole("button", { name: "Collapse Regions" }).click()
@@ -123,4 +130,47 @@ test.describe("Region rail", () => {
     await page.getByRole("treeitem", { name: /^Metric/ }).first().click()
     await expect(page.getByRole("button", { name: "Expand Regions" })).toBeVisible()
   })
+})
+
+test.describe("Reference panel switch", () => {
+  test("bottom dock: a strip when off that opens the dock; placeholder off a field", async ({ page }) => {
+    await page.setViewportSize({ width: 1280, height: 900 })
+    await page.goto("./?seed=midway&ref=D&dim=0&start=cranium-morph")
+    await page.getByRole("button", { name: "Got it" }).click({ timeout: 2000 }).catch(() => {})
+    const strip = page.getByRole("button", { name: "Show reference panel" })
+    await expect(strip).toBeVisible()
+    const box = (await strip.boundingBox())!
+    expect(box.height).toBeLessThanOrEqual(40)
+    await strip.click()
+    await expect(page.getByLabel("Reference").first()).toBeVisible()
+    await page.screenshot({ path: "e2e/.shots/switch-D-open.png" })
+  })
+
+  test("docked: the sticky section header carries the switch and stays in view", async ({ page }) => {
+    await page.setViewportSize({ width: 1280, height: 700 })
+    await page.goto("./?seed=midway&ref=A&dim=0&start=cranium-morph")
+    await page.getByRole("button", { name: "Got it" }).click({ timeout: 2000 }).catch(() => {})
+    await page.locator("main").evaluate((m) => (m.scrollTop = 900))
+    const btn = page.getByRole("button", { name: /Show reference/ })
+    await expect(btn).toBeInViewport()
+    await btn.click()
+    await expect(page.getByRole("complementary", { name: "Reference" })).toBeVisible()
+    await page.screenshot({ path: "e2e/.shots/switch-A-scrolled.png" })
+  })
+})
+
+test("intro card: beside the row when it fits, otherwise below it, never over it", async ({ page }) => {
+  for (const [width, layout] of [[1440, "C"], [1024, "A"]] as const) {
+    await page.setViewportSize({ width, height: 900 })
+    await page.goto(`./?seed=fresh&ref=${layout}&start=cranium-morph`)
+    await page.evaluate(() => localStorage.setItem("mosaic-proto:guide-prompted", "1"))
+    await page.reload()
+    const card = page.getByText("Score it, Skip it, or come back to it").locator("..")
+    await expect(card).toBeVisible()
+    const c = (await card.boundingBox())!
+    const r = (await page.locator('[data-variable="NAS"] > div').boundingBox())!
+    const overlaps = c.x < r.x + r.width - 1 && r.x < c.x + c.width - 1 && c.y < r.y + r.height - 1 && r.y < c.y + c.height - 1
+    expect(overlaps, `card overlaps the row at ${width}px`).toBe(false)
+    await page.screenshot({ path: `e2e/.shots/intro-${width}.png` })
+  }
 })

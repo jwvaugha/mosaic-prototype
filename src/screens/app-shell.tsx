@@ -1,9 +1,8 @@
 import { useEffect, useRef, useState } from "react"
 import { useMediaQuery } from "@/lib/use-media-query"
 import { toast } from "sonner"
-import { AppHeader } from "@/components/mosaic/app-header"
-import { BottomDock, DOCK_HEIGHT, DockedColumn } from "@/components/mosaic/reference/presenters"
-import { ReferenceMenu } from "@/components/mosaic/reference/reference-menu"
+import { AppHeader, SubFooter, WorkupFooter } from "@/components/mosaic/app-header"
+import { BottomDock, DOCK_HEIGHT, DOCK_STRIP_HEIGHT, DockedColumn, DockStrip } from "@/components/mosaic/reference/presenters"
 import { RegionRail, type RailRegion } from "@/components/mosaic/region-rail"
 import { TestModePanel } from "@/components/mosaic/test-mode-panel"
 import { logEvent } from "@/lib/event-log"
@@ -53,11 +52,13 @@ export function Prototype() {
 
 function AppShell() {
   const { state, dispatch } = useWorkup()
-  const { policy, config, setConfig } = useConfig()
+  const { policy } = useConfig()
   const { onKeyDown } = useWorkupKeyboard()
   const ref = useReference()
-  const dock = ref.data && ref.layout === "D"
-  const inline = !!ref.data && ref.layout === "C"
+  // Bottom dock: open, or collapsed to a thin strip. Inline: only under a field.
+  const dockLayout = ref.layout === "D"
+  const dock = dockLayout && ref.open
+  const inline = ref.open && !!ref.data && ref.layout === "C"
   const mainRef = useRef<HTMLElement>(null)
   useScrollAnchor(mainRef, state.focus?.kind === "field" ? state.focus.id : null, state.section, inline)
   const { onContinue, onAnalyze, dialogs } = useSectionFlow()
@@ -130,13 +131,7 @@ function AppShell() {
         if (t) logEvent({ kind: "click", name: t.textContent?.trim().slice(0, 40) || t.tagName, mode: policy.id })
       }}
     >
-      <AppHeader
-        flagBadge={policy.analyzeBadge ? flaggedFields(state).length : 0}
-        onAnalyze={onAnalyze}
-        referenceMenu={
-          <ReferenceMenu autoShow={config.autoShow} onChange={(autoShow) => setConfig((c) => ({ ...c, autoShow }))} />
-        }
-      />
+      <AppHeader />
       <SidebarProvider className="relative min-h-0 flex-1" style={{ "--sidebar-width": "280px" } as React.CSSProperties}>
         <RegionRail
           regions={railRegions}
@@ -167,22 +162,37 @@ function AppShell() {
             style={
               dock
                 ? { paddingBottom: DOCK_HEIGHT, scrollPaddingBottom: DOCK_HEIGHT + 16 }
-                : inline
+                : dockLayout
+                  ? { paddingBottom: DOCK_STRIP_HEIGHT + 24, scrollPaddingBottom: DOCK_STRIP_HEIGHT + 16 }
+                  : inline
                   ? // Room to scroll, so the last rows can stay put too.
                     { paddingBottom: "60vh" }
                   : undefined
             }
           >
-            <SectionView onContinue={onContinue} inlineReference={inline ? ref : null} />
+            <SectionView
+              onContinue={onContinue}
+              inlineReference={inline ? ref : null}
+              // Docked and inline layouts switch the panel from the sticky
+              // section header; the bottom dock has its own strip.
+              referenceToggle={dockLayout ? null : { open: ref.open, onToggle: ref.toggle }}
+            />
           </main>
-          {dock && <BottomDock data={ref.data!} onClose={ref.close} />}
+          {dockLayout && (dock ? <BottomDock data={ref.data} onClose={ref.close} /> : <DockStrip onOpen={ref.toggle} />)}
         </div>
-        {ref.data && ref.layout === "A" && <DockedColumn data={ref.data} onClose={ref.close} />}
+        {ref.open && ref.layout === "A" && <DockedColumn data={ref.data} onClose={ref.close} />}
       </SidebarProvider>
+      <WorkupFooter flagBadge={policy.analyzeBadge ? flaggedFields(state).length : 0} onAnalyze={onAnalyze} />
+      <SubFooter>
+        <TestModePanel
+          fieldSummary={`This Workup: ${totals.recorded} recorded · ${totals.skipped} skipped · ${flaggedFields(state).length} flagged (of ${totals.total}).`}
+        />
+        <span className="hidden sm:inline">Prototype for testing · not part of MOSAIC</span>
+        <a href="#/guide" className="ml-auto hover:text-foreground hover:underline">
+          Tester guide
+        </a>
+      </SubFooter>
       {dialogs}
-      <TestModePanel
-        fieldSummary={`This Workup: ${totals.recorded} recorded · ${totals.skipped} skipped · ${flaggedFields(state).length} flagged (of ${totals.total}).`}
-      />
     </div>
   )
 }

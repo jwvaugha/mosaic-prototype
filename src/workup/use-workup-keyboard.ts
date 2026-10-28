@@ -26,7 +26,8 @@ import { useWorkup } from "./workup-context"
 //   ⌫ / Delete     clear a Morph score, or un-Skip a field
 //   - / ⇧-         Skip / un-Skip the field, Skip the bone   (allowSkip)
 //   ⌥F             toggle "come back to"                     (allowFlag)
-//   R / ?          open or close the reference for the field
+//   R / ?          show or hide the reference panel (one switch)
+//   N              open the field's note
 //   Esc            close the reference
 //   ⌃⌥↓ / ⌃⌥↑      next / previous section (anywhere)
 //
@@ -35,7 +36,7 @@ import { useWorkup } from "./workup-context"
 
 export function useWorkupKeyboard() {
   const { state, dispatch } = useWorkup()
-  const { policy, config } = useConfig()
+  const { policy } = useConfig()
   const { preview } = usePreview()
   const { sectionOrder } = useRail()
   const mode = policy.id
@@ -76,7 +77,7 @@ export function useWorkupKeyboard() {
       return
     }
 
-    const refShown = referenceVisible(state, config.autoShow)
+    const refShown = referenceVisible(state)
 
     if (e.key === "Escape" && !state.firstUseHintSeen && focus?.kind === "field") {
       e.preventDefault()
@@ -121,7 +122,7 @@ export function useWorkupKeyboard() {
     if (e.key === "?" || ((e.key === "r" || e.key === "R") && !e.altKey && !e.ctrlKey && !e.metaKey)) {
       e.preventDefault()
       log(e.key === "?" ? "?" : "R", fieldId)
-      dispatch(refShown ? { type: "closeReference" } : { type: "openReference" })
+      dispatch({ type: "toggleReference" })
       return
     }
 
@@ -166,6 +167,14 @@ export function useWorkupKeyboard() {
       e.preventDefault()
       log(e.key === "Delete" ? "Delete" : "⌫", fieldId)
       dispatch({ type: "clear", id: fieldId })
+      return
+    }
+
+    // N opens the field's note (never part of a value).
+    if ((e.key === "n" || e.key === "N") && !e.altKey && !e.ctrlKey && !e.metaKey) {
+      e.preventDefault()
+      log("N", fieldId)
+      dispatch({ type: "openNote", id: fieldId })
       return
     }
 

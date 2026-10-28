@@ -49,7 +49,7 @@ export function focusKey(f: Focus): string | null {
 
 export function WorkupProvider({ children }: { children: ReactNode }) {
   const { config } = useConfig()
-  const [state, rawDispatch] = useReducer(reducer, null, () => initialState(config.seed, config.start))
+  const [state, rawDispatch] = useReducer(reducer, null, () => initialState(config.seed, config.start, config.refStartsOn))
   const elements = useRef(new Map<string, HTMLElement>())
 
   const dispatch = useCallback(

@@ -1,3 +1,6 @@
+import { BookImage, ChevronUp } from "lucide-react"
+import { Kbd } from "@/components/ui/kbd"
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
 import { usePreviewFor } from "@/workup/preview-context"
 import { useWorkup } from "@/workup/workup-context"
 import {
@@ -41,20 +44,42 @@ const factsOf = (d: ReferenceData): [string, string][] => {
   return f
 }
 
-export function DockedColumn({ data, onClose }: { data: ReferenceData; onClose: () => void }) {
+// Shown while the panel is on but focus isn't on a field (a bone header,
+// Conditions, Continue).
+function Placeholder({ compact }: { compact?: boolean }) {
+  return (
+    <div className={`flex flex-col items-center justify-center gap-2 rounded-lg border border-dashed text-center text-muted-foreground ${compact ? "h-full p-4" : "p-8"}`}>
+      <BookImage className="size-6" />
+      <span className="text-sm font-medium text-foreground">Reference panel</span>
+      <span className="text-xs">Select a field row to see its drawings and definition.</span>
+    </div>
+  )
+}
+
+// 360 px; 300 px below 1280; below 1024 a drawer over the pane, so the rows
+// keep their width (requirements: "collapses to a drawer").
+const DOCKED_CLASS =
+  "flex w-[360px] shrink-0 flex-col gap-4 overflow-y-auto border-l bg-background p-6 max-xl:w-[300px] max-xl:p-5 " +
+  "max-lg:absolute max-lg:inset-y-0 max-lg:right-0 max-lg:z-20 max-lg:w-[320px] max-lg:shadow-xl"
+
+export function DockedColumn({ data, onClose }: { data: ReferenceData | null; onClose: () => void }) {
+  if (!data) {
+    return (
+      <aside aria-label="Reference" className={DOCKED_CLASS}>
+        <PanelHeader label="Reference" onClose={onClose} />
+        <Placeholder />
+      </aside>
+    )
+  }
+  return <DockedColumnFor data={data} onClose={onClose} />
+}
+
+function DockedColumnFor({ data, onClose }: { data: ReferenceData; onClose: () => void }) {
   const v = data.variable
   const states = useStates(v.id)
   const preview = states.preview
   return (
-    <aside
-      aria-label="Reference"
-      className={
-        // 360 px; 300 px below 1280; below 1024 a drawer over the pane, so the
-        // rows keep their width (requirements: "collapses to a drawer").
-        "flex w-[360px] shrink-0 flex-col gap-4 overflow-y-auto border-l bg-background p-6 max-xl:w-[300px] max-xl:p-5 " +
-        "max-lg:absolute max-lg:inset-y-0 max-lg:right-0 max-lg:z-20 max-lg:w-[320px] max-lg:shadow-xl"
-      }
-    >
+    <aside aria-label="Reference" className={DOCKED_CLASS}>
       <PanelHeader label="Reference" onClose={onClose} />
       <div className="flex flex-col gap-0.5">
         <span className="text-base font-semibold">{v.name}</span>
@@ -112,14 +137,61 @@ export function InlineExpansion({ data, onClose }: { data: ReferenceData; onClos
 }
 
 export const DOCK_HEIGHT = 260
+export const DOCK_STRIP_HEIGHT = 36
 
-export function BottomDock({ data, onClose }: { data: ReferenceData; onClose: () => void }) {
+const DOCK_CLASS =
+  "@container absolute inset-x-0 bottom-0 z-10 flex gap-4 border-t bg-background px-4 pt-4 pb-5 shadow-[0_-4px_12px_-4px_rgb(12_23_62/0.08)] lg:gap-5 lg:px-10 lg:pt-5 lg:pb-6"
+
+// The bottom dock while it's off: a thin strip along the bottom of the pane
+// that says what it is (with more on hover) and opens it.
+export function DockStrip({ onOpen }: { onOpen: () => void }) {
+  return (
+    <Tooltip>
+      <TooltipTrigger asChild>
+        <button
+          type="button"
+          tabIndex={-1}
+          onClick={onOpen}
+          aria-label="Show reference panel"
+          className="absolute inset-x-0 bottom-0 z-10 flex items-center gap-2 border-t bg-muted/70 px-4 text-xs text-muted-foreground hover:bg-muted hover:text-foreground lg:px-10"
+          style={{ height: DOCK_STRIP_HEIGHT }}
+        >
+          <BookImage className="size-4" />
+          <span className="font-medium">Reference panel</span>
+          <span className="hidden sm:inline">· drawings and definitions for the field you're on</span>
+          <ChevronUp className="ml-auto size-4" />
+          <Kbd>R</Kbd>
+        </button>
+      </TooltipTrigger>
+      <TooltipContent side="top" className="max-w-xs">
+        Opens a strip here with the reference drawings and definition for the selected field. It stays open as you move
+        between fields until you close it. Shortcut: R.
+      </TooltipContent>
+    </Tooltip>
+  )
+}
+
+export function BottomDock({ data, onClose }: { data: ReferenceData | null; onClose: () => void }) {
+  if (!data) {
+    return (
+      <div className={DOCK_CLASS} style={{ height: DOCK_HEIGHT }} aria-label="Reference">
+        <div className="flex min-w-0 flex-1 flex-col gap-2.5">
+          <PanelHeader label="Reference" onClose={onClose} />
+          <Placeholder compact />
+        </div>
+      </div>
+    )
+  }
+  return <BottomDockFor data={data} onClose={onClose} />
+}
+
+function BottomDockFor({ data, onClose }: { data: ReferenceData; onClose: () => void }) {
   const v = data.variable
   const states = useStates(v.id)
   const preview = states.preview
   return (
     <div
-      className="@container absolute inset-x-0 bottom-0 z-10 flex gap-4 border-t bg-background px-4 pt-4 pb-5 shadow-[0_-4px_12px_-4px_rgb(12_23_62/0.08)] lg:gap-5 lg:px-10 lg:pt-5 lg:pb-6"
+      className={DOCK_CLASS}
       style={{ height: DOCK_HEIGHT }}
       aria-label="Reference"
     >

@@ -4,11 +4,18 @@
 
 Live: https://jwvaugha.github.io/mosaic-prototype/
 
-The prototype compares one open decision: **where the reference panel appears**. The options are A (docked column), C (inline under the field) and D (bottom dock), with one layout for both modalities. A fourth option shows the panel only when asked for (`R`), opening inline.
+The prototype compares one open decision: **where the reference panel appears**: A (docked column), C (inline under the field) or D (bottom dock). Since 2026-10-28 the panel is a single on/off switch that stays as set. It starts **off**, so testers have to find it: the "Show reference" button in the sticky section header (A and C), the thin strip along the bottom (D), or `R`. With focus off a field (a bone header, say), A and D show a placeholder.
 
-Since the PI meeting of 2026-10-28, Skip and "come back to" are no longer alternatives. Both are available on every field, as buttons that show their shortcut (`−`, `⌥F`). When a row hasn't room for them, they fold into a "⋯" menu. The three earlier versions (Flows page 1, 2 and 2.5) can still be reached with `?inc=skip-section`, `flag-section` or `flag-end`.
+Skip and "come back to" are both available on every field, as buttons that show their shortcut (`−`, `⌥F`). When a row hasn't room for them, they fold into a "⋯" menu. The three earlier versions (Flows page 1, 2 and 2.5) can still be reached with `?inc=skip-section`, `flag-section` or `flag-end`.
 
-Open **Test mode** with the pill in the bottom-left corner or `⌃⌥T`. Changing the scenario or the opening section starts the Workup again. **Intro card** toggles intro-dim (dimming everything but the field while the first-use card shows; `dim=0` in the URL turns it off) and can show the card again. **Copy link** shares the exact setup.
+Page frame:
+- the header holds navigation only (MOSAIC · Dashboard | Help · About · profile);
+- a footer holds the dataset as a whole (case number, save status, Download progress, Analyze);
+- a thin sub-footer holds the prototype's Test mode button and the tester guide link.
+
+Notes: the row's note button (or `N`) opens an editor. A row with a note keeps its icon, and hovering the icon previews the note. The Midway scenario has two example notes, on NBC and FemXL.
+
+Open **Test mode** from the sub-footer or with `⌃⌥T`. Changing the scenario or the opening section starts the Workup again. **Intro card** toggles intro-dim (dimming everything but the field while the first-use card shows; `dim=0` in the URL turns it off) and can show the card again. **Copy link** shares the exact setup.
 
 Every Region and section from the data dictionaries can be entered: 369 Variables in 15 sections, built by `npm run fixture` (see `scripts/manifest-report.md`). The 38 calculated cranial Variables are read-only. Add `start=<section id>` to the URL to open on a given section, e.g. `start=cranium-morph`.
 
@@ -30,7 +37,8 @@ Laptop and tablet widths down to 768 px are supported (phones aren't yet). Below
 | `⌫` / Delete | Clear a Morphological score, or un-Skip |
 | `-` | Skip the field, even a scored one (Undo appears). On a bone header: Skip the bone's blanks |
 | `⌥F` | Mark the field to come back to |
-| `R` / `?` / Esc | Open or close the reference for the field |
+| `R` / `?` | Show or hide the reference panel (one switch; Esc hides it) |
+| `N` | Add or edit the field's note (⌘↵ saves, Esc cancels) |
 | `⌃⌥↓` / `⌃⌥↑` | Next / previous section, in rail order |
 | F6 / Esc | Move into the Region rail / back to where you were |
 | ↑ ↓ ← → Enter | In the rail: move, collapse or expand, open a section or add a Region |

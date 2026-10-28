@@ -16,30 +16,26 @@ type Setup = { id: string; title: string; what: string; query: string }
 
 // Since the PI meeting of 2026-10-28, Skip and "come back to" are both always
 // available, so the only comparison is where the reference panel goes.
+// Since 2026-10-28 the reference panel is one on/off switch and starts off,
+// so finding and turning it on is part of the task.
 const SETUPS: Setup[] = [
   {
     id: "A",
     title: "Setup 1 · Docked column",
-    what: "The reference sits in a column on the right and never moves.",
-    query: "inc=skip-and-flag&ref=A&auto=morph,metric&seed=fresh&start=cranium-morph",
+    what: "The reference sits in a column on the right. Its switch is in the section's title bar.",
+    query: "inc=skip-and-flag&ref=A&seed=fresh&start=cranium-morph",
   },
   {
     id: "C",
     title: "Setup 2 · Inline, under the field",
-    what: "The reference opens directly under the field you're on. The page scrolls to keep your place.",
-    query: "inc=skip-and-flag&ref=C&auto=morph,metric&seed=fresh&start=cranium-morph",
+    what: "The reference opens under the field you're on, and the page keeps your place. Its switch is in the section's title bar.",
+    query: "inc=skip-and-flag&ref=C&seed=fresh&start=cranium-morph",
   },
   {
     id: "D",
     title: "Setup 3 · Bottom dock",
-    what: "The reference is a strip across the bottom of the screen.",
-    query: "inc=skip-and-flag&ref=D&auto=morph,metric&seed=fresh&start=cranium-morph",
-  },
-  {
-    id: "C-on-demand",
-    title: "Setup 4 · Only when you ask",
-    what: "Nothing appears on its own. Press R (or the row's drawing button) and the reference opens under the field.",
-    query: "inc=skip-and-flag&ref=A&ondemand=C&auto=none&seed=fresh&start=cranium-morph",
+    what: "The reference is a strip along the bottom of the screen. Click the thin bar at the bottom to open it.",
+    query: "inc=skip-and-flag&ref=D&seed=fresh&start=cranium-morph",
   },
 ]
 
@@ -51,7 +47,8 @@ const KEYS: [ReactNode, string][] = [
   [<Kbd key="b">⌫</Kbd>, "Clear a Morphological score (or click the chosen state again). For a measurement, delete the number."],
   [<Kbd key="m">−</Kbd>, "Skip the field, even if it has a value (Undo appears); − again un-Skips. On a bone's header, − skips the bone's blanks."],
   [<KbdGroup key="f"><Kbd>⌥</Kbd><Kbd>F</Kbd></KbdGroup>, "Mark the field to come back to; press again to unmark. Skip and come back to can both be used."],
-  [<Kbd key="q">R</Kbd>, "Show or hide the reference for the field (? works too). Esc hides it."],
+  [<Kbd key="q">R</Kbd>, "Show or hide the reference panel (? works too). It stays as you set it while you move between fields."],
+  [<Kbd key="n">N</Kbd>, "Add or edit a note on the field. ⌘↵ saves; Esc cancels."],
   [<KbdGroup key="s"><Kbd>⌃</Kbd><Kbd>⌥</Kbd><Kbd>↓</Kbd></KbdGroup>, "Next section from anywhere (↑ for the previous one)"],
   [<Kbd key="f6">F6</Kbd>, "Jump to the Regions list on the left; arrows move, Enter opens, Esc comes back"],
 ]
@@ -112,7 +109,7 @@ export function Guide() {
           ← Back to the prototype
         </a>
         <Badge variant="outline" className="w-fit">
-          <FlaskConical /> Prototype · about 20 minutes
+          <FlaskConical /> Prototype · about 15 minutes
         </Badge>
         <h1 className="text-3xl font-semibold">Testing the MOSAIC data-entry prototype</h1>
         <p className="text-muted-foreground">
@@ -126,7 +123,7 @@ export function Guide() {
         <span className="text-sm font-medium">The question · Where should the reference drawings go?</span>
         <p className="mt-1 text-sm text-muted-foreground">
           As you score each trait or measurement, MOSAIC shows a reference drawing for it. Where should that drawing
-          appear, so it helps without getting in the way? You'll try the same short task with the drawings in four
+          appear, so it helps without getting in the way? You'll try the same short task with the drawings in three
           different places.
         </p>
       </div>
@@ -158,15 +155,19 @@ export function Guide() {
         </ul>
       </Step>
 
-      <Step n="2" title="Try each setup (1–4)">
+      <Step n="2" title="Try each setup (1–3)">
         <p className="text-sm">
           Do the <strong>same task</strong> in each setup, in order:
         </p>
         <ol className="list-decimal space-y-1.5 rounded-xl border p-4 pl-9 text-sm">
           <li>
-            Each setup opens on <strong>Cranium · Morphological</strong>. Score the first two groups,{" "}
-            <strong>Nasal aperture and bones</strong> and <strong>Zygomatic and orbit</strong>, by comparing each
-            trait with the drawings. Use ←/→ on a trait, or hover the small drawings, to compare states.
+            Each setup opens on <strong>Cranium · Morphological</strong> with the reference panel <strong>off</strong>.
+            Find a way to turn it on.
+          </li>
+          <li>
+            Score the first two groups, <strong>Nasal aperture and bones</strong> and{" "}
+            <strong>Zygomatic and orbit</strong>, by comparing each trait with the drawings. Use ←/→ on a trait, or hover
+            the small drawings, to compare states.
           </li>
           <li>
             Two traits you can't do right now. <strong>Skip</strong> Posterior zygomatic tubercle (the bone is
@@ -174,12 +175,15 @@ export function Guide() {
             buttons appear on the row, or press − and ⌥F.
           </li>
           <li>
+            Add a short <strong>note</strong> to any one trait (the note button on the row, or press N).
+          </li>
+          <li>
             Open <strong>Lower limb › Metric</strong> from the Regions list. Enter FemXL <strong>452</strong>, FemBL{" "}
             <strong>448</strong>, FemHXD <strong>64</strong> and TibCML <strong>371</strong>, reading each definition
             as you go.
           </li>
           <li>
-            Click <strong>Analyze</strong> in the top right, look over the check, then <strong>Run analysis</strong>.
+            Click <strong>Analyze</strong> at the bottom right, look over the check, then <strong>Run analysis</strong>.
           </li>
         </ol>
         <div className="flex flex-col gap-2">
@@ -189,6 +193,7 @@ export function Guide() {
         </div>
         <Questions
           items={[
+            "How easy was it to find the switch for the reference panel?",
             "Where did your eyes go after each key press: the field, or the drawing?",
             "Did anything move when you didn't expect it to?",
             "Could you make out the differences between states?",
@@ -247,7 +252,7 @@ export function Guide() {
             go.
           </li>
           <li>
-            The <strong>Test mode</strong> button in the bottom-left corner shows the setup you're in. You don't need
+            The <strong>Test mode</strong> button in the thin bar at the very bottom shows the setup you're in. You don't need
             it for this guide, but feel free to explore.
           </li>
           <li>

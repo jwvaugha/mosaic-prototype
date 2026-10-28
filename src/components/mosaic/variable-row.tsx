@@ -23,6 +23,10 @@ export type RowSlots = {
 }
 
 export type RowProps = RowSlots & {
+  // The note's icon and editor (RowNote), and how to open it.
+  noteSlot?: ReactNode
+  onOpenNote?: () => void
+  hasNote?: boolean
   showKeyHints?: boolean
   // Lifted above the intro-dim overlay while the intro card is open.
   spotlight?: boolean
@@ -49,6 +53,9 @@ export function VariableRow({
   onSelectRow,
   spotlight,
   showKeyHints = true,
+  noteSlot,
+  onOpenNote,
+  hasNote,
   children,
 }: RowProps & {
   labelWidth: number
@@ -96,6 +103,7 @@ export function VariableRow({
             <div className="flex shrink-0 items-center">{children}</div>
             {/* A flagged field's pill stays visible after the input. */}
             {gutter && <div className="shrink-0">{gutter}</div>}
+            {noteSlot}
             <div
               className={cn(
                 // Fills what's left of the line; RowActions decides whether the
@@ -104,7 +112,13 @@ export function VariableRow({
                 "opacity-0 group-hover/row:opacity-100 group-data-focused/row:opacity-100 focus-within:opacity-100 has-data-[state=open]:opacity-100",
               )}
             >
-              <RowActions actions={actions ?? []} showKeyHints={showKeyHints} onReference={hasReference ? onOpenReference : undefined} />
+              <RowActions
+                actions={actions ?? []}
+                showKeyHints={showKeyHints}
+                onReference={hasReference ? onOpenReference : undefined}
+                onNote={onOpenNote}
+                hasNote={hasNote}
+              />
             </div>
           </div>
         </div>

@@ -170,13 +170,12 @@ export function TestModePanel({ fieldSummary }: { fieldSummary: string }) {
         tabIndex={-1}
         onClick={() => setOpen(true)}
         aria-label="Test mode"
-        className="fixed bottom-4 left-4 z-30 flex items-center gap-2 rounded-full border border-dashed border-primary bg-background px-3 py-1.5 text-xs font-medium text-primary shadow-sm"
+        // Lives in the sub-footer, the strip under the Workup footer.
+        className="flex h-5 items-center gap-1.5 rounded-full border border-dashed border-primary bg-background px-2 text-xs font-medium text-primary"
       >
-        <FlaskConical className="size-3.5" />
-        {/* Just "Test" below 1024 px, so it doesn't cover the bottom dock. */}
-        <span className="lg:hidden">Test</span>
-        <span className="hidden lg:inline">Test mode · {layout.label}</span>
-        <Kbd className="ml-1 hidden lg:inline-flex">⌃⌥T</Kbd>
+        <FlaskConical className="size-3" />
+        Test mode · {layout.label}
+        <Kbd className="ml-0.5 h-4 text-[10px]">⌃⌥T</Kbd>
       </button>
 
       <Sheet open={open} onOpenChange={setOpen}>
@@ -203,23 +202,15 @@ export function TestModePanel({ fieldSummary }: { fieldSummary: string }) {
                   onChange={(v) => set((c) => ({ ...c, refLayout: v }))}
                 />
               </Field>
-              <Field label="Show automatically for">
-                <Toggle
-                  label="Metric fields"
-                  checked={config.autoShow.metric}
-                  onChange={(v) => set((c) => ({ ...c, autoShow: { ...c.autoShow, metric: v } }))}
-                />
-                <Toggle
-                  label="Morphological fields"
-                  checked={config.autoShow.morph}
-                  onChange={(v) => set((c) => ({ ...c, autoShow: { ...c.autoShow, morph: v } }))}
-                />
-              </Field>
               <Toggle
-                label="Open inline when opened by hand (? or the row button)"
-                checked={config.refOnDemandLayout === "C"}
-                onChange={(v) => set((c) => ({ ...c, refOnDemandLayout: v ? "C" : "same" }))}
+                label="Panel starts on (restarts the Workup)"
+                checked={config.refStartsOn}
+                onChange={(v) => set((c) => ({ ...c, refStartsOn: v }), true)}
               />
+              <p className="text-xs text-muted-foreground">
+                In the app the panel is one switch that stays as set: the button in the section header (docked and
+                inline), the strip along the bottom (bottom dock), or R.
+              </p>
               <p className="text-xs text-muted-foreground">
                 {localImages
                   ? "Showing every reference image (local build)."

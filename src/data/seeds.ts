@@ -8,6 +8,7 @@ export type Seed = {
   values: Record<string, string>
   // Warnings the user has already acknowledged.
   acknowledged: string[]
+  notes?: Record<string, string>
 }
 
 export const SEEDS: Record<SeedId, Seed> = {
@@ -39,5 +40,10 @@ export const SEEDS: Record<SeedId, Seed> = {
       HumXL: "322",
     },
     acknowledged: ["TibDEB"],
+    // An existing note, so testers can see how one looks.
+    notes: {
+      NBC: "Scored on the left; the right nasal bone is broken.",
+      FemXL: "Femoral head slightly eroded; measured to the remaining surface.",
+    },
   },
 }

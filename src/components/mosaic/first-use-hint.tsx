@@ -3,7 +3,7 @@ import { Kbd } from "@/components/ui/kbd"
 import { Popover, PopoverAnchor, PopoverContent } from "@/components/ui/popover"
 
 // First-use hint (Flows 1.1): shown on the first focused field of a user's
-// first Workup, beside the field's input, without taking focus. It goes away
+// first Workup, beside or below the row, without taking focus. It goes away
 // with "Got it" or once any field is marked.
 
 export function FirstUseHint({
@@ -14,6 +14,8 @@ export function FirstUseHint({
   keys,
   onDismiss,
   anchor,
+  side,
+  width,
 }: {
   open: boolean
   title: string
@@ -21,18 +23,23 @@ export function FirstUseHint({
   note: string
   keys: [string, string][]
   onDismiss: () => void
-  // The focused field's input; the card sits to its right, or below it when
-  // there's no room.
+  // The focused row; the card sits to its right, or below it (never over it).
   anchor: HTMLElement | null
+  side: "right" | "bottom"
+  width: number
 }) {
   return (
     <Popover open={open && !!anchor}>
       <PopoverAnchor virtualRef={{ current: anchor! }} />
       <PopoverContent
-        side="right"
+        side={side}
         align="start"
-        sideOffset={16}
-        className="z-50 flex w-[320px] flex-col gap-2.5 border-primary px-4 py-3.5"
+        sideOffset={side === "right" ? 16 : 8}
+        // Right means right: never flip back over the row. Below may flip
+        // above it near the bottom of the screen.
+        avoidCollisions={side === "bottom"}
+        style={{ width }}
+        className="z-50 flex flex-col gap-2.5 border-primary px-4 py-3.5"
         onOpenAutoFocus={(e) => e.preventDefault()}
         onCloseAutoFocus={(e) => e.preventDefault()}
         onInteractOutside={(e) => e.preventDefault()}

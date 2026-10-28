@@ -75,11 +75,16 @@ export function RowActions({
   actions,
   showKeyHints,
   onReference,
+  onNote,
+  hasNote,
 }: {
   actions: RowAction[]
   showKeyHints: boolean
   // Present when the Variable has reference material.
   onReference?: () => void
+  onNote?: () => void
+  // A note's icon stays on the row itself, so it isn't repeated here.
+  hasNote?: boolean
 }) {
   const [inline, folded] = FITS[`${Math.min(actions.length, 3)}${onReference ? "r" : ""}`]
   return (
@@ -103,9 +108,11 @@ export function RowActions({
             <BookImage />
           </IconAction>
         )}
-        <IconAction label="Add note">
-          <FilePlus />
-        </IconAction>
+        {!hasNote && (
+          <IconAction label="Add note" shortcut="N" onClick={onNote}>
+            <FilePlus />
+          </IconAction>
+        )}
       </div>
       <div className={folded}>
         <DropdownMenu>
@@ -129,9 +136,10 @@ export function RowActions({
                 <Kbd className="ml-auto">R</Kbd>
               </DropdownMenuItem>
             )}
-            <DropdownMenuItem>
+            <DropdownMenuItem onSelect={onNote}>
               <FilePlus />
-              Add note
+              {hasNote ? "Edit note" : "Add note"}
+              <Kbd className="ml-auto">N</Kbd>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>

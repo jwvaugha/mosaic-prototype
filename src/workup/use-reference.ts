@@ -1,26 +1,30 @@
 import { useConfig } from "@/config/config-context"
 import { imageManifest } from "@/data"
 import type { RefLayout } from "@/config/test-config"
-import { referenceVisible, variable } from "@/domain/workup"
+import { variable } from "@/domain/workup"
 import type { ReferenceData } from "@/components/mosaic/reference/reference-parts"
 import { useWorkup } from "./workup-context"
 
-// Which reference to show, and how. The layout comes from the test config per
-// modality; with "C on demand", a panel opened by hand uses C while auto-show
-// keeps the configured layout.
-export function useReference(): { data: ReferenceData | null; layout: RefLayout; close: () => void } {
+// The reference panel: one on/off switch (stays as set), the layout under
+// test, and what to show. `data` is the focused field's reference, or null
+// when focus is elsewhere (a bone header, Conditions, Continue), in which
+// case A and D show a placeholder.
+export function useReference(): {
+  open: boolean
+  data: ReferenceData | null
+  layout: RefLayout
+  toggle: () => void
+  close: () => void
+} {
   const { state, dispatch } = useWorkup()
   const { config } = useConfig()
-  const close = () => dispatch({ type: "closeReference" })
-  if (!referenceVisible(state, config.autoShow) || state.focus?.kind !== "field") {
-    return { data: null, layout: "A", close }
-  }
-  const v = variable(state.focus.id)
-  const auto = config.autoShow[v.modality]
-  const layout = config.refOnDemandLayout === "C" && !auto ? "C" : config.refLayout
+  const f = state.focus
+  const v = f?.kind === "field" ? variable(f.id) : null
   return {
-    data: { variable: v, entry: imageManifest[v.id] ?? { kind: "none" }, value: state.fields[v.id].value },
-    layout,
-    close,
+    open: state.reference.open,
+    data: v ? { variable: v, entry: imageManifest[v.id] ?? { kind: "none" }, value: state.fields[v.id].value } : null,
+    layout: config.refLayout,
+    toggle: () => dispatch({ type: "toggleReference" }),
+    close: () => dispatch({ type: "closeReference" }),
   }
 }

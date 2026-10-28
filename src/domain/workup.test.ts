@@ -161,30 +161,19 @@ describe("sections", () => {
   })
 })
 
-describe("reference visibility", () => {
-  const auto = { morph: true, metric: true }
-  const off = { morph: false, metric: false }
-
-  it("auto-shows for the focused field and comes back on the next field after closing", () => {
+describe("reference panel switch", () => {
+  it("starts off, and once on stays on whatever has focus, until turned off", () => {
     let s = initialState()
-    expect(referenceVisible(s, auto)).toBe(true)
-    s = run(s, { type: "closeReference" })
-    expect(referenceVisible(s, auto)).toBe(false)
-    s = run(s, { type: "focus", focus: field("NAW") })
-    expect(referenceVisible(s, auto)).toBe(true)
-  })
-
-  it("follows focus once opened by hand, until closed", () => {
-    let s = run(initialState(), { type: "openReference" })
-    expect(referenceVisible(s, off)).toBe(true)
-    s = run(s, { type: "focus", focus: field("TibCML") })
-    expect(referenceVisible(s, off)).toBe(true)
+    expect(referenceVisible(s)).toBe(false)
+    s = run(s, { type: "toggleReference" })
+    expect(referenceVisible(s)).toBe(true)
+    s = run(s, { type: "focus", focus: { kind: "bone", id: "nasal" } }, { type: "focus", focus: field("TibCML") })
+    expect(referenceVisible(s)).toBe(true)
     s = run(s, { type: "closeReference" }, { type: "focus", focus: field("TibPEB") })
-    expect(referenceVisible(s, off)).toBe(false)
+    expect(referenceVisible(s)).toBe(false)
   })
 
-  it("hides on the Continue footer", () => {
-    const s = run(initialState(), { type: "focus", focus: { kind: "continue", section: MORPH } })
-    expect(referenceVisible(s, auto)).toBe(false)
+  it("can start on (Test mode)", () => {
+    expect(referenceVisible(initialState("fresh", undefined, true))).toBe(true)
   })
 })

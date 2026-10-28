@@ -1,4 +1,4 @@
-import { FileUp } from "lucide-react"
+import { BookImage, FileUp } from "lucide-react"
 import { useLayoutEffect, useState } from "react"
 import { BoneGroupHeader } from "@/components/mosaic/bone-group-header"
 import { CalculatedGroup } from "@/components/mosaic/calculated-group"
@@ -8,7 +8,9 @@ import { FirstUseHint } from "@/components/mosaic/first-use-hint"
 import { InlineExpansion } from "@/components/mosaic/reference/presenters"
 import type { ReferenceData } from "@/components/mosaic/reference/reference-parts"
 import { MorphVariableRow } from "@/components/mosaic/morph-variable-row"
+import { RowNote } from "@/components/mosaic/row-note"
 import { Button } from "@/components/ui/button"
+import { Kbd } from "@/components/ui/kbd"
 import { useConfig } from "@/config/config-context"
 import { imageManifest } from "@/data"
 import {
@@ -27,11 +29,17 @@ import { focusKey, useWorkup } from "@/workup/workup-context"
 // The main pane (wireframe "Main pane"): header, bone groups 24 px apart with
 // rows 4 px apart, then the section footer.
 
+const HINT_WIDTH = 320
+
 export function SectionView({
   onContinue,
   inlineReference,
+  referenceToggle,
 }: {
   onContinue: () => void
+  // The reference panel's switch, in the section header (docked and inline
+  // layouts; the bottom dock has its own strip).
+  referenceToggle: { open: boolean; onToggle: () => void } | null
   // Presenter C renders under the focused row.
   inlineReference: { data: ReferenceData | null; close: () => void } | null
 }) {
@@ -49,12 +57,21 @@ export function SectionView({
   const footer = [...head, `${c.blank} unreached`].join(" · ")
 
   const hintField = state.focus?.kind === "field" ? variable(state.focus.id) : null
-  // The card sits to the right of the field's input (its state buttons or
-  // number box). The row exists only after render, so find it in an effect.
+  // The card goes to the right of the whole row when its full width fits
+  // there (even over the reference panel), otherwise directly below the row;
+  // it never covers the row. The row exists only after render, so find it in
+  // an effect, and re-decide when the window resizes.
   const [hintAnchor, setHintAnchor] = useState<HTMLElement | null>(null)
+  const [hintSide, setHintSide] = useState<"right" | "bottom">("right")
   useLayoutEffect(() => {
-    const row = hintField ? document.querySelector<HTMLElement>(`[data-variable="${hintField.id}"]`) : null
-    setHintAnchor(row?.querySelector<HTMLElement>(`[id="field-${hintField!.id}"]`) ?? row)
+    const row = hintField ? document.querySelector<HTMLElement>(`[data-variable="${hintField.id}"] > div`) : null
+    setHintAnchor(row)
+    const place = () => {
+      if (row) setHintSide(row.getBoundingClientRect().right + HINT_WIDTH + 32 <= window.innerWidth ? "right" : "bottom")
+    }
+    place()
+    window.addEventListener("resize", place)
+    return () => window.removeEventListener("resize", place)
   }, [hintField?.id, section.id])
   // General on purpose: it explains the pattern, not the field it opens on.
   const hintCopy =
@@ -96,13 +113,31 @@ export function SectionView({
     // Rows fill the pane up to 960 px, so their Skip / Come back buttons have
     // room inline; with the docked column open the pane is about 720 px.
     <div className="flex w-full max-w-[960px] min-w-0 flex-col gap-6 pb-24">
-      <header className="flex w-full flex-col gap-1">
-        <div className="flex min-h-8 flex-wrap items-center gap-x-4 gap-y-2">
-          <h1 className="text-2xl font-semibold">{section.title}</h1>
+      {/* Sticky, so the section's title and the reference switch stay in view. */}
+      {/* Sticky measures from inside the pane's top padding, so it's pulled up
+          by that padding (-top-*) to sit flush with the top edge. */}
+      <header className="sticky -top-6 z-10 -mt-6 flex w-full flex-col gap-1 bg-background pt-6 pb-3 lg:-top-8 lg:-mt-8 lg:pt-8">
+        <div className="flex min-h-8 flex-wrap items-center gap-x-3 gap-y-2">
+          <h1 className="mr-auto text-2xl font-semibold">{section.title}</h1>
           {section.modality === "metric" && (
-            <Button variant="outline" size="sm" tabIndex={-1} className="ml-auto text-xs">
+            <Button variant="outline" size="sm" tabIndex={-1} className="text-xs">
               <FileUp /> <span className="hidden md:inline">Import from 3Skull / FORDISC file</span>
               <span className="md:hidden">Import</span>
+            </Button>
+          )}
+          {referenceToggle && (
+            <Button
+              variant={referenceToggle.open ? "secondary" : "outline"}
+              size="sm"
+              tabIndex={-1}
+              aria-pressed={referenceToggle.open}
+              className="text-xs"
+              onMouseDown={(e) => e.preventDefault()}
+              onClick={referenceToggle.onToggle}
+            >
+              <BookImage />
+              {referenceToggle.open ? "Hide reference" : "Show reference"}
+              <Kbd>R</Kbd>
             </Button>
           )}
         </div>
@@ -141,6 +176,27 @@ export function SectionView({
                 const status = fieldStatus(state, id)
                 const row = {
                   showKeyHints: config.showKeyHints,
+                  hasNote: !!field.note,
+                  onOpenNote: () => {
+                    focusField(id)
+                    dispatch({ type: "openNote", id })
+                  },
+                  noteSlot: (
+                    <RowNote
+                      name={v.name}
+                      note={field.note}
+                      open={state.noteEditor === id}
+                      onOpen={() => dispatch({ type: "openNote", id })}
+                      onClose={() => {
+                        dispatch({ type: "closeNote" })
+                        focusNow(id)
+                      }}
+                      onSave={(note) => {
+                        dispatch({ type: "setNote", id, note })
+                        focusNow(id)
+                      }}
+                    />
+                  ),
                   spotlight: hintOpen && config.introDim && focusKey(state.focus) === id,
                   onSelectRow: () => {
                     focusField(id)
@@ -215,6 +271,8 @@ export function SectionView({
       )}
 
       <FirstUseHint
+        side={hintSide}
+        width={HINT_WIDTH}
         open={hintOpen}
         anchor={hintAnchor}
         onDismiss={() => dispatch({ type: "dismissHint" })}

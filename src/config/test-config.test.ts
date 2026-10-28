@@ -5,8 +5,7 @@ describe("test config URL", () => {
   it("round-trips through the query string", () => {
     const c: TestConfig = {
       refLayout: "D",
-      refOnDemandLayout: "C",
-      autoShow: { morph: false, metric: true },
+      refStartsOn: true,
       incompletion: "flag-end",
       showKeyHints: false,
       introDim: false,

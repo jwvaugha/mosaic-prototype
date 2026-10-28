@@ -197,13 +197,45 @@ describe("bone headers", () => {
     expect(within(row("NBS")).getByRole("button", { pressed: true })).toHaveTextContent("Come back to this")
   })
 
-  it("R opens and closes the reference for the field", async () => {
-    const user = setup("inc=skip-and-flag&auto=none")
+  it("R shows and hides the reference panel, which stays on as focus moves", async () => {
+    const user = setup("inc=skip-and-flag")
     await focusFirst(user)
     expect(screen.queryByRole("complementary", { name: "Reference" })).toBeNull()
     await user.keyboard("r")
-    expect(screen.getByRole("complementary", { name: "Reference" })).toBeInTheDocument()
-    await user.keyboard("r")
+    expect(screen.getByRole("complementary", { name: "Reference" })).toHaveTextContent("Nasal aperture shape")
+    // On a bone header the panel stays, with a placeholder.
+    await user.keyboard("{Shift>}{Tab}{Tab}{/Shift}")
+    expect(screen.getByRole("complementary", { name: "Reference" })).toHaveTextContent("Select a field row")
+    await user.keyboard("{Tab}{Tab}r")
     expect(screen.queryByRole("complementary", { name: "Reference" })).toBeNull()
+  })
+
+  it("the section header's button switches the panel too", async () => {
+    const user = setup("inc=skip-and-flag")
+    await user.click(screen.getByRole("button", { name: /Show reference/ }))
+    expect(screen.getByRole("complementary", { name: "Reference" })).toBeInTheDocument()
+    await user.click(screen.getByRole("button", { name: /Hide reference/ }))
+    expect(screen.queryByRole("complementary", { name: "Reference" })).toBeNull()
+  })
+})
+
+describe("notes", () => {
+  it("N adds a note; the row then shows it, and it can be edited and deleted", async () => {
+    const user = setup("inc=skip-and-flag")
+    await focusFirst(user)
+    await user.keyboard("n")
+    await user.keyboard("Left side only")
+    await user.keyboard("{Meta>}{Enter}{/Meta}")
+    const icon = within(row("NAS")).getByRole("button", { name: /^Note: Left side only/ })
+    await user.click(icon)
+    await user.click(screen.getByRole("button", { name: "Delete note" }))
+    expect(within(row("NAS")).queryByRole("button", { name: /^Note:/ })).toBeNull()
+    // Keys typed in the note never reached the data-entry shortcuts.
+    expect(statusOf("NAS")).toBe("Blank")
+  })
+
+  it("shows existing notes on their rows", () => {
+    setup("inc=skip-and-flag&seed=midway")
+    expect(within(row("NBC")).getByRole("button", { name: /^Note: Scored on the left/ })).toBeInTheDocument()
   })
 })
