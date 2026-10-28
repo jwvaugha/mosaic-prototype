@@ -13,6 +13,7 @@ export function MetricVariableRow({
   onCommit,
   onFocus,
   onAcknowledge,
+  onUnacknowledge,
   inputRef,
   ...row
 }: RowProps & {
@@ -20,57 +21,71 @@ export function MetricVariableRow({
   onCommit: (value: string) => void
   onFocus: () => void
   onAcknowledge: () => void
-  inputRef?: Ref<HTMLInputElement>
+  onUnacknowledge: () => void
+  inputRef?: Ref<HTMLElement>
 }) {
   const v = row.variable
   const [draft, setDraft] = useState(value ?? "")
   useEffect(() => setDraft(value ?? ""), [value])
 
+  // Warning Line in the library row: indented to the label, Acknowledge /
+  // Undo as ghost buttons.
+  const outOfRange = `Outside the usual range (${v.range?.min}–${v.range?.max} ${v.unit}).`
   const message =
-    row.status === "warning" || row.status === "acknowledged" ? (
-      <div
-        className={cn(
-          "flex items-center gap-3 rounded-md px-3 py-1.5 text-sm",
-          row.status === "warning" ? "bg-warning-muted text-warning-muted-foreground" : "text-muted-foreground",
-        )}
-      >
-        <span className="flex-1">
-          {value} {v.unit} is outside the usual range for {v.code} ({v.range!.min}–{v.range!.max} {v.unit}).
-          {row.status === "acknowledged" && " Kept as entered."}
-        </span>
-        {row.status === "warning" && (
-          <Button size="xs" variant="outline" tabIndex={-1} onClick={onAcknowledge}>
-            Keep value
-          </Button>
-        )}
+    row.status === "warning" ? (
+      <div className="flex min-h-8 items-center gap-2 pl-7">
+        <span className="text-sm text-warning-muted-foreground">{outOfRange}</span>
+        <Button size="sm" variant="ghost" tabIndex={-1} onClick={onAcknowledge}>
+          Acknowledge
+        </Button>
+      </div>
+    ) : row.status === "acknowledged" ? (
+      <div className="flex min-h-8 items-center gap-2 pl-7 text-sm text-muted-foreground">
+        <span className="font-medium">Acknowledged ·</span>
+        <span>{outOfRange}</span>
+        <Button size="sm" variant="ghost" tabIndex={-1} onClick={onUnacknowledge}>
+          Undo
+        </Button>
       </div>
     ) : (
       row.message
     )
 
+  if (row.status === "skipped") {
+    return (
+      <VariableRow {...row} message={message} labelWidth={324}>
+        <div
+          ref={inputRef as Ref<HTMLDivElement>}
+          tabIndex={0}
+          onFocus={onFocus}
+          className="rounded-md text-sm text-muted-foreground outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50"
+        >
+          Skipped
+        </div>
+      </VariableRow>
+    )
+  }
+
   return (
-    <VariableRow {...row} message={message}>
+    <VariableRow {...row} message={message} labelWidth={324}>
       <InputGroup
-        className={cn(
-          "w-[200px]",
-          row.status === "warning" && "border-warning",
-          row.status === "skipped" && "border-dashed",
-        )}
+        className={cn("h-9 w-[200px] bg-background", row.status === "warning" && "border-warning")}
       >
         <InputGroupInput
-          ref={inputRef}
+          ref={inputRef as Ref<HTMLInputElement>}
           id={`field-${v.id}`}
           aria-label={v.name}
           inputMode="decimal"
           autoComplete="off"
-          placeholder={row.status === "skipped" ? "Skipped" : "—"}
+          placeholder="—"
           value={draft}
           onChange={(e) => setDraft(e.target.value)}
           onFocus={onFocus}
           onBlur={() => draft !== (value ?? "") && onCommit(draft)}
+          className="text-sm"
         />
         <InputGroupAddon align="inline-end">
-          <InputGroupText>
+          <InputGroupText className="text-sm">
             {v.unit} · {v.precision}
           </InputGroupText>
         </InputGroupAddon>

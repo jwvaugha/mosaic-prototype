@@ -11,6 +11,13 @@ export type FieldStatus = "unreached" | "recorded" | "warning" | "acknowledged" 
 
 export type FlagReason = "re-measure" | "bone-elsewhere" | "ask-colleague" | "other"
 
+export const FLAG_REASONS: Record<FlagReason, string> = {
+  "re-measure": "Re-measure",
+  "bone-elsewhere": "Bone in use elsewhere",
+  "ask-colleague": "Ask a colleague",
+  other: "Other",
+}
+
 export type FieldState = {
   value: string | null
   skipped: boolean
@@ -40,12 +47,15 @@ export type Action =
   | { type: "toggleFlag"; id: string }
   | { type: "setFlagReason"; id: string; reason: FlagReason | undefined }
   | { type: "acknowledge"; id: string }
+  | { type: "unacknowledge"; id: string }
   | { type: "focus"; focus: Focus }
   | { type: "goToSection"; section: string; focus?: Focus }
   | { type: "openReference"; by: "auto" | "manual" }
   | { type: "closeReference" }
   | { type: "dismissHint" }
   | { type: "load"; seed: SeedId }
+  // Undo for "Skip N and continue": puts back a snapshot.
+  | { type: "restore"; state: WorkupState }
 
 // ---------------------------------------------------------------------------
 // Fixture lookups
@@ -112,20 +122,32 @@ export function initialState(seed: SeedId = "fresh"): WorkupState {
     fields[id] = { ...emptyField(), value, acknowledged: s.acknowledged.includes(id) }
   }
   const first = sections[0]
-  return {
+  const state: WorkupState = {
     fields,
     section: first.id,
     focus: null,
     reference: { open: false, openedBy: null },
     firstUseHintSeen: false,
   }
+  // A Workup opens on its first blank field, like any section.
+  return { ...state, focus: landingFocus(state, first.id) }
 }
 
 function patch(state: WorkupState, id: string, p: Partial<FieldState>): WorkupState {
   return { ...state, fields: { ...state.fields, [id]: { ...state.fields[id], ...p } } }
 }
 
+// Marking any field or moving to another section counts as having seen it.
+const MARKS_FIELD = new Set(["enter", "toggleSkip", "toggleSkipBone", "toggleFlag", "skipBlanks", "goToSection"])
+
 export function reducer(state: WorkupState, action: Action): WorkupState {
+  const next = reduce(state, action)
+  return MARKS_FIELD.has(action.type) && !next.firstUseHintSeen && next !== state
+    ? { ...next, firstUseHintSeen: true }
+    : next
+}
+
+function reduce(state: WorkupState, action: Action): WorkupState {
   switch (action.type) {
     case "enter": {
       const v = variable(action.id)
@@ -172,6 +194,8 @@ export function reducer(state: WorkupState, action: Action): WorkupState {
       return patch(state, action.id, { flag: { reason: action.reason } })
     case "acknowledge":
       return patch(state, action.id, { acknowledged: true })
+    case "unacknowledge":
+      return patch(state, action.id, { acknowledged: false })
     case "focus": {
       const f = action.focus
       const section = f?.kind === "field" ? sectionOf(f.id).id : f?.kind === "continue" ? f.section : state.section
@@ -189,6 +213,8 @@ export function reducer(state: WorkupState, action: Action): WorkupState {
       return { ...state, firstUseHintSeen: true }
     case "load":
       return initialState(action.seed)
+    case "restore":
+      return action.state
   }
 }
 

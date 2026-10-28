@@ -22,12 +22,12 @@ export function MorphVariableRow({
   const v = row.variable
   if (row.status === "skipped") {
     return (
-      <VariableRow {...row}>
+      <VariableRow {...row} labelWidth={200}>
         <div
           ref={groupRef}
           tabIndex={0}
           onFocus={onFocus}
-          className="rounded-md px-1 text-[15px] text-muted-foreground outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50"
+          className="rounded-md text-sm text-muted-foreground outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50"
         >
           Skipped
         </div>
@@ -35,7 +35,7 @@ export function MorphVariableRow({
     )
   }
   return (
-    <VariableRow {...row}>
+    <VariableRow {...row} labelWidth={200}>
       <CharacterStateGroup
         id={v.id}
         label={v.name}
@@ -80,12 +80,13 @@ export function CharacterStateGroup({
     >
       {states.map((s) => (
         <Tooltip key={s.code}>
-          <TooltipTrigger asChild>
+          {/* Hover only: on keyboard focus the label would cover the row above. */}
+          <TooltipTrigger asChild onFocus={(e) => e.preventDefault()}>
             <ToggleGroupItem
               value={s.code}
               aria-label={`${s.code}: ${s.label}`}
               className={cn(
-                "h-9 min-w-9 font-mono text-[15px]",
+                "h-9 min-w-9 bg-background px-2.5 text-sm",
                 // The Tooltip trigger overwrites data-state, so style on aria-checked.
                 "aria-checked:bg-primary aria-checked:text-primary-foreground aria-checked:hover:bg-primary/90",
               )}

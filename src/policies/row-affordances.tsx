@@ -1,24 +1,47 @@
 import type { ReactNode } from "react"
+import { ComeBackFlag } from "@/components/mosaic/come-back-flag"
 import { KeyHint } from "@/components/mosaic/key-hint"
-import { Badge } from "@/components/ui/badge"
-import type { FieldState, FieldStatus } from "@/domain/workup"
+import type { FieldState, FieldStatus, FlagReason } from "@/domain/workup"
 import type { IncompletionPolicy } from "./incompletion"
 
 // What a policy adds to each row and bone header. Rows render these slots
 // without knowing which policy produced them.
 
-export function rowAffordances(
-  policy: IncompletionPolicy,
-  field: FieldState,
-  status: FieldStatus,
-  showKeyHints: boolean,
-): { actions?: ReactNode; gutter?: ReactNode } {
+export function rowAffordances({
+  policy,
+  name,
+  field,
+  status,
+  focused,
+  showKeyHints,
+  onToggleFlag,
+  onFlagReason,
+}: {
+  policy: IncompletionPolicy
+  name: string
+  field: FieldState
+  status: FieldStatus
+  focused: boolean
+  showKeyHints: boolean
+  onToggleFlag: () => void
+  onFlagReason: (r: FlagReason | undefined) => void
+}): { actions?: ReactNode; gutter?: ReactNode } {
+  const blankOrSkipped = status === "unreached" || status === "skipped"
   const actions =
-    policy.allowSkip && status !== "recorded" && status !== "warning" && status !== "acknowledged"
-      ? showKeyHints && <KeyHint keys="-" label={status === "skipped" ? "Un-skip" : "Skip"} />
-      : undefined
-  // Placeholder until the come-back flag component lands (issue 07).
-  const gutter = policy.allowFlag && field.flag ? <Badge variant="outline">Come back to</Badge> : undefined
+    policy.allowSkip && blankOrSkipped && showKeyHints ? (
+      <KeyHint keys="-" label={status === "skipped" ? "Un-skip" : "Skip"} />
+    ) : undefined
+  const gutter = policy.allowFlag ? (
+    <ComeBackFlag
+      name={name}
+      flagged={!!field.flag}
+      reason={field.flag?.reason}
+      rowFocused={focused}
+      showKeyHints={showKeyHints}
+      onToggle={onToggleFlag}
+      onReason={onFlagReason}
+    />
+  ) : undefined
   return { actions, gutter }
 }
 

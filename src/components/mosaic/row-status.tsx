@@ -6,7 +6,7 @@ const ICONS: Record<FieldStatus, { icon: typeof CircleCheck; className: string; 
   unreached: { icon: CircleDashed, className: "text-muted-foreground", label: "Blank" },
   recorded: { icon: CircleCheck, className: "text-success", label: "Recorded" },
   warning: { icon: TriangleAlert, className: "text-warning", label: "Out of range" },
-  acknowledged: { icon: CircleCheck, className: "text-warning", label: "Out of range, acknowledged" },
+  acknowledged: { icon: CircleCheck, className: "text-success", label: "Out of range, acknowledged" },
   skipped: { icon: CircleMinus, className: "text-muted-foreground", label: "Skipped" },
 }
 

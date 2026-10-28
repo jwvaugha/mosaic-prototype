@@ -64,6 +64,7 @@ export function Parts() {
       <Group title="BoneGroupHeader + MorphVariableRow (Cranium · Morphological)">
         <BoneGroupHeader
           name="Nasal aperture and bones"
+          bilateral={false}
           counts={{ total: 6, recorded: 1, skipped: 1, flagged: 0 }}
           actions={<KeyHint keys="⇧-" label="Skip bone" />}
         />
@@ -83,7 +84,7 @@ export function Parts() {
       </Group>
 
       <Group title="BoneGroupHeader + MetricVariableRow (Lower limb · Metric)">
-        <BoneGroupHeader name="Femur" counts={{ total: 6, recorded: 3, skipped: 1, flagged: 0 }} />
+        <BoneGroupHeader name="Femur" bilateral counts={{ total: 6, recorded: 3, skipped: 1, flagged: 0 }} />
         {metricCases.map((c) => (
           <MetricVariableRow
             key={c.id}
@@ -95,6 +96,7 @@ export function Parts() {
             onCommit={noop}
             onFocus={noop}
             onAcknowledge={noop}
+            onUnacknowledge={noop}
             actions={<KeyHint keys="-" label={c.status === "skipped" ? "Un-skip" : "Skip"} />}
           />
         ))}
