@@ -11,7 +11,7 @@ import { Switch } from "@/components/ui/switch"
 import { useConfig } from "@/config/config-context"
 import { DEFAULT_CONFIG, type RefLayout, type TestConfig } from "@/config/test-config"
 import { SEEDS, type SeedId } from "@/data/seeds"
-import { realImages } from "@/data"
+import { localImages } from "@/data"
 import { POLICIES, type IncompletionId } from "@/policies/incompletion"
 import { clearEvents, getEvents, subscribeEvents } from "@/lib/event-log"
 import { cn } from "@/lib/utils"
@@ -153,9 +153,9 @@ export function TestModePanel({ fieldSummary }: { fieldSummary: string }) {
                 </label>
               ))}
               <p className="text-xs text-muted-foreground">
-                {realImages
-                  ? "Showing the real reference images (local build)."
-                  : "Images are placeholders at their real sizes. Run locally with VITE_REAL_IMAGES=1 to see the drawings."}
+                {localImages
+                  ? "Showing every reference image (local build)."
+                  : "Morphological drawings are MSU's own. Metric figures (DCP 2.0) are placeholders at their real sizes until they're cleared."}
               </p>
             </Group>
 

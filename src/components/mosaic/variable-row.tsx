@@ -25,6 +25,8 @@ export type RowSlots = {
 }
 
 export type RowProps = RowSlots & {
+  // Pressing anywhere on the row selects it (not just its input).
+  onSelectRow?: () => void
   variable: Variable
   status: FieldStatus
   focused: boolean
@@ -43,12 +45,27 @@ export function VariableRow({
   below,
   message,
   labelWidth,
+  onSelectRow,
   children,
 }: RowProps & { labelWidth: number; children: ReactNode }) {
   // The code is shown only when it's a real abbreviation (requirements: Rows).
   const showCode = variable.code !== variable.name && !/_/.test(variable.code)
   return (
-    <div className="group/gutter relative" data-variable={variable.id}>
+    <div
+      className="group/gutter relative"
+      data-variable={variable.id}
+      onMouseDown={(e) => {
+        // Ignore events bubbling from portals (popovers, the enlarge dialog).
+        const target = e.target as HTMLElement
+        if (!onSelectRow || !e.currentTarget.contains(target) || e.button !== 0) return
+        // Inputs take focus and place the caret themselves.
+        if (target.closest("input, textarea")) return onSelectRow()
+        // Elsewhere, stop the browser moving focus to <body> (or, in Safari,
+        // not focusing buttons) and select the row's own field instead.
+        e.preventDefault()
+        onSelectRow()
+      }}
+    >
       <div
         data-focused={focused || undefined}
         className="group/row flex w-[760px] flex-col gap-1 rounded-lg px-3 py-2 hover:bg-muted/50 data-focused:bg-muted/50"

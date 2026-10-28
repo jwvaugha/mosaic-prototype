@@ -34,7 +34,7 @@ export function SectionView({
   // Presenter C renders under the focused row.
   inlineReference: { data: ReferenceData | null; close: () => void } | null
 }) {
-  const { state, dispatch, register } = useWorkup()
+  const { state, dispatch, register, focusNow } = useWorkup()
   const { config, policy } = useConfig()
   const section = sections.find((s) => s.id === state.section)!
   const { sectionOrder } = useRail()
@@ -116,6 +116,10 @@ export function SectionView({
                 const field = state.fields[id]
                 const status = fieldStatus(state, id)
                 const row = {
+                  onSelectRow: () => {
+                    focusField(id)
+                    focusNow(id)
+                  },
                   variable: v,
                   status,
                   focused: focusKey(state.focus) === id,

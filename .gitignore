@@ -23,6 +23,8 @@ dist-ssr
 *.sln
 *.sw?
 
-# Reference images from References/MOSAIC Photos are local-only until MSU
-# confirms they can be on a public URL. The Pages build uses placeholders.
-public/ref-images/
+# Reference images: the MSU drawings (mms/) are cleared for the public site
+# (2026-10-28). Everything else stays local until cleared; the Pages build
+# draws placeholders for it.
+public/ref-images/*
+!public/ref-images/mms/

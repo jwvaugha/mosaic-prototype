@@ -20,6 +20,9 @@ type WorkupContextValue = {
   state: WorkupState
   dispatch: (a: Action) => void
   register: (key: string) => (el: HTMLElement | null) => void
+  // Puts DOM focus on a registered element now, e.g. after a click on a
+  // row's label, where the browser wouldn't move focus by itself.
+  focusNow: (key: string) => void
 }
 
 const WorkupContext = createContext<WorkupContextValue | null>(null)
@@ -74,7 +77,12 @@ export function WorkupProvider({ children }: { children: ReactNode }) {
     el.closest("[data-variable], [data-continue]")?.scrollIntoView({ block: "nearest" })
   }, [key, state.section])
 
-  return <WorkupContext.Provider value={{ state, dispatch, register }}>{children}</WorkupContext.Provider>
+  const focusNow = useCallback((k: string) => {
+    const el = elements.current.get(k)
+    if (el && el !== document.activeElement && !el.contains(document.activeElement)) el.focus({ preventScroll: true })
+  }, [])
+
+  return <WorkupContext.Provider value={{ state, dispatch, register, focusNow }}>{children}</WorkupContext.Provider>
 }
 
 export function useWorkup() {

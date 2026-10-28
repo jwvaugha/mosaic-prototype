@@ -115,3 +115,22 @@ describe("keyboard: 2 / 2.5 · Come back to", () => {
     expect(flagged()).toBeNull()
   })
 })
+
+describe("selecting a row by clicking", () => {
+  it("clicking a row's name selects it, so keys act on that row", async () => {
+    const user = setup("inc=skip-section")
+    await user.click(within(row("IOB")).getByText("Interorbital breadth"))
+    expect(focusedRow()).toBe("IOB")
+    expect(row("IOB").querySelector("[data-focused]")).not.toBeNull()
+    await user.keyboard("2")
+    expect(statusOf("IOB")).toBe("Recorded")
+    expect(focusedRow()).toBe("ORB")
+  })
+
+  it("clicking a Metric row's name puts the cursor in its input", async () => {
+    const user = setup("inc=skip-section")
+    await user.keyboard("{Control>}{Alt>}{ArrowDown}{/Alt}{/Control}")
+    await user.click(within(row("TibPEB")).getByText("Proximal epiphyseal breadth"))
+    expect(document.activeElement).toBe(screen.getByLabelText("Proximal epiphyseal breadth"))
+  })
+})
