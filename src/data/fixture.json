@@ -1,0 +1,477 @@
+{
+  "generatedAt": "2026-10-28",
+  "sections": [
+    {
+      "id": "cranium-morph",
+      "region": "Cranium",
+      "modality": "morph",
+      "title": "Cranium · Morphological",
+      "bones": [
+        {
+          "id": "nasal",
+          "name": "Nasal aperture and bones",
+          "variableIds": [
+            "NAS",
+            "NAW",
+            "NBS",
+            "NBC",
+            "ANS",
+            "INA"
+          ]
+        },
+        {
+          "id": "midface",
+          "name": "Zygomatic and orbit",
+          "variableIds": [
+            "ZS",
+            "MT",
+            "PZTub",
+            "IOB",
+            "ORB"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lower-limb-metric",
+      "region": "Lower limb",
+      "modality": "metric",
+      "title": "Lower limb · Metric",
+      "bones": [
+        {
+          "id": "femur",
+          "name": "Femur",
+          "variableIds": [
+            "FemXL",
+            "FemBL",
+            "FemEB",
+            "FemHXD",
+            "FemMXD",
+            "FemMWD"
+          ]
+        },
+        {
+          "id": "tibia",
+          "name": "Tibia",
+          "variableIds": [
+            "TibCML",
+            "TibPEB",
+            "TibDEB",
+            "TibMXD"
+          ]
+        }
+      ]
+    }
+  ],
+  "variables": {
+    "NAS": {
+      "id": "NAS",
+      "code": "NAS",
+      "name": "Nasal aperture shape",
+      "modality": "morph",
+      "method": "MMS",
+      "states": [
+        {
+          "code": "1",
+          "label": "tardrop"
+        },
+        {
+          "code": "2",
+          "label": "bell shape"
+        },
+        {
+          "code": "3",
+          "label": "bowed"
+        }
+      ]
+    },
+    "NAW": {
+      "id": "NAW",
+      "code": "NAW",
+      "name": "Nasal aperture width",
+      "modality": "morph",
+      "method": "MMS",
+      "states": [
+        {
+          "code": "1",
+          "label": "narrow"
+        },
+        {
+          "code": "2",
+          "label": "intermediate"
+        },
+        {
+          "code": "3",
+          "label": "broad"
+        }
+      ]
+    },
+    "NBS": {
+      "id": "NBS",
+      "code": "NBS",
+      "name": "Nasal bone shape",
+      "modality": "morph",
+      "method": "MMS",
+      "states": [
+        {
+          "code": "1",
+          "label": "no nasal pinch"
+        },
+        {
+          "code": "2",
+          "label": "superior pinch, minimal lateral buldge"
+        },
+        {
+          "code": "3",
+          "label": "superior pinch, pronounced lateral bulge"
+        },
+        {
+          "code": "4",
+          "label": "triangular"
+        }
+      ]
+    },
+    "NBC": {
+      "id": "NBC",
+      "code": "NBC",
+      "name": "Nasal bone contour",
+      "modality": "morph",
+      "method": "MMS",
+      "states": [
+        {
+          "code": "0",
+          "label": "low, rounded, circular"
+        },
+        {
+          "code": "1",
+          "label": "high rounded, oval"
+        },
+        {
+          "code": "2",
+          "label": "broad plateau"
+        },
+        {
+          "code": "3",
+          "label": "narrow plateau"
+        },
+        {
+          "code": "4",
+          "label": "triangular"
+        }
+      ]
+    },
+    "ANS": {
+      "id": "ANS",
+      "code": "ANS",
+      "name": "Anterior nasal spine",
+      "modality": "morph",
+      "method": "MMS",
+      "states": [
+        {
+          "code": "1",
+          "label": "slight"
+        },
+        {
+          "code": "2",
+          "label": "intermediate"
+        },
+        {
+          "code": "3",
+          "label": "marked"
+        }
+      ]
+    },
+    "INA": {
+      "id": "INA",
+      "code": "INA",
+      "name": "Inferior nasal aperture",
+      "modality": "morph",
+      "method": "MMS",
+      "states": [
+        {
+          "code": "1",
+          "label": "deep, posterior sloping"
+        },
+        {
+          "code": "2",
+          "label": "slight, anterior sloping"
+        },
+        {
+          "code": "3",
+          "label": "no sloping or sill"
+        },
+        {
+          "code": "4",
+          "label": "weak ridge"
+        },
+        {
+          "code": "5",
+          "label": "pronounced ridge"
+        }
+      ]
+    },
+    "ZS": {
+      "id": "ZS",
+      "code": "ZS",
+      "name": "Zygomaticomaxillary suture course",
+      "modality": "morph",
+      "method": "MMS",
+      "states": [
+        {
+          "code": "0",
+          "label": "no angles"
+        },
+        {
+          "code": "1",
+          "label": "one angle"
+        },
+        {
+          "code": "2",
+          "label": "jagged/s-shaped"
+        }
+      ]
+    },
+    "MT": {
+      "id": "MT",
+      "code": "MT",
+      "name": "Malar tubercle",
+      "modality": "morph",
+      "method": "MMS",
+      "states": [
+        {
+          "code": "0",
+          "label": "no projection"
+        },
+        {
+          "code": "1",
+          "label": "trace tubercle ~2 mm or less"
+        },
+        {
+          "code": "2",
+          "label": "medium protrusion ~2-4mm"
+        },
+        {
+          "code": "3",
+          "label": "pronounced tubercle ~4mm or more"
+        }
+      ]
+    },
+    "PZTub": {
+      "id": "PZTub",
+      "code": "PZTub",
+      "name": "Posterior zygomatic tubercle",
+      "modality": "morph",
+      "method": "MMS",
+      "states": [
+        {
+          "code": "0",
+          "label": "no projection"
+        },
+        {
+          "code": "1",
+          "label": "weak projection"
+        },
+        {
+          "code": "2",
+          "label": "moderate projection"
+        },
+        {
+          "code": "3",
+          "label": "marked projection"
+        }
+      ]
+    },
+    "IOB": {
+      "id": "IOB",
+      "code": "IOB",
+      "name": "Interorbital breadth",
+      "modality": "morph",
+      "method": "MMS",
+      "states": [
+        {
+          "code": "1",
+          "label": "narrow IOB"
+        },
+        {
+          "code": "2",
+          "label": "medium IOB"
+        },
+        {
+          "code": "3",
+          "label": "broad IOB"
+        }
+      ]
+    },
+    "ORB": {
+      "id": "ORB",
+      "code": "ORB",
+      "name": "Orbital shape",
+      "modality": "morph",
+      "method": "MMS",
+      "states": [
+        {
+          "code": "1",
+          "label": "rectangular"
+        },
+        {
+          "code": "2",
+          "label": "circular"
+        },
+        {
+          "code": "3",
+          "label": "rhombic"
+        }
+      ]
+    },
+    "FemXL": {
+      "id": "FemXL",
+      "code": "FemXL",
+      "name": "Maximum Length of the Femur",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 1,
+      "range": {
+        "min": 340,
+        "max": 560
+      },
+      "dcp": 75,
+      "definition": "The distance from the most proximal point on the head of the femur to the most distal point on the medial or lateral femoral condyle (Martin and Knussmann 1988: 216, #1).",
+      "instrument": "osteometric board"
+    },
+    "FemBL": {
+      "id": "FemBL",
+      "code": "FemBL",
+      "name": "Bicondylar Length of the Femur",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 1,
+      "range": {
+        "min": 335,
+        "max": 555
+      },
+      "dcp": 76,
+      "definition": "The distance from the most proximal point on the head of the femur to a plane drawn between the inferior surfaces of the distal condyles",
+      "instrument": "osteometric board"
+    },
+    "FemEB": {
+      "id": "FemEB",
+      "code": "FemEB",
+      "name": "Epicondylar Breadth of the Femur",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 1,
+      "range": {
+        "min": 60,
+        "max": 100
+      },
+      "dcp": 77,
+      "definition": "The distance between the two most projecting points on the epicondyles",
+      "instrument": "osteometric board"
+    },
+    "FemHXD": {
+      "id": "FemHXD",
+      "code": "FemHXD",
+      "name": "Maximum Diameter of the Femur Head",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 1,
+      "range": {
+        "min": 35,
+        "max": 60
+      },
+      "dcp": 78,
+      "definition": "The maximum diameter of the femur head measured on the border of the articular surface. '",
+      "instrument": "sliding caliper"
+    },
+    "FemMXD": {
+      "id": "FemMXD",
+      "code": "FemMXD",
+      "name": "Maximum Midshaft Diameter of the Femur",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 1,
+      "range": {
+        "min": 20,
+        "max": 40
+      },
+      "dcp": 81,
+      "definition": "The maximum diameter of the femoral shaft taken at midshaft",
+      "instrument": "sliding caliper"
+    },
+    "FemMWD": {
+      "id": "FemMWD",
+      "code": "FemMWD",
+      "name": "Minimum Midshaft Diameter of the Femur",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 1,
+      "range": {
+        "min": 18,
+        "max": 36
+      },
+      "dcp": 82,
+      "definition": "The minimum diameter of the femoral shaft taken at midshaft.",
+      "instrument": "sliding caliper"
+    },
+    "TibCML": {
+      "id": "TibCML",
+      "code": "TibCML",
+      "name": "Length of the Tibia",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 1,
+      "range": {
+        "min": 270,
+        "max": 470
+      },
+      "dcp": 86,
+      "definition": "The distance from the superior articular surface of the lateral condyle of the tibia to the tip of the medial malleolus (Martin and Knussmann 1988: 220, #1)",
+      "instrument": "osteometric board"
+    },
+    "TibPEB": {
+      "id": "TibPEB",
+      "code": "TibPEB",
+      "name": "Maximum Proximal Epiphyseal Breadth of the Tibia",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 1,
+      "range": {
+        "min": 55,
+        "max": 90
+      },
+      "dcp": 87,
+      "definition": "The maximum distance between the two most projecting point on the margins of the medial and lateral condyles of the proximal epiphysis.",
+      "instrument": "osteometric board"
+    },
+    "TibDEB": {
+      "id": "TibDEB",
+      "code": "TibDEB",
+      "name": "Distal Epiphyseal Breadth of the Tibia",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 1,
+      "range": {
+        "min": 38,
+        "max": 60
+      },
+      "dcp": 88,
+      "definition": "The distance between the most medial point on the medial malleolus and the lateral surface of the distal epiphysis.",
+      "instrument": "osteometric board"
+    },
+    "TibMXD": {
+      "id": "TibMXD",
+      "code": "TibMXD",
+      "name": "Maximum Midshaft Diameter of the Tibia",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 1,
+      "range": {
+        "min": 22,
+        "max": 40
+      },
+      "dcp": 89,
+      "definition": "The maximum diameter of the tibial shaft taken at midshaft.",
+      "instrument": "sliding caliper"
+    }
+  }
+}

@@ -1,0 +1,371 @@
+{
+  "NAS": {
+    "kind": "states",
+    "states": {
+      "1": {
+        "src": "ref-images/mms/NAS_1.webp",
+        "width": 473,
+        "height": 853
+      },
+      "2": {
+        "src": "ref-images/mms/NAS_2.webp",
+        "width": 526,
+        "height": 864
+      },
+      "3": {
+        "src": "ref-images/mms/NAS_3.webp",
+        "width": 556,
+        "height": 852
+      }
+    }
+  },
+  "NAW": {
+    "kind": "states",
+    "states": {
+      "1": {
+        "src": "ref-images/mms/NAW_1.webp",
+        "width": 1397,
+        "height": 980
+      },
+      "2": {
+        "src": "ref-images/mms/NAW_2.webp",
+        "width": 1397,
+        "height": 936
+      },
+      "3": {
+        "src": "ref-images/mms/NAW_3.webp",
+        "width": 1397,
+        "height": 927
+      }
+    }
+  },
+  "NBS": {
+    "kind": "states",
+    "states": {
+      "1": {
+        "src": "ref-images/mms/NBS_1.webp",
+        "width": 441,
+        "height": 409
+      },
+      "2": {
+        "src": "ref-images/mms/NBS_2.webp",
+        "width": 319,
+        "height": 475
+      },
+      "3": {
+        "src": "ref-images/mms/NBS_3.webp",
+        "width": 260,
+        "height": 361
+      },
+      "4": {
+        "src": "ref-images/mms/NBS_4.webp",
+        "width": 237,
+        "height": 457
+      }
+    }
+  },
+  "NBC": {
+    "kind": "states",
+    "states": {
+      "0": {
+        "src": "ref-images/mms/NBC_0.webp",
+        "width": 1222,
+        "height": 700
+      },
+      "1": {
+        "src": "ref-images/mms/NBC_1.webp",
+        "width": 1222,
+        "height": 701
+      },
+      "2": {
+        "src": "ref-images/mms/NBC_2.webp",
+        "width": 1222,
+        "height": 706
+      },
+      "3": {
+        "src": "ref-images/mms/NBC_3.webp",
+        "width": 1222,
+        "height": 730
+      },
+      "4": {
+        "src": "ref-images/mms/NBC_4.webp",
+        "width": 1222,
+        "height": 747
+      }
+    }
+  },
+  "ANS": {
+    "kind": "states",
+    "states": {
+      "1": {
+        "src": "ref-images/mms/ANS_1.webp",
+        "width": 873,
+        "height": 1048
+      },
+      "2": {
+        "src": "ref-images/mms/ANS_2.webp",
+        "width": 868,
+        "height": 1046
+      },
+      "3": {
+        "src": "ref-images/mms/ANS_3.webp",
+        "width": 871,
+        "height": 1051
+      }
+    }
+  },
+  "INA": {
+    "kind": "states",
+    "states": {
+      "1": {
+        "src": "ref-images/mms/INA_1.webp",
+        "width": 758,
+        "height": 673
+      },
+      "2": {
+        "src": "ref-images/mms/INA_2.webp",
+        "width": 758,
+        "height": 673
+      },
+      "3": {
+        "src": "ref-images/mms/INA_3.webp",
+        "width": 757,
+        "height": 674
+      },
+      "4": {
+        "src": "ref-images/mms/INA_4.webp",
+        "width": 757,
+        "height": 673
+      },
+      "5": {
+        "src": "ref-images/mms/INA_5.webp",
+        "width": 757,
+        "height": 674
+      }
+    }
+  },
+  "ZS": {
+    "kind": "states",
+    "states": {
+      "0": {
+        "src": "ref-images/mms/ZS_0.webp",
+        "width": 1324,
+        "height": 842
+      },
+      "1": {
+        "src": "ref-images/mms/ZS_1.webp",
+        "width": 1324,
+        "height": 842
+      },
+      "2": {
+        "src": "ref-images/mms/ZS_2.webp",
+        "width": 1324,
+        "height": 842
+      }
+    }
+  },
+  "MT": {
+    "kind": "states",
+    "states": {
+      "0": {
+        "src": "ref-images/mms/MT_0.webp",
+        "width": 1310,
+        "height": 928
+      },
+      "1": {
+        "src": "ref-images/mms/MT_1.webp",
+        "width": 1321,
+        "height": 896
+      },
+      "2": {
+        "src": "ref-images/mms/MT_2.webp",
+        "width": 1290,
+        "height": 852
+      },
+      "3": {
+        "src": "ref-images/mms/MT_3.webp",
+        "width": 1290,
+        "height": 861
+      }
+    }
+  },
+  "PZTub": {
+    "kind": "states",
+    "states": {
+      "0": {
+        "src": "ref-images/mms/PZTub_0.webp",
+        "width": 861,
+        "height": 1344
+      },
+      "1": {
+        "src": "ref-images/mms/PZTub_1.webp",
+        "width": 860,
+        "height": 1317
+      },
+      "2": {
+        "src": "ref-images/mms/PZTub_2.webp",
+        "width": 860,
+        "height": 1311
+      },
+      "3": {
+        "src": "ref-images/mms/PZTub_3.webp",
+        "width": 860,
+        "height": 1303
+      }
+    }
+  },
+  "IOB": {
+    "kind": "states",
+    "states": {
+      "1": {
+        "src": "ref-images/mms/IOB_1.webp",
+        "width": 1123,
+        "height": 558
+      },
+      "2": {
+        "src": "ref-images/mms/IOB_2.webp",
+        "width": 1183,
+        "height": 554
+      },
+      "3": {
+        "src": "ref-images/mms/IOB_3.webp",
+        "width": 1243,
+        "height": 560
+      }
+    }
+  },
+  "ORB": {
+    "kind": "states",
+    "states": {
+      "1": {
+        "src": "ref-images/mms/ORB_1.webp",
+        "width": 1397,
+        "height": 974
+      },
+      "2": {
+        "src": "ref-images/mms/ORB_2.webp",
+        "width": 1397,
+        "height": 980
+      },
+      "3": {
+        "src": "ref-images/mms/ORB_3.webp",
+        "width": 1397,
+        "height": 919
+      }
+    }
+  },
+  "FemXL": {
+    "kind": "figure",
+    "figure": {
+      "src": "ref-images/dcp/page-15.webp",
+      "width": 800,
+      "height": 259
+    },
+    "caption": "DCP 2.0 fig. 3.22 · Maximum length and epicondylar breadth of the femur",
+    "highlight": {
+      "x": 0.03,
+      "y": 0.7,
+      "w": 0.9,
+      "h": 0.12
+    }
+  },
+  "FemBL": {
+    "kind": "figure",
+    "figure": {
+      "src": "ref-images/dcp/page-17.webp",
+      "width": 800,
+      "height": 258
+    },
+    "caption": "DCP 2.0 fig. 3.23 · Bicondylar length and midshaft circumference of the femur",
+    "highlight": {
+      "x": 0.04,
+      "y": 0.7,
+      "w": 0.92,
+      "h": 0.17
+    }
+  },
+  "FemEB": {
+    "kind": "figure",
+    "figure": {
+      "src": "ref-images/dcp/page-15.webp",
+      "width": 800,
+      "height": 259
+    },
+    "caption": "DCP 2.0 fig. 3.22 · Maximum length and epicondylar breadth of the femur",
+    "highlight": {
+      "x": 0.89,
+      "y": 0.08,
+      "w": 0.09,
+      "h": 0.52
+    }
+  },
+  "FemHXD": {
+    "kind": "figure",
+    "figure": {
+      "src": "ref-images/dcp/page-15.webp",
+      "width": 800,
+      "height": 259
+    },
+    "caption": "DCP 2.0 fig. 3.22 · Maximum length and epicondylar breadth of the femur",
+    "highlight": {
+      "x": 0.03,
+      "y": 0.42,
+      "w": 0.11,
+      "h": 0.31
+    }
+  },
+  "FemMXD": {
+    "kind": "none"
+  },
+  "FemMWD": {
+    "kind": "none"
+  },
+  "TibCML": {
+    "kind": "figure",
+    "figure": {
+      "src": "ref-images/dcp/page-20.webp",
+      "width": 800,
+      "height": 251
+    },
+    "caption": "DCP 2.0 fig. 3.25 · Selected measurements of the tibia",
+    "highlight": {
+      "x": 0.07,
+      "y": 0.68,
+      "w": 0.84,
+      "h": 0.16
+    }
+  },
+  "TibPEB": {
+    "kind": "figure",
+    "figure": {
+      "src": "ref-images/dcp/page-20.webp",
+      "width": 800,
+      "height": 251
+    },
+    "caption": "DCP 2.0 fig. 3.25 · Selected measurements of the tibia",
+    "highlight": {
+      "x": 0.02,
+      "y": 0.07,
+      "w": 0.12,
+      "h": 0.62
+    }
+  },
+  "TibDEB": {
+    "kind": "figure",
+    "figure": {
+      "src": "ref-images/dcp/page-20.webp",
+      "width": 800,
+      "height": 251
+    },
+    "caption": "DCP 2.0 fig. 3.25 · Selected measurements of the tibia",
+    "highlight": {
+      "x": 0.81,
+      "y": 0.15,
+      "w": 0.17,
+      "h": 0.45
+    }
+  },
+  "TibMXD": {
+    "kind": "none"
+  }
+}
