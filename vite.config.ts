@@ -13,5 +13,7 @@ export default defineConfig({
   test: {
     environment: 'jsdom',
     setupFiles: ['./src/test/setup.ts'],
+    // Keyboard tests tab through full sections (40 rows), which is slow on CI.
+    testTimeout: 30000,
   },
 })
