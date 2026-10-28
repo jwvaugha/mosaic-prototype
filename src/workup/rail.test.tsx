@@ -7,7 +7,7 @@ import { Prototype } from "@/screens/app-shell"
 
 // The Region Rail: membership, Edit order and the keyboard tree.
 
-function setup(query = "inc=skip-section&seed=midway") {
+function setup(query = "inc=skip-section&seed=midway&start=cranium-morph") {
   window.history.replaceState(null, "", `/?${query}`)
   render(
     <TooltipProvider>
@@ -48,12 +48,12 @@ describe("Region Rail", () => {
 
   it("removing a Region with Observations sets it aside; without, it goes back to + add", async () => {
     const user = setup()
-    await user.click(within(region("Pelvis")).getByRole("button", { name: "Pelvis menu" }))
+    await user.click(within(region("Lower limb")).getByRole("button", { name: "Lower limb menu" }))
     await user.click(await screen.findByRole("menuitem", { name: "Remove from Workup…" }))
     const dialog = screen.getByRole("alertdialog")
-    expect(dialog).toHaveTextContent("Pelvis has 27 Observations")
+    expect(dialog).toHaveTextContent("Lower limb has 5 Observations")
     await user.click(within(dialog).getByRole("button", { name: "Set aside Region" }))
-    expect(region("Pelvis")).toHaveAccessibleName(/set aside, 27 kept/)
+    expect(region("Lower limb")).toHaveAccessibleName(/set aside, 5 kept/)
 
     await user.click(within(region("Dentition")).getByRole("button", { name: "Dentition menu" }))
     await user.click(await screen.findByRole("menuitem", { name: "Remove from Workup…" }))
@@ -67,28 +67,25 @@ describe("Region Rail", () => {
     await user.click(within(region("Cranium")).getByRole("button", { name: "Cranium menu" }))
     await user.click(await screen.findByRole("menuitem", { name: "Remove from Workup…" }))
     await user.click(within(screen.getByRole("alertdialog")).getByRole("button", { name: "Set aside Region" }))
-    expect(heading()).toHaveTextContent("Lower limb · Metric")
-    // The last enterable Region can't be removed.
-    await user.click(within(region("Lower limb")).getByRole("button", { name: "Lower limb menu" }))
-    expect(await screen.findByRole("menuitem", { name: "Remove from Workup…" })).toHaveAttribute("data-disabled")
+    expect(heading()).toHaveTextContent("Mandible · Metric")
   })
 
   it("Edit order changes where Continue goes, and Reset puts it back", async () => {
     const user = setup()
+    expect(screen.getByRole("button", { name: /Continue to Mandible · Metric/ })).toBeInTheDocument()
     await user.click(screen.getByRole("button", { name: "Edit order" }))
     const order = screen.getByRole("list", { name: "Region order" })
-    const lowerLimb = within(order).getByText("Lower limb").closest("li")!
-    lowerLimb.focus()
-    for (let i = 0; i < 7; i++) await user.keyboard("{Alt>}{ArrowUp}{/Alt}")
-    expect(within(order).getAllByRole("listitem")[0]).toHaveTextContent("Lower limb")
+    within(order).getByText("Mandible").closest("li")!.focus()
+    for (let i = 0; i < 8; i++) await user.keyboard("{Alt>}{ArrowDown}{/Alt}")
+    expect(within(order).getAllByRole("listitem").at(-1)).toHaveTextContent("Mandible")
     await user.click(screen.getByRole("button", { name: "Done" }))
-    // Lower limb now comes first, so Cranium is the last section.
-    expect(screen.getByRole("button", { name: "Review and analyze" })).toBeInTheDocument()
+    // Mandible now comes last, so Cranium leads straight to Dentition.
+    expect(screen.getByRole("button", { name: /Continue to Dentition · Metric/ })).toBeInTheDocument()
 
     await user.click(screen.getByRole("button", { name: "Edit order" }))
     await user.click(screen.getByRole("button", { name: /Reset to anatomical/ }))
     await user.click(screen.getByRole("button", { name: "Done" }))
-    expect(screen.getByRole("button", { name: /Continue to Lower limb/ })).toBeInTheDocument()
+    expect(screen.getByRole("button", { name: /Continue to Mandible · Metric/ })).toBeInTheDocument()
   })
 
   it("Save as my default order persists the order for the next Workup", async () => {

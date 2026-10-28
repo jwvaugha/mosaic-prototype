@@ -85,7 +85,8 @@ describe("Skip", () => {
 
   it("Skips every blank in a section (section check: Skip N and continue)", () => {
     const s = run(initialState("midway"), { type: "skipBlanks", section: MORPH })
-    expect(sectionCounts(s, MORPH)).toMatchObject({ blank: 0, skipped: 5, recorded: 6 })
+    const c = sectionCounts(s, MORPH)
+    expect(c).toMatchObject({ blank: 0, recorded: 6, skipped: c.total - 6 })
   })
 })
 
@@ -143,11 +144,10 @@ describe("sections", () => {
 
   it("counts blanks, flags and open warnings for the rail", () => {
     const s = run(initialState("midway"), { type: "toggleFlag", id: "FemEB" })
-    expect(railBadges(s)).toEqual({
-      [MORPH]: { blank: 5, flagged: 0, warnings: 0, complete: false },
-      [METRIC]: { blank: 5, flagged: 1, warnings: 1, complete: false },
-    })
-    expect(blankFields(s, METRIC)).toEqual(["FemEB", "FemMXD", "FemMWD", "TibPEB", "TibMXD"])
+    const badges = railBadges(s)
+    expect(badges[MORPH]).toEqual({ blank: fieldIds(MORPH).length - 6, flagged: 0, warnings: 0, complete: false })
+    expect(badges[METRIC]).toEqual({ blank: fieldIds(METRIC).length - 5, flagged: 1, warnings: 1, complete: false })
+    expect(blankFields(s, METRIC).slice(0, 3)).toEqual(["FemEB", "FemMXD", "FemMWD"])
   })
 })
 

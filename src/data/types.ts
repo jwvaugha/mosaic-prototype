@@ -21,14 +21,20 @@ export type Variable = {
   dcp?: number
   definition?: string
   instrument?: string
+  // Metric only: derived from other measurements, never typed (FORDISC).
+  calculated?: boolean
   // Morph only
   states?: CharacterState[]
+  // Dental traits whose FoRDent states aren't in the dictionary yet.
+  statesPending?: boolean
   method?: string
 }
 
 export type Bone = {
   id: string
   name: string
+  // Scored per side: shows the Side toggle.
+  bilateral?: boolean
   variableIds: string[]
 }
 
@@ -38,6 +44,8 @@ export type Section = {
   modality: Modality
   title: string
   bones: Bone[]
+  // Calculated Variables, shown read-only after the bones.
+  calculated?: string[]
 }
 
 export type Fixture = {

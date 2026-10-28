@@ -12,7 +12,8 @@ const MORPH = "cranium-morph"
 
 function setup(query: string) {
   localStorage.clear()
-  window.history.replaceState(null, "", `/?${query}`)
+  // Tests open on Cranium · Morphological unless they name a section.
+  window.history.replaceState(null, "", `/?${query}${query.includes("start=") ? "" : "&start=cranium-morph"}`)
   render(
     <TooltipProvider>
       <ConfigProvider>
@@ -55,14 +56,13 @@ describe("keyboard: all modes", () => {
     for (let i = 1; i < fieldIds(MORPH).length; i++) await user.keyboard("{Tab}")
     expect(focusedRow()).toBe(fieldIds(MORPH).at(-1))
     await user.keyboard("{Tab}")
-    expect(document.activeElement).toHaveTextContent("Continue to Lower limb · Metric")
+    expect(document.activeElement).toHaveTextContent("Continue to Mandible · Metric")
     await user.keyboard("{Enter}")
-    expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent("Lower limb · Metric")
+    expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent("Mandible · Metric")
   })
 
   it("commits a Metric value on Enter and flags it if out of range", async () => {
-    const user = setup("inc=skip-section")
-    await user.keyboard("{Control>}{Alt>}{ArrowDown}{/Alt}{/Control}")
+    const user = setup("inc=skip-section&start=lower-limb-metric")
     expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent("Lower limb · Metric")
     expect(focusedRow()).toBe("FemXL")
     await user.keyboard("700{Enter}")
@@ -94,8 +94,7 @@ describe("keyboard: 1 · Skip", () => {
   })
 
   it("never types a dash into a Metric field", async () => {
-    const user = setup("inc=skip-section")
-    await user.keyboard("{Control>}{Alt>}{ArrowDown}{/Alt}{/Control}")
+    const user = setup("inc=skip-section&start=lower-limb-metric")
     await user.keyboard("4-5")
     expect(screen.getByLabelText("Maximum length")).toHaveValue("45")
   })
@@ -128,8 +127,7 @@ describe("selecting a row by clicking", () => {
   })
 
   it("clicking a Metric row's name puts the cursor in its input", async () => {
-    const user = setup("inc=skip-section")
-    await user.keyboard("{Control>}{Alt>}{ArrowDown}{/Alt}{/Control}")
+    const user = setup("inc=skip-section&start=lower-limb-metric")
     await user.click(within(row("TibPEB")).getByText("Proximal epiphyseal breadth"))
     expect(document.activeElement).toBe(screen.getByLabelText("Proximal epiphyseal breadth"))
   })

@@ -2,6 +2,124 @@
   "generatedAt": "2026-10-28",
   "sections": [
     {
+      "id": "cranium-metric",
+      "region": "Cranium",
+      "modality": "metric",
+      "title": "Cranium · Metric",
+      "bones": [
+        {
+          "id": "vault",
+          "name": "Vault and base",
+          "variableIds": [
+            "GOL",
+            "NOL",
+            "BNL",
+            "BBH",
+            "XCB",
+            "XFB",
+            "WFB",
+            "AUB",
+            "ASB",
+            "STB",
+            "MDH",
+            "GLS",
+            "FOL",
+            "FOB"
+          ]
+        },
+        {
+          "id": "vault-chords",
+          "name": "Vault chords and subtenses",
+          "variableIds": [
+            "FRC",
+            "FRS",
+            "PAC",
+            "PAS",
+            "OCC",
+            "OCS"
+          ]
+        },
+        {
+          "id": "face",
+          "name": "Face",
+          "variableIds": [
+            "ZYB",
+            "BPL",
+            "NPH",
+            "JUB",
+            "MAB",
+            "MAL",
+            "ZMB",
+            "SSS",
+            "FMB",
+            "NAS-metric",
+            "WMH",
+            "IML",
+            "XML",
+            "MOW",
+            "UFBR",
+            "UFHT"
+          ]
+        },
+        {
+          "id": "orbit-nose",
+          "name": "Orbits and nose",
+          "variableIds": [
+            "OBH",
+            "OBB",
+            "EKB",
+            "DKB",
+            "DKS",
+            "NDS",
+            "NLH",
+            "NLB",
+            "WNB",
+            "SIS"
+          ]
+        }
+      ],
+      "calculated": [
+        "FRF",
+        "PAF",
+        "OCF",
+        "NAR",
+        "SSR",
+        "PRR",
+        "DKR",
+        "ZOR",
+        "FMR",
+        "EKR",
+        "ZMR",
+        "AVR",
+        "BRR",
+        "VRR",
+        "LAR",
+        "OSR",
+        "BAR",
+        "PRA",
+        "BAA",
+        "NBA",
+        "BBA",
+        "BRA",
+        "SSA",
+        "NFA",
+        "DKA",
+        "NDA",
+        "SIA",
+        "RFA",
+        "RPA",
+        "ROA",
+        "BSA",
+        "SBA",
+        "SLA",
+        "TBA",
+        "NAA",
+        "FRA",
+        "PAA",
+        "OCA"
+      ]
+    },
+    {
       "id": "cranium-morph",
       "region": "Cranium",
       "modality": "morph",
@@ -16,7 +134,8 @@
             "NBS",
             "NBC",
             "ANS",
-            "INA"
+            "INA",
+            "NaOvg"
           ]
         },
         {
@@ -28,6 +147,593 @@
             "PZTub",
             "IOB",
             "ORB"
+          ]
+        },
+        {
+          "id": "sex-traits",
+          "name": "Sex traits",
+          "variableIds": [
+            "NC",
+            "MP",
+            "SOM",
+            "GL"
+          ]
+        },
+        {
+          "id": "vault-palate",
+          "name": "Vault and palate",
+          "variableIds": [
+            "NasFrntSut",
+            "SnSut",
+            "PBD",
+            "TPS",
+            "PS",
+            "Parietal_depression",
+            "Occipital_condyle_lipping"
+          ]
+        },
+        {
+          "id": "vault-sutures",
+          "name": "Vault sutures",
+          "variableIds": [
+            "Midlambdoid",
+            "Lambda",
+            "Obelion",
+            "Anterior_sagittal",
+            "Bregma",
+            "Midcoronal",
+            "Pterion",
+            "Sphenofrontal",
+            "Inf_sphenotemporal",
+            "Sup_sphenotemporal"
+          ]
+        },
+        {
+          "id": "maxillary-sutures",
+          "name": "Maxillary sutures",
+          "variableIds": [
+            "IN",
+            "AMP",
+            "TP",
+            "PMP",
+            "GPF"
+          ]
+        },
+        {
+          "id": "sos",
+          "name": "Spheno-occipital synchondrosis",
+          "variableIds": [
+            "SOS_fusion",
+            "SOS_fusion_AdultAge"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mandible-metric",
+      "region": "Mandible",
+      "modality": "metric",
+      "title": "Mandible · Metric",
+      "bones": [
+        {
+          "id": "mandible",
+          "name": "Mandible",
+          "variableIds": [
+            "GNI",
+            "HML",
+            "TML",
+            "GOG",
+            "CDL",
+            "WRB",
+            "XRH",
+            "MLT",
+            "MAN"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mandible-morph",
+      "region": "Mandible",
+      "modality": "morph",
+      "title": "Mandible · Morphological",
+      "bones": [
+        {
+          "id": "mandible-traits",
+          "name": "Mandible",
+          "variableIds": [
+            "Mandibular_torus",
+            "Lower_border_of_mandible",
+            "Chin_shape",
+            "Gonial_angle_flare",
+            "Ascending_ramus_profile",
+            "PREI"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dentition-metric",
+      "region": "Dentition",
+      "modality": "metric",
+      "title": "Dentition · Metric",
+      "bones": [
+        {
+          "id": "max-teeth",
+          "name": "Maxilla",
+          "variableIds": [
+            "UCBL",
+            "UCMD",
+            "UM1BL",
+            "UM1MD"
+          ]
+        },
+        {
+          "id": "mand-teeth",
+          "name": "Mandible",
+          "variableIds": [
+            "LCBL",
+            "LCMD",
+            "LM1BL",
+            "LM1MD"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dentition-morph",
+      "region": "Dentition",
+      "modality": "morph",
+      "title": "Dentition · Morphological",
+      "bones": [
+        {
+          "id": "max-incisors",
+          "name": "Maxillary incisors",
+          "variableIds": [
+            "WING",
+            "DIAS",
+            "UI1LC",
+            "UI1SS",
+            "UI2SS",
+            "UI1DS",
+            "UI2DS",
+            "UI2PEG",
+            "UI2CA",
+            "UI1IG",
+            "UI2IG",
+            "UI1TD",
+            "UI2TD"
+          ]
+        },
+        {
+          "id": "max-canine",
+          "name": "Maxillary canine",
+          "variableIds": [
+            "UCSS",
+            "UCTD",
+            "UCMR",
+            "UCDR"
+          ]
+        },
+        {
+          "id": "max-premolars",
+          "name": "Maxillary premolars",
+          "variableIds": [
+            "UP3AC",
+            "UP4AC",
+            "UP3DS",
+            "UP3MMXPAR",
+            "UP3DMXPAR",
+            "UP4MMXPAR",
+            "UP4DMXPAR"
+          ]
+        },
+        {
+          "id": "max-molars",
+          "name": "Maxillary molars",
+          "variableIds": [
+            "UM3PEG",
+            "UM3CA",
+            "UM1MC",
+            "UM2MC",
+            "max_metacone_m3",
+            "UM1HC",
+            "UM2HC",
+            "max_hypocone_m3",
+            "UM1C5",
+            "UM2C5",
+            "max_cusp_m3",
+            "UM1CB",
+            "UM2CB",
+            "max_carabelli_m3",
+            "UM1PS",
+            "UM2PS",
+            "max_para_m3",
+            "UM1EE",
+            "UM2EE",
+            "max_ext_m3"
+          ]
+        },
+        {
+          "id": "mand-incisors",
+          "name": "Mandibular incisors",
+          "variableIds": [
+            "LI1SS",
+            "LI2SS",
+            "LI1CA"
+          ]
+        },
+        {
+          "id": "mand-canine",
+          "name": "Mandibular canine",
+          "variableIds": [
+            "LCDR"
+          ]
+        },
+        {
+          "id": "mand-premolars",
+          "name": "Mandibular premolars",
+          "variableIds": [
+            "LP3LC",
+            "LP4LC",
+            "LP3EF",
+            "mand_elong_pm2"
+          ]
+        },
+        {
+          "id": "mand-molars",
+          "name": "Mandibular molars",
+          "variableIds": [
+            "LM3CA",
+            "LM1AF",
+            "LM1GP",
+            "LM2PG",
+            "mand_groove_m3",
+            "LM1CN",
+            "LM2CN",
+            "mand_cusp_m3",
+            "LM1DW",
+            "LM1PR",
+            "LM2PR",
+            "mand_proto_m3",
+            "LM1TC",
+            "LM2TC",
+            "mand_trigonid_m3",
+            "LM1C5",
+            "LM2C5",
+            "mand_cusp5_m3",
+            "LM1C6",
+            "LM2C6",
+            "mand_cusp6_m3",
+            "LM1C7",
+            "LM2C7",
+            "mand_cusp7_m3",
+            "LM1EE",
+            "LM2EE",
+            "mand_ext_m3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vertebrae-morph",
+      "region": "Vertebrae",
+      "modality": "morph",
+      "title": "Vertebrae · Morphological",
+      "bones": [
+        {
+          "id": "c1",
+          "name": "Atlas (C1)",
+          "variableIds": [
+            "C1_lipping",
+            "C1_Eburnation"
+          ]
+        },
+        {
+          "id": "l1",
+          "name": "L1",
+          "variableIds": [
+            "L1_spinous_process_flattening",
+            "L1_superior_ring_fusion",
+            "L1_inferior_ring_fusion",
+            "L1_superior_surface_morphology",
+            "L1_inferior_surface_morphology"
+          ]
+        },
+        {
+          "id": "l5",
+          "name": "L5",
+          "variableIds": [
+            "L5_superior_ring_fusion",
+            "L5_inferior_ring_fusion",
+            "L5_superior_surface_morphology",
+            "L5_inferior_surface_morphology",
+            "L5_superior_margin",
+            "L5_inferior_margin"
+          ]
+        },
+        {
+          "id": "column",
+          "name": "Vertebral column",
+          "variableIds": [
+            "C3_C7_lipping",
+            "T1_T12_lipping",
+            "L1_L5_lipping",
+            "C3_C7_candlewax",
+            "T1_T12_candlewax",
+            "L1_L5_candlewax",
+            "C3_C7_DISH",
+            "T1_T12_DISH",
+            "L1_L5_DISH"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "thorax-morph",
+      "region": "Thorax",
+      "modality": "morph",
+      "title": "Thorax · Morphological",
+      "bones": [
+        {
+          "id": "sternum",
+          "name": "Sternum and first rib",
+          "variableIds": [
+            "R1_fusion",
+            "Sternum_central_dorsal_ridge"
+          ]
+        },
+        {
+          "id": "ribs",
+          "name": "Ribs",
+          "variableIds": [
+            "R2",
+            "R3_10",
+            "R2_ossification",
+            "R3_10_ossification",
+            "R2_shingle",
+            "R3_10_shingle",
+            "Sternal_rib_ends"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shoulder-metric",
+      "region": "Shoulder & upper limb",
+      "modality": "metric",
+      "title": "Shoulder & upper limb · Metric",
+      "bones": [
+        {
+          "id": "clavicle",
+          "name": "Clavicle",
+          "bilateral": true,
+          "variableIds": [
+            "ClavXL",
+            "ClavMXD",
+            "ClavMWD"
+          ]
+        },
+        {
+          "id": "scapula",
+          "name": "Scapula",
+          "bilateral": true,
+          "variableIds": [
+            "ScH",
+            "ScB",
+            "ScGB",
+            "ScGH"
+          ]
+        },
+        {
+          "id": "humerus",
+          "name": "Humerus",
+          "bilateral": true,
+          "variableIds": [
+            "HumXL",
+            "HumMXD",
+            "HumMWD",
+            "HumEB",
+            "HumHXD"
+          ]
+        },
+        {
+          "id": "radius",
+          "name": "Radius",
+          "bilateral": true,
+          "variableIds": [
+            "RadXL",
+            "RadMXD",
+            "RadMWD",
+            "RadHXD"
+          ]
+        },
+        {
+          "id": "ulna",
+          "name": "Ulna",
+          "bilateral": true,
+          "variableIds": [
+            "UlnXL",
+            "UlnMXD",
+            "UlnMWD",
+            "UlnPL",
+            "UlnDWC",
+            "UlnOPXB"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shoulder-morph",
+      "region": "Shoulder & upper limb",
+      "modality": "morph",
+      "title": "Shoulder & upper limb · Morphological",
+      "bones": [
+        {
+          "id": "clavicle-m",
+          "name": "Clavicle",
+          "bilateral": true,
+          "variableIds": [
+            "Medial_epiphysis_fusion",
+            "Medial_epiphysis_gravel",
+            "Medial_macroporosity",
+            "Lateral_macroporosity"
+          ]
+        },
+        {
+          "id": "scapula-m",
+          "name": "Scapula",
+          "bilateral": true,
+          "variableIds": [
+            "Glenoid_fossa_lipping"
+          ]
+        },
+        {
+          "id": "humerus-m",
+          "name": "Humerus",
+          "bilateral": true,
+          "variableIds": [
+            "Lesser_tubercle_anterior_bumps",
+            "Lesser_tubercle_margin_shape",
+            "Greater_tubercle_pits",
+            "Medial_epicondyle_texture",
+            "Lateral_epicondyle_texture"
+          ]
+        },
+        {
+          "id": "forearm-hand",
+          "name": "Radius, ulna and hand",
+          "bilateral": true,
+          "variableIds": [
+            "Radial_tuberosity_crest",
+            "Ulna_olecranon_spur",
+            "Trapezium_lipping"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pelvis-metric",
+      "region": "Pelvis",
+      "modality": "metric",
+      "title": "Pelvis · Metric",
+      "bones": [
+        {
+          "id": "sacrum",
+          "name": "Sacrum",
+          "variableIds": [
+            "SacAH",
+            "SacAB",
+            "SacS1B",
+            "SacS1APD"
+          ]
+        },
+        {
+          "id": "os-coxae",
+          "name": "Os coxae",
+          "bilateral": true,
+          "variableIds": [
+            "PUM",
+            "SPU",
+            "DCOX",
+            "IIMT",
+            "ISMM",
+            "SCOX",
+            "SS",
+            "SA",
+            "SIS_PCMetric",
+            "VEAC"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pelvis-morph",
+      "region": "Pelvis",
+      "modality": "morph",
+      "title": "Pelvis · Morphological",
+      "bones": [
+        {
+          "id": "os-coxae-sex",
+          "name": "Os coxae",
+          "bilateral": true,
+          "variableIds": [
+            "VA",
+            "SPC",
+            "MA",
+            "CompositeArc",
+            "IliumShape",
+            "ASHeight",
+            "GSN"
+          ]
+        },
+        {
+          "id": "sacrum-m",
+          "name": "Sacrum and sacroiliac joint",
+          "variableIds": [
+            "S1_Margin",
+            "S1_S2_fusion",
+            "Sacral_elbow",
+            "Sacroiliac_joint_fusion_left",
+            "Sacroiliac_joint_fusion_right"
+          ]
+        },
+        {
+          "id": "ilium",
+          "name": "Ilium",
+          "bilateral": true,
+          "variableIds": [
+            "Iliac_crest_fusion",
+            "Iliac_crest_tuberculum_ossification",
+            "Iliac_AIIS_exostoses",
+            "Superior_Posterior_Iliac_Exostoses",
+            "Inferior_Posterior_Iliac_Exostoses",
+            "Posterior_exostoses"
+          ]
+        },
+        {
+          "id": "acetabulum",
+          "name": "Acetabulum",
+          "bilateral": true,
+          "variableIds": [
+            "Posterior_margin_lipping",
+            "Articular_surface_extra_bone",
+            "Inferior_joint_lipping"
+          ]
+        },
+        {
+          "id": "ischium",
+          "name": "Ischial tuberosity",
+          "bilateral": true,
+          "variableIds": [
+            "Ischial_tuberosity_superior_margin_spur",
+            "Ischial_tuberosity_superior_median_spur",
+            "Ischial_tuberosity_bumps"
+          ]
+        },
+        {
+          "id": "pubic-symphysis",
+          "name": "Pubic symphysis",
+          "bilateral": true,
+          "variableIds": [
+            "Pubic_symphysis",
+            "Pubic_symphyseal_collar",
+            "Symphyseal_relief",
+            "Superior_protuberance",
+            "Ventral_symphyseal_margin",
+            "Dorsal_symphyseal_margin"
+          ]
+        },
+        {
+          "id": "auricular",
+          "name": "Auricular surface",
+          "bilateral": true,
+          "variableIds": [
+            "Transverse_organization",
+            "Surface_texture",
+            "Microporosity",
+            "Macroporosity",
+            "Apical_change"
           ]
         }
       ]
@@ -41,29 +747,809 @@
         {
           "id": "femur",
           "name": "Femur",
+          "bilateral": true,
           "variableIds": [
             "FemXL",
             "FemBL",
             "FemEB",
             "FemHXD",
             "FemMXD",
-            "FemMWD"
+            "FemMWD",
+            "FemMC",
+            "FemSTD",
+            "FemSAPD",
+            "FemLCAPD",
+            "FemMCAPD"
           ]
         },
         {
           "id": "tibia",
           "name": "Tibia",
+          "bilateral": true,
           "variableIds": [
             "TibCML",
             "TibPEB",
             "TibDEB",
-            "TibMXD"
+            "TibMXD",
+            "TibMWD",
+            "TibMC"
+          ]
+        },
+        {
+          "id": "fibula",
+          "name": "Fibula",
+          "bilateral": true,
+          "variableIds": [
+            "FibXL",
+            "FibMXD"
+          ]
+        },
+        {
+          "id": "calcaneus",
+          "name": "Calcaneus",
+          "bilateral": true,
+          "variableIds": [
+            "CalcXL",
+            "CalcB"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lower-limb-morph",
+      "region": "Lower limb",
+      "modality": "morph",
+      "title": "Lower limb · Morphological",
+      "bones": [
+        {
+          "id": "femur-m",
+          "name": "Femur",
+          "bilateral": true,
+          "variableIds": [
+            "Fovea_tuberosity_margin_lipping",
+            "Head_surface_extra_bone",
+            "Greater_trochanter_roughening",
+            "Trochanteric_fossa_exostoses",
+            "Trochanteric_medial_exostoses"
+          ]
+        },
+        {
+          "id": "fibula-m",
+          "name": "Fibula",
+          "bilateral": true,
+          "variableIds": [
+            "Fibular_wings"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "whole-morph",
+      "region": "Whole skeleton",
+      "modality": "morph",
+      "title": "Whole skeleton · Morphological",
+      "bones": [
+        {
+          "id": "whole",
+          "name": "Whole skeleton",
+          "variableIds": [
+            "Overall_skeleton_weight"
           ]
         }
       ]
     }
   ],
   "variables": {
+    "GOL": {
+      "id": "GOL",
+      "code": "GOL",
+      "name": "Glabello-occipital length",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1
+    },
+    "NOL": {
+      "id": "NOL",
+      "code": "NOL",
+      "name": "Nasio-occipital length",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1
+    },
+    "BNL": {
+      "id": "BNL",
+      "code": "BNL",
+      "name": "Basion-nasion length",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1
+    },
+    "BBH": {
+      "id": "BBH",
+      "code": "BBH",
+      "name": "Basion-bregma height",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1
+    },
+    "XCB": {
+      "id": "XCB",
+      "code": "XCB",
+      "name": "Maximum cranial breadth",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1
+    },
+    "XFB": {
+      "id": "XFB",
+      "code": "XFB",
+      "name": "Maximum frontal breadth",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1
+    },
+    "WFB": {
+      "id": "WFB",
+      "code": "WFB",
+      "name": "Minimum frontal breadth",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1
+    },
+    "AUB": {
+      "id": "AUB",
+      "code": "AUB",
+      "name": "Biauricular breadth",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1
+    },
+    "ASB": {
+      "id": "ASB",
+      "code": "ASB",
+      "name": "Biasterionic breadth",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1
+    },
+    "STB": {
+      "id": "STB",
+      "code": "STB",
+      "name": "Bistephanic breadth",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1
+    },
+    "MDH": {
+      "id": "MDH",
+      "code": "MDH",
+      "name": "Mastoid height",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1
+    },
+    "GLS": {
+      "id": "GLS",
+      "code": "GLS",
+      "name": "Glabella projection",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1
+    },
+    "FOL": {
+      "id": "FOL",
+      "code": "FOL",
+      "name": "Foramen magnum length",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1
+    },
+    "FOB": {
+      "id": "FOB",
+      "code": "FOB",
+      "name": "Foramen magnum breadth",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1
+    },
+    "FRC": {
+      "id": "FRC",
+      "code": "FRC",
+      "name": "Frontal chord",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1
+    },
+    "FRS": {
+      "id": "FRS",
+      "code": "FRS",
+      "name": "Frontal subtense",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1
+    },
+    "PAC": {
+      "id": "PAC",
+      "code": "PAC",
+      "name": "Parietal chord",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1
+    },
+    "PAS": {
+      "id": "PAS",
+      "code": "PAS",
+      "name": "Parietal subtense",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1
+    },
+    "OCC": {
+      "id": "OCC",
+      "code": "OCC",
+      "name": "Occipital chord",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1
+    },
+    "OCS": {
+      "id": "OCS",
+      "code": "OCS",
+      "name": "Occipital subtense",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1
+    },
+    "ZYB": {
+      "id": "ZYB",
+      "code": "ZYB",
+      "name": "Bizygomatic breadth",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1
+    },
+    "BPL": {
+      "id": "BPL",
+      "code": "BPL",
+      "name": "Basion-prosthion length",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1
+    },
+    "NPH": {
+      "id": "NPH",
+      "code": "NPH",
+      "name": "Nasion-prosthion height",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1
+    },
+    "JUB": {
+      "id": "JUB",
+      "code": "JUB",
+      "name": "Bijugal breadth",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1
+    },
+    "MAB": {
+      "id": "MAB",
+      "code": "MAB",
+      "name": "External palate breadth",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1
+    },
+    "MAL": {
+      "id": "MAL",
+      "code": "MAL",
+      "name": "External palate length",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1
+    },
+    "ZMB": {
+      "id": "ZMB",
+      "code": "ZMB",
+      "name": "Bimaxillary breadth",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1
+    },
+    "SSS": {
+      "id": "SSS",
+      "code": "SSS",
+      "name": "Zygomaxillary subtense",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1
+    },
+    "FMB": {
+      "id": "FMB",
+      "code": "FMB",
+      "name": "Bifrontal breadth",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1
+    },
+    "NAS-metric": {
+      "id": "NAS-metric",
+      "code": "NAS",
+      "name": "Nasio-frontal subtense",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1
+    },
+    "WMH": {
+      "id": "WMH",
+      "code": "WMH",
+      "name": "Cheek height minimum",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1
+    },
+    "IML": {
+      "id": "IML",
+      "code": "IML",
+      "name": "Malar length inferior",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1
+    },
+    "XML": {
+      "id": "XML",
+      "code": "XML",
+      "name": "Malar length maximum",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1
+    },
+    "MOW": {
+      "id": "MOW",
+      "code": "MOW",
+      "name": "Midorbital width",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1
+    },
+    "UFBR": {
+      "id": "UFBR",
+      "code": "UFBR",
+      "name": "Upper facial breadth",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1
+    },
+    "UFHT": {
+      "id": "UFHT",
+      "code": "UFHT",
+      "name": "Upper facial height",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1
+    },
+    "OBH": {
+      "id": "OBH",
+      "code": "OBH",
+      "name": "Orbit height",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1
+    },
+    "OBB": {
+      "id": "OBB",
+      "code": "OBB",
+      "name": "Orbit breadth",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1
+    },
+    "EKB": {
+      "id": "EKB",
+      "code": "EKB",
+      "name": "Biorbital breadth",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1
+    },
+    "DKB": {
+      "id": "DKB",
+      "code": "DKB",
+      "name": "Interorbital breadth",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1
+    },
+    "DKS": {
+      "id": "DKS",
+      "code": "DKS",
+      "name": "Dacryon subtense",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1
+    },
+    "NDS": {
+      "id": "NDS",
+      "code": "NDS",
+      "name": "Naso-dacryal subtense",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1
+    },
+    "NLH": {
+      "id": "NLH",
+      "code": "NLH",
+      "name": "Nasal height",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1
+    },
+    "NLB": {
+      "id": "NLB",
+      "code": "NLB",
+      "name": "Nasal breadth",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1
+    },
+    "WNB": {
+      "id": "WNB",
+      "code": "WNB",
+      "name": "Simotic chord",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1
+    },
+    "SIS": {
+      "id": "SIS",
+      "code": "SIS",
+      "name": "Simotic subtense",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1
+    },
+    "FRF": {
+      "id": "FRF",
+      "code": "FRF",
+      "name": "Frontal fraction",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1,
+      "calculated": true
+    },
+    "PAF": {
+      "id": "PAF",
+      "code": "PAF",
+      "name": "Parietal fraction",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1,
+      "calculated": true
+    },
+    "OCF": {
+      "id": "OCF",
+      "code": "OCF",
+      "name": "Occipital fraction",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1,
+      "calculated": true
+    },
+    "NAR": {
+      "id": "NAR",
+      "code": "NAR",
+      "name": "Nasion radius",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1,
+      "calculated": true
+    },
+    "SSR": {
+      "id": "SSR",
+      "code": "SSR",
+      "name": "Subspinale radius",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1,
+      "calculated": true
+    },
+    "PRR": {
+      "id": "PRR",
+      "code": "PRR",
+      "name": "Prosthion radius",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1,
+      "calculated": true
+    },
+    "DKR": {
+      "id": "DKR",
+      "code": "DKR",
+      "name": "Dacryon radius",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1,
+      "calculated": true
+    },
+    "ZOR": {
+      "id": "ZOR",
+      "code": "ZOR",
+      "name": "Zygoorbitale radius",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1,
+      "calculated": true
+    },
+    "FMR": {
+      "id": "FMR",
+      "code": "FMR",
+      "name": "Frontomalare radius",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1,
+      "calculated": true
+    },
+    "EKR": {
+      "id": "EKR",
+      "code": "EKR",
+      "name": "Ectoconchion radius",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1,
+      "calculated": true
+    },
+    "ZMR": {
+      "id": "ZMR",
+      "code": "ZMR",
+      "name": "Zygomaxillare radius",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1,
+      "calculated": true
+    },
+    "AVR": {
+      "id": "AVR",
+      "code": "AVR",
+      "name": "Molar 1 alveolus radius",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1,
+      "calculated": true
+    },
+    "BRR": {
+      "id": "BRR",
+      "code": "BRR",
+      "name": "Bregma radius",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1,
+      "calculated": true
+    },
+    "VRR": {
+      "id": "VRR",
+      "code": "VRR",
+      "name": "Vertex radius",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1,
+      "calculated": true
+    },
+    "LAR": {
+      "id": "LAR",
+      "code": "LAR",
+      "name": "Lambda radius",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1,
+      "calculated": true
+    },
+    "OSR": {
+      "id": "OSR",
+      "code": "OSR",
+      "name": "Opisthion radius",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1,
+      "calculated": true
+    },
+    "BAR": {
+      "id": "BAR",
+      "code": "BAR",
+      "name": "Basion radius",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1,
+      "calculated": true
+    },
+    "PRA": {
+      "id": "PRA",
+      "code": "PRA",
+      "name": "Prosthion angle",
+      "modality": "metric",
+      "unit": "°",
+      "precision": 1,
+      "calculated": true
+    },
+    "BAA": {
+      "id": "BAA",
+      "code": "BAA",
+      "name": "Basion angle, nasion-prosthion",
+      "modality": "metric",
+      "unit": "°",
+      "precision": 1,
+      "calculated": true
+    },
+    "NBA": {
+      "id": "NBA",
+      "code": "NBA",
+      "name": "Nasion angle",
+      "modality": "metric",
+      "unit": "°",
+      "precision": 1,
+      "calculated": true
+    },
+    "BBA": {
+      "id": "BBA",
+      "code": "BBA",
+      "name": "Basion angle, nasion-bregma",
+      "modality": "metric",
+      "unit": "°",
+      "precision": 1,
+      "calculated": true
+    },
+    "BRA": {
+      "id": "BRA",
+      "code": "BRA",
+      "name": "Bregma angle",
+      "modality": "metric",
+      "unit": "°",
+      "precision": 1,
+      "calculated": true
+    },
+    "SSA": {
+      "id": "SSA",
+      "code": "SSA",
+      "name": "Zygomaxillary angle",
+      "modality": "metric",
+      "unit": "°",
+      "precision": 1,
+      "calculated": true
+    },
+    "NFA": {
+      "id": "NFA",
+      "code": "NFA",
+      "name": "Nasio-frontal angle",
+      "modality": "metric",
+      "unit": "°",
+      "precision": 1,
+      "calculated": true
+    },
+    "DKA": {
+      "id": "DKA",
+      "code": "DKA",
+      "name": "Dacryal angle",
+      "modality": "metric",
+      "unit": "°",
+      "precision": 1,
+      "calculated": true
+    },
+    "NDA": {
+      "id": "NDA",
+      "code": "NDA",
+      "name": "Naso-dacryal angle",
+      "modality": "metric",
+      "unit": "°",
+      "precision": 1,
+      "calculated": true
+    },
+    "SIA": {
+      "id": "SIA",
+      "code": "SIA",
+      "name": "Simotic angle",
+      "modality": "metric",
+      "unit": "°",
+      "precision": 1,
+      "calculated": true
+    },
+    "RFA": {
+      "id": "RFA",
+      "code": "RFA",
+      "name": "Radio-frontal angle",
+      "modality": "metric",
+      "unit": "°",
+      "precision": 1,
+      "calculated": true
+    },
+    "RPA": {
+      "id": "RPA",
+      "code": "RPA",
+      "name": "Radio-parietal angle",
+      "modality": "metric",
+      "unit": "°",
+      "precision": 1,
+      "calculated": true
+    },
+    "ROA": {
+      "id": "ROA",
+      "code": "ROA",
+      "name": "Radio-occipital angle, lambda-opisthion",
+      "modality": "metric",
+      "unit": "°",
+      "precision": 1,
+      "calculated": true
+    },
+    "BSA": {
+      "id": "BSA",
+      "code": "BSA",
+      "name": "Basal angle, prosthion-opisthion",
+      "modality": "metric",
+      "unit": "°",
+      "precision": 1,
+      "calculated": true
+    },
+    "SBA": {
+      "id": "SBA",
+      "code": "SBA",
+      "name": "Sub-bregma angle",
+      "modality": "metric",
+      "unit": "°",
+      "precision": 1,
+      "calculated": true
+    },
+    "SLA": {
+      "id": "SLA",
+      "code": "SLA",
+      "name": "Sub-lambda angle",
+      "modality": "metric",
+      "unit": "°",
+      "precision": 1,
+      "calculated": true
+    },
+    "TBA": {
+      "id": "TBA",
+      "code": "TBA",
+      "name": "Basal angle",
+      "modality": "metric",
+      "unit": "°",
+      "precision": 1,
+      "calculated": true
+    },
+    "NAA": {
+      "id": "NAA",
+      "code": "NAA",
+      "name": "Nasal arc",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1,
+      "calculated": true
+    },
+    "FRA": {
+      "id": "FRA",
+      "code": "FRA",
+      "name": "Frontal arc",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1,
+      "calculated": true
+    },
+    "PAA": {
+      "id": "PAA",
+      "code": "PAA",
+      "name": "Parietal arc",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1,
+      "calculated": true
+    },
+    "OCA": {
+      "id": "OCA",
+      "code": "OCA",
+      "name": "Occipital arc",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1,
+      "calculated": true
+    },
     "NAS": {
       "id": "NAS",
       "code": "NAS",
@@ -210,6 +1696,23 @@
         }
       ]
     },
+    "NaOvg": {
+      "id": "NaOvg",
+      "code": "NaOvg",
+      "name": "Nasal overgrowth",
+      "modality": "morph",
+      "method": "MMS",
+      "states": [
+        {
+          "code": "0",
+          "label": "no overgrowth"
+        },
+        {
+          "code": "1",
+          "label": "overgrowth"
+        }
+      ]
+    },
     "ZS": {
       "id": "ZS",
       "code": "ZS",
@@ -323,6 +1826,5400 @@
         }
       ]
     },
+    "NC": {
+      "id": "NC",
+      "code": "NC",
+      "name": "Nuchal crest",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        },
+        {
+          "code": "5",
+          "label": ""
+        }
+      ]
+    },
+    "MP": {
+      "id": "MP",
+      "code": "MP",
+      "name": "Mastoid process",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        },
+        {
+          "code": "5",
+          "label": ""
+        }
+      ]
+    },
+    "SOM": {
+      "id": "SOM",
+      "code": "SOM",
+      "name": "Supraorbital margin",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        },
+        {
+          "code": "5",
+          "label": ""
+        }
+      ]
+    },
+    "GL": {
+      "id": "GL",
+      "code": "GL",
+      "name": "Glabella",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        },
+        {
+          "code": "5",
+          "label": ""
+        }
+      ]
+    },
+    "NasFrntSut": {
+      "id": "NasFrntSut",
+      "code": "NasFrntSut",
+      "name": "Nasofrontal suture",
+      "modality": "morph",
+      "method": "MMS",
+      "states": [
+        {
+          "code": "1",
+          "label": "round"
+        },
+        {
+          "code": "2",
+          "label": "square"
+        },
+        {
+          "code": "3",
+          "label": "tented"
+        },
+        {
+          "code": "4",
+          "label": "irregular"
+        }
+      ]
+    },
+    "SnSut": {
+      "id": "SnSut",
+      "code": "SnSut",
+      "name": "Supranasal suture",
+      "modality": "morph",
+      "method": "MMS",
+      "states": [
+        {
+          "code": "0",
+          "label": "obliterated"
+        },
+        {
+          "code": "1",
+          "label": "open, unfused"
+        },
+        {
+          "code": "2",
+          "label": "closed but visible"
+        }
+      ]
+    },
+    "PBD": {
+      "id": "PBD",
+      "code": "PBD",
+      "name": "Postbregmatic depression",
+      "modality": "morph",
+      "method": "MMS",
+      "states": [
+        {
+          "code": "0",
+          "label": "absent"
+        },
+        {
+          "code": "1",
+          "label": "present"
+        }
+      ]
+    },
+    "TPS": {
+      "id": "TPS",
+      "code": "TPS",
+      "name": "Transverse palatine suture",
+      "modality": "morph",
+      "method": "MMS",
+      "states": [
+        {
+          "code": "1",
+          "label": "straight"
+        },
+        {
+          "code": "2",
+          "label": "anterior bulge"
+        },
+        {
+          "code": "3",
+          "label": "m-shaped"
+        },
+        {
+          "code": "4",
+          "label": "posterior bulge"
+        }
+      ]
+    },
+    "PS": {
+      "id": "PS",
+      "code": "PS",
+      "name": "Palate shape",
+      "modality": "morph",
+      "method": "MMS",
+      "states": [
+        {
+          "code": "1",
+          "label": "elliptical"
+        },
+        {
+          "code": "2",
+          "label": "parabolic A"
+        },
+        {
+          "code": "3",
+          "label": "parabolic B"
+        },
+        {
+          "code": "4",
+          "label": "hyperbolic"
+        }
+      ]
+    },
+    "Parietal_depression": {
+      "id": "Parietal_depression",
+      "code": "Parietal_depression",
+      "name": "Parietal depression",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "absent"
+        },
+        {
+          "code": "1",
+          "label": "present"
+        }
+      ]
+    },
+    "Occipital_condyle_lipping": {
+      "id": "Occipital_condyle_lipping",
+      "code": "Occipital_condyle_lipping",
+      "name": "Occipital condyle lipping",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "absent"
+        },
+        {
+          "code": "1",
+          "label": ">=50%"
+        },
+        {
+          "code": "2",
+          "label": ">=75%"
+        }
+      ]
+    },
+    "Midlambdoid": {
+      "id": "Midlambdoid",
+      "code": "Midlambdoid",
+      "name": "Midlambdoid (1)",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        }
+      ]
+    },
+    "Lambda": {
+      "id": "Lambda",
+      "code": "Lambda",
+      "name": "Lambda (2)",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        }
+      ]
+    },
+    "Obelion": {
+      "id": "Obelion",
+      "code": "Obelion",
+      "name": "Obelion (3)",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        }
+      ]
+    },
+    "Anterior_sagittal": {
+      "id": "Anterior_sagittal",
+      "code": "Anterior_sagittal",
+      "name": "Anterior sagittal (4)",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        }
+      ]
+    },
+    "Bregma": {
+      "id": "Bregma",
+      "code": "Bregma",
+      "name": "Bregma (5)",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        }
+      ]
+    },
+    "Midcoronal": {
+      "id": "Midcoronal",
+      "code": "Midcoronal",
+      "name": "Midcoronal (6)",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        }
+      ]
+    },
+    "Pterion": {
+      "id": "Pterion",
+      "code": "Pterion",
+      "name": "Pterion (7)",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        }
+      ]
+    },
+    "Sphenofrontal": {
+      "id": "Sphenofrontal",
+      "code": "Sphenofrontal",
+      "name": "Sphenofrontal (8)",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        }
+      ]
+    },
+    "Inf_sphenotemporal": {
+      "id": "Inf_sphenotemporal",
+      "code": "Inf_sphenotemporal",
+      "name": "Inferior sphenotemporal (9)",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        }
+      ]
+    },
+    "Sup_sphenotemporal": {
+      "id": "Sup_sphenotemporal",
+      "code": "Sup_sphenotemporal",
+      "name": "Superior sphenotemporal (10)",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        }
+      ]
+    },
+    "IN": {
+      "id": "IN",
+      "code": "IN",
+      "name": "Incisive",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "Completely open"
+        },
+        {
+          "code": "1",
+          "label": "Closed or partially closed"
+        }
+      ]
+    },
+    "AMP": {
+      "id": "AMP",
+      "code": "AMP",
+      "name": "Anterior median palatine",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "Completely open"
+        },
+        {
+          "code": "1",
+          "label": "Closed or partially closed"
+        }
+      ]
+    },
+    "TP": {
+      "id": "TP",
+      "code": "TP",
+      "name": "Posterior median palatine",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "Completely open"
+        },
+        {
+          "code": "1",
+          "label": "Closed or partially closed"
+        }
+      ]
+    },
+    "PMP": {
+      "id": "PMP",
+      "code": "PMP",
+      "name": "Transverse palatine",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "Completely open"
+        },
+        {
+          "code": "1",
+          "label": "Closed or partially closed"
+        }
+      ]
+    },
+    "GPF": {
+      "id": "GPF",
+      "code": "GPF",
+      "name": "Greater palatine foramina suture",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "Completely open"
+        },
+        {
+          "code": "1",
+          "label": "Closed or partially closed"
+        }
+      ]
+    },
+    "SOS_fusion": {
+      "id": "SOS_fusion",
+      "code": "SOS_fusion",
+      "name": "Spheno-occipital synchondrosis fusion",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "open"
+        },
+        {
+          "code": "1",
+          "label": "closed/fused"
+        }
+      ]
+    },
+    "SOS_fusion_AdultAge": {
+      "id": "SOS_fusion_AdultAge",
+      "code": "SOS_fusion_AdultAge",
+      "name": "Spheno-occipital synchondrosis fusion (3 phase)",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "1",
+          "label": "Unfused/open"
+        },
+        {
+          "code": "2",
+          "label": "Fusing/closing"
+        },
+        {
+          "code": "3",
+          "label": "Fused/closed"
+        }
+      ]
+    },
+    "GNI": {
+      "id": "GNI",
+      "code": "GNI",
+      "name": "Chin height",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1
+    },
+    "HML": {
+      "id": "HML",
+      "code": "HML",
+      "name": "Height of the mandibular body at the mental foramen",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1
+    },
+    "TML": {
+      "id": "TML",
+      "code": "TML",
+      "name": "Mandibular body breadth at the mental foramen",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1
+    },
+    "GOG": {
+      "id": "GOG",
+      "code": "GOG",
+      "name": "Bigonial breadth",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1
+    },
+    "CDL": {
+      "id": "CDL",
+      "code": "CDL",
+      "name": "Bicondylar breadth",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1
+    },
+    "WRB": {
+      "id": "WRB",
+      "code": "WRB",
+      "name": "Minimum ramus breadth",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1
+    },
+    "XRH": {
+      "id": "XRH",
+      "code": "XRH",
+      "name": "Maximum ramus height",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1
+    },
+    "MLT": {
+      "id": "MLT",
+      "code": "MLT",
+      "name": "Mandibular length",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1
+    },
+    "MAN": {
+      "id": "MAN",
+      "code": "MAN",
+      "name": "Mandibular angle",
+      "modality": "metric",
+      "unit": "°",
+      "precision": 1
+    },
+    "Mandibular_torus": {
+      "id": "Mandibular_torus",
+      "code": "Mandibular_torus",
+      "name": "Mandibular torus",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "absent"
+        },
+        {
+          "code": "1",
+          "label": "present"
+        }
+      ]
+    },
+    "Lower_border_of_mandible": {
+      "id": "Lower_border_of_mandible",
+      "code": "Lower_border_of_mandible",
+      "name": "Lower border of mandible",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "1",
+          "label": "straight"
+        },
+        {
+          "code": "2",
+          "label": "undulating"
+        },
+        {
+          "code": "3",
+          "label": "partial rocker"
+        },
+        {
+          "code": "4",
+          "label": "rocker"
+        }
+      ]
+    },
+    "Chin_shape": {
+      "id": "Chin_shape",
+      "code": "Chin_shape",
+      "name": "Chin shape",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "1",
+          "label": "blunt"
+        },
+        {
+          "code": "2",
+          "label": "pointed"
+        },
+        {
+          "code": "3",
+          "label": "square"
+        },
+        {
+          "code": "4",
+          "label": "bilobate"
+        }
+      ]
+    },
+    "Gonial_angle_flare": {
+      "id": "Gonial_angle_flare",
+      "code": "Gonial_angle_flare",
+      "name": "Gonial angle flare",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "1",
+          "label": "inverted"
+        },
+        {
+          "code": "2",
+          "label": "absent"
+        },
+        {
+          "code": "3",
+          "label": "slight"
+        },
+        {
+          "code": "4",
+          "label": "medium"
+        },
+        {
+          "code": "5",
+          "label": "everted"
+        }
+      ]
+    },
+    "Ascending_ramus_profile": {
+      "id": "Ascending_ramus_profile",
+      "code": "Ascending_ramus_profile",
+      "name": "Ascending ramus profile",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "1",
+          "label": "pinched"
+        },
+        {
+          "code": "2",
+          "label": "wide"
+        }
+      ]
+    },
+    "PREI": {
+      "id": "PREI",
+      "code": "PREI",
+      "name": "Posterior ramus edge inversion",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "1",
+          "label": "straight"
+        },
+        {
+          "code": "2",
+          "label": "slight"
+        },
+        {
+          "code": "3",
+          "label": "medium"
+        },
+        {
+          "code": "4",
+          "label": "turned"
+        }
+      ]
+    },
+    "UCBL": {
+      "id": "UCBL",
+      "code": "UCBL",
+      "name": "Upper canine bucco-lingual",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1
+    },
+    "UCMD": {
+      "id": "UCMD",
+      "code": "UCMD",
+      "name": "Upper canine mesio-distal",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1
+    },
+    "UM1BL": {
+      "id": "UM1BL",
+      "code": "UM1BL",
+      "name": "Upper first molar bucco-lingual",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1
+    },
+    "UM1MD": {
+      "id": "UM1MD",
+      "code": "UM1MD",
+      "name": "Upper first molar mesio-distal",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1
+    },
+    "LCBL": {
+      "id": "LCBL",
+      "code": "LCBL",
+      "name": "Lower canine bucco-distal",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1
+    },
+    "LCMD": {
+      "id": "LCMD",
+      "code": "LCMD",
+      "name": "Lower canine mesio-distal",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1
+    },
+    "LM1BL": {
+      "id": "LM1BL",
+      "code": "LM1BL",
+      "name": "Lower first molar bucco-lingual",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1
+    },
+    "LM1MD": {
+      "id": "LM1MD",
+      "code": "LM1MD",
+      "name": "Lower first molar mesio-distal",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 0.1
+    },
+    "WING": {
+      "id": "WING",
+      "code": "WING",
+      "name": "Winging",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": "Counter-winging: one or both maxillary central incisors' mesial margins are abnormally anterior to their distal margins, so that their lingual surfaces form a \"V\" with the apex pointing away anteriorly from the palate"
+        }
+      ]
+    },
+    "DIAS": {
+      "id": "DIAS",
+      "code": "DIAS",
+      "name": "Diastema",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        }
+      ]
+    },
+    "UI1LC": {
+      "id": "UI1LC",
+      "code": "UI1LC",
+      "name": "Labial curvature, first",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        }
+      ]
+    },
+    "UI1SS": {
+      "id": "UI1SS",
+      "code": "UI1SS",
+      "name": "Shovel shape, first",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        },
+        {
+          "code": "5",
+          "label": ""
+        },
+        {
+          "code": "6",
+          "label": ""
+        }
+      ]
+    },
+    "UI2SS": {
+      "id": "UI2SS",
+      "code": "UI2SS",
+      "name": "Shovel shape, second",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        },
+        {
+          "code": "5.1",
+          "label": ""
+        },
+        {
+          "code": "5.2",
+          "label": ""
+        },
+        {
+          "code": "6.1",
+          "label": ""
+        },
+        {
+          "code": "6.2",
+          "label": ""
+        },
+        {
+          "code": "7",
+          "label": ""
+        }
+      ]
+    },
+    "UI1DS": {
+      "id": "UI1DS",
+      "code": "UI1DS",
+      "name": "Double shovel, first",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        },
+        {
+          "code": "5",
+          "label": ""
+        },
+        {
+          "code": "6.1",
+          "label": ""
+        },
+        {
+          "code": "6.2",
+          "label": ""
+        }
+      ]
+    },
+    "UI2DS": {
+      "id": "UI2DS",
+      "code": "UI2DS",
+      "name": "Double shovel, second",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        },
+        {
+          "code": "5",
+          "label": ""
+        },
+        {
+          "code": "6",
+          "label": ""
+        }
+      ]
+    },
+    "UI2PEG": {
+      "id": "UI2PEG",
+      "code": "UI2PEG",
+      "name": "Reduction or peg-shape",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2.1",
+          "label": ""
+        },
+        {
+          "code": "2.2",
+          "label": ""
+        }
+      ]
+    },
+    "UI2CA": {
+      "id": "UI2CA",
+      "code": "UI2CA",
+      "name": "Congenital absence, second",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        }
+      ]
+    },
+    "UI1IG": {
+      "id": "UI1IG",
+      "code": "UI1IG",
+      "name": "Interruption groove, first",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        }
+      ]
+    },
+    "UI2IG": {
+      "id": "UI2IG",
+      "code": "UI2IG",
+      "name": "Interruption groove, second",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        }
+      ]
+    },
+    "UI1TD": {
+      "id": "UI1TD",
+      "code": "UI1TD",
+      "name": "Tuberculum dentale, first",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "3.1",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        },
+        {
+          "code": "4.1",
+          "label": ""
+        },
+        {
+          "code": "5",
+          "label": ""
+        },
+        {
+          "code": "6",
+          "label": ""
+        }
+      ]
+    },
+    "UI2TD": {
+      "id": "UI2TD",
+      "code": "UI2TD",
+      "name": "Tuberculum dentale, second",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "3.1",
+          "label": ""
+        },
+        {
+          "code": "3.2",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        },
+        {
+          "code": "4.1",
+          "label": ""
+        },
+        {
+          "code": "5",
+          "label": ""
+        },
+        {
+          "code": "6",
+          "label": ""
+        }
+      ]
+    },
+    "UCSS": {
+      "id": "UCSS",
+      "code": "UCSS",
+      "name": "Shovel shape",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        },
+        {
+          "code": "5",
+          "label": ""
+        },
+        {
+          "code": "6",
+          "label": ""
+        }
+      ]
+    },
+    "UCTD": {
+      "id": "UCTD",
+      "code": "UCTD",
+      "name": "Tuberculum dentale",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        },
+        {
+          "code": "5",
+          "label": ""
+        },
+        {
+          "code": "6",
+          "label": ""
+        }
+      ]
+    },
+    "UCMR": {
+      "id": "UCMR",
+      "code": "UCMR",
+      "name": "Mesial ridge",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        }
+      ]
+    },
+    "UCDR": {
+      "id": "UCDR",
+      "code": "UCDR",
+      "name": "Distal accessory ridge",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3.1",
+          "label": ""
+        },
+        {
+          "code": "3.2",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        },
+        {
+          "code": "5",
+          "label": ""
+        }
+      ]
+    },
+    "UP3AC": {
+      "id": "UP3AC",
+      "code": "UP3AC",
+      "name": "Accessory cusps, third",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        }
+      ]
+    },
+    "UP4AC": {
+      "id": "UP4AC",
+      "code": "UP4AC",
+      "name": "Accessory cusps, fourth",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        }
+      ]
+    },
+    "UP3DS": {
+      "id": "UP3DS",
+      "code": "UP3DS",
+      "name": "Distosagittal ridge, third",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        }
+      ]
+    },
+    "UP3MMXPAR": {
+      "id": "UP3MMXPAR",
+      "code": "UP3MMXPAR",
+      "name": "Mesial accessory ridge, third",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        }
+      ]
+    },
+    "UP3DMXPAR": {
+      "id": "UP3DMXPAR",
+      "code": "UP3DMXPAR",
+      "name": "Distal accessory ridge, third",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        }
+      ]
+    },
+    "UP4MMXPAR": {
+      "id": "UP4MMXPAR",
+      "code": "UP4MMXPAR",
+      "name": "Mesial accessory ridge, fourth",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        }
+      ]
+    },
+    "UP4DMXPAR": {
+      "id": "UP4DMXPAR",
+      "code": "UP4DMXPAR",
+      "name": "Distal accessory ridge, fourth",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        }
+      ]
+    },
+    "UM3PEG": {
+      "id": "UM3PEG",
+      "code": "UM3PEG",
+      "name": "Peg or reduction",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2.1",
+          "label": ""
+        },
+        {
+          "code": "2.2",
+          "label": ""
+        }
+      ]
+    },
+    "UM3CA": {
+      "id": "UM3CA",
+      "code": "UM3CA",
+      "name": "Congenital absence, third",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        }
+      ]
+    },
+    "UM1MC": {
+      "id": "UM1MC",
+      "code": "UM1MC",
+      "name": "Metacone, first",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        },
+        {
+          "code": "5",
+          "label": ""
+        },
+        {
+          "code": "6",
+          "label": ""
+        }
+      ]
+    },
+    "UM2MC": {
+      "id": "UM2MC",
+      "code": "UM2MC",
+      "name": "Metacone, second",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        },
+        {
+          "code": "5",
+          "label": ""
+        },
+        {
+          "code": "6",
+          "label": ""
+        }
+      ]
+    },
+    "max_metacone_m3": {
+      "id": "max_metacone_m3",
+      "code": "max_metacone_m3",
+      "name": "Metacone, third",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        },
+        {
+          "code": "5",
+          "label": ""
+        },
+        {
+          "code": "6",
+          "label": ""
+        }
+      ]
+    },
+    "UM1HC": {
+      "id": "UM1HC",
+      "code": "UM1HC",
+      "name": "Hypocone, first",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        },
+        {
+          "code": "5",
+          "label": ""
+        },
+        {
+          "code": "6",
+          "label": ""
+        }
+      ]
+    },
+    "UM2HC": {
+      "id": "UM2HC",
+      "code": "UM2HC",
+      "name": "Hypocone, second",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        },
+        {
+          "code": "5",
+          "label": ""
+        },
+        {
+          "code": "6",
+          "label": ""
+        }
+      ]
+    },
+    "max_hypocone_m3": {
+      "id": "max_hypocone_m3",
+      "code": "max_hypocone_m3",
+      "name": "Hypocone, third",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        },
+        {
+          "code": "5",
+          "label": ""
+        },
+        {
+          "code": "6",
+          "label": ""
+        }
+      ]
+    },
+    "UM1C5": {
+      "id": "UM1C5",
+      "code": "UM1C5",
+      "name": "Metaconule, first",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        },
+        {
+          "code": "5",
+          "label": ""
+        }
+      ]
+    },
+    "UM2C5": {
+      "id": "UM2C5",
+      "code": "UM2C5",
+      "name": "Metaconule, second",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        },
+        {
+          "code": "5",
+          "label": ""
+        }
+      ]
+    },
+    "max_cusp_m3": {
+      "id": "max_cusp_m3",
+      "code": "max_cusp_m3",
+      "name": "Metaconule, third",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        },
+        {
+          "code": "5",
+          "label": ""
+        }
+      ]
+    },
+    "UM1CB": {
+      "id": "UM1CB",
+      "code": "UM1CB",
+      "name": "Carabelli's trait, first",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        },
+        {
+          "code": "5",
+          "label": ""
+        },
+        {
+          "code": "6",
+          "label": ""
+        },
+        {
+          "code": "7",
+          "label": ""
+        }
+      ]
+    },
+    "UM2CB": {
+      "id": "UM2CB",
+      "code": "UM2CB",
+      "name": "Carabelli's trait, second",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        },
+        {
+          "code": "5",
+          "label": ""
+        },
+        {
+          "code": "6",
+          "label": ""
+        },
+        {
+          "code": "7",
+          "label": ""
+        }
+      ]
+    },
+    "max_carabelli_m3": {
+      "id": "max_carabelli_m3",
+      "code": "max_carabelli_m3",
+      "name": "Carabelli's trait, third",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        },
+        {
+          "code": "5",
+          "label": ""
+        },
+        {
+          "code": "6",
+          "label": ""
+        },
+        {
+          "code": "7",
+          "label": ""
+        }
+      ]
+    },
+    "UM1PS": {
+      "id": "UM1PS",
+      "code": "UM1PS",
+      "name": "Parastyle, first",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        },
+        {
+          "code": "5",
+          "label": ""
+        },
+        {
+          "code": "6",
+          "label": ""
+        }
+      ]
+    },
+    "UM2PS": {
+      "id": "UM2PS",
+      "code": "UM2PS",
+      "name": "Parastyle, second",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        },
+        {
+          "code": "5",
+          "label": ""
+        },
+        {
+          "code": "6",
+          "label": ""
+        }
+      ]
+    },
+    "max_para_m3": {
+      "id": "max_para_m3",
+      "code": "max_para_m3",
+      "name": "Parastyle, third",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        },
+        {
+          "code": "5",
+          "label": ""
+        },
+        {
+          "code": "6",
+          "label": ""
+        }
+      ]
+    },
+    "UM1EE": {
+      "id": "UM1EE",
+      "code": "UM1EE",
+      "name": "Enamel extension, first",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        }
+      ]
+    },
+    "UM2EE": {
+      "id": "UM2EE",
+      "code": "UM2EE",
+      "name": "Enamel extension, second",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        }
+      ]
+    },
+    "max_ext_m3": {
+      "id": "max_ext_m3",
+      "code": "max_ext_m3",
+      "name": "Enamel extension, third",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        }
+      ]
+    },
+    "LI1SS": {
+      "id": "LI1SS",
+      "code": "LI1SS",
+      "name": "Shovel shape, first",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        }
+      ]
+    },
+    "LI2SS": {
+      "id": "LI2SS",
+      "code": "LI2SS",
+      "name": "Shovel shape, second",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        }
+      ]
+    },
+    "LI1CA": {
+      "id": "LI1CA",
+      "code": "LI1CA",
+      "name": "Congenital absence, first",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": "absent"
+        },
+        {
+          "code": "1",
+          "label": "present"
+        }
+      ],
+      "statesPending": true
+    },
+    "LCDR": {
+      "id": "LCDR",
+      "code": "LCDR",
+      "name": "Distal accessory ridge",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        },
+        {
+          "code": "5",
+          "label": ""
+        }
+      ]
+    },
+    "LP3LC": {
+      "id": "LP3LC",
+      "code": "LP3LC",
+      "name": "Lingual cusp complexity, third",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4.1",
+          "label": ""
+        },
+        {
+          "code": "4.2",
+          "label": ""
+        },
+        {
+          "code": "5",
+          "label": ""
+        },
+        {
+          "code": "6",
+          "label": ""
+        },
+        {
+          "code": "7.1",
+          "label": ""
+        },
+        {
+          "code": "7.2",
+          "label": ""
+        },
+        {
+          "code": "8",
+          "label": ""
+        },
+        {
+          "code": "9",
+          "label": ""
+        }
+      ]
+    },
+    "LP4LC": {
+      "id": "LP4LC",
+      "code": "LP4LC",
+      "name": "Lingual cusp complexity, fourth",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        },
+        {
+          "code": "5",
+          "label": ""
+        },
+        {
+          "code": "6",
+          "label": ""
+        },
+        {
+          "code": "7",
+          "label": ""
+        },
+        {
+          "code": "8.1",
+          "label": ""
+        },
+        {
+          "code": "8.2",
+          "label": ""
+        },
+        {
+          "code": "9",
+          "label": ""
+        }
+      ]
+    },
+    "LP3EF": {
+      "id": "LP3EF",
+      "code": "LP3EF",
+      "name": "Elongated form, third",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        }
+      ]
+    },
+    "mand_elong_pm2": {
+      "id": "mand_elong_pm2",
+      "code": "mand_elong_pm2",
+      "name": "Elongated form, fourth",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        }
+      ]
+    },
+    "LM3CA": {
+      "id": "LM3CA",
+      "code": "LM3CA",
+      "name": "Congenital absence, third",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": "absent"
+        },
+        {
+          "code": "1",
+          "label": "present"
+        }
+      ],
+      "statesPending": true
+    },
+    "LM1AF": {
+      "id": "LM1AF",
+      "code": "LM1AF",
+      "name": "Anterior fovea, first",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        }
+      ]
+    },
+    "LM1GP": {
+      "id": "LM1GP",
+      "code": "LM1GP",
+      "name": "Groove pattern, first",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        }
+      ]
+    },
+    "LM2PG": {
+      "id": "LM2PG",
+      "code": "LM2PG",
+      "name": "Groove pattern, second",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        }
+      ]
+    },
+    "mand_groove_m3": {
+      "id": "mand_groove_m3",
+      "code": "mand_groove_m3",
+      "name": "Groove pattern, third",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        }
+      ]
+    },
+    "LM1CN": {
+      "id": "LM1CN",
+      "code": "LM1CN",
+      "name": "Cusp number, first",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "4",
+          "label": ""
+        },
+        {
+          "code": "5",
+          "label": ""
+        },
+        {
+          "code": "6",
+          "label": ""
+        }
+      ]
+    },
+    "LM2CN": {
+      "id": "LM2CN",
+      "code": "LM2CN",
+      "name": "Cusp number, second",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        },
+        {
+          "code": "5",
+          "label": ""
+        },
+        {
+          "code": "6",
+          "label": ""
+        }
+      ]
+    },
+    "mand_cusp_m3": {
+      "id": "mand_cusp_m3",
+      "code": "mand_cusp_m3",
+      "name": "Cusp number, third",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        },
+        {
+          "code": "5",
+          "label": ""
+        },
+        {
+          "code": "6",
+          "label": ""
+        }
+      ]
+    },
+    "LM1DW": {
+      "id": "LM1DW",
+      "code": "LM1DW",
+      "name": "Deflecting wrinkle, first",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        }
+      ]
+    },
+    "LM1PR": {
+      "id": "LM1PR",
+      "code": "LM1PR",
+      "name": "Protostylid, first",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4.1",
+          "label": ""
+        },
+        {
+          "code": "4.2",
+          "label": ""
+        },
+        {
+          "code": "5",
+          "label": ""
+        },
+        {
+          "code": "6",
+          "label": ""
+        },
+        {
+          "code": "7",
+          "label": ""
+        }
+      ]
+    },
+    "LM2PR": {
+      "id": "LM2PR",
+      "code": "LM2PR",
+      "name": "Protostylid, second",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4.1",
+          "label": ""
+        },
+        {
+          "code": "4.2",
+          "label": ""
+        },
+        {
+          "code": "5",
+          "label": ""
+        },
+        {
+          "code": "6",
+          "label": ""
+        },
+        {
+          "code": "7",
+          "label": ""
+        }
+      ]
+    },
+    "mand_proto_m3": {
+      "id": "mand_proto_m3",
+      "code": "mand_proto_m3",
+      "name": "Protostylid, third",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4.1",
+          "label": ""
+        },
+        {
+          "code": "4.2",
+          "label": ""
+        },
+        {
+          "code": "5",
+          "label": ""
+        },
+        {
+          "code": "6",
+          "label": ""
+        },
+        {
+          "code": "7",
+          "label": ""
+        }
+      ]
+    },
+    "LM1TC": {
+      "id": "LM1TC",
+      "code": "LM1TC",
+      "name": "Trigonid crest, first",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        }
+      ]
+    },
+    "LM2TC": {
+      "id": "LM2TC",
+      "code": "LM2TC",
+      "name": "Trigonid crest, second",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        }
+      ]
+    },
+    "mand_trigonid_m3": {
+      "id": "mand_trigonid_m3",
+      "code": "mand_trigonid_m3",
+      "name": "Trigonid crest, third",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        }
+      ]
+    },
+    "LM1C5": {
+      "id": "LM1C5",
+      "code": "LM1C5",
+      "name": "Cusp 5, first",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        },
+        {
+          "code": "5",
+          "label": ""
+        }
+      ]
+    },
+    "LM2C5": {
+      "id": "LM2C5",
+      "code": "LM2C5",
+      "name": "Cusp 5, second",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        },
+        {
+          "code": "5",
+          "label": ""
+        }
+      ]
+    },
+    "mand_cusp5_m3": {
+      "id": "mand_cusp5_m3",
+      "code": "mand_cusp5_m3",
+      "name": "Cusp 5, third",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        },
+        {
+          "code": "5",
+          "label": ""
+        }
+      ]
+    },
+    "LM1C6": {
+      "id": "LM1C6",
+      "code": "LM1C6",
+      "name": "Cusp 6, first",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        },
+        {
+          "code": "5",
+          "label": ""
+        }
+      ]
+    },
+    "LM2C6": {
+      "id": "LM2C6",
+      "code": "LM2C6",
+      "name": "Cusp 6, second",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        },
+        {
+          "code": "5",
+          "label": ""
+        }
+      ]
+    },
+    "mand_cusp6_m3": {
+      "id": "mand_cusp6_m3",
+      "code": "mand_cusp6_m3",
+      "name": "Cusp 6, third",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        },
+        {
+          "code": "5",
+          "label": ""
+        }
+      ]
+    },
+    "LM1C7": {
+      "id": "LM1C7",
+      "code": "LM1C7",
+      "name": "Cusp 7, first",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        }
+      ]
+    },
+    "LM2C7": {
+      "id": "LM2C7",
+      "code": "LM2C7",
+      "name": "Cusp 7, second",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        }
+      ]
+    },
+    "mand_cusp7_m3": {
+      "id": "mand_cusp7_m3",
+      "code": "mand_cusp7_m3",
+      "name": "Cusp 7, third",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        }
+      ]
+    },
+    "LM1EE": {
+      "id": "LM1EE",
+      "code": "LM1EE",
+      "name": "Enamel extensions, first",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        }
+      ]
+    },
+    "LM2EE": {
+      "id": "LM2EE",
+      "code": "LM2EE",
+      "name": "Enamel extensions, second",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        }
+      ]
+    },
+    "mand_ext_m3": {
+      "id": "mand_ext_m3",
+      "code": "mand_ext_m3",
+      "name": "Enamel extensions, third",
+      "modality": "morph",
+      "method": "FoRDent",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        }
+      ]
+    },
+    "C1_lipping": {
+      "id": "C1_lipping",
+      "code": "C1_lipping",
+      "name": "C1 lipping",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "absent <50%"
+        },
+        {
+          "code": "1",
+          "label": ">=50%"
+        }
+      ]
+    },
+    "C1_Eburnation": {
+      "id": "C1_Eburnation",
+      "code": "C1_Eburnation",
+      "name": "C1 eburnation",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "absent"
+        },
+        {
+          "code": "1",
+          "label": "present"
+        }
+      ]
+    },
+    "L1_spinous_process_flattening": {
+      "id": "L1_spinous_process_flattening",
+      "code": "L1_spinous_process_flattening",
+      "name": "L1 spinous process flattening",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "convex/round"
+        },
+        {
+          "code": "1",
+          "label": "flat"
+        },
+        {
+          "code": "2",
+          "label": "ligament ossification"
+        }
+      ]
+    },
+    "L1_superior_ring_fusion": {
+      "id": "L1_superior_ring_fusion",
+      "code": "L1_superior_ring_fusion",
+      "name": "L1 superior body",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "not fused"
+        },
+        {
+          "code": "1",
+          "label": "partially fused"
+        },
+        {
+          "code": "2",
+          "label": "remnant line"
+        },
+        {
+          "code": "3",
+          "label": "fully fused"
+        },
+        {
+          "code": "4",
+          "label": "n/a"
+        }
+      ]
+    },
+    "L1_inferior_ring_fusion": {
+      "id": "L1_inferior_ring_fusion",
+      "code": "L1_inferior_ring_fusion",
+      "name": "L1 inferior body",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "not fused"
+        },
+        {
+          "code": "1",
+          "label": "partially fused"
+        },
+        {
+          "code": "2",
+          "label": "remnant line"
+        },
+        {
+          "code": "3",
+          "label": "fully fused"
+        },
+        {
+          "code": "4",
+          "label": "n/a"
+        }
+      ]
+    },
+    "L1_superior_surface_morphology": {
+      "id": "L1_superior_surface_morphology",
+      "code": "L1_superior_surface_morphology",
+      "name": "L1 superior surface morphology",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "billows"
+        },
+        {
+          "code": "1",
+          "label": "flat"
+        },
+        {
+          "code": "2",
+          "label": "porous"
+        }
+      ]
+    },
+    "L1_inferior_surface_morphology": {
+      "id": "L1_inferior_surface_morphology",
+      "code": "L1_inferior_surface_morphology",
+      "name": "L1 inferior surface morphology",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "billows"
+        },
+        {
+          "code": "1",
+          "label": "flat"
+        },
+        {
+          "code": "2",
+          "label": "porous"
+        }
+      ]
+    },
+    "L5_superior_ring_fusion": {
+      "id": "L5_superior_ring_fusion",
+      "code": "L5_superior_ring_fusion",
+      "name": "L5 superior body",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "not fused"
+        },
+        {
+          "code": "1",
+          "label": "partially fused"
+        },
+        {
+          "code": "2",
+          "label": "remnant line"
+        },
+        {
+          "code": "3",
+          "label": "fully fused"
+        },
+        {
+          "code": "4",
+          "label": "n/a"
+        }
+      ]
+    },
+    "L5_inferior_ring_fusion": {
+      "id": "L5_inferior_ring_fusion",
+      "code": "L5_inferior_ring_fusion",
+      "name": "L5 inferior body",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "not fused"
+        },
+        {
+          "code": "1",
+          "label": "partially fused"
+        },
+        {
+          "code": "2",
+          "label": "remnant line"
+        },
+        {
+          "code": "3",
+          "label": "fully fused"
+        },
+        {
+          "code": "4",
+          "label": "n/a"
+        }
+      ]
+    },
+    "L5_superior_surface_morphology": {
+      "id": "L5_superior_surface_morphology",
+      "code": "L5_superior_surface_morphology",
+      "name": "L5 superior surface morphology",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "billows"
+        },
+        {
+          "code": "1",
+          "label": "flat"
+        },
+        {
+          "code": "2",
+          "label": "porous"
+        }
+      ]
+    },
+    "L5_inferior_surface_morphology": {
+      "id": "L5_inferior_surface_morphology",
+      "code": "L5_inferior_surface_morphology",
+      "name": "L5 inferior surface morphology",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "billows"
+        },
+        {
+          "code": "1",
+          "label": "flat"
+        },
+        {
+          "code": "2",
+          "label": "porous"
+        }
+      ]
+    },
+    "L5_superior_margin": {
+      "id": "L5_superior_margin",
+      "code": "L5_superior_margin",
+      "name": "L5 superior margin shape",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "round"
+        },
+        {
+          "code": "1",
+          "label": "sharp"
+        },
+        {
+          "code": "2",
+          "label": "lipped"
+        }
+      ]
+    },
+    "L5_inferior_margin": {
+      "id": "L5_inferior_margin",
+      "code": "L5_inferior_margin",
+      "name": "L5 inferior margin shape",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "round"
+        },
+        {
+          "code": "1",
+          "label": "sharp"
+        },
+        {
+          "code": "2",
+          "label": "lipped"
+        }
+      ]
+    },
+    "C3_C7_lipping": {
+      "id": "C3_C7_lipping",
+      "code": "C3_C7_lipping",
+      "name": "C3–C7 lipping",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "absent"
+        },
+        {
+          "code": "1",
+          "label": "present"
+        }
+      ]
+    },
+    "T1_T12_lipping": {
+      "id": "T1_T12_lipping",
+      "code": "T1_T12_lipping",
+      "name": "T1–T12 lipping",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "absent"
+        },
+        {
+          "code": "1",
+          "label": "present"
+        }
+      ]
+    },
+    "L1_L5_lipping": {
+      "id": "L1_L5_lipping",
+      "code": "L1_L5_lipping",
+      "name": "L1–L5 lipping",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "absent"
+        },
+        {
+          "code": "1",
+          "label": "present"
+        }
+      ]
+    },
+    "C3_C7_candlewax": {
+      "id": "C3_C7_candlewax",
+      "code": "C3_C7_candlewax",
+      "name": "C3–C7 candlewax",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "absent"
+        },
+        {
+          "code": "1",
+          "label": "present"
+        }
+      ]
+    },
+    "T1_T12_candlewax": {
+      "id": "T1_T12_candlewax",
+      "code": "T1_T12_candlewax",
+      "name": "T1–T12 candlewax",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "absent"
+        },
+        {
+          "code": "1",
+          "label": "present"
+        }
+      ]
+    },
+    "L1_L5_candlewax": {
+      "id": "L1_L5_candlewax",
+      "code": "L1_L5_candlewax",
+      "name": "L1–L5 candlewax",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "absent"
+        },
+        {
+          "code": "1",
+          "label": "present"
+        }
+      ]
+    },
+    "C3_C7_DISH": {
+      "id": "C3_C7_DISH",
+      "code": "C3_C7_DISH",
+      "name": "C3–C7 DISH",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "absent"
+        },
+        {
+          "code": "1",
+          "label": "present"
+        }
+      ]
+    },
+    "T1_T12_DISH": {
+      "id": "T1_T12_DISH",
+      "code": "T1_T12_DISH",
+      "name": "T1–T12 DISH",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "absent"
+        },
+        {
+          "code": "1",
+          "label": "present"
+        }
+      ]
+    },
+    "L1_L5_DISH": {
+      "id": "L1_L5_DISH",
+      "code": "L1_L5_DISH",
+      "name": "L1–L5 DISH",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "absent"
+        },
+        {
+          "code": "1",
+          "label": "present"
+        }
+      ]
+    },
+    "R1_fusion": {
+      "id": "R1_fusion",
+      "code": "R1_fusion",
+      "name": "R1 fusion",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "absent"
+        },
+        {
+          "code": "1",
+          "label": "present"
+        }
+      ]
+    },
+    "Sternum_central_dorsal_ridge": {
+      "id": "Sternum_central_dorsal_ridge",
+      "code": "Sternum_central_dorsal_ridge",
+      "name": "Sternum central dorsal ridge",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "absent"
+        },
+        {
+          "code": "1",
+          "label": "present"
+        }
+      ]
+    },
+    "R2": {
+      "id": "R2",
+      "code": "R2",
+      "name": "Rib 2 sternal end profile",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "regular"
+        },
+        {
+          "code": "1",
+          "label": "irregular"
+        }
+      ]
+    },
+    "R3_10": {
+      "id": "R3_10",
+      "code": "R3_10",
+      "name": "Ribs 3–10 sternal end profile",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "regular"
+        },
+        {
+          "code": "1",
+          "label": "irregular"
+        }
+      ]
+    },
+    "R2_ossification": {
+      "id": "R2_ossification",
+      "code": "R2_ossification",
+      "name": "Rib 2 ossification pattern",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "absent"
+        },
+        {
+          "code": "1",
+          "label": "claw"
+        },
+        {
+          "code": "2",
+          "label": "cone"
+        },
+        {
+          "code": "3",
+          "label": "both"
+        }
+      ]
+    },
+    "R3_10_ossification": {
+      "id": "R3_10_ossification",
+      "code": "R3_10_ossification",
+      "name": "Ribs 3–10 ossification pattern",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "absent"
+        },
+        {
+          "code": "1",
+          "label": "claw"
+        },
+        {
+          "code": "2",
+          "label": "cone"
+        },
+        {
+          "code": "3",
+          "label": "both"
+        }
+      ]
+    },
+    "R2_shingle": {
+      "id": "R2_shingle",
+      "code": "R2_shingle",
+      "name": "Rib 2 shingle",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "normal"
+        },
+        {
+          "code": "1",
+          "label": "shingle"
+        }
+      ]
+    },
+    "R3_10_shingle": {
+      "id": "R3_10_shingle",
+      "code": "R3_10_shingle",
+      "name": "Ribs 3–10 shingle",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "normal"
+        },
+        {
+          "code": "1",
+          "label": "shingle"
+        }
+      ]
+    },
+    "Sternal_rib_ends": {
+      "id": "Sternal_rib_ends",
+      "code": "Sternal_rib_ends",
+      "name": "Sternal rib ends",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        },
+        {
+          "code": "5",
+          "label": ""
+        },
+        {
+          "code": "6",
+          "label": ""
+        },
+        {
+          "code": "7",
+          "label": ""
+        },
+        {
+          "code": "8",
+          "label": ""
+        }
+      ]
+    },
+    "ClavXL": {
+      "id": "ClavXL",
+      "code": "ClavXL",
+      "name": "Maximum length of the clavicle",
+      "fullName": "Maximum Length of the Clavicle",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 1,
+      "dcp": 38,
+      "definition": "maximum distance between the most extreme ends of the clavicle.",
+      "instrument": "osteometric board."
+    },
+    "ClavMXD": {
+      "id": "ClavMXD",
+      "code": "ClavMXD",
+      "name": "Maximum diameter of the clavicle at midshaft",
+      "fullName": "Maximum Diameter of the Clavicle at Midshaft",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 1,
+      "dcp": 39,
+      "definition": "The maximum diameter of the bone measured at midshaft.",
+      "instrument": "sliding caliper"
+    },
+    "ClavMWD": {
+      "id": "ClavMWD",
+      "code": "ClavMWD",
+      "name": "Minimum diameter of the clavicle at midshaft",
+      "fullName": "Minimum Diameter of the Clavicle at Midshaft",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 1,
+      "dcp": 40,
+      "definition": "The minimum diameter of the bone measured at midshaft.",
+      "instrument": "sliding caliper"
+    },
+    "ScH": {
+      "id": "ScH",
+      "code": "ScH",
+      "name": "Height of the scapula",
+      "fullName": "Height of the Scapula",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 1,
+      "dcp": 41,
+      "definition": "The distance from the most superior point of the cranial angle to the most interior point on the caudal angle",
+      "instrument": "sliding caliper or osteometric board"
+    },
+    "ScB": {
+      "id": "ScB",
+      "code": "ScB",
+      "name": "Breadth of the scapula",
+      "fullName": "Breadth of the Scapula",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 1,
+      "dcp": 42,
+      "definition": "The distance from the midpoint on the dorsal border of the glenoid fossa to midway between the two ridges of the scapular spine on the vertebral border",
+      "instrument": "sliding or spreading caliper"
+    },
+    "ScGB": {
+      "id": "ScGB",
+      "code": "ScGB",
+      "name": "Glenoid cavity breadth",
+      "fullName": "Glenoid Cavity Breadth",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 1,
+      "dcp": 43,
+      "definition": "Maximum distance from the ventral to dorsal margins of the glenoid cavity, taken perpendicular to glenoid cavity height. In cases of severe lipping, this measurement should not be taken (Martin and Knussmann 1988: 198, #13).",
+      "instrument": "sliding caliper"
+    },
+    "ScGH": {
+      "id": "ScGH",
+      "code": "ScGH",
+      "name": "Glenoid cavity height",
+      "fullName": "Glenoid Cavity Height",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 1,
+      "dcp": 44,
+      "definition": "The distance from the most superiorly located point on the margin of the glenoid cavity to the most inferiorly located point on the margin, taken perpendicular to glenoid cavity breadth. In cases of severe lipping, this measurement should not be taken. (Martin and Knussmann 1988: 198,#12).",
+      "instrument": "sliding caliper"
+    },
+    "HumXL": {
+      "id": "HumXL",
+      "code": "HumXL",
+      "name": "Maximum length of the humerus",
+      "fullName": "Maximum Length of the Humerus",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 1,
+      "dcp": 45,
+      "definition": "The distance from the most superior point on the head of the humerus to the most inferior point on the trochlea",
+      "instrument": "osteometric board"
+    },
+    "HumMXD": {
+      "id": "HumMXD",
+      "code": "HumMXD",
+      "name": "Maximum diameter of the humerus at midshaft",
+      "fullName": "Maximum Diameter of the Humerus at Midshaft",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 1,
+      "dcp": 48,
+      "definition": "The maximum diameter of the humeral shaft at midshaft.",
+      "instrument": "sliding caliper"
+    },
+    "HumMWD": {
+      "id": "HumMWD",
+      "code": "HumMWD",
+      "name": "Minimum diameter of the humerus at midshaft",
+      "fullName": "Minimum Diameter of the Humerus at Midshaft",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 1,
+      "dcp": 49,
+      "definition": "The minimum diameter of the humeral shaft at midshaft.",
+      "instrument": "sliding caliper"
+    },
+    "HumEB": {
+      "id": "HumEB",
+      "code": "HumEB",
+      "name": "Epicondylar breadth of the humerus",
+      "fullName": "Epicondylar Breadth of the Humerus",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 1,
+      "dcp": 46,
+      "definition": "The distance from the most laterally protruding point on the lateral epicondyle to the corresponding projection on the medial epicondyle. (Martin and Knussmann 1988: 199, #4).",
+      "instrument": "osteometric board or sliding calipers"
+    },
+    "HumHXD": {
+      "id": "HumHXD",
+      "code": "HumHXD",
+      "name": "Maximum vertical diameter of the head of the humerus",
+      "fullName": "Maximum Vertical Diameter of the Head of the Humerus",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 1,
+      "dcp": 47,
+      "definition": "The distance between the most superior and inferior points on the border of the articular surface.",
+      "instrument": "sliding caliper"
+    },
+    "RadXL": {
+      "id": "RadXL",
+      "code": "RadXL",
+      "name": "Maximum length of the radius",
+      "fullName": "Maximum Length of the Radius",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 1,
+      "dcp": 50,
+      "definition": "The distance from the most proximally positioned point on the head of the radius to the tip of the styloid process without regard to the long axis of the bone",
+      "instrument": "osteometric board"
+    },
+    "RadMXD": {
+      "id": "RadMXD",
+      "code": "RadMXD",
+      "name": "Maximum diameter of the radius at midshaft",
+      "fullName": "Maximum Diameter of the Radius at Midshaft",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 1,
+      "dcp": 51,
+      "definition": "The maximum diameter of the radial shaft taken at midshaft.",
+      "instrument": "sliding caliper"
+    },
+    "RadMWD": {
+      "id": "RadMWD",
+      "code": "RadMWD",
+      "name": "Minimum diameter of the radius at midshaft",
+      "fullName": "Minimum Diameter of the Radius at Midshaft",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 1,
+      "dcp": 52,
+      "definition": "The minimum diameter of the radial shaft taken at midshaft.",
+      "instrument": "sliding caliper"
+    },
+    "RadHXD": {
+      "id": "RadHXD",
+      "code": "RadHXD",
+      "name": "Maximum diameter of the radial head",
+      "fullName": "Maximum Diameter of the Radial Head",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 1,
+      "dcp": 53,
+      "definition": "The maximum diameter of the radial head measured on the margin of the head that articulates with the ulna. The bone is rotated until the maximum distance is obtained (Montagu 1960: 68).",
+      "instrument": "sliding caliper"
+    },
+    "UlnXL": {
+      "id": "UlnXL",
+      "code": "UlnXL",
+      "name": "Maximum length of the ulna",
+      "fullName": "Maximum Length of the Ulna",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 1,
+      "dcp": 54,
+      "definition": "The distance between the most proximal point on the olecranon and the most distal point on the styloid process",
+      "instrument": "osteometric board"
+    },
+    "UlnMXD": {
+      "id": "UlnMXD",
+      "code": "UlnMXD",
+      "name": "Maximum midshaft diameter of the ulna",
+      "fullName": "Maximum Midshaft Diameter of the Ulna",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 1,
+      "dcp": 55,
+      "definition": "The maximum diameter of the diaphysis at midshaft.",
+      "instrument": "sliding caliper"
+    },
+    "UlnMWD": {
+      "id": "UlnMWD",
+      "code": "UlnMWD",
+      "name": "Minimum midshaft diameter of the ulna",
+      "fullName": "Minimum Midshaft Diameter of the Ulna",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 1,
+      "dcp": 56,
+      "definition": "The minimum diameter of the diaphysis at midshaft.",
+      "instrument": "sliding caliper"
+    },
+    "UlnPL": {
+      "id": "UlnPL",
+      "code": "UlnPL",
+      "name": "Physiological length of the ulna",
+      "fullName": "Physiological Length of the Ulna",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 1,
+      "dcp": 57,
+      "definition": "The distance between the deepest point on the articular surface of the coronoid process on the guiding ridge and the most inferior point on the distal articular surface of the ulna",
+      "instrument": "spreading caliper"
+    },
+    "UlnDWC": {
+      "id": "UlnDWC",
+      "code": "UlnDWC",
+      "name": "Minimum circumference of the ulna",
+      "fullName": "Minimum Circumference of the Ulna",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 1,
+      "dcp": 58,
+      "definition": "The least circumference near the distal end of the bone",
+      "instrument": "tape"
+    },
+    "UlnOPXB": {
+      "id": "UlnOPXB",
+      "code": "UlnOPXB",
+      "name": "Olecranon breadth",
+      "fullName": "Olecranon Breadth",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 1,
+      "dcp": 59,
+      "definition": "Measured from the medial and lateral margins of the olecranon process's articular surface at its greatest breadth (definition from Zobeck 1983). Per Martin and Knussman 1988 (206 #6), this is taken perpendicular to the longitudinal axis of the semilunar notch.",
+      "instrument": "sliding caliper"
+    },
+    "Medial_epiphysis_fusion": {
+      "id": "Medial_epiphysis_fusion",
+      "code": "Medial_epiphysis_fusion",
+      "name": "Medial clavicle epiphysis fusion",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "not fused"
+        },
+        {
+          "code": "1",
+          "label": "partially fused"
+        },
+        {
+          "code": "2",
+          "label": "remnant line"
+        },
+        {
+          "code": "3",
+          "label": "fully fused"
+        }
+      ]
+    },
+    "Medial_epiphysis_gravel": {
+      "id": "Medial_epiphysis_gravel",
+      "code": "Medial_epiphysis_gravel",
+      "name": "Medial clavicle epiphysis gravel",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "absent"
+        },
+        {
+          "code": "1",
+          "label": "present"
+        }
+      ]
+    },
+    "Medial_macroporosity": {
+      "id": "Medial_macroporosity",
+      "code": "Medial_macroporosity",
+      "name": "Clavicle medial macroporosity",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "absent"
+        },
+        {
+          "code": "1",
+          "label": ">=3"
+        },
+        {
+          "code": "2",
+          "label": ">=75%"
+        }
+      ]
+    },
+    "Lateral_macroporosity": {
+      "id": "Lateral_macroporosity",
+      "code": "Lateral_macroporosity",
+      "name": "Clavicle lateral macroporosity",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "absent"
+        },
+        {
+          "code": "1",
+          "label": ">=3"
+        },
+        {
+          "code": "2",
+          "label": ">=75%"
+        }
+      ]
+    },
+    "Glenoid_fossa_lipping": {
+      "id": "Glenoid_fossa_lipping",
+      "code": "Glenoid_fossa_lipping",
+      "name": "Scapular glenoid fossa lipping",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "absent"
+        },
+        {
+          "code": "1",
+          "label": "<1/2"
+        },
+        {
+          "code": "2",
+          "label": ">=1/2"
+        }
+      ]
+    },
+    "Lesser_tubercle_anterior_bumps": {
+      "id": "Lesser_tubercle_anterior_bumps",
+      "code": "Lesser_tubercle_anterior_bumps",
+      "name": "Humerus lesser tubercle bumps",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "absent"
+        },
+        {
+          "code": "1",
+          "label": ">=1/3"
+        }
+      ]
+    },
+    "Lesser_tubercle_margin_shape": {
+      "id": "Lesser_tubercle_margin_shape",
+      "code": "Lesser_tubercle_margin_shape",
+      "name": "Humerus lesser tubercle margin shape",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "round/flat"
+        },
+        {
+          "code": "1",
+          "label": "raised"
+        },
+        {
+          "code": "2",
+          "label": "lipped"
+        }
+      ]
+    },
+    "Greater_tubercle_pits": {
+      "id": "Greater_tubercle_pits",
+      "code": "Greater_tubercle_pits",
+      "name": "Humerus greater tubercle pits",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "absent"
+        },
+        {
+          "code": "1",
+          "label": ">=2"
+        }
+      ]
+    },
+    "Medial_epicondyle_texture": {
+      "id": "Medial_epicondyle_texture",
+      "code": "Medial_epicondyle_texture",
+      "name": "Humerus medial epicondyle texture",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "smooth"
+        },
+        {
+          "code": "1",
+          "label": "rough"
+        }
+      ]
+    },
+    "Lateral_epicondyle_texture": {
+      "id": "Lateral_epicondyle_texture",
+      "code": "Lateral_epicondyle_texture",
+      "name": "Humerus lateral epicondyle texture",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "smooth"
+        },
+        {
+          "code": "1",
+          "label": "rough"
+        }
+      ]
+    },
+    "Radial_tuberosity_crest": {
+      "id": "Radial_tuberosity_crest",
+      "code": "Radial_tuberosity_crest",
+      "name": "Radial tuberosity crest",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "absent"
+        },
+        {
+          "code": "1",
+          "label": "present"
+        }
+      ]
+    },
+    "Ulna_olecranon_spur": {
+      "id": "Ulna_olecranon_spur",
+      "code": "Ulna_olecranon_spur",
+      "name": "Ulna olecranon spur",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "absent"
+        },
+        {
+          "code": "1",
+          "label": ">=2mm"
+        }
+      ]
+    },
+    "Trapezium_lipping": {
+      "id": "Trapezium_lipping",
+      "code": "Trapezium_lipping",
+      "name": "Trapezium lipping",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "absent"
+        },
+        {
+          "code": "1",
+          "label": "present"
+        }
+      ]
+    },
+    "SacAH": {
+      "id": "SacAH",
+      "code": "SacAH",
+      "name": "Anterior height of the sacrum",
+      "fullName": "Anterior Height of the Sacrum",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 1,
+      "dcp": 60,
+      "definition": "The distance from the point on the promontory in the midsagittal plane to the corresponding point on the anterior border of the distal tip of the sacrum.",
+      "instrument": "sliding caliper."
+    },
+    "SacAB": {
+      "id": "SacAB",
+      "code": "SacAB",
+      "name": "Anterior breadth of the sacrum",
+      "fullName": "Anterior Breadth of the Sacrum",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 1,
+      "dcp": 61,
+      "definition": "The maximum transverse breadth of the sacrum at most anterior projection of the auricular surfaces (Martin and Knussmann 1988: 195, #5)",
+      "instrument": "sliding caliper"
+    },
+    "SacS1B": {
+      "id": "SacS1B",
+      "code": "SacS1B",
+      "name": "Sacral S1 transverse diameter",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 1
+    },
+    "SacS1APD": {
+      "id": "SacS1APD",
+      "code": "SacS1APD",
+      "name": "Sacral S1 anterior-posterior diameter",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 1
+    },
+    "PUM": {
+      "id": "PUM",
+      "code": "PUM",
+      "name": "Acetabulo-symphyseal pubic length",
+      "fullName": "Acetabulo-Symphyseal Pubic Length",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 1,
+      "definition": "Minimum distance from the superior and medial point of the pubic symphysis to the nearest point on the acetabular rim at the level of the lunate surface"
+    },
+    "SPU": {
+      "id": "SPU",
+      "code": "SPU",
+      "name": "Cotylo-pubic breadth",
+      "fullName": "Cotylo-pubic breadth",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 1,
+      "definition": "Pubic breadth between the most lateral acetabular point and the medial aspect of the pubis. Measurement is perpendicular to the major axis of the os pubis. Arms of the sliding caliper are thus parallel to the plane of the obturator foramen"
+    },
+    "DCOX": {
+      "id": "DCOX",
+      "code": "DCOX",
+      "name": "Maximum pelvic height",
+      "fullName": "Maximum Pelvic Height",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 1,
+      "definition": "Maximum height of the os coxae measured from the inferior border of the os coxae to the most superior portion of the iliac crest. Can be taken with sliding calipers or osteometric board"
+    },
+    "IIMT": {
+      "id": "IIMT",
+      "code": "IIMT",
+      "name": "Depth of the greater sciatic notch",
+      "fullName": "Depth of the Greater Sciatic Notch",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 1,
+      "definition": "Distance from the postero-inferior iliac spine (defined as the point of intersection between the auricular surface and the posterior portion of the sciatic notch) to anterior border of the great sciatic notch. Axis of the measurement must be perpendicular to the anterior border. Because of the configuration of hip bone, it is easier to use small arms of sliding caliper."
+    },
+    "ISMM": {
+      "id": "ISMM",
+      "code": "ISMM",
+      "name": "Post-acetabular ischium length",
+      "fullName": "Post-Acetabular Ischium Length",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 1,
+      "definition": "Distance from the most anterior and inferior point of the ischial tuberosity to the furthest point on the acetabular border"
+    },
+    "SCOX": {
+      "id": "SCOX",
+      "code": "SCOX",
+      "name": "Iliac breadth",
+      "fullName": "Iliac Breadth",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 1,
+      "definition": "Distance between the antero-superior iliac spine and the postero-superior iliac spine"
+    },
+    "SS": {
+      "id": "SS",
+      "code": "SS",
+      "name": "Spino-sciatic length",
+      "fullName": "Spino-Sciatic Length",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 1,
+      "definition": "Minimum distance between the antero-inferior iliac spine and the deepest point in the greater sciatic notch"
+    },
+    "SA": {
+      "id": "SA",
+      "code": "SA",
+      "name": "Spino-auricular length",
+      "fullName": "Spino-Auricular Length",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 1,
+      "definition": "Distance between the antero-inferior iliac spine and the auricular point. Auricular point is defined as the intersection of the arcuate line with the auricular surface"
+    },
+    "SIS_PCMetric": {
+      "id": "SIS_PCMetric",
+      "code": "SIS_PCMetric",
+      "name": "Cotylo-sciatic breadth",
+      "fullName": "Cotylo-Sciatic Breadth",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 1,
+      "definition": "Distance between the lateral border of the acetabulum and the midpoint of the anterior portion of the greater sciatic notch. Fixed arm of the sliding caliper is parallel to the acetabular plane"
+    },
+    "VEAC": {
+      "id": "VEAC",
+      "code": "VEAC",
+      "name": "Vertical acetabular diameter",
+      "fullName": "Vertical Acetabular Diameter",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 1,
+      "definition": "Maximum vertical diameter of the acetabulum, measured on the acetabular rim, as a prolongation of the longitudinal axis of the ischium"
+    },
+    "VA": {
+      "id": "VA",
+      "code": "VA",
+      "name": "Ventral arc",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        },
+        {
+          "code": "5",
+          "label": ""
+        }
+      ]
+    },
+    "SPC": {
+      "id": "SPC",
+      "code": "SPC",
+      "name": "Subpubic contour",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        },
+        {
+          "code": "5",
+          "label": ""
+        }
+      ]
+    },
+    "MA": {
+      "id": "MA",
+      "code": "MA",
+      "name": "Medial aspect of the ischiopubic ramus",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        },
+        {
+          "code": "5",
+          "label": ""
+        }
+      ]
+    },
+    "CompositeArc": {
+      "id": "CompositeArc",
+      "code": "CompositeArc",
+      "name": "Composite arc",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "single"
+        },
+        {
+          "code": "1",
+          "label": "double"
+        }
+      ]
+    },
+    "IliumShape": {
+      "id": "IliumShape",
+      "code": "IliumShape",
+      "name": "Ilium shape",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "rounded"
+        },
+        {
+          "code": "1",
+          "label": "flattened"
+        }
+      ]
+    },
+    "ASHeight": {
+      "id": "ASHeight",
+      "code": "ASHeight",
+      "name": "Auricular surface height",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "flat"
+        },
+        {
+          "code": "1",
+          "label": "raised"
+        }
+      ]
+    },
+    "GSN": {
+      "id": "GSN",
+      "code": "GSN",
+      "name": "Greater sciatic notch",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        },
+        {
+          "code": "5",
+          "label": ""
+        }
+      ]
+    },
+    "S1_Margin": {
+      "id": "S1_Margin",
+      "code": "S1_Margin",
+      "name": "S1 margin shape",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "round"
+        },
+        {
+          "code": "1",
+          "label": "sharp"
+        },
+        {
+          "code": "2",
+          "label": "lipped"
+        }
+      ]
+    },
+    "S1_S2_fusion": {
+      "id": "S1_S2_fusion",
+      "code": "S1_S2_fusion",
+      "name": "S1-S2 fusion",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "gap >=10mm"
+        },
+        {
+          "code": "1",
+          "label": "gap<10mm"
+        },
+        {
+          "code": "2",
+          "label": "closed"
+        }
+      ]
+    },
+    "Sacral_elbow": {
+      "id": "Sacral_elbow",
+      "code": "Sacral_elbow",
+      "name": "Sacral elbow",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "absent"
+        },
+        {
+          "code": "1",
+          "label": "present"
+        }
+      ]
+    },
+    "Sacroiliac_joint_fusion_left": {
+      "id": "Sacroiliac_joint_fusion_left",
+      "code": "Sacroiliac_joint_fusion_left",
+      "name": "Sacroiliac joint fusion, left",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "absent"
+        },
+        {
+          "code": "1",
+          "label": "fused"
+        },
+        {
+          "code": "2",
+          "label": "SA only"
+        }
+      ]
+    },
+    "Sacroiliac_joint_fusion_right": {
+      "id": "Sacroiliac_joint_fusion_right",
+      "code": "Sacroiliac_joint_fusion_right",
+      "name": "Sacroiliac joint fusion, right",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "absent"
+        },
+        {
+          "code": "1",
+          "label": "fused"
+        },
+        {
+          "code": "2",
+          "label": "SA only"
+        }
+      ]
+    },
+    "Iliac_crest_fusion": {
+      "id": "Iliac_crest_fusion",
+      "code": "Iliac_crest_fusion",
+      "name": "Iliac crest fusion",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "not fused"
+        },
+        {
+          "code": "1",
+          "label": "partially fused"
+        },
+        {
+          "code": "2",
+          "label": "remnant line"
+        },
+        {
+          "code": "3",
+          "label": "fully fused"
+        }
+      ]
+    },
+    "Iliac_crest_tuberculum_ossification": {
+      "id": "Iliac_crest_tuberculum_ossification",
+      "code": "Iliac_crest_tuberculum_ossification",
+      "name": "Iliac crest tuberculum ossification",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "absent"
+        },
+        {
+          "code": "1",
+          "label": "ossification"
+        },
+        {
+          "code": "2",
+          "label": "double ossification"
+        }
+      ]
+    },
+    "Iliac_AIIS_exostoses": {
+      "id": "Iliac_AIIS_exostoses",
+      "code": "Iliac_AIIS_exostoses",
+      "name": "Iliac AIIS exostoses",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "absent"
+        },
+        {
+          "code": "1",
+          "label": ">=75%"
+        }
+      ]
+    },
+    "Superior_Posterior_Iliac_Exostoses": {
+      "id": "Superior_Posterior_Iliac_Exostoses",
+      "code": "Superior_Posterior_Iliac_Exostoses",
+      "name": "Superior posterior iliac exostoses",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "smooth"
+        },
+        {
+          "code": "1",
+          "label": "exostoses"
+        }
+      ]
+    },
+    "Inferior_Posterior_Iliac_Exostoses": {
+      "id": "Inferior_Posterior_Iliac_Exostoses",
+      "code": "Inferior_Posterior_Iliac_Exostoses",
+      "name": "Inferior posterior iliac exostoses",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "smooth"
+        },
+        {
+          "code": "1",
+          "label": "exostoses"
+        }
+      ]
+    },
+    "Posterior_exostoses": {
+      "id": "Posterior_exostoses",
+      "code": "Posterior_exostoses",
+      "name": "Posterior exostoses",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "absent"
+        },
+        {
+          "code": "1",
+          "label": "discontinuous"
+        },
+        {
+          "code": "2",
+          "label": "continuous"
+        }
+      ]
+    },
+    "Posterior_margin_lipping": {
+      "id": "Posterior_margin_lipping",
+      "code": "Posterior_margin_lipping",
+      "name": "Acetabulum posterior margin lipping",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "absent"
+        },
+        {
+          "code": "1",
+          "label": ">=10mm"
+        }
+      ]
+    },
+    "Articular_surface_extra_bone": {
+      "id": "Articular_surface_extra_bone",
+      "code": "Articular_surface_extra_bone",
+      "name": "Acetabulum articular surface extra bone",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "absent"
+        },
+        {
+          "code": "1",
+          "label": ">=5mm"
+        }
+      ]
+    },
+    "Inferior_joint_lipping": {
+      "id": "Inferior_joint_lipping",
+      "code": "Inferior_joint_lipping",
+      "name": "Acetabulum inferior joint lipping",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "absent"
+        },
+        {
+          "code": "1",
+          "label": ">=3mm"
+        }
+      ]
+    },
+    "Ischial_tuberosity_superior_margin_spur": {
+      "id": "Ischial_tuberosity_superior_margin_spur",
+      "code": "Ischial_tuberosity_superior_margin_spur",
+      "name": "Ischial tuberosity superior margin spur",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "absent"
+        },
+        {
+          "code": "1",
+          "label": "present"
+        }
+      ]
+    },
+    "Ischial_tuberosity_superior_median_spur": {
+      "id": "Ischial_tuberosity_superior_median_spur",
+      "code": "Ischial_tuberosity_superior_median_spur",
+      "name": "Ischial tuberosity superior median spur",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "absent"
+        },
+        {
+          "code": "1",
+          "label": ">=10mm"
+        }
+      ]
+    },
+    "Ischial_tuberosity_bumps": {
+      "id": "Ischial_tuberosity_bumps",
+      "code": "Ischial_tuberosity_bumps",
+      "name": "Ischial tuberosity bumps",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "absent"
+        },
+        {
+          "code": "1",
+          "label": "<50%"
+        },
+        {
+          "code": "2",
+          "label": ">=50%"
+        }
+      ]
+    },
+    "Pubic_symphysis": {
+      "id": "Pubic_symphysis",
+      "code": "Pubic_symphysis",
+      "name": "Pubic sypmhysis",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        },
+        {
+          "code": "5",
+          "label": ""
+        },
+        {
+          "code": "6",
+          "label": ""
+        },
+        {
+          "code": "7",
+          "label": ""
+        },
+        {
+          "code": "8",
+          "label": ""
+        }
+      ]
+    },
+    "Pubic_symphyseal_collar": {
+      "id": "Pubic_symphyseal_collar",
+      "code": "Pubic_symphyseal_collar",
+      "name": "Pubic sypmhyseal collar",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "absent"
+        },
+        {
+          "code": "1",
+          "label": "collar"
+        }
+      ]
+    },
+    "Symphyseal_relief": {
+      "id": "Symphyseal_relief",
+      "code": "Symphyseal_relief",
+      "name": "Symphyseal relief",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "billows"
+        },
+        {
+          "code": "1",
+          "label": "residual"
+        },
+        {
+          "code": "2",
+          "label": "flat/irregular"
+        }
+      ]
+    },
+    "Superior_protuberance": {
+      "id": "Superior_protuberance",
+      "code": "Superior_protuberance",
+      "name": "Pubic symphysis superior protuberance",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "serrated"
+        },
+        {
+          "code": "1",
+          "label": "knob"
+        },
+        {
+          "code": "2",
+          "label": "flat"
+        }
+      ]
+    },
+    "Ventral_symphyseal_margin": {
+      "id": "Ventral_symphyseal_margin",
+      "code": "Ventral_symphyseal_margin",
+      "name": "Ventral sypmhyseal margin",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "serrated"
+        },
+        {
+          "code": "1",
+          "label": "rampart"
+        },
+        {
+          "code": "2",
+          "label": "rim"
+        },
+        {
+          "code": "3",
+          "label": "breakdown"
+        }
+      ]
+    },
+    "Dorsal_symphyseal_margin": {
+      "id": "Dorsal_symphyseal_margin",
+      "code": "Dorsal_symphyseal_margin",
+      "name": "Dorsal sypmhyseal margin",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "serrated"
+        },
+        {
+          "code": "1",
+          "label": "flattened"
+        },
+        {
+          "code": "2",
+          "label": "rim"
+        },
+        {
+          "code": "3",
+          "label": "breakdown"
+        }
+      ]
+    },
+    "Transverse_organization": {
+      "id": "Transverse_organization",
+      "code": "Transverse_organization",
+      "name": "Auricular surface tansverse organization",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        }
+      ]
+    },
+    "Surface_texture": {
+      "id": "Surface_texture",
+      "code": "Surface_texture",
+      "name": "Auricular surface surface texture",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        }
+      ]
+    },
+    "Microporosity": {
+      "id": "Microporosity",
+      "code": "Microporosity",
+      "name": "Auricular surface microporosity",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        }
+      ]
+    },
+    "Macroporosity": {
+      "id": "Macroporosity",
+      "code": "Macroporosity",
+      "name": "Auricular surface macroporosity",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        }
+      ]
+    },
+    "Apical_change": {
+      "id": "Apical_change",
+      "code": "Apical_change",
+      "name": "Auricular surface apical change",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        }
+      ]
+    },
     "FemXL": {
       "id": "FemXL",
       "code": "FemXL",
@@ -419,6 +7316,66 @@
       "definition": "The minimum diameter of the femoral shaft taken at midshaft.",
       "instrument": "sliding caliper"
     },
+    "FemMC": {
+      "id": "FemMC",
+      "code": "FemMC",
+      "name": "Circumference of the femur at midshaft",
+      "fullName": "Circumference of the Femur at Midshaft",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 1,
+      "dcp": 83,
+      "definition": "The circumference measured at the midshaft.",
+      "instrument": "tape"
+    },
+    "FemSTD": {
+      "id": "FemSTD",
+      "code": "FemSTD",
+      "name": "Transverse subtrochanteric diameter of the femur",
+      "fullName": "Transverse Subtrochanteric Diameter of the Femur",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 1,
+      "dcp": 79,
+      "definition": "The transverse diameter of the proximal portion of the diaphysis at the point of its greatest lateral expansion (see figure for approximate location on the femoral shaft for this measurement).",
+      "instrument": "sliding caliper"
+    },
+    "FemSAPD": {
+      "id": "FemSAPD",
+      "code": "FemSAPD",
+      "name": "Anterio-posterior subtrochanteric diameter of the femur",
+      "fullName": "Anterio-posterior Subtrochanteric Diameter of the Femur",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 1,
+      "dcp": 80,
+      "definition": "The anterior-posterior diameter of the proximal end of the diaphysis measured perpendicular to the transverse diameter at the point of the greatest lateral expansion (See definition #79 for approximate location on the femoral shaft for this measurement.). This diameter is oriented perpendicular to the anterior surface of the femur neck. (Martin and Knussman 1988:217 #10).",
+      "instrument": "sliding caliper"
+    },
+    "FemLCAPD": {
+      "id": "FemLCAPD",
+      "code": "FemLCAPD",
+      "name": "Maximum antero-posterior length of the lateral condyle",
+      "fullName": "Maximum Antero-Posterior Length of the Lateral Condyle",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 1,
+      "dcp": 84,
+      "definition": "The projected distance between the most posterior point on the lateral condyle and lip of the patellar surface taken perpendicular to the axis of the shaft.",
+      "instrument": "sliding caliper."
+    },
+    "FemMCAPD": {
+      "id": "FemMCAPD",
+      "code": "FemMCAPD",
+      "name": "Maximum antero-posterior length of the medial condyle",
+      "fullName": "Maximum Antero-Posterior Length of the Medial Condyle",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 1,
+      "dcp": 85,
+      "definition": "The projected distance between the most posterior point on the medial condyle and the lip of the patellar surface taken perpendicular to the axis of the shaft.",
+      "instrument": "Sliding caliper."
+    },
     "TibCML": {
       "id": "TibCML",
       "code": "TibCML",
@@ -482,6 +7439,209 @@
       "dcp": 89,
       "definition": "The maximum diameter of the tibial shaft taken at midshaft.",
       "instrument": "sliding caliper"
+    },
+    "TibMWD": {
+      "id": "TibMWD",
+      "code": "TibMWD",
+      "name": "Minimum midshaft diameter of the tibia",
+      "fullName": "Minimum Midshaft Diameter of the Tibia",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 1,
+      "dcp": 90,
+      "definition": "The minimum diameter of the tibial shaft taken at midshaft.",
+      "instrument": "sliding caliper"
+    },
+    "TibMC": {
+      "id": "TibMC",
+      "code": "TibMC",
+      "name": "Circumference of the tibia at midshaft",
+      "fullName": "Circumference of the Tibia at Midshaft",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 1,
+      "dcp": 91,
+      "definition": "The circumference measured at the level of the midshaft. (Martin and Knussmann 1988:574 #10a).",
+      "instrument": "measuring tape"
+    },
+    "FibXL": {
+      "id": "FibXL",
+      "code": "FibXL",
+      "name": "Maximum length of the fibula",
+      "fullName": "Maximum Length of the Fibula",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 1,
+      "dcp": 92,
+      "definition": "The maximum distance between the most superior point on the fibular head and the most inferior point on the lateral malleolus (Figure 3.26). (Martin and Knussmann 1988: 222, #1).",
+      "instrument": "osteometric board"
+    },
+    "FibMXD": {
+      "id": "FibMXD",
+      "code": "FibMXD",
+      "name": "Maximum diameter of the fibula at midshaft",
+      "fullName": "Maximum Diameter of the Fibula at Midshaft",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 1,
+      "dcp": 93,
+      "definition": "The maximum diameter at the midshaft. (Martin and Knussmann 1988: 222, #2).",
+      "instrument": "sliding caliper"
+    },
+    "CalcXL": {
+      "id": "CalcXL",
+      "code": "CalcXL",
+      "name": "Maximum length of the calcaneus",
+      "fullName": "Maximum Length of the Calcaneus",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 1,
+      "dcp": 94,
+      "definition": "The distance between the most posteriorly projecting point on the calcaneal tuberosity and the most anterior point on the superior margin of the articular facet for the cuboid measured in the sagittal plane (Figure 3.27). (Martin and Knussmann 1988:225 #1).",
+      "instrument": "sliding caliper or osteometric board"
+    },
+    "CalcB": {
+      "id": "CalcB",
+      "code": "CalcB",
+      "name": "Middle breadth of the calcaneus",
+      "fullName": "Middle Breadth of the Calcaneus",
+      "modality": "metric",
+      "unit": "mm",
+      "precision": 1,
+      "dcp": 95,
+      "definition": "The distance between the most laterally projecting point on the dorsal articular facet and the most medial point on the sustentaculum tali",
+      "instrument": "sliding caliper"
+    },
+    "Fovea_tuberosity_margin_lipping": {
+      "id": "Fovea_tuberosity_margin_lipping",
+      "code": "Fovea_tuberosity_margin_lipping",
+      "name": "Fovea capitis margin lipping",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "absent"
+        },
+        {
+          "code": "1",
+          "label": ">=10mm"
+        }
+      ]
+    },
+    "Head_surface_extra_bone": {
+      "id": "Head_surface_extra_bone",
+      "code": "Head_surface_extra_bone",
+      "name": "Femoral head surface extra bone",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "absent"
+        },
+        {
+          "code": "1",
+          "label": "5-9.9mm"
+        },
+        {
+          "code": "2",
+          "label": ">=10mm"
+        }
+      ]
+    },
+    "Greater_trochanter_roughening": {
+      "id": "Greater_trochanter_roughening",
+      "code": "Greater_trochanter_roughening",
+      "name": "Femur greater trochanter roughening",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "absent"
+        },
+        {
+          "code": "1",
+          "label": "triangle"
+        },
+        {
+          "code": "2",
+          "label": "rectangle"
+        },
+        {
+          "code": "3",
+          "label": "overhang"
+        }
+      ]
+    },
+    "Trochanteric_fossa_exostoses": {
+      "id": "Trochanteric_fossa_exostoses",
+      "code": "Trochanteric_fossa_exostoses",
+      "name": "Femoral trochanteric fossa exostoses",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "absent"
+        },
+        {
+          "code": "1",
+          "label": "present"
+        }
+      ]
+    },
+    "Trochanteric_medial_exostoses": {
+      "id": "Trochanteric_medial_exostoses",
+      "code": "Trochanteric_medial_exostoses",
+      "name": "Femoral trochanteric medial exostoses",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "absent"
+        },
+        {
+          "code": "1",
+          "label": "present"
+        }
+      ]
+    },
+    "Fibular_wings": {
+      "id": "Fibular_wings",
+      "code": "Fibular_wings",
+      "name": "Fibular wings",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "absent"
+        },
+        {
+          "code": "1",
+          "label": "present"
+        }
+      ]
+    },
+    "Overall_skeleton_weight": {
+      "id": "Overall_skeleton_weight",
+      "code": "Overall_skeleton_weight",
+      "name": "Overall skeleton weight",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "normal"
+        },
+        {
+          "code": "1",
+          "label": "light"
+        }
+      ]
     }
   }
 }

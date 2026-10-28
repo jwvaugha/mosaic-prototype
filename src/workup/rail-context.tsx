@@ -1,6 +1,7 @@
 import { createContext, useContext, useMemo, useState, type ReactNode } from "react"
 import { REGIONS } from "@/data/chrome"
 import { sections } from "@/domain/workup"
+import { useWorkup } from "./workup-context"
 
 // What the Region Rail lets a user change about this Workup (requirements:
 // Left rail; Figma: Region Rail family):
@@ -37,15 +38,18 @@ function storedOrder(): string[] {
   return ANATOMICAL
 }
 
-function initialRail(): RailState {
+// `recordedIn` counts the values a Region already holds, which a Set-aside
+// Region keeps. With none, it starts as left out ("+ add") instead.
+function initialRail(recordedIn: (region: string) => number): RailState {
   const membership: Record<string, Membership> = {}
   const kept: Record<string, number> = {}
   for (const r of REGIONS) {
-    membership[r.name] = r.setAside ? "set-aside" : r.notInWorkup ? "out" : "in"
-    if (r.setAside) kept[r.name] = r.setAside.kept
+    const n = recordedIn(r.name)
+    membership[r.name] = r.setAside && n > 0 ? "set-aside" : r.setAside || r.notInWorkup ? "out" : "in"
+    if (membership[r.name] === "set-aside") kept[r.name] = n
   }
-  // Regions with an enterable section start open; the rest start collapsed.
-  const expanded = new Set(REGIONS.filter((r) => r.modalities.some((m) => m.live)).map((r) => r.name))
+  // Regions start collapsed; the current one opens itself.
+  const expanded = new Set<string>()
   return { order: storedOrder(), membership, kept, expanded, mode: "default", savedDefault: false }
 }
 
@@ -65,7 +69,16 @@ type RailContextValue = {
 const RailContext = createContext<RailContextValue | null>(null)
 
 export function RailProvider({ children }: { children: ReactNode }) {
-  const [rail, setRail] = useState(initialRail)
+  const { state } = useWorkup()
+  const [rail, setRail] = useState(() =>
+    initialRail(
+      (region) =>
+        sections
+          .filter((x) => x.region === region)
+          .flatMap((x) => x.bones.flatMap((b) => b.variableIds))
+          .filter((id) => state.fields[id].value !== null).length,
+    ),
+  )
 
   // Actions never change identity, so effects can depend on them.
   const actions = useMemo(() => {

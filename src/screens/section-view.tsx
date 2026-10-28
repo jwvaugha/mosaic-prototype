@@ -1,6 +1,7 @@
 import { FileUp } from "lucide-react"
 import { useLayoutEffect, useState } from "react"
 import { BoneGroupHeader } from "@/components/mosaic/bone-group-header"
+import { CalculatedGroup } from "@/components/mosaic/calculated-group"
 import { ContinueFooter } from "@/components/mosaic/continue-footer"
 import { MetricVariableRow } from "@/components/mosaic/metric-variable-row"
 import { FirstUseHint } from "@/components/mosaic/first-use-hint"
@@ -10,7 +11,6 @@ import { MorphVariableRow } from "@/components/mosaic/morph-variable-row"
 import { Button } from "@/components/ui/button"
 import { useConfig } from "@/config/config-context"
 import { imageManifest } from "@/data"
-import { BILATERAL_BONES } from "@/data/chrome"
 import {
   adjacentSection,
   fieldStatus,
@@ -107,7 +107,7 @@ export function SectionView({
               <BoneGroupHeader
                 name={bone.name}
                 counts={boneCounts}
-                bilateral={BILATERAL_BONES.has(bone.id)}
+                bilateral={!!bone.bilateral}
                 sideLabel={section.modality === "morph" ? "Side scored" : "Side"}
                 actions={boneAffordances(policy, config.showKeyHints)}
               />
@@ -169,6 +169,8 @@ export function SectionView({
           )
         })}
       </div>
+
+      {section.calculated && <CalculatedGroup variables={section.calculated.map(variable)} />}
 
       <FirstUseHint
         open={!state.firstUseHintSeen && state.focus?.kind === "field"}

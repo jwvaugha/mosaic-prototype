@@ -15,6 +15,9 @@ export type TestConfig = {
   incompletion: IncompletionId
   showKeyHints: boolean
   seed: SeedId
+  // Section the Workup opens on (default: the first in rail order). Used by
+  // the guide's setup links and by tests.
+  start?: string
 }
 
 export const DEFAULT_CONFIG: TestConfig = {
@@ -39,6 +42,7 @@ export function toQuery(c: TestConfig): string {
   p.set("inc", c.incompletion)
   if (!c.showKeyHints) p.set("hints", "0")
   if (c.seed !== "fresh") p.set("seed", c.seed)
+  if (c.start) p.set("start", c.start)
   return p.toString()
 }
 
@@ -58,6 +62,8 @@ export function fromQuery(query: string, base: TestConfig = DEFAULT_CONFIG): Tes
   if (p.has("hints")) c.showKeyHints = p.get("hints") !== "0"
   const seed = p.get("seed")
   if (seed && SEEDS.includes(seed)) c.seed = seed as SeedId
+  const start = p.get("start")
+  if (start && /^[a-z-]+$/.test(start)) c.start = start
   return c
 }
 

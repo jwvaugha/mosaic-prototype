@@ -13,7 +13,7 @@ export type Seed = {
 export const SEEDS: Record<SeedId, Seed> = {
   fresh: { label: "Fresh (all blank)", values: {}, acknowledged: [] },
   midway: {
-    label: "Midway (about half entered, 2 warnings)",
+    label: "Midway (some entered, 2 warnings, a set-aside Region)",
     values: {
       NAS: "2",
       NAW: "1",
@@ -28,6 +28,15 @@ export const SEEDS: Record<SeedId, Seed> = {
       TibCML: "371",
       // Out of range (38–60), already acknowledged.
       TibDEB: "62",
+      // Shoulder & upper limb starts set aside, keeping these 8 values.
+      ClavXL: "148",
+      ClavMXD: "13",
+      ClavMWD: "11",
+      ScH: "158",
+      ScB: "104",
+      ScGB: "27",
+      ScGH: "37",
+      HumXL: "322",
     },
     acknowledged: ["TibDEB"],
   },

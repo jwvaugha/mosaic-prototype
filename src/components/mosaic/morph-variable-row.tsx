@@ -79,12 +79,13 @@ export function CharacterStateGroup({
       onFocus={onFocus}
     >
       {states.map((s) => (
-        <Tooltip key={s.code}>
+        // Many dictionary states have no label yet; those get no tooltip.
+        <Tooltip key={s.code} {...(s.label ? {} : { open: false })}>
           {/* Hover only: on keyboard focus the label would cover the row above. */}
           <TooltipTrigger asChild onFocus={(e) => e.preventDefault()}>
             <ToggleGroupItem
               value={s.code}
-              aria-label={`${s.code}: ${s.label}`}
+              aria-label={s.label ? `${s.code}: ${s.label}` : s.code}
               className={cn(
                 "h-9 min-w-9 bg-background px-2.5 text-sm",
                 // The Tooltip trigger overwrites data-state, so style on aria-checked.

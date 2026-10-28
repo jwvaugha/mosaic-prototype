@@ -1,27 +1,23 @@
-# Image manifest report
+# Fixture and image report
 
-Generated 2026-10-28 by `npm run fixture`.
+Generated 2026-10-28 by `npm run fixture`. 369 Variables in 15 sections.
 
-| Variable | Modality | Reference |
-| --- | --- | --- |
-| NAS | Morph | 3/3 states |
-| NAW | Morph | 3/3 states |
-| NBS | Morph | 4/4 states |
-| NBC | Morph | 5/5 states |
-| ANS | Morph | 3/3 states |
-| INA | Morph | 5/5 states |
-| ZS | Morph | 3/3 states |
-| MT | Morph | 4/4 states |
-| PZTub | Morph | 4/4 states |
-| IOB | Morph | 3/3 states |
-| ORB | Morph | 3/3 states |
-| FemXL | Metric | figure (DCP 2.0 fig. 3.22) |
-| FemBL | Metric | figure (DCP 2.0 fig. 3.23) |
-| FemEB | Metric | figure (DCP 2.0 fig. 3.22) |
-| FemHXD | Metric | figure (DCP 2.0 fig. 3.22) |
-| FemMXD | Metric | none |
-| FemMWD | Metric | none |
-| TibCML | Metric | figure (DCP 2.0 fig. 3.25) |
-| TibPEB | Metric | figure (DCP 2.0 fig. 3.25) |
-| TibDEB | Metric | figure (DCP 2.0 fig. 3.25) |
-| TibMXD | Metric | none |
+| Section | Variables | Reference images | States pending |
+| --- | --- | --- | --- |
+| Cranium · Metric | 46 + 38 calculated | 0 per-state · 0 figure · 46 none |  |
+| Cranium · Morphological | 40 | 17 per-state · 0 figure · 23 none |  |
+| Mandible · Metric | 9 | 0 per-state · 0 figure · 9 none |  |
+| Mandible · Morphological | 6 | 0 per-state · 0 figure · 6 none |  |
+| Dentition · Metric | 8 | 0 per-state · 0 figure · 8 none |  |
+| Dentition · Morphological | 79 | 77 per-state · 0 figure · 2 none | 2 |
+| Vertebrae · Morphological | 22 | 0 per-state · 0 figure · 22 none |  |
+| Thorax · Morphological | 9 | 0 per-state · 0 figure · 9 none |  |
+| Shoulder & upper limb · Metric | 22 | 0 per-state · 13 figure · 9 none |  |
+| Shoulder & upper limb · Morphological | 13 | 0 per-state · 0 figure · 13 none |  |
+| Pelvis · Metric | 14 | 0 per-state · 12 figure · 2 none |  |
+| Pelvis · Morphological | 35 | 0 per-state · 0 figure · 35 none |  |
+| Lower limb · Metric | 21 | 0 per-state · 18 figure · 3 none |  |
+| Lower limb · Morphological | 6 | 0 per-state · 0 figure · 6 none |  |
+| Whole skeleton · Morphological | 1 | 0 per-state · 0 figure · 1 none |  |
+
+"States pending": dental traits with no FoRDent image set, given absent/present until the states are confirmed.

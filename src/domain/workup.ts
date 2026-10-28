@@ -125,14 +125,14 @@ export function fieldStatus(state: WorkupState, id: string): FieldStatus {
 
 const emptyField = (): FieldState => ({ value: null, skipped: false, acknowledged: false, flag: null })
 
-export function initialState(seed: SeedId = "fresh"): WorkupState {
+export function initialState(seed: SeedId = "fresh", start?: string): WorkupState {
   const s = SEEDS[seed]
   const fields: Record<string, FieldState> = {}
   for (const id of Object.keys(fixture.variables)) {
     const value = s.values[id] ?? null
     fields[id] = { ...emptyField(), value, acknowledged: s.acknowledged.includes(id) }
   }
-  const first = sections[0]
+  const first = sections.find((x) => x.id === start) ?? sections[0]
   const state: WorkupState = {
     fields,
     section: first.id,
@@ -226,7 +226,7 @@ function reduce(state: WorkupState, action: Action): WorkupState {
     case "dismissHint":
       return { ...state, firstUseHintSeen: true }
     case "load":
-      return initialState(action.seed)
+      return initialState(action.seed, state.section)
     case "restore":
       return action.state
   }

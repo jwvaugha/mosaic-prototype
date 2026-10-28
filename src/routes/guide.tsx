@@ -19,19 +19,19 @@ const PART_1: Setup[] = [
     id: "1",
     title: "Setup 1 · Skip",
     what: "Press − to Skip a field you can't score. Leaving a section with blank fields asks whether to Skip them all.",
-    query: "inc=skip-section&ref=A,A&auto=morph,metric&seed=fresh",
+    query: "inc=skip-section&ref=A,A&auto=morph,metric&seed=fresh&start=cranium-morph",
   },
   {
     id: "2",
     title: "Setup 2 · Come back to, checked per section",
     what: "No Skip. Press ⌥F to flag a field to come back to. Leaving a section lists your flags.",
-    query: "inc=flag-section&ref=A,A&auto=morph,metric&seed=fresh",
+    query: "inc=flag-section&ref=A,A&auto=morph,metric&seed=fresh&start=cranium-morph",
   },
   {
     id: "2.5",
     title: "Setup 3 · Come back to, checked at the end",
     what: "Same flags, but nothing stops you between sections. Flags are listed once, before the Analysis.",
-    query: "inc=flag-end&ref=A,A&auto=morph,metric&seed=fresh",
+    query: "inc=flag-end&ref=A,A&auto=morph,metric&seed=fresh&start=cranium-morph",
   },
 ]
 
@@ -40,19 +40,19 @@ const PART_2: Setup[] = [
     id: "A",
     title: "Setup 4 · Docked column",
     what: "The reference sits in a column on the right and never moves.",
-    query: "inc=flag-end&ref=A,A&auto=morph,metric&seed=fresh",
+    query: "inc=flag-end&ref=A,A&auto=morph,metric&seed=fresh&start=cranium-morph",
   },
   {
     id: "C",
     title: "Setup 5 · Inline, under the field",
     what: "The reference opens directly under the field you're on. The page scrolls to keep your place.",
-    query: "inc=flag-end&ref=C,C&auto=morph,metric&seed=fresh",
+    query: "inc=flag-end&ref=C,C&auto=morph,metric&seed=fresh&start=cranium-morph",
   },
   {
     id: "D",
     title: "Setup 6 · Bottom dock",
     what: "The reference is a strip across the bottom of the screen.",
-    query: "inc=flag-end&ref=D,D&auto=morph,metric&seed=fresh",
+    query: "inc=flag-end&ref=D,D&auto=morph,metric&seed=fresh&start=cranium-morph",
   },
 ]
 
@@ -158,9 +158,9 @@ export function Guide() {
             browser.
           </li>
           <li>
-            Only two sections take data: <strong>Cranium · Morphological</strong> and{" "}
-            <strong>Lower limb · Metric</strong>. The rest of the screen is there so it looks like a real case;
-            those parts don't respond.
+            Every Region and section from the data dictionaries is here (about 370 fields), so it feels like a real
+            case. You won't fill them all: the tasks below use a few groups. Use the <strong>Regions</strong> list on
+            the left to move around.
           </li>
           <li>
             You can use the mouse or the keyboard. Try the keyboard at least once (keys are listed below). Clicking
@@ -179,20 +179,25 @@ export function Guide() {
         </p>
         <ol className="list-decimal space-y-1.5 rounded-xl border p-4 pl-9 text-sm">
           <li>
-            In <strong>Cranium · Morphological</strong>, score every trait. Any state will do: compare with the
-            drawing if you like.
+            Each setup opens on <strong>Cranium · Morphological</strong>. Score the first two groups,{" "}
+            <strong>Nasal aperture and bones</strong> and <strong>Zygomatic and orbit</strong>. Any state will do:
+            compare with the drawing if you like.
           </li>
           <li>
             <strong>Except</strong> Posterior zygomatic tubercle and Interorbital breadth: imagine a colleague has
             the skull for now. Deal with those two however the setup suggests.
           </li>
           <li>
-            Continue to <strong>Lower limb · Metric</strong>. Enter FemXL <strong>452</strong>, FemBL{" "}
-            <strong>448</strong>, FemHXD <strong>64</strong> and TibCML <strong>371</strong>. You'll measure the rest
-            of the tibia later.
+            Leave the rest of the section and press <strong>Continue</strong> at the bottom (or keep pressing Tab to
+            reach it). Respond to whatever it asks.
           </li>
           <li>
-            Click <strong>Review and analyze</strong>, look over the check, then <strong>Run analysis</strong>.
+            Open <strong>Lower limb › Metric</strong> from the Regions list. Enter FemXL <strong>452</strong>, FemBL{" "}
+            <strong>448</strong>, FemHXD <strong>64</strong> and TibCML <strong>371</strong>. You'll measure the rest
+            later.
+          </li>
+          <li>
+            Click <strong>Analyze</strong> in the top right, look over the check, then <strong>Run analysis</strong>.
           </li>
         </ol>
         <div className="flex flex-col gap-2">
@@ -213,12 +218,13 @@ export function Guide() {
         <p className="text-sm">In each setup:</p>
         <ol className="list-decimal space-y-1.5 rounded-xl border p-4 pl-9 text-sm">
           <li>
-            Tab through <strong>Cranium · Morphological</strong> and score each trait by comparing it with the
-            drawings. Hover the small drawings to compare states; click a drawing to enlarge it.
+            Tab through the first two groups of <strong>Cranium · Morphological</strong> and score each trait by
+            comparing it with the drawings. Hover the small drawings to compare states; click a drawing to enlarge
+            it.
           </li>
           <li>
-            Continue to <strong>Lower limb · Metric</strong> and tab through a few measurements, reading each
-            definition.
+            Open <strong>Lower limb › Metric</strong> from the Regions list and tab through a few measurements,
+            reading each definition.
           </li>
         </ol>
         <div className="flex flex-col gap-2">
