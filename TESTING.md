@@ -13,6 +13,8 @@ Page frame:
 - a footer holds the dataset as a whole (case number, save status, Download progress, Analyze);
 - a thin sub-footer holds the prototype's Test mode button and the tester guide link.
 
+Morphological drawings: clicking a state's drawing in the reference panel chooses it, and clicking the chosen one again clears it, as the row's number buttons do. Enlarging the large drawing opens a viewer with every state as a captioned thumbnail underneath: click a thumbnail or press ←/→ to compare (the row outlines the state shown), and **Choose** or Enter scores it (**Unselect** on the chosen state clears it).
+
 Notes: the row's note button (or `N`) opens an editor. A row with a note keeps its icon, and hovering the icon previews the note. The Midway scenario has two example notes, on NBC and FemXL.
 
 Open **Test mode** from the sub-footer or with `⌃⌥T`. Changing the scenario or the opening section starts the Workup again. **Intro card** toggles intro-dim (dimming everything but the field while the first-use card shows; `dim=0` in the URL turns it off) and can show the card again. **Copy link** shares the exact setup.

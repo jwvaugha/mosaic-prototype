@@ -24,14 +24,17 @@ import {
 
 // The preview is shared with the row's state buttons (preview-context), so
 // arrowing through states in the row shows them here, and hovering here
-// outlines them in the row. Clicking a drawing selects that state.
-function useStates(id: string) {
+// outlines them in the row. Clicking a drawing selects that state; clicking
+// the selected one again clears the score, as the row's buttons do.
+function useStates(data: ReferenceData) {
+  const id = data.variable.id
   const p = usePreviewFor(id)
   const { dispatch } = useWorkup()
   return {
     preview: p.code,
     onPreview: (code: string | null) => (code ? p.show(code, "hover") : p.clear("hover")),
-    onSelect: (code: string) => dispatch({ type: "enter", id, value: code }),
+    onSelect: (code: string) =>
+      dispatch(code === data.value ? { type: "clear", id } : { type: "enter", id, value: code }),
   }
 }
 
@@ -77,7 +80,7 @@ export function DockedColumn({ data, onClose }: { data: ReferenceData | null; on
 
 function DockedColumnFor({ data, onClose }: { data: ReferenceData; onClose: () => void }) {
   const v = data.variable
-  const states = useStates(v.id)
+  const states = useStates(data)
   const preview = states.preview
   return (
     <aside aria-label="Reference" className={DOCKED_CLASS}>
@@ -88,7 +91,7 @@ function DockedColumnFor({ data, onClose }: { data: ReferenceData; onClose: () =
       </div>
       {v.modality === "morph" ? (
         <>
-          <LargeState data={data} preview={preview} className="h-[220px]" />
+          <LargeState data={data} states={states} className="h-[220px]" />
           <StateStrip data={data} preview={preview} onPreview={states.onPreview} onSelect={states.onSelect} thumbClassName="h-24" />
           <p className="text-xs text-muted-foreground">{morphHint}</p>
         </>
@@ -107,7 +110,7 @@ function DockedColumnFor({ data, onClose }: { data: ReferenceData; onClose: () =
 
 export function InlineExpansion({ data, onClose }: { data: ReferenceData; onClose: () => void }) {
   const v = data.variable
-  const states = useStates(v.id)
+  const states = useStates(data)
   const preview = states.preview
   const wide = data.entry.kind === "figure" && data.entry.figure.width / data.entry.figure.height > 2
   return (
@@ -121,7 +124,7 @@ export function InlineExpansion({ data, onClose }: { data: ReferenceData; onClos
         className={`flex flex-col gap-5 rounded-b-lg border-t bg-muted/50 p-4 pl-10 max-md:pl-4 ${wide ? "" : "@min-[560px]:flex-row"}`}
       >
         {v.modality === "morph" ? (
-          <LargeState data={data} preview={preview} className="h-[190px] w-full shrink-0 @min-[560px]:w-[280px]" />
+          <LargeState data={data} states={states} className="h-[190px] w-full shrink-0 @min-[560px]:w-[280px]" />
         ) : (
           <MetricFigure data={data} className={wide ? "h-[200px] w-full" : "h-[182px] w-full shrink-0 @min-[560px]:w-[218px]"} />
         )}
@@ -193,7 +196,7 @@ export function BottomDock({ data, onClose }: { data: ReferenceData | null; onCl
 
 function BottomDockFor({ data, onClose }: { data: ReferenceData; onClose: () => void }) {
   const v = data.variable
-  const states = useStates(v.id)
+  const states = useStates(data)
   const preview = states.preview
   return (
     <div
@@ -203,7 +206,7 @@ function BottomDockFor({ data, onClose }: { data: ReferenceData; onClose: () => 
     >
       {v.modality === "morph" ? (
         // Shares of the dock rather than fixed widths, so it never spills.
-        <LargeState data={data} preview={preview} className="h-full w-[30%] max-w-[240px] min-w-[140px] shrink-0" />
+        <LargeState data={data} states={states} className="h-full w-[30%] max-w-[240px] min-w-[140px] shrink-0" />
       ) : (
         <MetricFigure data={data} className="h-full w-[45%] max-w-[520px] min-w-[200px] shrink-0" />
       )}
