@@ -111,10 +111,15 @@ export function InlineExpansion({ data, onClose }: { data: ReferenceData; onClos
   const preview = states.preview
   const wide = data.entry.kind === "figure" && data.entry.figure.width / data.entry.figure.height > 2
   return (
-    // Image beside the text; on narrow panes (and for 3:1 long-bone figures)
-    // the image goes on top at full width.
-    <div className="@container w-full pb-2 pl-7 max-md:pl-0">
-      <div className={`flex flex-col gap-5 rounded-lg border bg-muted/50 p-4 ${wide ? "" : "@min-[560px]:flex-row"}`}>
+    // Attached to the row above as one shape: full row width, square top
+    // corners, a hairline between them, and the image lined up with the
+    // Variable name (row padding + status icon + gap = 40 px). Image beside
+    // the text; on narrow panes (and for 3:1 long-bone figures) the image
+    // goes on top at full width.
+    <div className="@container w-full pb-2">
+      <div
+        className={`flex flex-col gap-5 rounded-b-lg border-t bg-muted/50 p-4 pl-10 max-md:pl-4 ${wide ? "" : "@min-[560px]:flex-row"}`}
+      >
         {v.modality === "morph" ? (
           <LargeState data={data} preview={preview} className="h-[190px] w-full shrink-0 @min-[560px]:w-[280px]" />
         ) : (

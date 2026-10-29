@@ -81,7 +81,11 @@ export function VariableRow({
     >
       <div
         data-focused={focused || undefined}
-        className="group/row flex w-full flex-col gap-1 rounded-lg px-3 py-2 hover:bg-muted/50 data-focused:bg-muted/50"
+        className={cn(
+          "group/row flex w-full flex-col gap-1 rounded-lg px-3 py-2 hover:bg-muted/50 data-focused:bg-muted/50",
+          // The inline reference attaches below, so the two read as one shape.
+          below && "rounded-b-none",
+        )}
       >
         {/* On narrow panes the input and then the actions wrap below the name. */}
         <div className="flex min-h-9 flex-wrap items-center gap-x-3 gap-y-2">
