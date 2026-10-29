@@ -39,9 +39,10 @@ export function SectionView({
   referenceToggle,
 }: {
   onContinue: () => void
-  // The reference panel's switch, in the section header (docked and inline
-  // layouts; the bottom dock has its own strip).
-  referenceToggle: { open: boolean; onToggle: () => void } | null
+  // The reference panel's switch, in the section header (every layout; the
+  // bottom dock also keeps its strip). hideWhenOpen: the docked column (A)
+  // drops the button while open, since the column sits where it would be.
+  referenceToggle: { open: boolean; onToggle: () => void; hideWhenOpen: boolean } | null
   // Presenter C renders under the focused row.
   inlineReference: { data: ReferenceData | null; close: () => void } | null
 }) {
@@ -141,19 +142,21 @@ export function SectionView({
               </Tooltip>
             </ButtonGroup>
           )}
-          {/* Shown only while the panel is off; once on, the panel's own ×
-              (or R) turns it off. */}
-          {referenceToggle && !referenceToggle.open && (
+          {/* Show / Hide reference. In the docked layout it goes away while the
+              panel is on (the column covers that corner); the panel's own ×
+              (or R) turns it off there. */}
+          {referenceToggle && !(referenceToggle.hideWhenOpen && referenceToggle.open) && (
             <Button
               variant="outline"
               size="sm"
               tabIndex={-1}
               className="text-xs"
+              aria-pressed={referenceToggle.open}
               onMouseDown={(e) => e.preventDefault()}
               onClick={referenceToggle.onToggle}
             >
               <BookImage />
-              Show reference
+              {referenceToggle.open ? "Hide reference" : "Show reference"}
               <Kbd>R</Kbd>
             </Button>
           )}

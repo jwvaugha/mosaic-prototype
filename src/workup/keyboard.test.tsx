@@ -1,4 +1,4 @@
-import { act, render, screen, within } from "@testing-library/react"
+import { act, cleanup, render, screen, within } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { beforeEach, describe, expect, it } from "vitest"
 import { Toaster } from "@/components/ui/sonner"
@@ -218,6 +218,20 @@ describe("bone headers", () => {
     await user.click(screen.getByRole("button", { name: "Close reference" }))
     expect(screen.queryByRole("complementary", { name: "Reference" })).toBeNull()
     expect(screen.getByRole("button", { name: /Show reference/ })).toBeInTheDocument()
+  })
+
+  it("inline and bottom dock: the header button stays, as Hide reference, and turns the panel off", async () => {
+    for (const layout of ["C", "B"]) {
+      const user = setup(`inc=skip-and-flag&ref=${layout}`)
+      await focusFirst(user)
+      await user.click(screen.getByRole("button", { name: /^Show reference ?R$/ }))
+      const hide = screen.getByRole("button", { name: /^Hide reference ?R$/ })
+      expect(hide).toHaveAttribute("aria-pressed", "true")
+      expect(screen.getAllByLabelText("Reference").length).toBeGreaterThan(0)
+      await user.click(hide)
+      expect(screen.getByRole("button", { name: /^Show reference ?R$/ })).toHaveAttribute("aria-pressed", "false")
+      cleanup()
+    }
   })
 })
 
