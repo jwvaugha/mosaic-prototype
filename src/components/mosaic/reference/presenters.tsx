@@ -154,7 +154,7 @@ export function DockStrip({ onOpen }: { onOpen: () => void }) {
           tabIndex={-1}
           onClick={onOpen}
           aria-label="Show reference panel"
-          className="absolute inset-x-0 bottom-0 z-10 flex items-center gap-2 border-t bg-muted/70 px-4 text-xs text-muted-foreground hover:bg-muted hover:text-foreground lg:px-10"
+          className="absolute inset-x-0 bottom-0 z-10 flex items-center gap-2 border-t bg-muted px-4 text-xs text-muted-foreground hover:text-foreground lg:px-10"
           style={{ height: DOCK_STRIP_HEIGHT }}
         >
           <BookImage className="size-4" />
