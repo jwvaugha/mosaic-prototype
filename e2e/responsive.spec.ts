@@ -12,7 +12,7 @@ const LAYOUTS = ["A", "B", "C"] as const
 
 async function open(page: Page, width: number, layout: string, section = "cranium-morph") {
   await page.setViewportSize({ width, height: 900 })
-  await page.goto(`./?seed=midway&ref=${layout}&refon=1&dim=0&start=${section}`)
+  await page.goto(`./?seed=midway&ref=${layout}&refon=1&dim=0&start=${section}#/`)
   await page.evaluate(() => localStorage.setItem("mosaic-proto:guide-prompted", "1"))
   await page.getByRole("button", { name: "Got it" }).click({ timeout: 2000 }).catch(() => {})
   await page.waitForTimeout(300)
@@ -135,7 +135,7 @@ test.describe("Region rail", () => {
 test.describe("Reference panel switch", () => {
   test("bottom dock: a strip when off that opens the dock; placeholder off a field", async ({ page }) => {
     await page.setViewportSize({ width: 1280, height: 900 })
-    await page.goto("./?seed=midway&ref=B&dim=0&start=cranium-morph")
+    await page.goto("./?seed=midway&ref=B&dim=0&start=cranium-morph#/")
     await page.getByRole("button", { name: "Got it" }).click({ timeout: 2000 }).catch(() => {})
     const strip = page.getByRole("button", { name: "Show reference panel" })
     await expect(strip).toBeVisible()
@@ -148,7 +148,7 @@ test.describe("Reference panel switch", () => {
 
   test("docked: the sticky section header carries the switch and stays in view", async ({ page }) => {
     await page.setViewportSize({ width: 1280, height: 700 })
-    await page.goto("./?seed=midway&ref=A&dim=0&start=cranium-morph")
+    await page.goto("./?seed=midway&ref=A&dim=0&start=cranium-morph#/")
     await page.getByRole("button", { name: "Got it" }).click({ timeout: 2000 }).catch(() => {})
     await page.locator("main").evaluate((m) => (m.scrollTop = 900))
     const btn = page.getByRole("button", { name: /Show reference/ })
@@ -162,7 +162,7 @@ test.describe("Reference panel switch", () => {
 test("intro card: beside the row when it fits, otherwise below it, never over it", async ({ page }) => {
   for (const [width, layout] of [[1440, "C"], [1024, "A"]] as const) {
     await page.setViewportSize({ width, height: 900 })
-    await page.goto(`./?seed=fresh&ref=${layout}&start=cranium-morph`)
+    await page.goto(`./?seed=fresh&ref=${layout}&start=cranium-morph#/`)
     await page.evaluate(() => localStorage.setItem("mosaic-proto:guide-prompted", "1"))
     await page.reload()
     const card = page.getByText("Score it, Skip it, or come back to it").locator("..")

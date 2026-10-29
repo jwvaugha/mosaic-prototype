@@ -2,7 +2,9 @@ import { expect, test } from "@playwright/test"
 
 test("Guide: answers survive leaving and coming back, and go into the email", async ({ page }) => {
   await page.setViewportSize({ width: 1280, height: 800 })
-  await page.goto("./?dim=0#/guide")
+  await page.goto("./?dim=0")
+  await expect(page.getByRole("heading", { name: "Trying out MOSAIC data entry" })).toBeVisible()
+  await expect(page.getByText(/Back to the prototype/)).toHaveCount(0)
   await page.evaluate(() => localStorage.setItem("mosaic-proto:guide-prompted", "1"))
   await expect(page.getByRole("link", { name: /Submit by email/ })).toHaveAttribute("aria-disabled", "true")
   await page.getByRole("textbox", { name: /Getting around/ }).fill("Tab skipped the Conditions once.")
@@ -22,7 +24,7 @@ test("Guide: answers survive leaving and coming back, and go into the email", as
 })
 
 test("Old links with the bottom dock's former letter, D, open layout B", async ({ page }) => {
-  await page.goto("./?ref=D&dim=0&start=cranium-morph")
+  await page.goto("./?ref=D&dim=0&start=cranium-morph#/")
   await page.getByRole("button", { name: "Got it" }).click({ timeout: 2000 }).catch(() => {})
   await expect(page.getByRole("button", { name: "Show reference panel" })).toBeVisible()
 })

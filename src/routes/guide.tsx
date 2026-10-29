@@ -8,7 +8,8 @@ import { Separator } from "@/components/ui/separator"
 import { Textarea } from "@/components/ui/textarea"
 import { getEvents, subscribeEvents } from "@/lib/event-log"
 
-// The guide for testers (the PIs) using the prototype on their own. Since
+// The guide for testers (the PIs) using the prototype on their own. It's the
+// first screen: the bare link opens it, and "Go to the prototype" leads on. Since
 // 2026-10-29 it asks for open-ended feedback in a few groups instead of
 // setting a task per layout; trying the other reference layouts is optional.
 // Answers are typed into boxes after each group, kept in this browser (so the
@@ -122,9 +123,6 @@ export function Guide() {
   return (
     <main className="mx-auto flex max-w-3xl flex-col gap-10 px-6 py-12">
       <header className="flex flex-col gap-4">
-        <a className="text-sm text-muted-foreground" href="#/">
-          ← Back to the prototype
-        </a>
         <Badge variant="outline" className="w-fit">
           <FlaskConical /> Prototype for testing
         </Badge>
@@ -144,6 +142,11 @@ export function Guide() {
           </p>
           <ol className="list-decimal space-y-1.5 pl-5">
             <li>Score a couple of Morphological bone groups.</li>
+            <li>
+              Turn on the reference panel (<strong>Show reference</strong>, or {key("R")}), then switch where it appears
+              in <strong>Test mode</strong>, the small strip at the very bottom: A beside the fields, B along the
+              bottom, C under the field you're on. Score a few more traits in each.
+            </li>
             <li>Hit a measurement you can't take (pretend the bone is damaged) and one you're not sure about.</li>
             <li>Leave a note on a field.</li>
             <li>Jump to a Metric section and enter a few values.</li>
@@ -204,8 +207,8 @@ export function Guide() {
             items={["Did you find it on your own?", "Once it was open, did you actually use it?", "Did it help, or get in the way?"]}
           />
           <p>
-            If you have a few extra minutes, open <strong>Test mode</strong> (the small strip at the very bottom) and
-            try the other placements:
+            If you haven't yet, open <strong>Test mode</strong> (the small strip at the very bottom) and try the other
+            placements:
           </p>
           <Bullets
             items={[
