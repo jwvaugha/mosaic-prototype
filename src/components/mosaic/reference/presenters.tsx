@@ -15,10 +15,11 @@ import {
   type ReferenceData,
 } from "./reference-parts"
 
-// The three reference-panel directions (Explorations rows 1 and 1.5):
+// The three reference-panel directions (Explorations rows 1 and 1.5, where
+// the bottom dock is labelled D; it became B on 2026-10-29):
 //   A  Docked column: 360 px, right of the pane, full height
+//   B  Bottom dock: a strip across the bottom of the pane
 //   C  Inline expansion under the focused row; the rows below move down
-//   D  Bottom dock: a strip across the bottom of the pane
 // Each takes the same data; only the arrangement differs.
 
 // The preview is shared with the row's state buttons (preview-context), so

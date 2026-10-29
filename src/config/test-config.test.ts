@@ -4,7 +4,7 @@ import { DEFAULT_CONFIG, fromQuery, toQuery, type TestConfig } from "./test-conf
 describe("test config URL", () => {
   it("round-trips through the query string", () => {
     const c: TestConfig = {
-      refLayout: "D",
+      refLayout: "B",
       refStartsOn: true,
       incompletion: "flag-end",
       showKeyHints: false,
@@ -16,6 +16,10 @@ describe("test config URL", () => {
 
   it("reads older two-layout links by their first layout", () => {
     expect(fromQuery("ref=C,A").refLayout).toBe("C")
+  })
+
+  it("reads the bottom dock's old letter, D, as B", () => {
+    expect(fromQuery("ref=D").refLayout).toBe("B")
   })
 
   it("ignores unknown values", () => {

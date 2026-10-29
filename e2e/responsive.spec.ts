@@ -8,7 +8,7 @@ import { expect, test, type Page } from "@playwright/test"
 // Screenshots go to e2e/.shots for review.
 
 const WIDTHS = [1440, 1280, 1152, 1024, 900, 768]
-const LAYOUTS = ["A", "C", "D"] as const
+const LAYOUTS = ["A", "B", "C"] as const
 
 async function open(page: Page, width: number, layout: string, section = "cranium-morph") {
   await page.setViewportSize({ width, height: 900 })
@@ -135,7 +135,7 @@ test.describe("Region rail", () => {
 test.describe("Reference panel switch", () => {
   test("bottom dock: a strip when off that opens the dock; placeholder off a field", async ({ page }) => {
     await page.setViewportSize({ width: 1280, height: 900 })
-    await page.goto("./?seed=midway&ref=D&dim=0&start=cranium-morph")
+    await page.goto("./?seed=midway&ref=B&dim=0&start=cranium-morph")
     await page.getByRole("button", { name: "Got it" }).click({ timeout: 2000 }).catch(() => {})
     const strip = page.getByRole("button", { name: "Show reference panel" })
     await expect(strip).toBeVisible()
@@ -143,7 +143,7 @@ test.describe("Reference panel switch", () => {
     expect(box.height).toBeLessThanOrEqual(40)
     await strip.click()
     await expect(page.getByLabel("Reference").first()).toBeVisible()
-    await page.screenshot({ path: "e2e/.shots/switch-D-open.png" })
+    await page.screenshot({ path: "e2e/.shots/switch-B-open.png" })
   })
 
   test("docked: the sticky section header carries the switch and stays in view", async ({ page }) => {

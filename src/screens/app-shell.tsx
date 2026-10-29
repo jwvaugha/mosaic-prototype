@@ -56,7 +56,7 @@ function AppShell() {
   const { onKeyDown } = useWorkupKeyboard()
   const ref = useReference()
   // Bottom dock: open, or collapsed to a thin strip. Inline: only under a field.
-  const dockLayout = ref.layout === "D"
+  const dockLayout = ref.layout === "B"
   const dock = dockLayout && ref.open
   const inline = ref.open && !!ref.data && ref.layout === "C"
   const mainRef = useRef<HTMLElement>(null)

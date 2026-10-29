@@ -4,7 +4,10 @@ import type { IncompletionId } from "@/policies/incompletion"
 // Prototype-only settings, switched in the test-mode panel. Stored in the URL
 // query (so a setup can be shared as a link) and in localStorage.
 
-export type RefLayout = "A" | "C" | "D"
+// A: column on the right. B: bottom dock. C: inline under the field. The
+// bottom dock was "D" until 2026-10-29; old links and saved settings still
+// read.
+export type RefLayout = "A" | "B" | "C"
 
 export type TestConfig = {
   // One layout for both modalities.
@@ -31,11 +34,11 @@ export const DEFAULT_CONFIG: TestConfig = {
   seed: "fresh",
 }
 
-const LAYOUTS = ["A", "C", "D"]
+const LAYOUTS = ["A", "B", "C"]
 const INCOMPLETION = ["skip-and-flag", "skip-section", "flag-section", "flag-end"]
 const SEEDS = ["fresh", "midway"]
 
-// ?ref=D&refon=1&inc=flag-end&hints=0&seed=midway
+// ?ref=B&refon=1&inc=flag-end&hints=0&seed=midway
 export function toQuery(c: TestConfig): string {
   const p = new URLSearchParams()
   p.set("ref", c.refLayout)
@@ -52,7 +55,7 @@ export function fromQuery(query: string, base: TestConfig = DEFAULT_CONFIG): Tes
   const p = new URLSearchParams(query)
   const c = structuredClone(base)
   // Older links carried one layout per modality ("A,C"); the first wins.
-  const ref = (p.get("ref") ?? "").split(",")[0]
+  const ref = renamed((p.get("ref") ?? "").split(",")[0])
   if (LAYOUTS.includes(ref)) c.refLayout = ref as RefLayout
   if (p.has("refon")) c.refStartsOn = p.get("refon") === "1"
   const inc = p.get("inc")
@@ -66,6 +69,8 @@ export function fromQuery(query: string, base: TestConfig = DEFAULT_CONFIG): Tes
   return c
 }
 
+const renamed = (layout: string) => (layout === "D" ? "B" : layout)
+
 // Bumped when defaults change, so earlier visits don't keep stale settings.
 const STORAGE_KEY = "mosaic-prototype-config-v5"
 
@@ -73,7 +78,10 @@ export function loadConfig(): TestConfig {
   let stored = DEFAULT_CONFIG
   try {
     const raw = localStorage.getItem(STORAGE_KEY)
-    if (raw) stored = { ...DEFAULT_CONFIG, ...JSON.parse(raw) }
+    if (raw) {
+      stored = { ...DEFAULT_CONFIG, ...JSON.parse(raw) }
+      stored.refLayout = renamed(stored.refLayout) as RefLayout
+    }
   } catch {
     // Storage can be unavailable; the URL and defaults still work.
   }

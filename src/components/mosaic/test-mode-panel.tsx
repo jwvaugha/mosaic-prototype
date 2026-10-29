@@ -28,8 +28,8 @@ import { useWorkup } from "@/workup/workup-context"
 
 const LAYOUTS: { id: RefLayout; label: string; hint: string }[] = [
   { id: "A", label: "Docked column", hint: "Beside the rows on the right; never moves" },
+  { id: "B", label: "Bottom dock", hint: "A strip along the bottom of the screen" },
   { id: "C", label: "Inline", hint: "Opens under the field; the page keeps your place" },
-  { id: "D", label: "Bottom dock", hint: "A strip along the bottom of the screen" },
 ]
 
 

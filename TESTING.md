@@ -1,10 +1,10 @@
 # Trying the prototype
 
-**Testers:** use the in-app guide at https://jwvaugha.github.io/mosaic-prototype/#/guide (also under **Help** in the header). It has a Start button for each setup, the tasks and questions, and a button to copy your session log. The rest of this file is for the team.
+**Testers:** use the in-app guide at https://jwvaugha.github.io/mosaic-prototype/#/guide (also under **Help** in the header). It suggests a short path through the prototype, then asks open-ended questions in groups (getting around, layout, the reference panel, Skip vs. come back to, notes), with a response box after each group. Answers are kept in the browser, so testers can go back and forth from the **Tester guide** link at the bottom right, and **Submit by email** opens an email with all the answers in the tester's mail app (the recipient is `FEEDBACK_EMAIL` in `src/routes/guide.tsx`). Trying the other reference layouts is optional, from Test mode. The rest of this file is for the team.
 
 Live: https://jwvaugha.github.io/mosaic-prototype/
 
-The prototype compares one open decision: **where the reference panel appears**: A (docked column), C (inline under the field) or D (bottom dock). Since 2026-10-28 the panel is a single on/off switch that stays as set. It starts **off**, so testers have to find it: the "Show reference" button in the sticky section header (A and C; it goes away while the panel is on, and the panel's × or `R` turns it off), the thin strip along the bottom (D), or `R`. With focus off a field (a bone header, say), A and D show a placeholder.
+The prototype compares one open decision: **where the reference panel appears**: A (docked column), B (bottom dock) or C (inline under the field). The bottom dock was "D" until 2026-10-29 (and still is in the Figma Explorations); old `ref=D` links open B. Since 2026-10-28 the panel is a single on/off switch that stays as set. It starts **off**, so testers have to find it: the "Show reference" button in the sticky section header (A and C; it goes away while the panel is on, and the panel's × or `R` turns it off), the thin strip along the bottom (B), or `R`. With focus off a field (a bone header, say), A and B show a placeholder.
 
 Skip and "come back to" are both available on every field, as buttons that show their shortcut (`−`, `⌥F`). When a row hasn't room for them, they fold into a "⋯" menu. The three earlier versions (Flows page 1, 2 and 2.5) can still be reached with `?inc=skip-section`, `flag-section` or `flag-end`.
 

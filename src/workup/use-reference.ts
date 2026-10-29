@@ -8,7 +8,7 @@ import { useWorkup } from "./workup-context"
 // The reference panel: one on/off switch (stays as set), the layout under
 // test, and what to show. `data` is the focused field's reference, or null
 // when focus is elsewhere (a bone header, Conditions, Continue), in which
-// case A and D show a placeholder.
+// case A and B show a placeholder.
 export function useReference(): {
   open: boolean
   data: ReferenceData | null

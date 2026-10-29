@@ -211,7 +211,7 @@ export function KitchenSink() {
             <Label htmlFor="auto-morph">Auto-show for Morphological</Label>
           </div>
           <RadioGroup defaultValue="A" className="flex gap-4">
-            {["A", "C", "D"].map((v) => (
+            {["A", "B", "C"].map((v) => (
               <div key={v} className="flex items-center gap-2">
                 <RadioGroupItem value={v} id={`layout-${v}`} />
                 <Label htmlFor={`layout-${v}`}>{v}</Label>

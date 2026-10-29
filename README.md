@@ -1,7 +1,7 @@
 # MOSAIC prototype
 
 A throwaway, test-mode prototype for comparing where MOSAIC's reference panel
-appears during data entry (docked column A, inline C, bottom dock D). The panel
+appears during data entry (docked column A, bottom dock B, inline C). The panel
 is one on/off switch, off at first. Skip and "come back to" are both available
 on every field.
 
