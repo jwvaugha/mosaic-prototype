@@ -16,8 +16,8 @@ import { getEvents, subscribeEvents } from "@/lib/event-log"
 // guide can be closed and reopened from the bottom-right corner), and sent as
 // an email the tester's own mail app opens.
 
-// Where the feedback email goes. Empty leaves the To line for the tester.
-const FEEDBACK_EMAIL = ""
+// Where the feedback email goes (Jackson).
+const FEEDBACK_EMAIL = "jwvaugha@illinois.edu"
 const ANSWERS_KEY = "mosaic-proto:guide-answers"
 
 type Answers = Record<string, string>

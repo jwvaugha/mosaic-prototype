@@ -16,7 +16,7 @@ test("Guide: answers survive leaving and coming back, and go into the email", as
   await expect(page.getByRole("textbox", { name: /Getting around/ })).toHaveValue("Tab skipped the Conditions once.")
 
   const href = decodeURIComponent((await page.getByRole("link", { name: /Submit by email/ }).getAttribute("href")) ?? "")
-  expect(href).toMatch(/^mailto:\?subject=MOSAIC prototype feedback/)
+  expect(href).toMatch(/^mailto:jwvaugha@illinois.edu\?subject=MOSAIC prototype feedback/)
   expect(href).toContain("Getting around\nTab skipped the Conditions once.")
   expect(href).toContain("The reference panel\nB felt roomier than A.")
   expect(href).toContain("Skip vs. \"come back to\"\n(no answer)")
