@@ -4,7 +4,6 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Kbd, KbdGroup } from "@/components/ui/kbd"
-import { Separator } from "@/components/ui/separator"
 import { Textarea } from "@/components/ui/textarea"
 import { getEvents, subscribeEvents } from "@/lib/event-log"
 import { FLAG_KEYS } from "@/lib/keys"
@@ -144,7 +143,7 @@ const UPDATES: Update[] = [
       },
     ],
     after: (
-      <div className="flex flex-col gap-1.5 rounded-lg bg-muted/60 p-4 text-sm">
+      <div className="flex flex-col gap-1 rounded-lg bg-muted/60 p-4 text-sm leading-6">
         <p className="font-medium">Still to talk through together</p>
         <p className="text-muted-foreground">
           Where the reference panel goes and whether it starts open; a better name for Skip; how cranial traits and
@@ -283,26 +282,37 @@ function emailBody(notes: Notes): string {
   return parts.filter(Boolean).join("\n\n")
 }
 
+// Spacing follows the hierarchy, so things that belong together sit closer
+// than the things they belong to (4 px steps):
+//   updates                     64   (padding, so the timeline line runs on)
+//   an update's blocks          32   header / changes / still-to-discuss / notes
+//   changes within an update    24
+//   a change: text → Try it     12
+//   a change: title → body       4   (title → intro 8 in the update header)
 function UpdateEntry({ u, latest, notes, onNote }: { u: Update; latest: boolean; notes: Notes; onNote: (id: string, v: string) => void }) {
   return (
-    <article id={`update-${u.id}`} className="relative flex flex-col gap-4 border-l-2 pb-2 pl-6">
+    <article id={`update-${u.id}`} className="relative flex flex-col gap-8 border-l-2 pb-16 pl-6 last:pb-2">
       <span
         aria-hidden
         className={cn("absolute top-1.5 -left-[7px] size-3 rounded-full border-2 bg-background", latest ? "border-primary bg-primary" : "border-border")}
       />
-      <header className="flex flex-col gap-1">
-        <div className="flex items-center gap-2 text-sm text-muted-foreground">
-          <time dateTime={u.date}>{formatDate(u.date)}</time>
-          {latest && <Badge className="h-5">Latest</Badge>}
+      <header className="flex flex-col gap-2">
+        <div className="flex flex-col gap-1">
+          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <time dateTime={u.date}>{formatDate(u.date)}</time>
+            {latest && <Badge className="h-5">Latest</Badge>}
+          </div>
+          <h2 className="text-xl font-semibold">{u.title}</h2>
         </div>
-        <h2 className="text-xl font-semibold">{u.title}</h2>
-        <p className="text-sm">{u.intro}</p>
+        <p className="text-sm leading-6">{u.intro}</p>
       </header>
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-6">
         {u.changes.map((c, i) => (
-          <section key={i} className="flex flex-col gap-1.5 text-sm">
-            <h3 className="flex flex-wrap items-center gap-1.5 text-base font-medium">{c.title}</h3>
-            <div className="text-muted-foreground">{c.body}</div>
+          <section key={i} className="flex flex-col gap-3 text-sm">
+            <div className="flex flex-col gap-1">
+              <h3 className="flex flex-wrap items-center gap-1.5 text-base font-medium">{c.title}</h3>
+              <div className="leading-6 text-muted-foreground">{c.body}</div>
+            </div>
             {c.tryIt && (
               <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
                 <Button asChild size="sm" variant="outline" className="w-fit">
@@ -357,7 +367,7 @@ export function Guide() {
 
   return (
     <div className="mx-auto grid max-w-6xl gap-10 px-6 py-12 lg:grid-cols-[minmax(0,1fr)_300px] lg:gap-14">
-      <main className="flex min-w-0 flex-col gap-10">
+      <main className="flex min-w-0 flex-col gap-16">
         <header className="flex flex-col gap-4">
           <Badge variant="outline" className="w-fit">
             <FlaskConical /> Prototype for testing
@@ -381,9 +391,7 @@ export function Guide() {
           </Button>
         </header>
 
-        <Separator />
-
-        <div className="flex flex-col gap-10">
+        <div className="flex flex-col">
           {UPDATES.map((u, i) => (
             <UpdateEntry key={u.id} u={u} latest={i === 0} notes={notes} onNote={set} />
           ))}
