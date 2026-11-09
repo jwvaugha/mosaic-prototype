@@ -323,7 +323,7 @@ export function TestModePanel({ fieldSummary }: { fieldSummary: string }) {
                     Clear log
                   </Button>
                   <Button size="sm" variant="link" asChild>
-                    <a href="#/guide">Tester guide</a>
+                    <a href="#/guide">Design updates</a>
                   </Button>
                 </div>
               </Field>

@@ -18,7 +18,7 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip
 // Everything but Help, Analyze and Test mode is display-only.
 
 // Help: brings the intro card back (testers closed it and couldn't find it
-// again; feedback 2026-11-09) and links to the tester guide.
+// again; feedback 2026-11-09) and links to the design updates page.
 export function AppHeader({ onShowIntro }: { onShowIntro?: () => void }) {
   return (
     <header className="z-20 flex h-14 shrink-0 items-center gap-4 border-b bg-background px-4 whitespace-nowrap lg:gap-5 lg:px-6">
@@ -42,7 +42,7 @@ export function AppHeader({ onShowIntro }: { onShowIntro?: () => void }) {
             )}
             <DropdownMenuItem asChild>
               <a href="#/guide">
-                <NotebookText /> Tester guide
+                <NotebookText /> Design updates
               </a>
             </DropdownMenuItem>
           </DropdownMenuContent>

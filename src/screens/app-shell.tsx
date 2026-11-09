@@ -191,7 +191,7 @@ function AppShell() {
         />
         <span className="hidden sm:inline">Prototype for testing · not part of MOSAIC</span>
         <a href="#/guide" className="ml-auto hover:text-foreground hover:underline">
-          Tester guide
+          Design updates
         </a>
       </SubFooter>
       {dialogs}

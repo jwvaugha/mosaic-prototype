@@ -8,351 +8,474 @@ import { Separator } from "@/components/ui/separator"
 import { Textarea } from "@/components/ui/textarea"
 import { getEvents, subscribeEvents } from "@/lib/event-log"
 import { FLAG_KEYS } from "@/lib/keys"
+import { cn } from "@/lib/utils"
 
-// The guide for testers (the PIs) using the prototype on their own. It's the
-// first screen: the bare link opens it, and "Go to the prototype" leads on. Since
-// 2026-10-29 it asks for open-ended feedback in a few groups instead of
-// setting a task per layout; trying the other reference layouts is optional.
-// Answers are typed into boxes after each group, kept in this browser (so the
-// guide can be closed and reopened from the bottom-right corner), and sent as
-// an email the tester's own mail app opens.
+// Design updates: the prototype's landing page (the bare link opens it, as
+// does Help › Design updates). Since 2026-11-09 it replaces the round 1
+// tester guide, which is archived outside the repo (MOSAIC/Feedback/Round 1
+// tester guide). It lists changes newest first, each with what changed, why,
+// and a link to try it; testers can leave a note under any update and send
+// them all by email. The keys stay in view in a column to the side.
+//
+// To add an update: put a new entry at the top of UPDATES.
 
-// Where the feedback email goes (Jackson).
 const FEEDBACK_EMAIL = "jwvaugha@illinois.edu"
-const ANSWERS_KEY = "mosaic-proto:guide-answers"
+const NOTES_KEY = "mosaic-proto:update-notes"
 
-type Answers = Record<string, string>
+type Notes = Record<string, string>
 
-// Each group ends in one response box; `prompt` heads that group in the email.
-const GROUPS = {
-  around: "Getting around",
-  layout: "Layout: are things where you expected them?",
-  reference: "The reference panel",
-  skip: 'Skip vs. "come back to"',
-  small: "Notes and the small stuff",
-  else: "Anything else",
-} as const
-type GroupId = keyof typeof GROUPS
+// A link into the prototype with a given setup. The query sets the opening
+// section and the reference panel; `#/` is the prototype itself.
+const tryLink = (q: Record<string, string>) => `?${new URLSearchParams({ dim: "0", ...q })}#/`
 
-function loadAnswers(): Answers {
+type Change = { title: ReactNode; body: ReactNode; tryIt?: { label: string; href: string; how?: ReactNode } }
+type Update = {
+  id: string
+  date: string // ISO
+  title: string
+  intro: ReactNode
+  changes: Change[]
+  after?: ReactNode
+  // Offer a notes box (not on the round 1 summary).
+  notes?: boolean
+}
+
+const k = (s: string) => <Kbd>{s}</Kbd>
+
+const UPDATES: Update[] = [
+  {
+    id: "2026-11-09-feedback",
+    date: "2026-11-09",
+    title: "Quick fixes from your first round of feedback",
+    intro: (
+      <>
+        Eight of you sent detailed notes. These are the changes we could make straight away; the bigger questions are
+        listed at the end.
+      </>
+    ),
+    notes: true,
+    changes: [
+      {
+        title: (
+          <>
+            Go back up with {k("↑")}, down with {k("↓")}
+          </>
+        ),
+        body: (
+          <>
+            Several of you couldn't get back to a field without the mouse. The up and down arrows now move to the previous
+            or next field, including ones you've Skipped, so you can return and un-Skip by keyboard. Tab still passes over
+            Skipped fields and stops at each bone's header.
+          </>
+        ),
+        tryIt: {
+          label: "Try it in Cranium · Morphological",
+          href: tryLink({ start: "cranium-morph" }),
+          how: (
+            <>
+              Skip a trait with {k("−")}, press {k("↑")} to go back to it, then {k("−")} again to un-Skip.
+            </>
+          ),
+        },
+      },
+      {
+        title: <>Enter scores the state you're on</>,
+        body: (
+          <>
+            When you arrive on a trait you're on its first state, outlined. {k("←")} {k("→")} move between states, and{" "}
+            {k("Enter")} (or a number key) scores the one you're on and moves to the next trait. To pass a trait by
+            without scoring it, use {k("Tab")} or {k("↓")}.
+          </>
+        ),
+        tryIt: {
+          label: "Try it in Cranium · Morphological",
+          href: tryLink({ start: "cranium-morph" }),
+          how: (
+            <>
+              Press {k("→")} twice, then {k("Enter")}.
+            </>
+          ),
+        },
+      },
+      {
+        title: (
+          <>
+            "Come back to" is {k(FLAG_KEYS)}, spelled out, and moves on
+          </>
+        ),
+        body: (
+          <>
+            The shortcut used to show only the ⌥ symbol. It now reads "{FLAG_KEYS}". Marking a field to come back to also
+            moves to the next one, as Skip does. Pressing it again on a marked field unmarks it.
+          </>
+        ),
+      },
+      {
+        title: <>Skipped fields count as done</>,
+        body: (
+          <>
+            Progress (in the Regions list, the section header and each bone) now reads "12 of 20 done", counting Skips,
+            so skipping what isn't there no longer makes a section look unfinished.
+          </>
+        ),
+      },
+      {
+        title: <>Sections open at the top</>,
+        body: <>Moving to the next section used to open it partway down the page. It now starts at the top.</>,
+      },
+      {
+        title: <>Bring the intro card back from Help</>,
+        body: (
+          <>
+            The card that explains scoring, Skip and come back to was easy to close and hard to find again.{" "}
+            <strong>Help › How scoring works</strong> in the header shows it again. Its wording is clearer too: "Score a
+            trait by clicking a score or typing its number."
+          </>
+        ),
+      },
+      {
+        title: <>Small fixes</>,
+        body: (
+          <>
+            Trait codes that only repeat the name are hidden ("Lambda (2) Lambda" is now "Lambda (2)"). "Tardrop" is now
+            "teardrop" in Nasal aperture shape.
+          </>
+        ),
+      },
+    ],
+    after: (
+      <div className="flex flex-col gap-1.5 rounded-lg bg-muted/60 p-4 text-sm">
+        <p className="font-medium">Still to talk through together</p>
+        <p className="text-muted-foreground">
+          Where the reference panel goes and whether it starts open; a better name for Skip; how cranial traits and
+          regions are grouped (Sex traits, Thorax, sacrum, innominate); condition notes per region; notes for a whole
+          bone; tablets. We'll bring these to the next meeting.
+        </p>
+      </div>
+    ),
+  },
+  {
+    id: "2026-11-09-photos",
+    date: "2026-11-09",
+    title: "Photos in the reference panel",
+    intro: <>The reference panel now shows the photographs you sent, alongside the drawings.</>,
+    notes: true,
+    changes: [
+      {
+        title: <>Drawings or Photos</>,
+        body: (
+          <>
+            A toggle at the top of the panel switches between them, and stays as you set it from field to field. Photos
+            cover the MMS cranial traits, the TA3 age traits, auricular surface elevation, composite arc, ilium shape and
+            the FoRDent dental traits.
+          </>
+        ),
+        tryIt: {
+          label: "Try it in Cranium · Morphological",
+          href: tryLink({ start: "cranium-morph", ref: "A", refon: "1" }),
+          how: <>Switch the panel to Photos, then move between traits.</>,
+        },
+      },
+      {
+        title: <>Several examples of one state</>,
+        body: (
+          <>
+            Where there's more than one photo of a state, the image shows ‹ 1 / 3 › to step through them (↑ ↓ in the
+            enlarged view). Dental files labelled 4.1 and 4.2 are now examples of state 4, not separate scores.
+          </>
+        ),
+        tryIt: {
+          label: "Try it in Dentition · Morphological",
+          href: tryLink({ start: "dentition-morph", ref: "A", refon: "1" }),
+        },
+      },
+    ],
+  },
+  {
+    id: "2026-10-30-viewer",
+    date: "2026-10-30",
+    title: "Choosing from the reference drawings",
+    intro: <>Comparing states in the reference panel, and scoring from it.</>,
+    notes: true,
+    changes: [
+      {
+        title: <>Click a drawing to choose it, again to clear it</>,
+        body: <>In every layout, clicking the chosen state's drawing again clears the score, as the row's buttons do.</>,
+      },
+      {
+        title: <>An enlarged viewer that compares states</>,
+        body: (
+          <>
+            Enlarging a trait's drawing opens a viewer with every state as a captioned thumbnail. {k("←")} {k("→")}{" "}
+            compare; <strong>Choose</strong> (or {k("Enter")}) scores the one shown.
+          </>
+        ),
+        tryIt: {
+          label: "Try it in Cranium · Morphological",
+          href: tryLink({ start: "cranium-morph", ref: "A", refon: "1" }),
+          how: <>Click the large drawing in the panel to enlarge it.</>,
+        },
+      },
+    ],
+  },
+  {
+    id: "2026-10-29-round-1",
+    date: "2026-10-29",
+    title: "Round 1: first look",
+    intro: (
+      <>
+        The first version you tried. We asked about getting around by keyboard, the layout, where the reference panel
+        should go (beside the fields, along the bottom, or under the field), Skip vs. come back to, and notes. Thank you
+        for the feedback.
+      </>
+    ),
+    changes: [
+      {
+        title: <>What we heard, briefly</>,
+        body: (
+          <ul className="list-disc space-y-1 pl-5">
+            <li>The flow made sense, and nobody got stuck.</li>
+            <li>Most of you preferred the reference panel beside the fields; nobody chose the bottom.</li>
+            <li>Skip and come back to were clear as ideas, but "Skip" is the wrong word.</li>
+            <li>Going back by keyboard and the come-back shortcut were hard to find.</li>
+            <li>Several suggestions about how traits and regions are grouped.</li>
+          </ul>
+        ),
+      },
+    ],
+  },
+]
+
+const KEYS: { k: ReactNode; d: string; isNew?: boolean }[] = [
+  { k: <Kbd>Tab</Kbd>, d: "Next stop (⇧Tab goes back): each bone's header, its Condition chips, then its fields; the last is Continue" },
+  { k: <KbdGroup><Kbd>↑</Kbd><Kbd>↓</Kbd></KbdGroup>, d: "Previous / next field, Skipped ones included", isNew: true },
+  { k: <Kbd>0–9</Kbd>, d: "Score a trait by its number and move on" },
+  { k: <KbdGroup><Kbd>←</Kbd><Kbd>→</Kbd></KbdGroup>, d: "Move between a trait's states (the reference follows)" },
+  { k: <Kbd>Enter</Kbd>, d: "Score the state you're on and move on; keep a measurement and move on", isNew: true },
+  { k: <Kbd>Space</Kbd>, d: "Mark the state you're on, or tick a Condition" },
+  { k: <Kbd>⌫</Kbd>, d: "Clear a trait's score" },
+  { k: <Kbd>−</Kbd>, d: "Skip the field (again to un-Skip); on a bone's header, Skip its blanks" },
+  { k: <Kbd>{FLAG_KEYS}</Kbd>, d: "Mark to come back to and move on (again to unmark)", isNew: true },
+  { k: <Kbd>R</Kbd>, d: "Show or hide the reference panel" },
+  { k: <Kbd>N</Kbd>, d: "Add or edit a note (⌘↵ saves, Esc cancels)" },
+  { k: <KbdGroup><Kbd>⌃</Kbd><Kbd>⌥</Kbd><Kbd>↓</Kbd></KbdGroup>, d: "Next section from anywhere (↑ for the previous)" },
+  { k: <Kbd>F6</Kbd>, d: "Jump to the Regions list; Esc comes back" },
+]
+
+const formatDate = (iso: string) =>
+  new Date(`${iso}T12:00:00`).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })
+
+function loadNotes(): Notes {
   try {
-    return JSON.parse(localStorage.getItem(ANSWERS_KEY) ?? "{}")
+    return JSON.parse(localStorage.getItem(NOTES_KEY) ?? "{}")
   } catch {
     return {}
   }
 }
 
-function emailBody(answers: Answers): string {
-  const parts = [answers.name ? `From: ${answers.name}` : ""]
-  for (const [id, title] of Object.entries(GROUPS)) {
-    parts.push(`${title}\n${answers[id]?.trim() || "(no answer)"}`)
+function emailBody(notes: Notes): string {
+  const parts = [notes.name ? `From: ${notes.name}` : ""]
+  for (const u of UPDATES) {
+    const note = notes[u.id]?.trim()
+    if (note) parts.push(`${u.title} (${u.date})\n${note}`)
   }
+  if (notes.general?.trim()) parts.push(`Anything else\n${notes.general.trim()}`)
   return parts.filter(Boolean).join("\n\n")
 }
 
-const KEYS: [ReactNode, string][] = [
-  [<Kbd key="t">Tab</Kbd>, "Next stop (⇧Tab goes back): each bone's header, its Condition chips, then its fields. The last Tab lands on Continue."],
-  [<Kbd key="d">0–9</Kbd>, "Score a Morphological trait by its number, and move on"],
-  [<KbdGroup key="ud"><Kbd>↑</Kbd><Kbd>↓</Kbd></KbdGroup>, "Previous / next field, including ones you've Skipped (so you can go back and un-Skip)"],
-  [<KbdGroup key="a"><Kbd>←</Kbd><Kbd>→</Kbd></KbdGroup>, "Move between a trait's states; the reference drawing follows. Enter picks the one you're on."],
-  [<Kbd key="e">Enter</Kbd>, "Score the trait state you're on (the first, when you arrive) and move on; keep a measurement and move on; on Continue, go to the next section"],
-  [<Kbd key="b">⌫</Kbd>, "Clear a Morphological score (or click the chosen state again). For a measurement, delete the number."],
-  [<Kbd key="m">−</Kbd>, "Skip the field, even if it has a value (Undo appears); − again un-Skips. On a bone's header, − skips the bone's blanks."],
-  [<Kbd key="f">{FLAG_KEYS}</Kbd>, "Mark the field to come back to and move on; press again to unmark. Skip and come back to can both be used."],
-  [<Kbd key="q">R</Kbd>, "Show or hide the reference panel (? works too). It stays as you set it while you move between fields."],
-  [<Kbd key="n">N</Kbd>, "Add or edit a note on the field. ⌘↵ saves; Esc cancels."],
-  [<KbdGroup key="s"><Kbd>⌃</Kbd><Kbd>⌥</Kbd><Kbd>↓</Kbd></KbdGroup>, "Next section from anywhere (↑ for the previous one)"],
-  [<Kbd key="f6">F6</Kbd>, "Jump to the Regions list on the left; arrows move, Enter opens, Esc comes back"],
-]
-
-function Group({ title, children }: { title: string; children: ReactNode }) {
+function UpdateEntry({ u, latest, notes, onNote }: { u: Update; latest: boolean; notes: Notes; onNote: (id: string, v: string) => void }) {
   return (
-    <section className="flex flex-col gap-3 text-sm">
-      <h3 className="text-base font-semibold">{title}</h3>
-      {children}
-    </section>
-  )
-}
-
-function Response({ id, answers, onChange }: { id: GroupId; answers: Answers; onChange: (id: string, v: string) => void }) {
-  return (
-    <Textarea
-      aria-label={`Your thoughts: ${GROUPS[id]}`}
-      rows={4}
-      placeholder="Your thoughts…"
-      value={answers[id] ?? ""}
-      onChange={(e) => onChange(id, e.target.value)}
-    />
-  )
-}
-
-function Bullets({ items }: { items: ReactNode[] }) {
-  return (
-    <ul className="list-disc space-y-1.5 pl-5">
-      {items.map((q, i) => (
-        <li key={i}>{q}</li>
-      ))}
-    </ul>
+    <article id={`update-${u.id}`} className="relative flex flex-col gap-4 border-l-2 pb-2 pl-6">
+      <span
+        aria-hidden
+        className={cn("absolute top-1.5 -left-[7px] size-3 rounded-full border-2 bg-background", latest ? "border-primary bg-primary" : "border-border")}
+      />
+      <header className="flex flex-col gap-1">
+        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+          <time dateTime={u.date}>{formatDate(u.date)}</time>
+          {latest && <Badge className="h-5">Latest</Badge>}
+        </div>
+        <h2 className="text-xl font-semibold">{u.title}</h2>
+        <p className="text-sm">{u.intro}</p>
+      </header>
+      <div className="flex flex-col gap-4">
+        {u.changes.map((c, i) => (
+          <section key={i} className="flex flex-col gap-1.5 text-sm">
+            <h3 className="flex flex-wrap items-center gap-1.5 text-base font-medium">{c.title}</h3>
+            <div className="text-muted-foreground">{c.body}</div>
+            {c.tryIt && (
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                <Button asChild size="sm" variant="outline" className="w-fit">
+                  <a href={c.tryIt.href}>
+                    {c.tryIt.label} <ArrowRight data-icon="inline-end" />
+                  </a>
+                </Button>
+                {c.tryIt.how && <span className="text-muted-foreground">{c.tryIt.how}</span>}
+              </div>
+            )}
+          </section>
+        ))}
+      </div>
+      {u.after}
+      {u.notes && (
+        <Textarea
+          aria-label={`Your thoughts on: ${u.title}`}
+          rows={3}
+          placeholder="Tried it? Any thoughts on this update…"
+          value={notes[u.id] ?? ""}
+          onChange={(e) => onNote(u.id, e.target.value)}
+        />
+      )}
+    </article>
   )
 }
 
 export function Guide() {
   const events = useSyncExternalStore(subscribeEvents, getEvents)
-  const [answers, setAnswers] = useState<Answers>(loadAnswers)
-  const [copied, setCopied] = useState<"answers" | "log" | null>(null)
+  const [notes, setNotes] = useState<Notes>(loadNotes)
+  const [copied, setCopied] = useState<"notes" | "log" | null>(null)
 
   useEffect(() => {
     try {
-      localStorage.setItem(ANSWERS_KEY, JSON.stringify(answers))
+      localStorage.setItem(NOTES_KEY, JSON.stringify(notes))
     } catch {
       // Storage can be unavailable; the boxes still work until the tab closes.
     }
-  }, [answers])
+  }, [notes])
 
-  const set = (id: string, v: string) => setAnswers((a) => ({ ...a, [id]: v }))
-  const answered = Object.keys(GROUPS).some((id) => answers[id]?.trim())
+  const set = (id: string, v: string) => setNotes((n) => ({ ...n, [id]: v }))
+  const written = [...UPDATES.map((u) => u.id), "general"].some((id) => notes[id]?.trim())
   const mailto = `mailto:${FEEDBACK_EMAIL}?subject=${encodeURIComponent(
-    `MOSAIC prototype feedback${answers.name ? ` from ${answers.name}` : ""}`,
-  )}&body=${encodeURIComponent(emailBody(answers))}`
-  const copy = (what: "answers" | "log") => {
+    `MOSAIC design updates: notes${notes.name ? ` from ${notes.name}` : ""}`,
+  )}&body=${encodeURIComponent(emailBody(notes))}`
+  const copy = (what: "notes" | "log") => {
     navigator.clipboard.writeText(
-      what === "answers" ? emailBody(answers) : JSON.stringify({ copiedAt: new Date().toISOString(), events }, null, 2),
+      what === "notes" ? emailBody(notes) : JSON.stringify({ copiedAt: new Date().toISOString(), events }, null, 2),
     )
     setCopied(what)
   }
-  const key = (k: string) => <code className="rounded bg-muted px-1 font-mono text-xs">{k}</code>
 
   return (
-    <main className="mx-auto flex max-w-3xl flex-col gap-10 px-6 py-12">
-      <header className="flex flex-col gap-4">
-        <Badge variant="outline" className="w-fit">
-          <FlaskConical /> Prototype for testing
-        </Badge>
-        <h1 className="text-3xl font-semibold">Trying out MOSAIC data entry</h1>
-        <p>
-          Thanks for taking a look. This is an early, clickable version of the data-entry screens. It isn't the real
-          app: nothing is saved anywhere, the case is made up, and some buttons are just for show (Dashboard, Download
-          progress, Import data). We want your honest first impressions.
-        </p>
-        <p>
-          <strong>What to do:</strong> Pick a region, try entering data the way you normally would, and notice what
-          feels easy and what gets in your way.
-        </p>
-        <div className="flex flex-col gap-2">
+    <div className="mx-auto grid max-w-6xl gap-10 px-6 py-12 lg:grid-cols-[minmax(0,1fr)_300px] lg:gap-14">
+      <main className="flex min-w-0 flex-col gap-10">
+        <header className="flex flex-col gap-4">
+          <Badge variant="outline" className="w-fit">
+            <FlaskConical /> Prototype for testing
+          </Badge>
+          <h1 className="text-3xl font-semibold">MOSAIC data entry: design updates</h1>
           <p>
-            <strong>A suggested path,</strong> if you'd like one:
+            What's changed in the prototype, newest first. Each update says what changed and why, with a link that opens
+            the prototype where you can try it. Trying them is optional. If you do, a line in the box under an update
+            helps, and you can send them all at the bottom of the page.
           </p>
-          <ol className="list-decimal space-y-1.5 pl-5">
-            <li>Score a couple of Morphological bone groups.</li>
-            <li>
-              Turn on the reference panel (<strong>Show reference</strong>, or {key("R")}), then switch where it appears
-              in <strong>Test mode</strong>, the small strip at the very bottom: A beside the fields, B along the
-              bottom, C under the field you're on. Score a few more traits in each.
-            </li>
-            <li>Hit a measurement you can't take (pretend the bone is damaged) and one you're not sure about.</li>
-            <li>Leave a note on a field.</li>
-            <li>Jump to a Metric section and enter a few values.</li>
-            <li>Click Analyze and see what it tells you.</li>
-          </ol>
-        </div>
-        <p>
-          Once you are done trying it out and getting your first impressions, go to the bottom right corner (
-          <strong>Tester guide</strong>) to bring this guide back up and think about the questions below. Anything you
-          type here is kept in this browser until you send it.
-        </p>
-        <Button asChild className="w-fit">
-          <a href="#/">
-            Go to the prototype <ArrowRight data-icon="inline-end" />
-          </a>
-        </Button>
-      </header>
-
-      <Separator />
-
-      <section className="flex flex-col gap-8">
-        <h2 className="text-xl font-semibold">What we'd love to hear about</h2>
-
-        <Group title={GROUPS.around}>
-          <p>We want MOSAIC to be fast for people who score a lot of cases, and that often means the keyboard.</p>
-          <Bullets
-            items={[
-              "Could you work through a section without reaching for the mouse? Where did you have to stop and click?",
-              "Did Tab go where you expected, from the bone's header to its Conditions to its fields?",
-              <>
-                Were the shortcuts worth learning? Number keys score, {key("-")} skips, {key(FLAG_KEYS)} marks a field to
-                come back to, {key("N")} adds a note, {key("R")} shows the reference. Were any confusing or easy to hit
-                by accident?
-              </>,
-              "If you used the mouse, was everything you needed easy to reach?",
-            ]}
-          />
-          <Response id="around" answers={answers} onChange={set} />
-        </Group>
-
-        <Group title={GROUPS.layout}>
-          <Bullets
-            items={[
-              "When you looked for something, was it where you looked first? Think of moving between regions, the case number, Analyze, and adding a note.",
-              "Did anything feel crowded, or too spread out?",
-              "The left rail lists the regions. Did it help you keep track of where you were and what was left?",
-            ]}
-          />
-          <Response id="layout" answers={answers} onChange={set} />
-        </Group>
-
-        <Group title={GROUPS.reference}>
-          <p>
-            We're still deciding where the drawings and definitions should go, and this is the part we most want
-            opinions on. The panel starts closed; press <strong>Show reference</strong> (or {key("R")}) to bring it up.
+          <p className="text-sm text-muted-foreground">
+            It's still an early, clickable prototype: nothing is saved, the case is made up, and some buttons are just for
+            show. The keys are listed{" "}
+            <span className="lg:hidden">at the end of the page</span>
+            <span className="hidden lg:inline">on the right</span>.
           </p>
-          <Bullets
-            items={["Did you find it on your own?", "Once it was open, did you actually use it?", "Did it help, or get in the way?"]}
-          />
-          <p>
-            If you haven't yet, open <strong>Test mode</strong> (the small strip at the very bottom) and try the other
-            placements:
-          </p>
-          <Bullets
-            items={[
-              <>
-                <strong>A:</strong> beside the fields.
-              </>,
-              <>
-                <strong>B:</strong> along the bottom.
-              </>,
-              <>
-                <strong>C:</strong> right under the field you're on.
-              </>,
-            ]}
-          />
-          <p>Which would you want to work with every day? Even a quick "C felt cramped" is useful.</p>
-          <Response id="reference" answers={answers} onChange={set} />
-        </Group>
-
-        <Group title={GROUPS.skip}>
-          <p>These are two different things, on purpose:</p>
-          <Bullets
-            items={[
-              <>
-                <strong>Skip</strong> means "this can't be recorded for this skeleton," for example because the bone is
-                missing or too damaged. Skipping records that the value is absent deliberately, not forgotten. That way
-                the Analysis (and anyone reading the case later) can tell "not observable" apart from "nobody got to
-                it."
-              </>,
-              <>
-                <strong>Come back to</strong> (the flag) means "I can record this, just not right now," or "I want a
-                second look." Flagged fields are counted on the Analyze button so they don't slip through.
-              </>,
-            ]}
-          />
-          <p>
-            The thinking behind this: <strong>record everything that's available, and say clearly what isn't.</strong>{" "}
-            We'd rather a case have a few honest skips than a lot of blank fields with no explanation.
-          </p>
-          <Bullets
-            items={[
-              "Did that distinction make sense while you were working, or did the two blur together?",
-              "Was there a moment you weren't sure which one to use?",
-              "Is there a situation that fits neither one?",
-              "You can skip and flag the same field. Did that ever come up?",
-            ]}
-          />
-          <Response id="skip" answers={answers} onChange={set} />
-        </Group>
-
-        <Group title={GROUPS.small}>
-          <Bullets
-            items={[
-              "Did adding a note feel natural? Could you tell afterwards which fields had notes?",
-              "Did the intro card on the first field help, or did you just close it?",
-              "Was any wording unclear: labels, button names, messages?",
-            ]}
-          />
-          <Response id="small" answers={answers} onChange={set} />
-        </Group>
-
-        <Group title={GROUPS.else}>
-          <p>
-            If something surprised you, annoyed you, or made you think "I'd never do it that way," tell us. That's
-            exactly what we're looking for.
-          </p>
-          <Response id="else" answers={answers} onChange={set} />
-        </Group>
-      </section>
-
-      <section className="flex flex-col gap-3 rounded-xl border p-5 text-sm">
-        <h2 className="text-lg font-semibold">Send your feedback</h2>
-        <p className="text-muted-foreground">
-          This opens an email with your answers in your mail app, ready to send. Screenshots are welcome: attach them
-          to the email.
-        </p>
-        <label className="flex flex-col gap-1.5">
-          <span className="font-medium">Your name (optional)</span>
-          <Input className="max-w-xs" value={answers.name ?? ""} onChange={(e) => set("name", e.target.value)} />
-        </label>
-        <div className="flex flex-wrap items-center gap-3">
-          <Button asChild aria-disabled={!answered} className={answered ? "" : "pointer-events-none opacity-50"}>
-            <a href={mailto} tabIndex={answered ? undefined : -1}>
-              <Mail /> Submit by email
+          <Button asChild className="w-fit">
+            <a href="#/">
+              Go to the prototype <ArrowRight data-icon="inline-end" />
             </a>
           </Button>
-          <Button variant="outline" onClick={() => copy("answers")} disabled={!answered}>
-            {copied === "answers" ? <Check /> : <ClipboardCopy />} {copied === "answers" ? "Copied" : "Copy answers"}
-          </Button>
-          {!answered && <span className="text-muted-foreground">Answer at least one group to send.</span>}
-        </div>
-        <p className="text-muted-foreground">
-          If no email opens, copy your answers and paste them into a message instead. Optionally,{" "}
-          <button type="button" className="underline hover:text-foreground" onClick={() => copy("log")}>
-            {copied === "log" ? "copied" : "copy your session log"}
-          </button>{" "}
-          ({events.length} entries) and paste it in too: it has only keys, clicks and timings, no values you typed.
-        </p>
-      </section>
+        </header>
 
-      <Separator />
+        <Separator />
 
-      <section className="flex flex-col gap-2 text-sm">
-        <h2 className="text-lg font-semibold">Good to know</h2>
-        <p className="font-medium">Not built yet, so don't worry about these:</p>
-        <Bullets
-          items={[
-            "Choosing which bones are present (Inventory)",
-            "A guided tour",
-            "Real saving and importing",
-            "What comes after Analysis",
-          ]}
-        />
-        <p className="mt-2 font-medium">Also:</p>
-        <Bullets
-          items={[
-            "Use a laptop or desktop with a keyboard. Touch screens aren't supported yet.",
-            <>
-              The data is made up. <strong>Don't enter real case information.</strong> Nothing you enter in the
-              prototype leaves your browser.
-            </>,
-            "Reloading the page starts the Workup again. That's a limit of the prototype; the real app saves as you go.",
-            "Out-of-range values show a warning you can acknowledge. That's intended: warnings never block you.",
-          ]}
-        />
-      </section>
-
-      <section className="flex flex-col gap-3">
-        <h2 className="flex items-center gap-2 text-lg font-semibold">
-          <Keyboard className="size-5" /> Keys
-        </h2>
-        <dl className="grid grid-cols-[auto_1fr] items-center gap-x-4 gap-y-2.5 text-sm">
-          {KEYS.map(([k, d], i) => (
-            <div key={i} className="contents">
-              <dt className="justify-self-start">{k}</dt>
-              <dd className="text-muted-foreground">{d}</dd>
-            </div>
+        <div className="flex flex-col gap-10">
+          {UPDATES.map((u, i) => (
+            <UpdateEntry key={u.id} u={u} latest={i === 0} notes={notes} onNote={set} />
           ))}
-        </dl>
-        <p className="flex items-center gap-2 text-sm text-muted-foreground">
-          <MousePointerClick className="size-4" /> On a PC, ⌥ is Alt and ⌃ is Ctrl.
-        </p>
-      </section>
-    </main>
+        </div>
+
+        <section className="flex flex-col gap-3 rounded-xl border p-5 text-sm">
+          <h2 className="text-lg font-semibold">Send your notes</h2>
+          <label className="flex flex-col gap-1.5">
+            <span className="font-medium">Anything else</span>
+            <Textarea
+              aria-label="Anything else"
+              rows={3}
+              placeholder="Something that isn't about a particular update…"
+              value={notes.general ?? ""}
+              onChange={(e) => set("general", e.target.value)}
+            />
+          </label>
+          <label className="flex flex-col gap-1.5">
+            <span className="font-medium">Your name (optional)</span>
+            <Input className="max-w-xs" value={notes.name ?? ""} onChange={(e) => set("name", e.target.value)} />
+          </label>
+          <p className="text-muted-foreground">
+            This opens an email in your mail app with every note you've written on this page. Notes are kept in this
+            browser until you send them. Screenshots are welcome: attach them to the email.
+          </p>
+          <div className="flex flex-wrap items-center gap-3">
+            <Button asChild aria-disabled={!written} className={written ? "" : "pointer-events-none opacity-50"}>
+              <a href={mailto} tabIndex={written ? undefined : -1}>
+                <Mail /> Send by email
+              </a>
+            </Button>
+            <Button variant="outline" onClick={() => copy("notes")} disabled={!written}>
+              {copied === "notes" ? <Check /> : <ClipboardCopy />} {copied === "notes" ? "Copied" : "Copy notes"}
+            </Button>
+            {!written && <span className="text-muted-foreground">Write a note above to send it.</span>}
+          </div>
+          <p className="text-muted-foreground">
+            If no email opens, copy your notes into a message instead. Optionally,{" "}
+            <button type="button" className="underline hover:text-foreground" onClick={() => copy("log")}>
+              {copied === "log" ? "copied" : "copy your session log"}
+            </button>{" "}
+            ({events.length} entries): it has only keys, clicks and timings, no values you typed.
+          </p>
+        </section>
+
+        <section className="flex flex-col gap-2 text-sm text-muted-foreground">
+          <h2 className="text-base font-semibold text-foreground">Good to know</h2>
+          <ul className="list-disc space-y-1.5 pl-5">
+            <li>Not built yet: choosing which bones are present (Inventory), a guided tour, real saving and importing, and what comes after Analysis.</li>
+            <li>Use a laptop or desktop with a keyboard; touch screens aren't supported yet.</li>
+            <li>
+              The data is made up. <strong className="text-foreground">Don't enter real case information.</strong> Nothing
+              you enter leaves your browser.
+            </li>
+            <li>Reloading the page starts the Workup again; the real app saves as you go.</li>
+            <li>
+              To compare reference panel layouts, open <strong className="text-foreground">Test mode</strong> from the
+              strip at the very bottom of the prototype.
+            </li>
+          </ul>
+        </section>
+      </main>
+
+      <aside aria-labelledby="keys-heading" className="lg:sticky lg:top-8 lg:max-h-[calc(100svh-4rem)] lg:self-start lg:overflow-y-auto">
+        <div className="flex flex-col gap-3 rounded-xl border bg-muted/30 p-4">
+          <h2 id="keys-heading" className="flex items-center gap-2 text-base font-semibold">
+            <Keyboard className="size-4" /> Keys
+          </h2>
+          {/* Key on the left, what it does on the right; recently changed
+              keys get a dot (legend below). */}
+          <dl className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-2 text-[13px] leading-snug">
+            {KEYS.map((row, i) => (
+              <div key={i} className="contents">
+                <dt className="relative flex items-start justify-end pt-px">
+                  {row.k}
+                  {row.isNew && (
+                    <span aria-label="changed" className="absolute -top-0.5 -right-1 size-1.5 rounded-full bg-primary" />
+                  )}
+                </dt>
+                <dd className="text-muted-foreground">{row.d}</dd>
+              </div>
+            ))}
+          </dl>
+          <p className="flex items-center gap-2 text-xs text-muted-foreground">
+            <span className="size-1.5 shrink-0 rounded-full bg-primary" /> Changed on November 9
+          </p>
+          <p className="flex items-start gap-2 text-xs text-muted-foreground">
+            <MousePointerClick className="mt-px size-3.5 shrink-0" /> On a PC, ⌃ is Ctrl and ⌥ is Alt. Everything also
+            works with the mouse.
+          </p>
+        </div>
+      </aside>
+    </div>
   )
 }
