@@ -24,11 +24,14 @@ dist-ssr
 *.sw?
 
 # Reference images: the MSU (mms/) and FoRDent (dental/) drawings are cleared
-# for the public site (2026-10-28). Everything else stays local until cleared; the Pages build
+# for the public site (2026-10-28), and the photos (photos/, dental-photos/)
+# since 2026-11-09. Everything else stays local until cleared; the Pages build
 # draws placeholders for it.
 public/ref-images/*
 !public/ref-images/mms/
 !public/ref-images/dental/
+!public/ref-images/photos/
+!public/ref-images/dental-photos/
 
 # Playwright
 e2e/.results/
