@@ -24,7 +24,7 @@ beforeEach(() => localStorage.clear())
 const tree = () => screen.getByRole("tree", { name: "Regions" })
 const region = (name: string) =>
   within(tree()).getAllByRole("treeitem").find((el) => el.getAttribute("aria-label")?.startsWith(`${name},`))!
-const summary = () => within(tree().parentElement!).getByText(/ of \d+ recorded/, { selector: "span" })
+const summary = () => within(tree().parentElement!).getByText(/ of \d+ done/, { selector: "span" })
 const heading = () => screen.getAllByRole("heading", { level: 1 })[0]
 
 describe("Region Rail", () => {
@@ -43,7 +43,7 @@ describe("Region Rail", () => {
     const before = Number(summary().textContent!.match(/of (\d+)/)![1])
     await user.click(within(region("Thorax")).getByRole("button", { name: /add/ }))
     expect(region("Thorax")).toHaveAttribute("aria-expanded", "true")
-    expect(summary()).toHaveTextContent(`of ${before + 9} recorded`)
+    expect(summary()).toHaveTextContent(`of ${before + 9} done`)
   })
 
   it("removing a Region with Observations sets it aside; without, it goes back to + add", async () => {

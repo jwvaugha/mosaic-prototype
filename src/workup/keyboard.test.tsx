@@ -117,8 +117,42 @@ describe("keyboard: 2 / 2.5 · Come back to", () => {
     const flagged = () => within(row("NAS")).queryByRole("button", { pressed: true })
     await user.keyboard("{Alt>}f{/Alt}")
     expect(flagged()).toHaveTextContent("Come back to this")
+    // Marking moves on, as Skip does; ↑ comes back, and unmarking stays put.
+    expect(focusedRow()).toBe("NAW")
+    await user.keyboard("{ArrowUp}")
+    expect(focusedRow()).toBe("NAS")
     await user.keyboard("{Alt>}f{/Alt}")
     expect(flagged()).toBeNull()
+    expect(focusedRow()).toBe("NAS")
+  })
+})
+
+describe("keyboard: arrows and Enter", () => {
+  it("↑ / ↓ move between fields, reaching a Skipped one that Tab passes over", async () => {
+    const user = setup("inc=skip-and-flag")
+    await focusFirst(user)
+    await user.keyboard("-") // Skip NAS, move to NAW
+    expect(statusOf("NAS")).toBe("Skipped")
+    expect(focusedRow()).toBe("NAW")
+    await user.keyboard("{ArrowUp}")
+    expect(focusedRow()).toBe("NAS")
+    await user.keyboard("-") // un-Skip, from the keyboard alone
+    expect(statusOf("NAS")).toBe("Blank")
+    await user.keyboard("{ArrowDown}{ArrowDown}")
+    expect(focusedRow()).toBe(fieldIds(MORPH)[2])
+  })
+
+  it("Enter scores the state in focus (the first, on arriving) and moves on", async () => {
+    const user = setup("inc=skip-and-flag")
+    const first = await focusFirst(user)
+    const states = (id: string) => within(row(id)).getAllByRole("radio").map((r) => r.textContent)
+    await user.keyboard("{Enter}")
+    expect(statusOf(first)).toBe("Recorded")
+    expect(within(row(first)).getByRole("radio", { checked: true })).toHaveTextContent(states(first)[0]!)
+    expect(focusedRow()).toBe("NAW")
+    // →, then Enter, scores the next state instead.
+    await user.keyboard("{ArrowRight}{Enter}")
+    expect(within(row("NAW")).getByRole("radio", { checked: true })).toHaveTextContent(states("NAW")[1]!)
   })
 })
 

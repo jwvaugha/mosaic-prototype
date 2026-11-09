@@ -7,6 +7,7 @@ import { Kbd, KbdGroup } from "@/components/ui/kbd"
 import { Separator } from "@/components/ui/separator"
 import { Textarea } from "@/components/ui/textarea"
 import { getEvents, subscribeEvents } from "@/lib/event-log"
+import { FLAG_KEYS } from "@/lib/keys"
 
 // The guide for testers (the PIs) using the prototype on their own. It's the
 // first screen: the bare link opens it, and "Go to the prototype" leads on. Since
@@ -52,11 +53,12 @@ function emailBody(answers: Answers): string {
 const KEYS: [ReactNode, string][] = [
   [<Kbd key="t">Tab</Kbd>, "Next stop (⇧Tab goes back): each bone's header, its Condition chips, then its fields. The last Tab lands on Continue."],
   [<Kbd key="d">0–9</Kbd>, "Score a Morphological trait by its number, and move on"],
+  [<KbdGroup key="ud"><Kbd>↑</Kbd><Kbd>↓</Kbd></KbdGroup>, "Previous / next field, including ones you've Skipped (so you can go back and un-Skip)"],
   [<KbdGroup key="a"><Kbd>←</Kbd><Kbd>→</Kbd></KbdGroup>, "Move between a trait's states; the reference drawing follows. Enter picks the one you're on."],
-  [<Kbd key="e">Enter</Kbd>, "Keep a measurement and move on; on Continue, go to the next section"],
+  [<Kbd key="e">Enter</Kbd>, "Score the trait state you're on (the first, when you arrive) and move on; keep a measurement and move on; on Continue, go to the next section"],
   [<Kbd key="b">⌫</Kbd>, "Clear a Morphological score (or click the chosen state again). For a measurement, delete the number."],
   [<Kbd key="m">−</Kbd>, "Skip the field, even if it has a value (Undo appears); − again un-Skips. On a bone's header, − skips the bone's blanks."],
-  [<KbdGroup key="f"><Kbd>⌥</Kbd><Kbd>F</Kbd></KbdGroup>, "Mark the field to come back to; press again to unmark. Skip and come back to can both be used."],
+  [<Kbd key="f">{FLAG_KEYS}</Kbd>, "Mark the field to come back to and move on; press again to unmark. Skip and come back to can both be used."],
   [<Kbd key="q">R</Kbd>, "Show or hide the reference panel (? works too). It stays as you set it while you move between fields."],
   [<Kbd key="n">N</Kbd>, "Add or edit a note on the field. ⌘↵ saves; Esc cancels."],
   [<KbdGroup key="s"><Kbd>⌃</Kbd><Kbd>⌥</Kbd><Kbd>↓</Kbd></KbdGroup>, "Next section from anywhere (↑ for the previous one)"],
@@ -177,7 +179,7 @@ export function Guide() {
               "Could you work through a section without reaching for the mouse? Where did you have to stop and click?",
               "Did Tab go where you expected, from the bone's header to its Conditions to its fields?",
               <>
-                Were the shortcuts worth learning? Number keys score, {key("-")} skips, {key("⌥F")} marks a field to
+                Were the shortcuts worth learning? Number keys score, {key("-")} skips, {key(FLAG_KEYS)} marks a field to
                 come back to, {key("N")} adds a note, {key("R")} shows the reference. Were any confusing or easy to hit
                 by accident?
               </>,

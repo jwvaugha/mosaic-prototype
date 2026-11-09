@@ -2,6 +2,7 @@ import { useEffect, type KeyboardEvent } from "react"
 import { useConfig } from "@/config/config-context"
 import {
   adjacentSection,
+  nextField,
   nextTabTarget,
   reducer,
   referenceVisible,
@@ -19,13 +20,14 @@ import { useWorkup } from "./workup-context"
 // does depends only on the policy's flags:
 //
 //   Tab / ⇧Tab     next / previous stop; Tab passes over Skipped rows
+//   ↑ / ↓          previous / next field (Skipped ones too), from any stop
 //   0–9            Morph: select that Character state, then advance
 //   ←/→            Morph: move between states (previewed in the reference)
-//   Enter          Metric: commit and advance; Morph: pick the state moved to,
-//                  then advance
+//   Enter          Metric: commit and advance; Morph: pick the state in focus
+//                  (the first, on arriving), then advance
 //   ⌫ / Delete     clear a Morph score, or un-Skip a field
 //   - / ⇧-         Skip / un-Skip the field, Skip the bone   (allowSkip)
-//   ⌥F             toggle "come back to"                     (allowFlag)
+//   ⌥F             toggle "come back to", advancing when set   (allowFlag)
 //   R / ?          show or hide the reference panel (one switch)
 //   N              open the field's note
 //   Esc            close the reference
@@ -61,6 +63,25 @@ export function useWorkupKeyboard() {
     window.addEventListener("keydown", onKey)
     return () => window.removeEventListener("keydown", onKey)
   })
+
+  // ↑ / ↓ are taken in the capture phase, before the state and chip groups
+  // own arrow-key handling (Radix moves between items on every arrow) and
+  // before a Metric input moves its caret. Text areas, menus and dialogs
+  // (the note editor, the ⋯ menu) keep their arrows.
+  const onKeyDownCapture = (e: KeyboardEvent) => {
+    if (e.key !== "ArrowUp" && e.key !== "ArrowDown") return
+    if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return
+    const t = e.target as HTMLElement
+    if (t.closest("textarea, [role=dialog], [role=menu], [role=listbox], [data-slot=popover-content]")) return
+    const focus = state.focus
+    if (!focus) return
+    const to = nextField(state, focus, e.key === "ArrowDown" ? 1 : -1)
+    e.preventDefault()
+    e.stopPropagation()
+    if (!to) return
+    log(e.key === "ArrowDown" ? "↓" : "↑", focus.kind === "field" ? focus.id : undefined)
+    dispatch({ type: "focus", focus: to })
+  }
 
   const onKeyDown = (e: KeyboardEvent) => {
     const focus = state.focus
@@ -182,16 +203,23 @@ export function useWorkupKeyboard() {
       e.preventDefault()
       if (!policy.allowFlag) return
       log("⌥F", fieldId)
+      const setting = !state.fields[fieldId].flag
       dispatch({ type: "toggleFlag", id: fieldId })
+      // Marking moves on, as Skip does; unmarking stays put.
+      if (setting) move(focus, 1)
       return
     }
 
     if (e.key === "Enter" && !e.altKey && !e.ctrlKey && !e.metaKey) {
       e.preventDefault()
       log("Enter", fieldId)
-      // On a Morph field, Enter picks the state the arrow keys moved to.
-      if (v.modality === "morph" && preview?.id === fieldId && preview.source === "focus" && preview.code !== state.fields[fieldId].value) {
-        dispatch({ type: "enter", id: fieldId, value: preview.code })
+      // On a Morph field, Enter scores the state in focus: the first one on
+      // arriving (or the chosen one), or wherever ←/→ moved to. Space
+      // (the button's own key) marks it too, without moving on.
+      if (v.modality === "morph") {
+        const inFocus = (e.target as HTMLElement).closest<HTMLElement>("[data-code]")?.dataset.code
+        const code = inFocus ?? (preview?.id === fieldId && preview.source === "focus" ? preview.code : undefined)
+        if (code && code !== state.fields[fieldId].value) dispatch({ type: "enter", id: fieldId, value: code })
       }
       // Moving focus blurs a Metric input, which commits its draft.
       move(focus, 1)
@@ -207,5 +235,5 @@ export function useWorkupKeyboard() {
     }
   }
 
-  return { onKeyDown }
+  return { onKeyDown, onKeyDownCapture }
 }

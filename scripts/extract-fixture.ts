@@ -429,6 +429,9 @@ function sheetRows(file: string, sheet: string): Row[] {
 }
 
 const clean = (v: unknown) => String(v ?? "").trim()
+// Spelling errors in the dictionaries, fixed here until they're fixed at the
+// source (reported to Andie, 2026-11-09).
+const fixTypos = (s: string) => s.replace(/\btardrop\b/g, "teardrop")
 const sentenceCase = (s: string) => s.charAt(0).toUpperCase() + s.slice(1)
 const humanize = (code: string) => sentenceCase(code.replace(/_/g, " ").toLowerCase())
 const expandAbbrev = (s: string) =>
@@ -461,7 +464,7 @@ function readMorphSheet(file: string, sheet: string, cols: { name: number; abbr?
     const state = clean(r[cols.state])
     if (!current || state === "") continue
     if (state.startsWith("Ordinal")) current.states.push(...ordinalStates(state))
-    else current.states.push({ code: state, label: clean(r[cols.label]) })
+    else current.states.push({ code: state, label: fixTypos(clean(r[cols.label])) })
   }
   return traits
 }

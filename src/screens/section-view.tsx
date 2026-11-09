@@ -14,6 +14,7 @@ import { ButtonGroup } from "@/components/ui/button-group"
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
 import { Kbd } from "@/components/ui/kbd"
 import { useConfig } from "@/config/config-context"
+import { FLAG_KEYS } from "@/lib/keys"
 import { imageManifest } from "@/data"
 import {
   adjacentSection,
@@ -53,7 +54,8 @@ export function SectionView({
   const next = adjacentSection(section.id, 1, sectionOrder)
   const c = sectionCounts(state, section.id)
 
-  const head = [`${c.recorded} of ${c.total} recorded`]
+  // Skipped fields count as done (feedback, 2026-11-09).
+  const head = [`${c.recorded + c.skipped} of ${c.total} done`]
   if (c.skipped) head.push(`${c.skipped} skipped`)
   if (c.flagged) head.push(`${c.flagged} to come back to`)
   const pane = [...head, `${c.blank} remaining`].join(" · ")
@@ -81,26 +83,26 @@ export function SectionView({
     policy.allowSkip && policy.allowFlag
       ? {
           title: "Score it, Skip it, or come back to it",
-          body: "Click or type a state's number to score a trait, or type a measurement. If something can't be scored, Skip it. If you'll score it later, mark it to come back to; MOSAIC lists those again before the Analysis.",
+          body: "Score a trait by clicking a score or typing its number, or type a measurement. If something can't be scored, Skip it. If you'll score it later, mark it to come back to; MOSAIC lists those again before the Analysis.",
           note: "Both are also on each row's buttons when you point at it.",
           keys: [
             ["−", "Skip"],
-            ["⌥F", "Come back"],
+            [FLAG_KEYS, "Come back"],
             ["R", "Reference"],
           ] as [string, string][],
         }
       : policy.allowSkip
         ? {
             title: "Score it, or Skip it",
-            body: "Click or type a state's number to score a trait, or type a measurement. If something can't be scored, Skip it. Skipped fields count as done, and MOSAIC won't ask about them again.",
+            body: "Score a trait by clicking a score or typing its number, or type a measurement. If something can't be scored, Skip it. Skipped fields count as done, and MOSAIC won't ask about them again.",
             note: "Leave a field blank only if you mean to come back to it.",
             keys: [["−", "Skip"]] as [string, string][],
           }
         : {
             title: "Score it, or come back to it",
-            body: "Click or type a state's number to score a trait, or type a measurement. Not ready to score something? Mark it to come back to, and MOSAIC lists it again before the Analysis.",
+            body: "Score a trait by clicking a score or typing its number, or type a measurement. Not ready to score something? Mark it to come back to, and MOSAIC lists it again before the Analysis.",
             note: "Fields you leave blank are fine: they're left out of the Analysis.",
-            keys: [["⌥F", "Come back"]] as [string, string][],
+            keys: [[FLAG_KEYS, "Come back"]] as [string, string][],
           }
   const hintOpen = !state.firstUseHintSeen && state.focus?.kind === "field"
 

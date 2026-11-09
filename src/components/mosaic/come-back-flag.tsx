@@ -1,5 +1,6 @@
 import { Flag } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
+import { FLAG_KEYS } from "@/lib/keys"
 import { Button } from "@/components/ui/button"
 import { Kbd } from "@/components/ui/kbd"
 import { Popover, PopoverAnchor, PopoverContent } from "@/components/ui/popover"
@@ -55,7 +56,7 @@ export function ComeBackFlag({
       >
         <Flag className="size-3.5" />
         Come back to this
-        {showKeyHints && <Kbd>⌥F</Kbd>}
+        {showKeyHints && <Kbd>{FLAG_KEYS}</Kbd>}
       </button>
     )
   }
@@ -104,7 +105,7 @@ export function ComeBackFlag({
             Remove flag
           </Button>
           <span className="ml-auto flex items-center gap-1 text-xs text-muted-foreground">
-            <Kbd>⌥F</Kbd> toggles
+            <Kbd>{FLAG_KEYS}</Kbd> toggles
           </span>
         </div>
       </PopoverContent>

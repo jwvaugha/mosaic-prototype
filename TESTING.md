@@ -6,7 +6,7 @@ Live: https://jwvaugha.github.io/mosaic-prototype/
 
 The prototype compares one open decision: **where the reference panel appears**: A (docked column), B (bottom dock) or C (inline under the field). The bottom dock was "D" until 2026-10-29 (and still is in the Figma Explorations); old `ref=D` links open B. Since 2026-10-28 the panel is a single on/off switch that stays as set. It starts **off**, so testers have to find it: the "Show reference" button in the sticky section header (every layout; in B and C it stays while the panel is on, as "Hide reference", while in A it goes away because the docked column covers that corner, and the panel's × or `R` turns it off), the thin strip along the bottom (B, as well as the button), or `R`. With focus off a field (a bone header, say), A and B show a placeholder.
 
-Skip and "come back to" are both available on every field, as buttons that show their shortcut (`−`, `⌥F`). When a row hasn't room for them, they fold into a "⋯" menu. The three earlier versions (Flows page 1, 2 and 2.5) can still be reached with `?inc=skip-section`, `flag-section` or `flag-end`.
+Skip and "come back to" are both available on every field, as buttons that show their shortcut (`−`, and `⌥F`, labelled "Option F" or "Alt F"). When a row hasn't room for them, they fold into a "⋯" menu. The three earlier versions (Flows page 1, 2 and 2.5) can still be reached with `?inc=skip-section`, `flag-section` or `flag-end`.
 
 Page frame:
 - the header holds navigation only (MOSAIC · Dashboard | Help · About · profile);
@@ -32,13 +32,14 @@ Laptop and tablet widths down to 768 px are supported (phones aren't yet). Below
 | Key | Does |
 | --- | --- |
 | Tab / ⇧Tab | Next / previous stop: each bone's header, its Condition chips, its fields, then Continue |
+| ↑ / ↓ | Previous / next field, Skipped ones included, from any stop |
 | 0–9 | Score a Morphological field and move on |
-| ← / → | On a Morphological field: move between states (previewed in the reference); Enter picks one |
+| ← / → | On a Morphological field: move between states (previewed in the reference) |
 | ← / → | On a bone header: switch Side. On Condition chips: move between chips; Space ticks one |
-| Enter | Keep a Metric value and move on |
+| Enter | Morphological: score the state in focus (the first on arriving, or where ←/→ moved) and move on. Metric: keep the value and move on |
 | `⌫` / Delete | Clear a Morphological score, or un-Skip |
 | `-` | Skip the field, even a scored one (Undo appears). On a bone header: Skip the bone's blanks |
-| `⌥F` | Mark the field to come back to |
+| `⌥F` (shown as "Option F" on a Mac, "Alt F" elsewhere) | Mark the field to come back to and move on; again to unmark |
 | `R` / `?` | Show or hide the reference panel (one switch; Esc hides it) |
 | `N` | Add or edit the field's note (⌘↵ saves, Esc cancels) |
 | `⌃⌥↓` / `⌃⌥↑` | Next / previous section, in rail order |

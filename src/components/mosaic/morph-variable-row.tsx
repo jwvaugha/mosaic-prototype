@@ -99,6 +99,7 @@ export function CharacterStateGroup({
           <TooltipTrigger asChild onFocus={(e) => e.preventDefault()}>
             <ToggleGroupItem
               value={s.code}
+              data-code={s.code}
               aria-label={s.label ? `${s.code}: ${s.label}` : s.code}
               data-previewed={preview.code === s.code || undefined}
               onMouseEnter={() => preview.show(s.code, "hover")}

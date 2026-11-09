@@ -2,6 +2,7 @@ import type { ReactNode } from "react"
 import type { Variable } from "@/data/types"
 import type { FieldStatus } from "@/domain/workup"
 import { cn } from "@/lib/utils"
+import { showsCode } from "@/lib/variable-label"
 import { RowActions, type RowAction } from "./row-actions"
 import { RowStatus } from "./row-status"
 
@@ -62,7 +63,7 @@ export function VariableRow({
   children: ReactNode
 }) {
   // The code is shown only when it's a real abbreviation (requirements: Rows).
-  const showCode = variable.code !== variable.name && !/_/.test(variable.code)
+  const showCode = showsCode(variable)
   return (
     <div
       className={cn("group/gutter relative", spotlight && "z-50 rounded-lg bg-background")}

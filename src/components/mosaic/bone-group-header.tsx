@@ -41,7 +41,7 @@ export function BoneGroupHeader({
 }) {
   const [side, setSide] = useState<"Left" | "Right">("Left")
   const [conditions, setConditions] = useState<string[]>([])
-  const parts = [`${counts.recorded} of ${counts.total} recorded`]
+  const parts = [`${counts.recorded + counts.skipped} of ${counts.total} done`]
   if (counts.skipped) parts.push(`${counts.skipped} skipped`)
   if (counts.flagged) parts.push(`${counts.flagged} to come back to`)
 

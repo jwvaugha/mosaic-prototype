@@ -1,5 +1,6 @@
 import { Calculator, ChevronDown } from "lucide-react"
 import { useState } from "react"
+import { showsCode } from "@/lib/variable-label"
 import { Badge } from "@/components/ui/badge"
 import type { Variable } from "@/data/types"
 
@@ -31,7 +32,7 @@ export function CalculatedGroup({ variables }: { variables: Variable[] }) {
             <Calculator className="size-4 shrink-0" />
             <div className="w-[324px] shrink-0 leading-5">
               <span className="text-sm font-medium text-foreground/80">{v.name}</span>
-              <span className="ml-2 inline-block font-mono text-xs">{v.code}</span>
+              {showsCode(v) && <span className="ml-2 inline-block font-mono text-xs">{v.code}</span>}
             </div>
             <span className="w-[200px] rounded-lg border border-dashed px-3 py-1.5 text-sm">
               — <span className="float-right">{v.unit}</span>

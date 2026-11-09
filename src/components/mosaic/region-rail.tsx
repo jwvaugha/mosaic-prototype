@@ -57,6 +57,8 @@ import { Progress } from "./progress-bar"
 export type RailModality = {
   label: string
   recorded: number
+  // Recorded or Skipped: what the progress counts show.
+  done?: number
   total: number
   flagged?: number
   warnings?: number
@@ -80,7 +82,7 @@ export type RailRegion = {
 
 export type RegionRailProps = {
   regions: RailRegion[]
-  totals: { recorded: number; total: number; skipped: number }
+  totals: { recorded: number; done: number; total: number; skipped: number }
   showFlags: boolean
   mode: "default" | "edit"
   savedDefault: boolean
@@ -143,12 +145,12 @@ function CollapsedRail({ regions, totals, onCollapse }: RegionRailProps) {
         </Tooltip>
         <Progress
           className="my-2 h-1.5 w-8 bg-primary/20"
-          value={totals.total ? totals.recorded / totals.total : 0}
+          value={totals.total ? totals.done / totals.total : 0}
         />
         {regions.map((r) => {
           const current = r.modalities.some((m) => m.current)
           const first = r.modalities.find((m) => m.onSelect)
-          const recorded = sum(r.modalities.map((m) => m.recorded))
+          const recorded = doneIn(r)
           const total = sum(r.modalities.map((m) => m.total))
           const inWorkup = r.membership === "in"
           return (
@@ -242,10 +244,10 @@ function ExpandedRail(props: RegionRailProps) {
                 </Tooltip>
               </div>
               <span className="text-xs text-muted-foreground">
-                {totals.recorded} of {totals.total} recorded
+                {totals.done} of {totals.total} done
                 {totals.skipped > 0 && ` · ${totals.skipped} skipped`}
               </span>
-              <Progress className="h-2 bg-primary/20" value={totals.total ? totals.recorded / totals.total : 0} />
+              <Progress className="h-2 bg-primary/20" value={totals.total ? totals.done / totals.total : 0} />
             </div>
             <RegionTree {...props} />
           </>
@@ -381,6 +383,8 @@ function RegionTree(props: RegionRailProps) {
 }
 
 const recordedIn = (r: RailRegion) => sum(r.modalities.map((m) => m.recorded))
+const doneOf = (m: RailModality) => m.done ?? m.recorded
+const doneIn = (r: RailRegion) => sum(r.modalities.map(doneOf))
 const totalIn = (r: RailRegion) => sum(r.modalities.map((m) => m.total))
 
 // Focus ring for rail rows: the Figma Focus state is a 2px sidebar-ring stroke.
@@ -451,7 +455,7 @@ function RegionItem({
       role="treeitem"
       aria-level={1}
       aria-expanded={r.expanded}
-      aria-label={`${r.name}, ${recordedIn(r)} of ${totalIn(r)} recorded`}
+      aria-label={`${r.name}, ${doneIn(r)} of ${totalIn(r)} done`}
       className="group/region flex flex-col gap-1 rounded-lg outline-none"
       {...itemProps}
     >
@@ -467,7 +471,7 @@ function RegionItem({
         <span className="flex-1 truncate text-sm font-medium">{r.name}</span>
         {!r.expanded && <IssueCounts errors={r.errors} warnings={warnings} flagged={flagged} />}
         <span className="shrink-0 text-xs text-muted-foreground tabular-nums">
-          {recordedIn(r)} / {totalIn(r)}
+          {doneIn(r)} / {totalIn(r)}
         </span>
         <DropdownMenu open={menuOpen} onOpenChange={onMenuOpenChange}>
           <DropdownMenuTrigger asChild>
@@ -543,7 +547,7 @@ function ModalityItem({
       aria-level={2}
       aria-current={m.current ? "page" : undefined}
       aria-selected={!!m.current}
-      aria-label={`${m.label}, ${m.recorded} of ${m.total} recorded`}
+      aria-label={`${m.label}, ${doneOf(m)} of ${m.total} done`}
       data-rail-item={item.key}
       tabIndex={tabIndex}
       onFocus={() => onFocusItem(item.key)}
@@ -561,7 +565,7 @@ function ModalityItem({
       <span className="flex-1 truncate">{m.label}</span>
       <IssueCounts warnings={m.warnings} flagged={showFlags ? m.flagged : 0} />
       <span className="shrink-0 text-xs font-normal text-muted-foreground tabular-nums">
-        {m.recorded} / {m.total}
+        {doneOf(m)} / {m.total}
       </span>
     </li>
   )
@@ -698,7 +702,7 @@ function EditOrderList({ regions, onMove, announce }: RegionRailProps & { announ
           <GripVertical className="size-4 shrink-0 text-muted-foreground" />
           <span className="flex-1 truncate text-sm font-medium">{r.name}</span>
           <span className="shrink-0 text-xs text-muted-foreground tabular-nums">
-            {r.membership === "in" ? `${recordedIn(r)} / ${totalIn(r)}` : r.membership === "set-aside" ? "Set aside" : "—"}
+            {r.membership === "in" ? `${doneIn(r)} / ${totalIn(r)}` : r.membership === "set-aside" ? "Set aside" : "—"}
           </span>
         </li>
       ))}

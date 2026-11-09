@@ -8,6 +8,7 @@ import {
   variable,
   type WorkupState,
 } from "@/domain/workup"
+import { nameWithCode } from "@/lib/variable-label"
 import type { RailState } from "./rail-context"
 
 // Counts for the rail, the pre-Analysis check and the dialogs: live counts for
@@ -17,7 +18,10 @@ import type { RailState } from "./rail-context"
 
 export function regionCounts(state: WorkupState, rail: Pick<RailState, "order" | "membership" | "kept">) {
   const badges = railBadges(state)
-  const totals = { recorded: 0, total: 0, skipped: 0 }
+  // "done" counts Skipped fields with recorded ones: a Skip is a finished
+  // answer ("can't be recorded"), so progress shouldn't look stalled when a
+  // tester skips what isn't there (feedback, 2026-11-09).
+  const totals = { recorded: 0, done: 0, total: 0, skipped: 0 }
   const regions = rail.order.map((name) => {
     const r = REGIONS.find((x) => x.name === name)!
     const membership = rail.membership[name]
@@ -30,14 +34,16 @@ export function regionCounts(state: WorkupState, rail: Pick<RailState, "order" |
         const recorded = r.notInWorkup ? 0 : (m.recorded ?? 0)
         if (counted) {
           totals.recorded += recorded
+          totals.done += recorded
           totals.total += total
           blank += total - recorded
         }
-        return { label: m.label, recorded, total }
+        return { label: m.label, recorded, done: recorded, total }
       }
       const c = sectionCounts(state, m.live)
       if (counted) {
         totals.recorded += c.recorded
+        totals.done += c.recorded + c.skipped
         totals.total += c.total
         totals.skipped += c.skipped
         blank += c.blank
@@ -46,6 +52,7 @@ export function regionCounts(state: WorkupState, rail: Pick<RailState, "order" |
         label: m.label,
         live: m.live,
         recorded: c.recorded,
+        done: c.recorded + c.skipped,
         total: c.total,
         flagged: badges[m.live].flagged,
         warnings: badges[m.live].warnings,
@@ -82,6 +89,6 @@ export function flaggedItems(state: WorkupState, sectionId?: string) {
       const v = variable(id)
       const reason = state.fields[id].flag?.reason
       const where = sectionId ? bone : whereOf(id)
-      return { id, title: `${v.name} · ${v.code}`, where: reason ? `${where} · ${FLAG_REASONS[reason]}` : where }
+      return { id, title: nameWithCode(v), where: reason ? `${where} · ${FLAG_REASONS[reason]}` : where }
     })
 }

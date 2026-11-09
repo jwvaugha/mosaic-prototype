@@ -1,5 +1,6 @@
 import { BookImage, Eraser, FilePlus, Flag, FlagOff, MinusCircle, MoreHorizontal, Undo2 } from "lucide-react"
 import type { ReactNode } from "react"
+import { FLAG_KEYS } from "@/lib/keys"
 import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
@@ -51,24 +52,24 @@ export function rowActionList({
   )
   list.push(
     flagged
-      ? { id: "flag", label: "Unflag", keys: "⌥F", icon: <FlagOff />, onClick: onFlag }
-      : { id: "flag", label: "Come back", keys: "⌥F", icon: <Flag />, onClick: onFlag },
+      ? { id: "flag", label: "Unflag", keys: FLAG_KEYS, icon: <FlagOff />, onClick: onFlag }
+      : { id: "flag", label: "Come back", keys: FLAG_KEYS, icon: <Flag />, onClick: onFlag },
   )
   return list
 }
 
 // Width needed to show everything inline. Buttons: Skip ≈ 66 px, Come back
-// ≈ 102, Clear ≈ 72; icons 36 each. Tailwind only sees literal class names,
+// ≈ 142 (with "Option F"), Clear ≈ 72; icons 36 each. Tailwind only sees literal class names,
 // so each case is spelled out.
 const FITS: Record<string, [string, string]> = {
   "0": ["hidden @min-[80px]:flex", "@min-[80px]:hidden"],
   "0r": ["hidden @min-[120px]:flex", "@min-[120px]:hidden"],
   "1": ["hidden @min-[150px]:flex", "@min-[150px]:hidden"],
   "1r": ["hidden @min-[190px]:flex", "@min-[190px]:hidden"],
-  "2": ["hidden @min-[256px]:flex", "@min-[256px]:hidden"],
-  "2r": ["hidden @min-[296px]:flex", "@min-[296px]:hidden"],
-  "3": ["hidden @min-[330px]:flex", "@min-[330px]:hidden"],
-  "3r": ["hidden @min-[370px]:flex", "@min-[370px]:hidden"],
+  "2": ["hidden @min-[296px]:flex", "@min-[296px]:hidden"],
+  "2r": ["hidden @min-[336px]:flex", "@min-[336px]:hidden"],
+  "3": ["hidden @min-[370px]:flex", "@min-[370px]:hidden"],
+  "3r": ["hidden @min-[410px]:flex", "@min-[410px]:hidden"],
 }
 
 export function RowActions({

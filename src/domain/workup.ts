@@ -348,6 +348,19 @@ export function nextTabTarget(state: WorkupState, from: Focus, dir: 1 | -1): Foc
   return null
 }
 
+// ↑ / ↓: the previous / next field in the section, from any stop. Unlike Tab
+// it visits Skipped fields (so a Skip can be undone from the row below) and
+// passes over bone headers and Condition chips. From Continue, ↑ goes to the
+// last field.
+export function nextField(state: WorkupState, from: Focus, dir: 1 | -1): Focus {
+  const stops = tabStops(sectionOfFocus(from, state.section))
+  const at = from ? stops.findIndex((s) => sameFocus(s, from)) : -1
+  for (let i = at + dir; i >= 0 && i < stops.length; i += dir) {
+    if (stops[i].kind === "field") return stops[i]
+  }
+  return null
+}
+
 export function sameFocus(a: Focus, b: Focus): boolean {
   if (a === null || b === null) return a === b
   if (a.kind !== b.kind) return false

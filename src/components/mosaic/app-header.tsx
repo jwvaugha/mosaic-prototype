@@ -1,6 +1,12 @@
-import { CircleUserRound, Download, Flag, HardDrive, Pencil } from "lucide-react"
+import { ChevronDown, CircleUserRound, Download, Flag, HardDrive, Lightbulb, NotebookText, Pencil } from "lucide-react"
 import type { ReactNode } from "react"
 import { Button } from "@/components/ui/button"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
 
 // The page frame, top to bottom (Jackson, 2026-10-28):
@@ -11,7 +17,9 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip
 //   SubFooter     a very short strip for prototype controls (Test mode)
 // Everything but Help, Analyze and Test mode is display-only.
 
-export function AppHeader() {
+// Help: brings the intro card back (testers closed it and couldn't find it
+// again; feedback 2026-11-09) and links to the tester guide.
+export function AppHeader({ onShowIntro }: { onShowIntro?: () => void }) {
   return (
     <header className="z-20 flex h-14 shrink-0 items-center gap-4 border-b bg-background px-4 whitespace-nowrap lg:gap-5 lg:px-6">
       <span className="text-lg leading-none font-semibold tracking-wide text-primary">MOSAIC</span>
@@ -19,9 +27,26 @@ export function AppHeader() {
         <span className="h-5 w-px bg-border" />
         <span>Dashboard</span>
         <span className="h-5 w-px bg-border" />
-        <a href="#/guide" tabIndex={-1} className="hover:text-foreground hover:underline">
-          Help
-        </a>
+        <DropdownMenu>
+          <DropdownMenuTrigger
+            tabIndex={-1}
+            className="flex items-center gap-1 rounded-sm outline-none hover:text-foreground hover:underline focus-visible:ring-2 focus-visible:ring-ring/50"
+          >
+            Help <ChevronDown className="size-3.5" />
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="start" onCloseAutoFocus={(e) => e.preventDefault()}>
+            {onShowIntro && (
+              <DropdownMenuItem onSelect={onShowIntro}>
+                <Lightbulb /> How scoring works
+              </DropdownMenuItem>
+            )}
+            <DropdownMenuItem asChild>
+              <a href="#/guide">
+                <NotebookText /> Tester guide
+              </a>
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
         <span>About</span>
       </nav>
       <span className="flex-1" />

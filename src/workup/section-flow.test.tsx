@@ -28,9 +28,10 @@ describe("Continue under each policy", () => {
     expect(screen.getByRole("alertdialog")).toHaveTextContent(/\d+ fields in Cranium · Morphological are blank/)
     await user.click(screen.getByRole("button", { name: /^Skip \d+ and continue$/ }))
     expect(heading()).toHaveTextContent("Mandible · Metric")
-    // Back in Cranium · Morphological: the 6 recorded stay, every blank is now Skipped.
+    // Back in Cranium · Morphological: the 6 recorded stay, every blank is now
+    // Skipped, so the whole section counts as done.
     await user.keyboard("{Control>}{Alt>}{ArrowUp}{/Alt}{/Control}")
-    expect(screen.getByText(/^6 of \d+ recorded · \d+ skipped/, { selector: "p" })).toBeInTheDocument()
+    expect(screen.getByText(/^(\d+) of \1 done · \d+ skipped/, { selector: "p" })).toBeInTheDocument()
   })
 
   it("1 · Go to first blank stays in the section", async () => {

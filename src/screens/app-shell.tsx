@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useLayoutEffect, useRef, useState } from "react"
 import { useMediaQuery } from "@/lib/use-media-query"
 import { toast } from "sonner"
 import { AppHeader, SubFooter, WorkupFooter } from "@/components/mosaic/app-header"
@@ -8,7 +8,7 @@ import { TestModePanel } from "@/components/mosaic/test-mode-panel"
 import { logEvent } from "@/lib/event-log"
 import { SidebarProvider } from "@/components/ui/sidebar"
 import { useConfig } from "@/config/config-context"
-import { fieldIds, flaggedFields, sectionOf } from "@/domain/workup"
+import { fieldIds, flaggedFields, landingFocus, sectionOf } from "@/domain/workup"
 import { regionCounts } from "@/workup/chrome-counts"
 import { RailProvider, useRail } from "@/workup/rail-context"
 import { useReference } from "@/workup/use-reference"
@@ -34,13 +34,23 @@ export function Prototype() {
 function AppShell() {
   const { state, dispatch } = useWorkup()
   const { policy } = useConfig()
-  const { onKeyDown } = useWorkupKeyboard()
+  const { onKeyDown, onKeyDownCapture } = useWorkupKeyboard()
   const ref = useReference()
   // Bottom dock: open, or collapsed to a thin strip. Inline: only under a field.
   const dockLayout = ref.layout === "B"
   const dock = dockLayout && ref.open
   const inline = ref.open && !!ref.data && ref.layout === "C"
   const mainRef = useRef<HTMLElement>(null)
+  // A new section starts at the top of the pane; the pane's scroll position
+  // used to carry over from the last one, so a section could open partway
+  // down (feedback, 2026-11-09). Focus then scrolls its row into view only if
+  // it's below the fold.
+  const shownSection = useRef(state.section)
+  useLayoutEffect(() => {
+    if (shownSection.current === state.section) return
+    shownSection.current = state.section
+    if (mainRef.current) mainRef.current.scrollTop = 0
+  }, [state.section])
   useScrollAnchor(mainRef, state.focus?.kind === "field" ? state.focus.id : null, state.section, inline)
   const { onContinue, onAnalyze, dialogs } = useSectionFlow()
   const railState = useRail()
@@ -112,7 +122,17 @@ function AppShell() {
         if (t) logEvent({ kind: "click", name: t.textContent?.trim().slice(0, 40) || t.tagName, mode: policy.id })
       }}
     >
-      <AppHeader />
+      <AppHeader
+        onShowIntro={() => {
+          // The card sits beside a field, so bring focus to one first.
+          if (state.focus?.kind !== "field") {
+            const land = landingFocus(state, state.section)
+            const first = fieldIds(state.section)[0]
+            dispatch({ type: "focus", focus: land?.kind === "field" ? land : { kind: "field", id: first } })
+          }
+          dispatch({ type: "showHint" })
+        }}
+      />
       <SidebarProvider className="relative min-h-0 flex-1" style={{ "--sidebar-width": "280px" } as React.CSSProperties}>
         <RegionRail
           regions={railRegions}
@@ -135,7 +155,7 @@ function AppShell() {
           overlay={narrow}
           onCollapse={setRailCollapsed}
         />
-        <div className="relative flex min-w-0 flex-1" onKeyDown={onKeyDown}>
+        <div className="relative flex min-w-0 flex-1" onKeyDown={onKeyDown} onKeyDownCapture={onKeyDownCapture}>
           <main
             ref={mainRef}
             className="min-w-0 flex-1 overflow-x-hidden overflow-y-auto px-4 pt-6 md:px-6 lg:px-10 lg:pt-8"
