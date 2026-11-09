@@ -39,7 +39,7 @@ const root = path.resolve(import.meta.dirname, "..")
 const refArg = process.argv.indexOf("--references")
 const REF = path.resolve(root, refArg > -1 ? process.argv[refArg + 1] : "../References")
 const OUT_IMG = path.join(root, "public/ref-images")
-const PHOTO_ROOTS = ["MOSAIC Photos 2", "MOSAIC Photos"].map((d) => path.join(REF, d))
+const PHOTO_ROOTS = ["MOSAIC Photos 3", "MOSAIC Photos 2", "MOSAIC Photos"].map((d) => path.join(REF, d))
 const CRANIAL_XLSX = path.join(REF, "MOSAIC Photos/Cranial Images/MOSAIC_CranialVariables10.1.26.xlsx")
 const POSTCRANIAL_XLSX = path.join(REF, "MOSAIC_PostcranialVariables.xlsx")
 const DENTAL_XLSX = path.join(REF, "MOSAIC Photos/Dental Images/Morphological/MOSAIC_DentalVariables.xlsx")
@@ -388,13 +388,23 @@ const PHOTO_DIRS = [
 const MMS_PHOTO_DIR = "Cranial Images/Morphological/MMS Photographs"
 const MMS_PHOTO_PREFIX: Record<string, string> = { NFS: "NasFrntSut", NO: "NaOvg", OBS: "ORB", PZT: "PZTub", SPS: "SnSut" }
 // Misspelt TA3 file names.
-const PHOTO_NAME_FIXES: Record<string, string> = { t1_t12_liping: "T1_T12_lipping" }
+const PHOTO_NAME_FIXES: Record<string, string> = {
+  t1_t12_liping: "T1_T12_lipping",
+  r3_r10_shingle: "R3_10_shingle",
+  superior_posterior_exostoses: "Superior_Posterior_Iliac_Exostoses",
+}
 
 // FoRDent photos: "<abbr> <state> <specimen>.png", with the abbreviation in
 // any case and sometimes spaced or underscored ("UP3M MXPAR", "UP4DMXPAR_3").
 // They match a trait's abbreviation or its drawings' prefix
 // (DENTAL_FILE_PREFIX); the rest are listed here.
-const DENTAL_PHOTO_ALIAS: Record<string, string> = { UI1WING: "WING", UI1DIASTEMA: "DIAS", "UI2PEG-REDUCED": "UI2PEG" }
+const DENTAL_PHOTO_ALIAS: Record<string, string> = {
+  UI1WING: "WING",
+  UI1DIASTEMA: "DIAS",
+  "UI2PEG-REDUCED": "UI2PEG",
+  UM3PEGREDUCED: "UM3PEG",
+  U12CA: "UI2CA", // digit 1 for the letter I
+}
 const photoKey = (abbr: string) => {
   const k = abbr.toUpperCase().replace(/[\s_]/g, "")
   return DENTAL_PHOTO_ALIAS[k] ?? k
@@ -604,7 +614,7 @@ async function main() {
   }
   for (const dir of PHOTO_DIRS) {
     for (const [f, full] of [...photoFiles(dir)].sort()) {
-      const m = f.match(/^(.+?)_(\d)[A-Za-z]?\.\w+$/)
+      const m = f.match(/^(.+?)_(\d)[A-Za-z]?(?:\s*\(\d+\))?\.\w+$/) // "(1)": a second download copy
       if (m) addPhoto(PHOTO_NAME_FIXES[m[1].toLowerCase()] ?? m[1], m[2], full)
       else unmatchedPhotos.push(f)
     }

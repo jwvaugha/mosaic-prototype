@@ -43,6 +43,29 @@ const k = (s: string) => <Kbd>{s}</Kbd>
 
 const UPDATES: Update[] = [
   {
+    id: "2026-11-09-more-photos",
+    date: "2026-11-09",
+    title: "Twice as many reference photos",
+    intro: <>The first set of photos came from only half of the shared folder. The panel now has the other half too.</>,
+    changes: [
+      {
+        title: <>The rest of the photo folder</>,
+        body: (
+          <>
+            There are now about 1,300 photos in all. Most MMS and dental states now show several examples to step through, and a few TA3
+            traits have photos for the first time, among them R3–R10 shingling, the superior posterior iliac exostoses
+            and the trochanteric exostoses.
+          </>
+        ),
+        tryIt: {
+          label: "Try it in Cranium · Morphological",
+          href: tryLink({ start: "cranium-morph", ref: "A", refon: "1" }),
+          how: <>Switch the panel to Photos and step through the examples with ‹ ›.</>,
+        },
+      },
+    ],
+  },
+  {
     id: "2026-11-09-feedback",
     date: "2026-11-09",
     title: "Quick fixes from your first round of feedback",
