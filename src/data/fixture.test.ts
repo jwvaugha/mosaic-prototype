@@ -78,6 +78,22 @@ describe("fixture", () => {
     for (const id of ["FemXL", "FemEB", "TibCML"]) expect(imageManifest[id]).toMatchObject({ kind: "figure", highlight: expect.any(Object) })
   })
 
+  it("treats dental sub-states (4.1, 4.2) as examples of one state, not states", () => {
+    for (const v of Object.values(fixture.variables).filter((x) => x.method === "FoRDent")) {
+      for (const st of v.states!) expect(st.code, v.id).toMatch(/^\d+$/)
+    }
+    expect(imageManifest.LP3LC).toMatchObject({ kind: "states", moreDrawings: { "4": [expect.any(Object)] } })
+  })
+
+  it("has example photos for the MMS traits, keyed by real states", () => {
+    for (const v of Object.values(fixture.variables).filter((x) => x.method === "MMS")) {
+      const entry = imageManifest[v.id]
+      if (entry.kind !== "states" || !entry.photos) throw new Error(`${v.id} has no photos`)
+      const codes = v.states!.map((s) => s.code)
+      for (const c of Object.keys(entry.photos)) expect(codes, v.id).toContain(c)
+    }
+  })
+
   it("seeds only known Variables, with valid Morph codes", () => {
     for (const seed of Object.values(SEEDS)) {
       for (const [id, value] of Object.entries(seed.values)) {

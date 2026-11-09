@@ -1,30 +1,72 @@
 {
   "GOL": {
-    "kind": "none"
+    "kind": "figure",
+    "figure": {
+      "src": "ref-images/dcp/illustration-5.webp",
+      "width": 616,
+      "height": 501
+    },
+    "caption": "DCP 2.0 fig. 20 · Selected cranial measurements in the mid-saggital plane"
   },
   "NOL": {
     "kind": "none"
   },
   "BNL": {
-    "kind": "none"
+    "kind": "figure",
+    "figure": {
+      "src": "ref-images/dcp/illustration-5.webp",
+      "width": 616,
+      "height": 501
+    },
+    "caption": "DCP 2.0 fig. 20 · Selected cranial measurements in the mid-saggital plane"
   },
   "BBH": {
-    "kind": "none"
+    "kind": "figure",
+    "figure": {
+      "src": "ref-images/dcp/illustration-5.webp",
+      "width": 616,
+      "height": 501
+    },
+    "caption": "DCP 2.0 fig. 20 · Selected cranial measurements in the mid-saggital plane"
   },
   "XCB": {
-    "kind": "none"
+    "kind": "figure",
+    "figure": {
+      "src": "ref-images/dcp/illustration-6.webp",
+      "width": 483,
+      "height": 780
+    },
+    "caption": "DCP 2.0 fig. 21 · Maximum Cranial Breadth and Bizygomatic Breadth"
   },
   "XFB": {
     "kind": "none"
   },
   "WFB": {
-    "kind": "none"
+    "kind": "figure",
+    "figure": {
+      "src": "ref-images/dcp/illustration-8.webp",
+      "width": 586,
+      "height": 774
+    },
+    "caption": "DCP 2.0 fig. 23 · Selected Cranial measurements [anterior view]"
   },
   "AUB": {
-    "kind": "none"
+    "kind": "figure",
+    "figure": {
+      "src": "ref-images/dcp/illustration-7.webp",
+      "width": 597,
+      "height": 771
+    },
+    "caption": "DCP 2.0 fig. 22 · External palatal measurements and Biauricular Breadth"
   },
   "ASB": {
-    "kind": "none"
+    "kind": "figure",
+    "figure": {
+      "src": "ref-images/dcp/illustration-7.webp",
+      "width": 597,
+      "height": 771
+    },
+    "caption": "DCP 2.0 fig. 22 · External palatal measurements and Biauricular Breadth"
   },
   "STB": {
     "kind": "none"
@@ -36,46 +78,106 @@
     "kind": "none"
   },
   "FOL": {
-    "kind": "none"
+    "kind": "figure",
+    "figure": {
+      "src": "ref-images/dcp/illustration-10.webp",
+      "width": 615,
+      "height": 501
+    },
+    "caption": "DCP 2.0 fig. 25 · Frontal, Parietal, and Occipital Chord measurements and Foramen Magnum Length"
   },
   "FOB": {
-    "kind": "none"
+    "kind": "figure",
+    "figure": {
+      "src": "ref-images/dcp/illustration-7.webp",
+      "width": 597,
+      "height": 771
+    },
+    "caption": "DCP 2.0 fig. 22 · External palatal measurements and Biauricular Breadth"
   },
   "FRC": {
-    "kind": "none"
+    "kind": "figure",
+    "figure": {
+      "src": "ref-images/dcp/illustration-10.webp",
+      "width": 615,
+      "height": 501
+    },
+    "caption": "DCP 2.0 fig. 25 · Frontal, Parietal, and Occipital Chord measurements and Foramen Magnum Length"
   },
   "FRS": {
     "kind": "none"
   },
   "PAC": {
-    "kind": "none"
+    "kind": "figure",
+    "figure": {
+      "src": "ref-images/dcp/illustration-10.webp",
+      "width": 615,
+      "height": 501
+    },
+    "caption": "DCP 2.0 fig. 25 · Frontal, Parietal, and Occipital Chord measurements and Foramen Magnum Length"
   },
   "PAS": {
     "kind": "none"
   },
   "OCC": {
-    "kind": "none"
+    "kind": "figure",
+    "figure": {
+      "src": "ref-images/dcp/illustration-10.webp",
+      "width": 615,
+      "height": 501
+    },
+    "caption": "DCP 2.0 fig. 25 · Frontal, Parietal, and Occipital Chord measurements and Foramen Magnum Length"
   },
   "OCS": {
     "kind": "none"
   },
   "ZYB": {
-    "kind": "none"
+    "kind": "figure",
+    "figure": {
+      "src": "ref-images/dcp/illustration-6.webp",
+      "width": 483,
+      "height": 780
+    },
+    "caption": "DCP 2.0 fig. 21 · Maximum Cranial Breadth and Bizygomatic Breadth"
   },
   "BPL": {
-    "kind": "none"
+    "kind": "figure",
+    "figure": {
+      "src": "ref-images/dcp/illustration-5.webp",
+      "width": 616,
+      "height": 501
+    },
+    "caption": "DCP 2.0 fig. 20 · Selected cranial measurements in the mid-saggital plane"
   },
   "NPH": {
-    "kind": "none"
+    "kind": "figure",
+    "figure": {
+      "src": "ref-images/dcp/illustration-8.webp",
+      "width": 586,
+      "height": 774
+    },
+    "caption": "DCP 2.0 fig. 23 · Selected Cranial measurements [anterior view]"
   },
   "JUB": {
     "kind": "none"
   },
   "MAB": {
-    "kind": "none"
+    "kind": "figure",
+    "figure": {
+      "src": "ref-images/dcp/illustration-7.webp",
+      "width": 597,
+      "height": 771
+    },
+    "caption": "DCP 2.0 fig. 22 · External palatal measurements and Biauricular Breadth"
   },
   "MAL": {
-    "kind": "none"
+    "kind": "figure",
+    "figure": {
+      "src": "ref-images/dcp/illustration-7.webp",
+      "width": 597,
+      "height": 771
+    },
+    "caption": "DCP 2.0 fig. 22 · External palatal measurements and Biauricular Breadth"
   },
   "ZMB": {
     "kind": "none"
@@ -105,19 +207,49 @@
     "kind": "none"
   },
   "UFHT": {
-    "kind": "none"
+    "kind": "figure",
+    "figure": {
+      "src": "ref-images/dcp/illustration-8.webp",
+      "width": 586,
+      "height": 774
+    },
+    "caption": "DCP 2.0 fig. 23 · Selected Cranial measurements [anterior view]"
   },
   "OBH": {
-    "kind": "none"
+    "kind": "figure",
+    "figure": {
+      "src": "ref-images/dcp/illustration-9.webp",
+      "width": 482,
+      "height": 392
+    },
+    "caption": "DCP 2.0 fig. 24 · Selected measurements of the orbital region"
   },
   "OBB": {
-    "kind": "none"
+    "kind": "figure",
+    "figure": {
+      "src": "ref-images/dcp/illustration-9.webp",
+      "width": 482,
+      "height": 392
+    },
+    "caption": "DCP 2.0 fig. 24 · Selected measurements of the orbital region"
   },
   "EKB": {
-    "kind": "none"
+    "kind": "figure",
+    "figure": {
+      "src": "ref-images/dcp/illustration-9.webp",
+      "width": 482,
+      "height": 392
+    },
+    "caption": "DCP 2.0 fig. 24 · Selected measurements of the orbital region"
   },
   "DKB": {
-    "kind": "none"
+    "kind": "figure",
+    "figure": {
+      "src": "ref-images/dcp/illustration-9.webp",
+      "width": 482,
+      "height": 392
+    },
+    "caption": "DCP 2.0 fig. 24 · Selected measurements of the orbital region"
   },
   "DKS": {
     "kind": "none"
@@ -126,10 +258,22 @@
     "kind": "none"
   },
   "NLH": {
-    "kind": "none"
+    "kind": "figure",
+    "figure": {
+      "src": "ref-images/dcp/illustration-8.webp",
+      "width": 586,
+      "height": 774
+    },
+    "caption": "DCP 2.0 fig. 23 · Selected Cranial measurements [anterior view]"
   },
   "NLB": {
-    "kind": "none"
+    "kind": "figure",
+    "figure": {
+      "src": "ref-images/dcp/illustration-8.webp",
+      "width": 586,
+      "height": 774
+    },
+    "caption": "DCP 2.0 fig. 23 · Selected Cranial measurements [anterior view]"
   },
   "WNB": {
     "kind": "none"
@@ -269,6 +413,54 @@
         "width": 556,
         "height": 852
       }
+    },
+    "photos": {
+      "1": [
+        {
+          "src": "ref-images/photos/NAS_1_1.webp",
+          "width": 513,
+          "height": 800
+        },
+        {
+          "src": "ref-images/photos/NAS_1_2.webp",
+          "width": 545,
+          "height": 800
+        },
+        {
+          "src": "ref-images/photos/NAS_1_3.webp",
+          "width": 517,
+          "height": 800
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/photos/NAS_2_1.webp",
+          "width": 491,
+          "height": 800
+        },
+        {
+          "src": "ref-images/photos/NAS_2_2.webp",
+          "width": 567,
+          "height": 800
+        }
+      ],
+      "3": [
+        {
+          "src": "ref-images/photos/NAS_3_1.webp",
+          "width": 495,
+          "height": 800
+        },
+        {
+          "src": "ref-images/photos/NAS_3_2.webp",
+          "width": 509,
+          "height": 800
+        },
+        {
+          "src": "ref-images/photos/NAS_3_3.webp",
+          "width": 398,
+          "height": 800
+        }
+      ]
     }
   },
   "NAW": {
@@ -289,6 +481,59 @@
         "width": 1000,
         "height": 664
       }
+    },
+    "photos": {
+      "1": [
+        {
+          "src": "ref-images/photos/NAW_1_1.webp",
+          "width": 800,
+          "height": 458
+        },
+        {
+          "src": "ref-images/photos/NAW_1_2.webp",
+          "width": 800,
+          "height": 425
+        },
+        {
+          "src": "ref-images/photos/NAW_1_3.webp",
+          "width": 800,
+          "height": 443
+        },
+        {
+          "src": "ref-images/photos/NAW_1_4.webp",
+          "width": 800,
+          "height": 441
+        },
+        {
+          "src": "ref-images/photos/NAW_1_5.webp",
+          "width": 800,
+          "height": 416
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/photos/NAW_2_1.webp",
+          "width": 800,
+          "height": 427
+        }
+      ],
+      "3": [
+        {
+          "src": "ref-images/photos/NAW_3_1.webp",
+          "width": 800,
+          "height": 471
+        },
+        {
+          "src": "ref-images/photos/NAW_3_2.webp",
+          "width": 800,
+          "height": 444
+        },
+        {
+          "src": "ref-images/photos/NAW_3_3.webp",
+          "width": 800,
+          "height": 441
+        }
+      ]
     }
   },
   "NBS": {
@@ -314,6 +559,91 @@
         "width": 237,
         "height": 457
       }
+    },
+    "photos": {
+      "1": [
+        {
+          "src": "ref-images/photos/NBS_1_1.webp",
+          "width": 800,
+          "height": 767
+        },
+        {
+          "src": "ref-images/photos/NBS_1_2.webp",
+          "width": 800,
+          "height": 651
+        },
+        {
+          "src": "ref-images/photos/NBS_1_3.webp",
+          "width": 800,
+          "height": 667
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/photos/NBS_2_1.webp",
+          "width": 627,
+          "height": 800
+        },
+        {
+          "src": "ref-images/photos/NBS_2_2.webp",
+          "width": 782,
+          "height": 800
+        },
+        {
+          "src": "ref-images/photos/NBS_2_3.webp",
+          "width": 634,
+          "height": 800
+        }
+      ],
+      "3": [
+        {
+          "src": "ref-images/photos/NBS_3_1.webp",
+          "width": 800,
+          "height": 772
+        },
+        {
+          "src": "ref-images/photos/NBS_3_2.webp",
+          "width": 766,
+          "height": 800
+        },
+        {
+          "src": "ref-images/photos/NBS_3_3.webp",
+          "width": 772,
+          "height": 800
+        },
+        {
+          "src": "ref-images/photos/NBS_3_4.webp",
+          "width": 654,
+          "height": 800
+        }
+      ],
+      "4": [
+        {
+          "src": "ref-images/photos/NBS_4_1.webp",
+          "width": 617,
+          "height": 800
+        },
+        {
+          "src": "ref-images/photos/NBS_4_2.webp",
+          "width": 722,
+          "height": 800
+        },
+        {
+          "src": "ref-images/photos/NBS_4_3.webp",
+          "width": 628,
+          "height": 800
+        },
+        {
+          "src": "ref-images/photos/NBS_4_4.webp",
+          "width": 800,
+          "height": 628
+        },
+        {
+          "src": "ref-images/photos/NBS_4_5.webp",
+          "width": 595,
+          "height": 800
+        }
+      ]
     }
   },
   "NBC": {
@@ -344,6 +674,83 @@
         "width": 1000,
         "height": 611
       }
+    },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/photos/NBC_0_1.webp",
+          "width": 800,
+          "height": 409
+        },
+        {
+          "src": "ref-images/photos/NBC_0_2.webp",
+          "width": 800,
+          "height": 461
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/photos/NBC_1_1.webp",
+          "width": 800,
+          "height": 484
+        },
+        {
+          "src": "ref-images/photos/NBC_1_2.webp",
+          "width": 800,
+          "height": 464
+        },
+        {
+          "src": "ref-images/photos/NBC_1_3.webp",
+          "width": 800,
+          "height": 470
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/photos/NBC_2_1.webp",
+          "width": 800,
+          "height": 475
+        },
+        {
+          "src": "ref-images/photos/NBC_2_2.webp",
+          "width": 800,
+          "height": 457
+        },
+        {
+          "src": "ref-images/photos/NBC_2_3.webp",
+          "width": 800,
+          "height": 443
+        }
+      ],
+      "3": [
+        {
+          "src": "ref-images/photos/NBC_3_1.webp",
+          "width": 800,
+          "height": 446
+        }
+      ],
+      "4": [
+        {
+          "src": "ref-images/photos/NBC_4_1.webp",
+          "width": 800,
+          "height": 513
+        },
+        {
+          "src": "ref-images/photos/NBC_4_2.webp",
+          "width": 800,
+          "height": 537
+        },
+        {
+          "src": "ref-images/photos/NBC_4_3.webp",
+          "width": 800,
+          "height": 463
+        },
+        {
+          "src": "ref-images/photos/NBC_4_4.webp",
+          "width": 800,
+          "height": 452
+        }
+      ]
     }
   },
   "ANS": {
@@ -364,6 +771,57 @@
         "width": 829,
         "height": 1000
       }
+    },
+    "photos": {
+      "2": [
+        {
+          "src": "ref-images/photos/ANS_2_1.webp",
+          "width": 630,
+          "height": 800
+        },
+        {
+          "src": "ref-images/photos/ANS_2_2.webp",
+          "width": 682,
+          "height": 800
+        },
+        {
+          "src": "ref-images/photos/ANS_2_3.webp",
+          "width": 594,
+          "height": 800
+        },
+        {
+          "src": "ref-images/photos/ANS_2_4.webp",
+          "width": 625,
+          "height": 800
+        },
+        {
+          "src": "ref-images/photos/ANS_2_5.webp",
+          "width": 609,
+          "height": 800
+        },
+        {
+          "src": "ref-images/photos/ANS_2_6.webp",
+          "width": 604,
+          "height": 800
+        }
+      ],
+      "3": [
+        {
+          "src": "ref-images/photos/ANS_3_1.webp",
+          "width": 566,
+          "height": 800
+        },
+        {
+          "src": "ref-images/photos/ANS_3_2.webp",
+          "width": 644,
+          "height": 800
+        },
+        {
+          "src": "ref-images/photos/ANS_3_3.webp",
+          "width": 603,
+          "height": 800
+        }
+      ]
     }
   },
   "INA": {
@@ -394,6 +852,83 @@
         "width": 757,
         "height": 674
       }
+    },
+    "photos": {
+      "1": [
+        {
+          "src": "ref-images/photos/INA_1_1.webp",
+          "width": 800,
+          "height": 535
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/photos/INA_2_1.webp",
+          "width": 800,
+          "height": 467
+        },
+        {
+          "src": "ref-images/photos/INA_2_2.webp",
+          "width": 800,
+          "height": 484
+        },
+        {
+          "src": "ref-images/photos/INA_2_3.webp",
+          "width": 800,
+          "height": 472
+        }
+      ],
+      "3": [
+        {
+          "src": "ref-images/photos/INA_3_1.webp",
+          "width": 800,
+          "height": 535
+        },
+        {
+          "src": "ref-images/photos/INA_3_2.webp",
+          "width": 800,
+          "height": 504
+        },
+        {
+          "src": "ref-images/photos/INA_3_3.webp",
+          "width": 800,
+          "height": 442
+        }
+      ],
+      "4": [
+        {
+          "src": "ref-images/photos/INA_4_1.webp",
+          "width": 800,
+          "height": 473
+        },
+        {
+          "src": "ref-images/photos/INA_4_2.webp",
+          "width": 800,
+          "height": 502
+        },
+        {
+          "src": "ref-images/photos/INA_4_3.webp",
+          "width": 800,
+          "height": 463
+        }
+      ],
+      "5": [
+        {
+          "src": "ref-images/photos/INA_5_1.webp",
+          "width": 800,
+          "height": 513
+        },
+        {
+          "src": "ref-images/photos/INA_5_2.webp",
+          "width": 800,
+          "height": 505
+        },
+        {
+          "src": "ref-images/photos/INA_5_3.webp",
+          "width": 800,
+          "height": 475
+        }
+      ]
     }
   },
   "NaOvg": {
@@ -409,6 +944,57 @@
         "width": 724,
         "height": 992
       }
+    },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/photos/NaOvg_0_1.webp",
+          "width": 567,
+          "height": 800
+        },
+        {
+          "src": "ref-images/photos/NaOvg_0_2.webp",
+          "width": 630,
+          "height": 800
+        },
+        {
+          "src": "ref-images/photos/NaOvg_0_3.webp",
+          "width": 551,
+          "height": 800
+        },
+        {
+          "src": "ref-images/photos/NaOvg_0_4.webp",
+          "width": 603,
+          "height": 800
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/photos/NaOvg_1_1.webp",
+          "width": 635,
+          "height": 800
+        },
+        {
+          "src": "ref-images/photos/NaOvg_1_2.webp",
+          "width": 618,
+          "height": 800
+        },
+        {
+          "src": "ref-images/photos/NaOvg_1_3.webp",
+          "width": 641,
+          "height": 800
+        },
+        {
+          "src": "ref-images/photos/NaOvg_1_4.webp",
+          "width": 639,
+          "height": 800
+        },
+        {
+          "src": "ref-images/photos/NaOvg_1_5.webp",
+          "width": 623,
+          "height": 800
+        }
+      ]
     }
   },
   "ZS": {
@@ -429,6 +1015,64 @@
         "width": 1000,
         "height": 636
       }
+    },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/photos/ZS_0_1.webp",
+          "width": 800,
+          "height": 400
+        },
+        {
+          "src": "ref-images/photos/ZS_0_2.webp",
+          "width": 800,
+          "height": 412
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/photos/ZS_1_1.webp",
+          "width": 800,
+          "height": 433
+        },
+        {
+          "src": "ref-images/photos/ZS_1_2.webp",
+          "width": 800,
+          "height": 420
+        },
+        {
+          "src": "ref-images/photos/ZS_1_3.webp",
+          "width": 800,
+          "height": 401
+        },
+        {
+          "src": "ref-images/photos/ZS_1_4.webp",
+          "width": 800,
+          "height": 507
+        },
+        {
+          "src": "ref-images/photos/ZS_1_5.webp",
+          "width": 800,
+          "height": 463
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/photos/ZS_2_1.webp",
+          "width": 800,
+          "height": 390
+        },
+        {
+          "src": "ref-images/photos/ZS_2_2.webp",
+          "width": 800,
+          "height": 403
+        },
+        {
+          "src": "ref-images/photos/ZS_2_3.webp",
+          "width": 800,
+          "height": 405
+        }
+      ]
     }
   },
   "MT": {
@@ -454,6 +1098,69 @@
         "width": 1000,
         "height": 667
       }
+    },
+    "photos": {
+      "1": [
+        {
+          "src": "ref-images/photos/MT_1_1.webp",
+          "width": 800,
+          "height": 445
+        },
+        {
+          "src": "ref-images/photos/MT_1_2.webp",
+          "width": 800,
+          "height": 419
+        },
+        {
+          "src": "ref-images/photos/MT_1_3.webp",
+          "width": 800,
+          "height": 464
+        },
+        {
+          "src": "ref-images/photos/MT_1_4.webp",
+          "width": 800,
+          "height": 472
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/photos/MT_2_1.webp",
+          "width": 800,
+          "height": 450
+        },
+        {
+          "src": "ref-images/photos/MT_2_2.webp",
+          "width": 800,
+          "height": 431
+        },
+        {
+          "src": "ref-images/photos/MT_2_3.webp",
+          "width": 800,
+          "height": 458
+        },
+        {
+          "src": "ref-images/photos/MT_2_4.webp",
+          "width": 800,
+          "height": 442
+        }
+      ],
+      "3": [
+        {
+          "src": "ref-images/photos/MT_3_1.webp",
+          "width": 800,
+          "height": 448
+        },
+        {
+          "src": "ref-images/photos/MT_3_2.webp",
+          "width": 800,
+          "height": 462
+        },
+        {
+          "src": "ref-images/photos/MT_3_3.webp",
+          "width": 800,
+          "height": 485
+        }
+      ]
     }
   },
   "PZTub": {
@@ -479,6 +1186,76 @@
         "width": 660,
         "height": 1000
       }
+    },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/photos/PZTub_0_1.webp",
+          "width": 609,
+          "height": 800
+        },
+        {
+          "src": "ref-images/photos/PZTub_0_2.webp",
+          "width": 694,
+          "height": 800
+        },
+        {
+          "src": "ref-images/photos/PZTub_0_3.webp",
+          "width": 794,
+          "height": 800
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/photos/PZTub_1_1.webp",
+          "width": 620,
+          "height": 800
+        },
+        {
+          "src": "ref-images/photos/PZTub_1_2.webp",
+          "width": 568,
+          "height": 800
+        },
+        {
+          "src": "ref-images/photos/PZTub_1_3.webp",
+          "width": 626,
+          "height": 800
+        },
+        {
+          "src": "ref-images/photos/PZTub_1_4.webp",
+          "width": 680,
+          "height": 800
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/photos/PZTub_2_1.webp",
+          "width": 751,
+          "height": 800
+        },
+        {
+          "src": "ref-images/photos/PZTub_2_2.webp",
+          "width": 688,
+          "height": 800
+        },
+        {
+          "src": "ref-images/photos/PZTub_2_3.webp",
+          "width": 666,
+          "height": 800
+        },
+        {
+          "src": "ref-images/photos/PZTub_2_4.webp",
+          "width": 733,
+          "height": 800
+        }
+      ],
+      "3": [
+        {
+          "src": "ref-images/photos/PZTub_3_1.webp",
+          "width": 634,
+          "height": 800
+        }
+      ]
     }
   },
   "IOB": {
@@ -499,6 +1276,74 @@
         "width": 1000,
         "height": 451
       }
+    },
+    "photos": {
+      "1": [
+        {
+          "src": "ref-images/photos/IOB_1_1.webp",
+          "width": 800,
+          "height": 363
+        },
+        {
+          "src": "ref-images/photos/IOB_1_2.webp",
+          "width": 800,
+          "height": 359
+        },
+        {
+          "src": "ref-images/photos/IOB_1_3.webp",
+          "width": 800,
+          "height": 356
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/photos/IOB_2_1.webp",
+          "width": 800,
+          "height": 392
+        },
+        {
+          "src": "ref-images/photos/IOB_2_2.webp",
+          "width": 800,
+          "height": 383
+        },
+        {
+          "src": "ref-images/photos/IOB_2_3.webp",
+          "width": 800,
+          "height": 392
+        },
+        {
+          "src": "ref-images/photos/IOB_2_4.webp",
+          "width": 800,
+          "height": 372
+        }
+      ],
+      "3": [
+        {
+          "src": "ref-images/photos/IOB_3_1.webp",
+          "width": 800,
+          "height": 357
+        },
+        {
+          "src": "ref-images/photos/IOB_3_2.webp",
+          "width": 800,
+          "height": 365
+        },
+        {
+          "src": "ref-images/photos/IOB_3_3.webp",
+          "width": 800,
+          "height": 369
+        },
+        {
+          "src": "ref-images/photos/IOB_3_4.webp",
+          "width": 800,
+          "height": 433
+        },
+        {
+          "src": "ref-images/photos/IOB_3_5.webp",
+          "width": 800,
+          "height": 411
+        }
+      ]
     }
   },
   "ORB": {
@@ -519,19 +1364,125 @@
         "width": 1000,
         "height": 658
       }
+    },
+    "photos": {
+      "1": [
+        {
+          "src": "ref-images/photos/ORB_1_1.webp",
+          "width": 800,
+          "height": 431
+        },
+        {
+          "src": "ref-images/photos/ORB_1_2.webp",
+          "width": 800,
+          "height": 452
+        },
+        {
+          "src": "ref-images/photos/ORB_1_3.webp",
+          "width": 800,
+          "height": 457
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/photos/ORB_2_1.webp",
+          "width": 800,
+          "height": 460
+        },
+        {
+          "src": "ref-images/photos/ORB_2_2.webp",
+          "width": 800,
+          "height": 417
+        },
+        {
+          "src": "ref-images/photos/ORB_2_3.webp",
+          "width": 800,
+          "height": 438
+        }
+      ],
+      "3": [
+        {
+          "src": "ref-images/photos/ORB_3_1.webp",
+          "width": 800,
+          "height": 391
+        },
+        {
+          "src": "ref-images/photos/ORB_3_2.webp",
+          "width": 800,
+          "height": 411
+        },
+        {
+          "src": "ref-images/photos/ORB_3_3.webp",
+          "width": 800,
+          "height": 426
+        }
+      ]
     }
   },
   "NC": {
-    "kind": "none"
+    "kind": "states",
+    "states": {
+      "2": {
+        "src": "ref-images/drawings/NC_2.webp",
+        "width": 253,
+        "height": 378
+      }
+    }
   },
   "MP": {
-    "kind": "none"
+    "kind": "states",
+    "states": {
+      "1": {
+        "src": "ref-images/drawings/MP_1.webp",
+        "width": 294,
+        "height": 295
+      },
+      "3": {
+        "src": "ref-images/drawings/MP_3.webp",
+        "width": 277,
+        "height": 247
+      },
+      "4": {
+        "src": "ref-images/drawings/MP_4.webp",
+        "width": 288,
+        "height": 283
+      }
+    }
   },
   "SOM": {
-    "kind": "none"
+    "kind": "states",
+    "states": {
+      "3": {
+        "src": "ref-images/drawings/SOM_3.webp",
+        "width": 259,
+        "height": 379
+      },
+      "4": {
+        "src": "ref-images/drawings/SOM_4.webp",
+        "width": 282,
+        "height": 373
+      }
+    }
   },
   "GL": {
-    "kind": "none"
+    "kind": "states",
+    "states": {
+      "3": {
+        "src": "ref-images/drawings/GL_3.webp",
+        "width": 229,
+        "height": 391
+      },
+      "4": {
+        "src": "ref-images/drawings/GL_4.webp",
+        "width": 204,
+        "height": 427
+      },
+      "5": {
+        "src": "ref-images/drawings/GL_5.webp",
+        "width": 217,
+        "height": 409
+      }
+    }
   },
   "NasFrntSut": {
     "kind": "states",
@@ -556,6 +1507,76 @@
         "width": 298,
         "height": 508
       }
+    },
+    "photos": {
+      "1": [
+        {
+          "src": "ref-images/photos/NasFrntSut_1_1.webp",
+          "width": 698,
+          "height": 800
+        },
+        {
+          "src": "ref-images/photos/NasFrntSut_1_2.webp",
+          "width": 704,
+          "height": 800
+        },
+        {
+          "src": "ref-images/photos/NasFrntSut_1_3.webp",
+          "width": 712,
+          "height": 800
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/photos/NasFrntSut_2_1.webp",
+          "width": 602,
+          "height": 800
+        },
+        {
+          "src": "ref-images/photos/NasFrntSut_2_2.webp",
+          "width": 616,
+          "height": 800
+        },
+        {
+          "src": "ref-images/photos/NasFrntSut_2_3.webp",
+          "width": 569,
+          "height": 800
+        }
+      ],
+      "3": [
+        {
+          "src": "ref-images/photos/NasFrntSut_3_1.webp",
+          "width": 520,
+          "height": 536
+        },
+        {
+          "src": "ref-images/photos/NasFrntSut_3_2.webp",
+          "width": 578,
+          "height": 800
+        },
+        {
+          "src": "ref-images/photos/NasFrntSut_3_3.webp",
+          "width": 671,
+          "height": 800
+        }
+      ],
+      "4": [
+        {
+          "src": "ref-images/photos/NasFrntSut_4_1.webp",
+          "width": 531,
+          "height": 800
+        },
+        {
+          "src": "ref-images/photos/NasFrntSut_4_2.webp",
+          "width": 630,
+          "height": 800
+        },
+        {
+          "src": "ref-images/photos/NasFrntSut_4_3.webp",
+          "width": 585,
+          "height": 800
+        }
+      ]
     }
   },
   "SnSut": {
@@ -576,6 +1597,54 @@
         "width": 1000,
         "height": 445
       }
+    },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/photos/SnSut_0_1.webp",
+          "width": 800,
+          "height": 309
+        },
+        {
+          "src": "ref-images/photos/SnSut_0_2.webp",
+          "width": 800,
+          "height": 305
+        },
+        {
+          "src": "ref-images/photos/SnSut_0_3.webp",
+          "width": 800,
+          "height": 307
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/photos/SnSut_1_1.webp",
+          "width": 800,
+          "height": 321
+        },
+        {
+          "src": "ref-images/photos/SnSut_1_2.webp",
+          "width": 800,
+          "height": 321
+        },
+        {
+          "src": "ref-images/photos/SnSut_1_3.webp",
+          "width": 800,
+          "height": 400
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/photos/SnSut_2_1.webp",
+          "width": 800,
+          "height": 333
+        },
+        {
+          "src": "ref-images/photos/SnSut_2_2.webp",
+          "width": 800,
+          "height": 323
+        }
+      ]
     }
   },
   "PBD": {
@@ -591,6 +1660,42 @@
         "width": 868,
         "height": 960
       }
+    },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/photos/PBD_0_1.webp",
+          "width": 800,
+          "height": 637
+        },
+        {
+          "src": "ref-images/photos/PBD_0_2.webp",
+          "width": 800,
+          "height": 678
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/photos/PBD_1_1.webp",
+          "width": 800,
+          "height": 737
+        },
+        {
+          "src": "ref-images/photos/PBD_1_2.webp",
+          "width": 800,
+          "height": 749
+        },
+        {
+          "src": "ref-images/photos/PBD_1_3.webp",
+          "width": 800,
+          "height": 713
+        },
+        {
+          "src": "ref-images/photos/PBD_1_4.webp",
+          "width": 800,
+          "height": 675
+        }
+      ]
     }
   },
   "TPS": {
@@ -616,6 +1721,66 @@
         "width": 956,
         "height": 1000
       }
+    },
+    "photos": {
+      "1": [
+        {
+          "src": "ref-images/photos/TPS_1_1.webp",
+          "width": 793,
+          "height": 800
+        },
+        {
+          "src": "ref-images/photos/TPS_1_2.webp",
+          "width": 800,
+          "height": 698
+        },
+        {
+          "src": "ref-images/photos/TPS_1_3.webp",
+          "width": 800,
+          "height": 710
+        },
+        {
+          "src": "ref-images/photos/TPS_1_4.webp",
+          "width": 756,
+          "height": 800
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/photos/TPS_2_1.webp",
+          "width": 800,
+          "height": 787
+        },
+        {
+          "src": "ref-images/photos/TPS_2_2.webp",
+          "width": 800,
+          "height": 757
+        },
+        {
+          "src": "ref-images/photos/TPS_2_3.webp",
+          "width": 800,
+          "height": 743
+        }
+      ],
+      "3": [
+        {
+          "src": "ref-images/photos/TPS_3_1.webp",
+          "width": 800,
+          "height": 742
+        }
+      ],
+      "4": [
+        {
+          "src": "ref-images/photos/TPS_4_1.webp",
+          "width": 800,
+          "height": 765
+        },
+        {
+          "src": "ref-images/photos/TPS_4_2.webp",
+          "width": 800,
+          "height": 672
+        }
+      ]
     }
   },
   "PS": {
@@ -641,13 +1806,103 @@
         "width": 750,
         "height": 820
       }
+    },
+    "photos": {
+      "1": [
+        {
+          "src": "ref-images/photos/PS_1_1.webp",
+          "width": 800,
+          "height": 766
+        },
+        {
+          "src": "ref-images/photos/PS_1_2.webp",
+          "width": 800,
+          "height": 681
+        },
+        {
+          "src": "ref-images/photos/PS_1_3.webp",
+          "width": 724,
+          "height": 800
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/photos/PS_2_1.webp",
+          "width": 709,
+          "height": 800
+        },
+        {
+          "src": "ref-images/photos/PS_2_2.webp",
+          "width": 797,
+          "height": 800
+        },
+        {
+          "src": "ref-images/photos/PS_2_3.webp",
+          "width": 800,
+          "height": 795
+        }
+      ],
+      "3": [
+        {
+          "src": "ref-images/photos/PS_3_1.webp",
+          "width": 673,
+          "height": 800
+        },
+        {
+          "src": "ref-images/photos/PS_3_2.webp",
+          "width": 750,
+          "height": 800
+        },
+        {
+          "src": "ref-images/photos/PS_3_3.webp",
+          "width": 800,
+          "height": 772
+        }
+      ],
+      "4": [
+        {
+          "src": "ref-images/photos/PS_4_1.webp",
+          "width": 743,
+          "height": 800
+        },
+        {
+          "src": "ref-images/photos/PS_4_2.webp",
+          "width": 714,
+          "height": 800
+        },
+        {
+          "src": "ref-images/photos/PS_4_3.webp",
+          "width": 706,
+          "height": 800
+        },
+        {
+          "src": "ref-images/photos/PS_4_4.webp",
+          "width": 732,
+          "height": 800
+        },
+        {
+          "src": "ref-images/photos/PS_4_5.webp",
+          "width": 682,
+          "height": 800
+        }
+      ]
     }
   },
   "Parietal_depression": {
     "kind": "none"
   },
   "Occipital_condyle_lipping": {
-    "kind": "none"
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/photos/Occipital_condyle_lipping_0_1.webp",
+          "width": 800,
+          "height": 506
+        }
+      ]
+    }
   },
   "Midlambdoid": {
     "kind": "none"
@@ -695,37 +1950,95 @@
     "kind": "none"
   },
   "SOS_fusion": {
-    "kind": "none"
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/photos/SOS_fusion_0_1.webp",
+          "width": 800,
+          "height": 666
+        }
+      ]
+    }
   },
   "SOS_fusion_AdultAge": {
     "kind": "none"
   },
   "GNI": {
-    "kind": "none"
+    "kind": "figure",
+    "figure": {
+      "src": "ref-images/dcp/illustration-11.webp",
+      "width": 465,
+      "height": 468
+    },
+    "caption": "DCP 2.0 fig. 27 · Selected measurements of the mandible [anterior view]"
   },
   "HML": {
-    "kind": "none"
+    "kind": "figure",
+    "figure": {
+      "src": "ref-images/dcp/illustration-12.webp",
+      "width": 516,
+      "height": 396
+    },
+    "caption": "DCP 2.0 fig. 28 · Selected measurements of the mandible [lateral view]"
   },
   "TML": {
     "kind": "none"
   },
   "GOG": {
-    "kind": "none"
+    "kind": "figure",
+    "figure": {
+      "src": "ref-images/dcp/illustration-11.webp",
+      "width": 465,
+      "height": 468
+    },
+    "caption": "DCP 2.0 fig. 27 · Selected measurements of the mandible [anterior view]"
   },
   "CDL": {
-    "kind": "none"
+    "kind": "figure",
+    "figure": {
+      "src": "ref-images/dcp/illustration-11.webp",
+      "width": 465,
+      "height": 468
+    },
+    "caption": "DCP 2.0 fig. 27 · Selected measurements of the mandible [anterior view]"
   },
   "WRB": {
-    "kind": "none"
+    "kind": "figure",
+    "figure": {
+      "src": "ref-images/dcp/illustration-12.webp",
+      "width": 516,
+      "height": 396
+    },
+    "caption": "DCP 2.0 fig. 28 · Selected measurements of the mandible [lateral view]"
   },
   "XRH": {
-    "kind": "none"
+    "kind": "figure",
+    "figure": {
+      "src": "ref-images/dcp/illustration-12.webp",
+      "width": 516,
+      "height": 396
+    },
+    "caption": "DCP 2.0 fig. 28 · Selected measurements of the mandible [lateral view]"
   },
   "MLT": {
-    "kind": "none"
+    "kind": "figure",
+    "figure": {
+      "src": "ref-images/dcp/illustration-12.webp",
+      "width": 516,
+      "height": 396
+    },
+    "caption": "DCP 2.0 fig. 28 · Selected measurements of the mandible [lateral view]"
   },
   "MAN": {
-    "kind": "none"
+    "kind": "figure",
+    "figure": {
+      "src": "ref-images/dcp/illustration-12.webp",
+      "width": 516,
+      "height": 396
+    },
+    "caption": "DCP 2.0 fig. 28 · Selected measurements of the mandible [lateral view]"
   },
   "Mandibular_torus": {
     "kind": "none"
@@ -792,6 +2105,46 @@
         "width": 800,
         "height": 343
       }
+    },
+    "photos": {
+      "1": [
+        {
+          "src": "ref-images/dental-photos/WING_1_3.webp",
+          "width": 800,
+          "height": 524,
+          "credit": "0602"
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/dental-photos/WING_2_1.webp",
+          "width": 800,
+          "height": 359,
+          "credit": "alameda"
+        },
+        {
+          "src": "ref-images/dental-photos/WING_2_4.webp",
+          "width": 800,
+          "height": 391,
+          "credit": "Maxwell BIA"
+        }
+      ],
+      "3": [
+        {
+          "src": "ref-images/dental-photos/WING_3_2.webp",
+          "width": 800,
+          "height": 363,
+          "credit": "Maxwell"
+        }
+      ],
+      "4": [
+        {
+          "src": "ref-images/dental-photos/WING_4_5.webp",
+          "width": 800,
+          "height": 390,
+          "credit": "Seattle a"
+        }
+      ]
     }
   },
   "DIAS": {
@@ -807,6 +2160,24 @@
         "width": 800,
         "height": 657
       }
+    },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/dental-photos/DIAS_0_1.webp",
+          "width": 800,
+          "height": 477,
+          "credit": "022"
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/dental-photos/DIAS_1_2.webp",
+          "width": 800,
+          "height": 437,
+          "credit": "Corey NMNH"
+        }
+      ]
     }
   },
   "UI1LC": {
@@ -837,6 +2208,51 @@
         "width": 800,
         "height": 625
       }
+    },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/dental-photos/UI1LC_0_1.webp",
+          "width": 778,
+          "height": 800,
+          "credit": "302 a"
+        },
+        {
+          "src": "ref-images/dental-photos/UI1LC_0_2.webp",
+          "width": 691,
+          "height": 800,
+          "credit": "INAH"
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/dental-photos/UI1LC_1_3.webp",
+          "width": 781,
+          "height": 800
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/dental-photos/UI1LC_2_4.webp",
+          "width": 800,
+          "height": 780,
+          "credit": "852718 no NYU"
+        },
+        {
+          "src": "ref-images/dental-photos/UI1LC_2_5.webp",
+          "width": 640,
+          "height": 800,
+          "credit": "Maxwell Jemez"
+        }
+      ],
+      "3": [
+        {
+          "src": "ref-images/dental-photos/UI1LC_3_6.webp",
+          "width": 725,
+          "height": 800,
+          "credit": "Tokyo"
+        }
+      ]
     },
     "location": {
       "src": "ref-images/dental/UI1LC_loc.webp",
@@ -883,6 +2299,45 @@
         "height": 800
       }
     },
+    "photos": {
+      "2": [
+        {
+          "src": "ref-images/dental-photos/UI1SS_2_1.webp",
+          "width": 626,
+          "height": 800,
+          "credit": "Tokyo"
+        }
+      ],
+      "3": [
+        {
+          "src": "ref-images/dental-photos/UI1SS_3_2.webp",
+          "width": 618,
+          "height": 800,
+          "credit": "INAH"
+        },
+        {
+          "src": "ref-images/dental-photos/UI1SS_3_3.webp",
+          "width": 534,
+          "height": 800,
+          "credit": "Tokyo"
+        }
+      ],
+      "4": [
+        {
+          "src": "ref-images/dental-photos/UI1SS_4_4.webp",
+          "width": 800,
+          "height": 775,
+          "credit": "Tokyo"
+        }
+      ],
+      "5": [
+        {
+          "src": "ref-images/dental-photos/UI1SS_5_5.webp",
+          "width": 709,
+          "height": 800
+        }
+      ]
+    },
     "location": {
       "src": "ref-images/dental/UI1SS_loc.webp",
       "width": 566,
@@ -917,31 +2372,107 @@
         "width": 590,
         "height": 800
       },
+      "5": {
+        "src": "ref-images/dental/UI2SS_5.webp",
+        "width": 590,
+        "height": 800
+      },
+      "6": {
+        "src": "ref-images/dental/UI2SS_6.webp",
+        "width": 590,
+        "height": 800
+      },
       "7": {
         "src": "ref-images/dental/UI2SS_7.webp",
         "width": 590,
         "height": 800
-      },
-      "5.1": {
-        "src": "ref-images/dental/UI2SS_5.1.webp",
-        "width": 590,
-        "height": 800
-      },
-      "5.2": {
-        "src": "ref-images/dental/UI2SS_5.2.webp",
-        "width": 590,
-        "height": 800
-      },
-      "6.1": {
-        "src": "ref-images/dental/UI2SS_6.1.webp",
-        "width": 590,
-        "height": 800
-      },
-      "6.2": {
-        "src": "ref-images/dental/UI2SS_6.2.webp",
-        "width": 590,
-        "height": 800
       }
+    },
+    "moreDrawings": {
+      "5": [
+        {
+          "src": "ref-images/dental/UI2SS_5_2.webp",
+          "width": 590,
+          "height": 800
+        }
+      ],
+      "6": [
+        {
+          "src": "ref-images/dental/UI2SS_6_2.webp",
+          "width": 590,
+          "height": 800
+        }
+      ]
+    },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/dental-photos/UI2SS_0_1.webp",
+          "width": 661,
+          "height": 800,
+          "credit": "Grenada a"
+        },
+        {
+          "src": "ref-images/dental-photos/UI2SS_0_2.webp",
+          "width": 677,
+          "height": 800,
+          "credit": "Grenada"
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/dental-photos/UI2SS_1_3.webp",
+          "width": 538,
+          "height": 800,
+          "credit": "Grenada"
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/dental-photos/UI2SS_2_4.webp",
+          "width": 559,
+          "height": 800,
+          "credit": "Jikei"
+        }
+      ],
+      "3": [
+        {
+          "src": "ref-images/dental-photos/UI2SS_3_5.webp",
+          "width": 800,
+          "height": 760,
+          "credit": "11"
+        },
+        {
+          "src": "ref-images/dental-photos/UI2SS_3_6.webp",
+          "width": 692,
+          "height": 800,
+          "credit": "Tokyo"
+        }
+      ],
+      "4": [
+        {
+          "src": "ref-images/dental-photos/UI2SS_4_7.webp",
+          "width": 599,
+          "height": 800,
+          "credit": "Alameda"
+        }
+      ],
+      "6": [
+        {
+          "src": "ref-images/dental-photos/UI2SS_6_8.webp",
+          "width": 633,
+          "height": 800,
+          "credit": "Tokyo a"
+        }
+      ],
+      "7": [
+        {
+          "src": "ref-images/dental-photos/UI2SS_7_9.webp",
+          "width": 658,
+          "height": 800,
+          "credit": "INAH Merida"
+        }
+      ]
     },
     "location": {
       "src": "ref-images/dental/UI2SS_loc.webp",
@@ -982,16 +2513,46 @@
         "width": 694,
         "height": 800
       },
-      "6.1": {
-        "src": "ref-images/dental/UI1DS_6.1.webp",
-        "width": 694,
-        "height": 800
-      },
-      "6.2": {
-        "src": "ref-images/dental/UI1DS_6.2.webp",
+      "6": {
+        "src": "ref-images/dental/UI1DS_6.webp",
         "width": 694,
         "height": 800
       }
+    },
+    "moreDrawings": {
+      "6": [
+        {
+          "src": "ref-images/dental/UI1DS_6_2.webp",
+          "width": 694,
+          "height": 800
+        }
+      ]
+    },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/dental-photos/UI1DS_0_1.webp",
+          "width": 588,
+          "height": 800,
+          "credit": "Berlin"
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/dental-photos/UI1DS_2_2.webp",
+          "width": 800,
+          "height": 764,
+          "credit": "M1"
+        }
+      ],
+      "4": [
+        {
+          "src": "ref-images/dental-photos/UI1DS_4_3.webp",
+          "width": 800,
+          "height": 761,
+          "credit": "M42"
+        }
+      ]
     },
     "location": {
       "src": "ref-images/dental/UI1DS_loc.webp",
@@ -1038,6 +2599,68 @@
         "height": 800
       }
     },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/dental-photos/UI2DS_0_1.webp",
+          "width": 487,
+          "height": 800,
+          "credit": "Maxwell BIA"
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/dental-photos/UI2DS_2_2.webp",
+          "width": 800,
+          "height": 795,
+          "credit": "E2980"
+        }
+      ],
+      "3": [
+        {
+          "src": "ref-images/dental-photos/UI2DS_3_3.webp",
+          "width": 800,
+          "height": 763,
+          "credit": "E674"
+        },
+        {
+          "src": "ref-images/dental-photos/UI2DS_3_4.webp",
+          "width": 800,
+          "height": 677,
+          "credit": "Maxwell 84.27.2"
+        }
+      ],
+      "4": [
+        {
+          "src": "ref-images/dental-photos/UI2DS_4_5.webp",
+          "width": 761,
+          "height": 800,
+          "credit": "M1"
+        }
+      ],
+      "5": [
+        {
+          "src": "ref-images/dental-photos/UI2DS_5_6.webp",
+          "width": 800,
+          "height": 719,
+          "credit": "E3086"
+        }
+      ],
+      "6": [
+        {
+          "src": "ref-images/dental-photos/UI2DS_6_7.webp",
+          "width": 800,
+          "height": 641,
+          "credit": "E3093 I1"
+        },
+        {
+          "src": "ref-images/dental-photos/UI2DS_6_8.webp",
+          "width": 702,
+          "height": 800,
+          "credit": "E3093"
+        }
+      ]
+    },
     "location": {
       "src": "ref-images/dental/UI2DS_loc.webp",
       "width": 747,
@@ -1057,16 +2680,52 @@
         "width": 800,
         "height": 800
       },
-      "2.1": {
-        "src": "ref-images/dental/UI2PEG_2.1.webp",
-        "width": 800,
-        "height": 800
-      },
-      "2.2": {
-        "src": "ref-images/dental/UI2PEG_2.2.webp",
+      "2": {
+        "src": "ref-images/dental/UI2PEG_2.webp",
         "width": 800,
         "height": 800
       }
+    },
+    "moreDrawings": {
+      "2": [
+        {
+          "src": "ref-images/dental/UI2PEG_2_2.webp",
+          "width": 800,
+          "height": 800
+        }
+      ]
+    },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/dental-photos/UI2PEG_0_1.webp",
+          "width": 770,
+          "height": 800,
+          "credit": "INAH"
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/dental-photos/UI2PEG_1_2.webp",
+          "width": 694,
+          "height": 800,
+          "credit": "bia"
+        },
+        {
+          "src": "ref-images/dental-photos/UI2PEG_1_3.webp",
+          "width": 800,
+          "height": 415,
+          "credit": "jemez"
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/dental-photos/UI2PEG_2_4.webp",
+          "width": 800,
+          "height": 484,
+          "credit": "Prague"
+        }
+      ]
     },
     "location": {
       "src": "ref-images/dental/UI2PEG_loc.webp",
@@ -1082,6 +2741,30 @@
         "width": 800,
         "height": 716
       }
+    },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/dental-photos/UI2CA_0_1.webp",
+          "width": 800,
+          "height": 290,
+          "credit": "Corey NMNH"
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/dental-photos/UI2CA_1_2.webp",
+          "width": 800,
+          "height": 306,
+          "credit": "INAH"
+        },
+        {
+          "src": "ref-images/dental-photos/UI2CA_1_3.webp",
+          "width": 800,
+          "height": 354,
+          "credit": "Maxwell BIA"
+        }
+      ]
     },
     "location": {
       "src": "ref-images/dental/UI2CA_loc.webp",
@@ -1118,6 +2801,43 @@
         "height": 800
       }
     },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/dental-photos/UI1IG_0_1.webp",
+          "width": 599,
+          "height": 800,
+          "credit": "INAH"
+        },
+        {
+          "src": "ref-images/dental-photos/UI1IG_0_2.webp",
+          "width": 781,
+          "height": 800
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/dental-photos/UI1IG_2_3.webp",
+          "width": 608,
+          "height": 800,
+          "credit": "INAH"
+        }
+      ],
+      "4": [
+        {
+          "src": "ref-images/dental-photos/UI1IG_4_4.webp",
+          "width": 576,
+          "height": 800,
+          "credit": "ENAH"
+        },
+        {
+          "src": "ref-images/dental-photos/UI1IG_4_5.webp",
+          "width": 559,
+          "height": 800,
+          "credit": "INAH"
+        }
+      ]
+    },
     "location": {
       "src": "ref-images/dental/UI1IG_loc.webp",
       "width": 534,
@@ -1152,6 +2872,23 @@
         "width": 500,
         "height": 800
       }
+    },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/dental-photos/UI2IG_0_1.webp",
+          "width": 584,
+          "height": 800
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/dental-photos/UI2IG_2_2.webp",
+          "width": 634,
+          "height": 800,
+          "credit": "Maxwell 73_137_2-15"
+        }
+      ]
     },
     "location": {
       "src": "ref-images/dental/UI2IG_loc.webp",
@@ -1196,17 +2933,68 @@
         "src": "ref-images/dental/UI1TD_6.webp",
         "width": 566,
         "height": 800
-      },
-      "3.1": {
-        "src": "ref-images/dental/UI1TD_3.1.webp",
-        "width": 566,
-        "height": 800
-      },
-      "4.1": {
-        "src": "ref-images/dental/UI1TD_4.1.webp",
-        "width": 566,
-        "height": 800
       }
+    },
+    "moreDrawings": {
+      "3": [
+        {
+          "src": "ref-images/dental/UI1TD_3_2.webp",
+          "width": 566,
+          "height": 800
+        }
+      ],
+      "4": [
+        {
+          "src": "ref-images/dental/UI1TD_4_2.webp",
+          "width": 566,
+          "height": 800
+        }
+      ]
+    },
+    "photos": {
+      "2": [
+        {
+          "src": "ref-images/dental-photos/UI1TD_2_1.webp",
+          "width": 767,
+          "height": 800,
+          "credit": "Tokyo"
+        }
+      ],
+      "4": [
+        {
+          "src": "ref-images/dental-photos/UI1TD_4_2.webp",
+          "width": 608,
+          "height": 800,
+          "credit": "Berlin"
+        },
+        {
+          "src": "ref-images/dental-photos/UI1TD_4_3.webp",
+          "width": 742,
+          "height": 800,
+          "credit": "INAH"
+        }
+      ],
+      "5": [
+        {
+          "src": "ref-images/dental-photos/UI1TD_5_4.webp",
+          "width": 681,
+          "height": 800
+        }
+      ],
+      "6": [
+        {
+          "src": "ref-images/dental-photos/UI1TD_6_5.webp",
+          "width": 800,
+          "height": 745,
+          "credit": "INAH"
+        },
+        {
+          "src": "ref-images/dental-photos/UI1TD_6_6.webp",
+          "width": 646,
+          "height": 800,
+          "credit": "Seattle"
+        }
+      ]
     },
     "location": {
       "src": "ref-images/dental/UI1TD_loc.webp",
@@ -1251,22 +3039,88 @@
         "src": "ref-images/dental/UI2TD_6.webp",
         "width": 592,
         "height": 800
-      },
-      "3.1": {
-        "src": "ref-images/dental/UI2TD_3.1.webp",
-        "width": 592,
-        "height": 800
-      },
-      "3.2": {
-        "src": "ref-images/dental/UI2TD_3.2.webp",
-        "width": 592,
-        "height": 800
-      },
-      "4.1": {
-        "src": "ref-images/dental/UI2TD_4.1.webp",
-        "width": 592,
-        "height": 800
       }
+    },
+    "moreDrawings": {
+      "3": [
+        {
+          "src": "ref-images/dental/UI2TD_3_2.webp",
+          "width": 592,
+          "height": 800
+        },
+        {
+          "src": "ref-images/dental/UI2TD_3_3.webp",
+          "width": 592,
+          "height": 800
+        }
+      ],
+      "4": [
+        {
+          "src": "ref-images/dental/UI2TD_4_2.webp",
+          "width": 592,
+          "height": 800
+        }
+      ]
+    },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/dental-photos/UI2TD_0_1.webp",
+          "width": 583,
+          "height": 800,
+          "credit": "Grenada"
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/dental-photos/UI2TD_1_2.webp",
+          "width": 768,
+          "height": 800,
+          "credit": "Seattle"
+        },
+        {
+          "src": "ref-images/dental-photos/UI2TD_1_3.webp",
+          "width": 562,
+          "height": 800
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/dental-photos/UI2TD_2_4.webp",
+          "width": 711,
+          "height": 800,
+          "credit": "022"
+        },
+        {
+          "src": "ref-images/dental-photos/UI2TD_2_5.webp",
+          "width": 533,
+          "height": 800
+        }
+      ],
+      "3": [
+        {
+          "src": "ref-images/dental-photos/UI2TD_3_6.webp",
+          "width": 621,
+          "height": 800,
+          "credit": "side"
+        }
+      ],
+      "5": [
+        {
+          "src": "ref-images/dental-photos/UI2TD_5_7.webp",
+          "width": 731,
+          "height": 800,
+          "credit": "098"
+        }
+      ],
+      "6": [
+        {
+          "src": "ref-images/dental-photos/UI2TD_6_8.webp",
+          "width": 696,
+          "height": 800,
+          "credit": "INAH Merida"
+        }
+      ]
     },
     "location": {
       "src": "ref-images/dental/UI2TD_loc.webp",
@@ -1313,6 +3167,70 @@
         "height": 800
       }
     },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/dental-photos/UCSS_0_1.webp",
+          "width": 800,
+          "height": 784,
+          "credit": "Tokyo"
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/dental-photos/UCSS_1_2.webp",
+          "width": 624,
+          "height": 800,
+          "credit": "Grenada a"
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/dental-photos/UCSS_2_3.webp",
+          "width": 698,
+          "height": 800,
+          "credit": "INAH"
+        }
+      ],
+      "3": [
+        {
+          "src": "ref-images/dental-photos/UCSS_3_4.webp",
+          "width": 752,
+          "height": 800,
+          "credit": "20"
+        },
+        {
+          "src": "ref-images/dental-photos/UCSS_3_5.webp",
+          "width": 610,
+          "height": 800,
+          "credit": "Tokyo"
+        }
+      ],
+      "4": [
+        {
+          "src": "ref-images/dental-photos/UCSS_4_6.webp",
+          "width": 658,
+          "height": 800,
+          "credit": "MAXWELL"
+        }
+      ],
+      "5": [
+        {
+          "src": "ref-images/dental-photos/UCSS_5_7.webp",
+          "width": 800,
+          "height": 794,
+          "credit": "Jemez"
+        }
+      ],
+      "6": [
+        {
+          "src": "ref-images/dental-photos/UCSS_6_8.webp",
+          "width": 725,
+          "height": 800,
+          "credit": "M38"
+        }
+      ]
+    },
     "location": {
       "src": "ref-images/dental/UCSS_loc.webp",
       "width": 584,
@@ -1358,6 +3276,68 @@
         "height": 800
       }
     },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/dental-photos/UCTD_0_1.webp",
+          "width": 800,
+          "height": 784,
+          "credit": "Tokyo"
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/dental-photos/UCTD_1_2.webp",
+          "width": 768,
+          "height": 800,
+          "credit": "Jikei"
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/dental-photos/UCTD_2_3.webp",
+          "width": 610,
+          "height": 800,
+          "credit": "TOKYO"
+        }
+      ],
+      "3": [
+        {
+          "src": "ref-images/dental-photos/UCTD_3_4.webp",
+          "width": 587,
+          "height": 800,
+          "credit": "33"
+        },
+        {
+          "src": "ref-images/dental-photos/UCTD_3_5.webp",
+          "width": 690,
+          "height": 800,
+          "credit": "Maxwell Jemez"
+        }
+      ],
+      "4": [
+        {
+          "src": "ref-images/dental-photos/UCTD_4_6.webp",
+          "width": 719,
+          "height": 800,
+          "credit": "M51"
+        }
+      ],
+      "6": [
+        {
+          "src": "ref-images/dental-photos/UCTD_6_7.webp",
+          "width": 779,
+          "height": 800,
+          "credit": "13"
+        },
+        {
+          "src": "ref-images/dental-photos/UCTD_6_8.webp",
+          "width": 800,
+          "height": 795,
+          "credit": "27"
+        }
+      ]
+    },
     "location": {
       "src": "ref-images/dental/UCTD_loc.webp",
       "width": 600,
@@ -1388,6 +3368,32 @@
         "height": 800
       }
     },
+    "photos": {
+      "1": [
+        {
+          "src": "ref-images/dental-photos/UCMR_1_1.webp",
+          "width": 684,
+          "height": 800,
+          "credit": "OUSLEY A"
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/dental-photos/UCMR_2_2.webp",
+          "width": 657,
+          "height": 800,
+          "credit": "Seattle"
+        }
+      ],
+      "3": [
+        {
+          "src": "ref-images/dental-photos/UCMR_3_3.webp",
+          "width": 554,
+          "height": 800,
+          "credit": "Berlin"
+        }
+      ]
+    },
     "location": {
       "src": "ref-images/dental/UCMR_loc.webp",
       "width": 572,
@@ -1412,6 +3418,11 @@
         "width": 600,
         "height": 800
       },
+      "3": {
+        "src": "ref-images/dental/UCDR_3.webp",
+        "width": 600,
+        "height": 800
+      },
       "4": {
         "src": "ref-images/dental/UCDR_4.webp",
         "width": 600,
@@ -1421,17 +3432,50 @@
         "src": "ref-images/dental/UCDR_5.webp",
         "width": 600,
         "height": 800
-      },
-      "3.1": {
-        "src": "ref-images/dental/UCDR_3.1.webp",
-        "width": 600,
-        "height": 800
-      },
-      "3.2": {
-        "src": "ref-images/dental/UCDR_3.2.webp",
-        "width": 600,
-        "height": 800
       }
+    },
+    "moreDrawings": {
+      "3": [
+        {
+          "src": "ref-images/dental/UCDR_3_2.webp",
+          "width": 600,
+          "height": 800
+        }
+      ]
+    },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/dental-photos/UCDR_0_1.webp",
+          "width": 768,
+          "height": 800,
+          "credit": "Tokyo"
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/dental-photos/UCDR_2_2.webp",
+          "width": 631,
+          "height": 800,
+          "credit": "Alamdea"
+        }
+      ],
+      "3": [
+        {
+          "src": "ref-images/dental-photos/UCDR_3_3.webp",
+          "width": 591,
+          "height": 800,
+          "credit": "Maxwell Jemez"
+        }
+      ],
+      "4": [
+        {
+          "src": "ref-images/dental-photos/UCDR_4_4.webp",
+          "width": 800,
+          "height": 792,
+          "credit": "Ousley"
+        }
+      ]
     },
     "location": {
       "src": "ref-images/dental/UCDR_loc.webp",
@@ -1463,6 +3507,32 @@
         "height": 800
       }
     },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/dental-photos/UP3AC_0_1.webp",
+          "width": 800,
+          "height": 748,
+          "credit": "COREY NMNH A"
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/dental-photos/UP3AC_1_2.webp",
+          "width": 752,
+          "height": 800,
+          "credit": "Tokyo"
+        }
+      ],
+      "3": [
+        {
+          "src": "ref-images/dental-photos/UP3AC_3_3.webp",
+          "width": 800,
+          "height": 627,
+          "credit": "INAH"
+        }
+      ]
+    },
     "location": {
       "src": "ref-images/dental/UP3AC_loc.webp",
       "width": 606,
@@ -1493,6 +3563,32 @@
         "height": 800
       }
     },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/dental-photos/UP4AC_0_1.webp",
+          "width": 800,
+          "height": 630,
+          "credit": "INAH"
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/dental-photos/UP4AC_2_2.webp",
+          "width": 800,
+          "height": 613,
+          "credit": "INAH"
+        }
+      ],
+      "3": [
+        {
+          "src": "ref-images/dental-photos/UP4AC_3_3.webp",
+          "width": 800,
+          "height": 627,
+          "credit": "Maxwell"
+        }
+      ]
+    },
     "location": {
       "src": "ref-images/dental/UP4AC_loc.webp",
       "width": 611,
@@ -1512,6 +3608,24 @@
         "width": 605,
         "height": 800
       }
+    },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/dental-photos/UP3DS_0_1.webp",
+          "width": 800,
+          "height": 653,
+          "credit": "B Maxwell"
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/dental-photos/UP3DS_1_2.webp",
+          "width": 800,
+          "height": 641,
+          "credit": "A ousley"
+        }
+      ]
     },
     "location": {
       "src": "ref-images/dental/UP3DS_loc.webp",
@@ -1547,6 +3661,34 @@
         "width": 606,
         "height": 800
       }
+    },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/dental-photos/UP3MMXPAR_0_1.webp",
+          "width": 800,
+          "height": 737,
+          "credit": "Jikei"
+        },
+        {
+          "src": "ref-images/dental-photos/UP3MMXPAR_0_2.webp",
+          "width": 800,
+          "height": 710,
+          "credit": "Ousley"
+        }
+      ],
+      "4": [
+        {
+          "src": "ref-images/dental-photos/UP3MMXPAR_4_3.webp",
+          "width": 800,
+          "height": 653
+        },
+        {
+          "src": "ref-images/dental-photos/UP3MMXPAR_4_4.webp",
+          "width": 800,
+          "height": 707
+        }
+      ]
     },
     "location": {
       "src": "ref-images/dental/UP3MMXPAR_loc.webp",
@@ -1618,6 +3760,44 @@
         "height": 800
       }
     },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/dental-photos/UP4MMXPAR_0_1.webp",
+          "width": 800,
+          "height": 612
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/dental-photos/UP4MMXPAR_2_2.webp",
+          "width": 800,
+          "height": 720,
+          "credit": "t"
+        }
+      ],
+      "3": [
+        {
+          "src": "ref-images/dental-photos/UP4MMXPAR_3_3.webp",
+          "width": 800,
+          "height": 689,
+          "credit": "Ousley"
+        }
+      ],
+      "4": [
+        {
+          "src": "ref-images/dental-photos/UP4MMXPAR_4_4.webp",
+          "width": 800,
+          "height": 796
+        },
+        {
+          "src": "ref-images/dental-photos/UP4MMXPAR_4_5.webp",
+          "width": 800,
+          "height": 611,
+          "credit": "Maxwell BIA"
+        }
+      ]
+    },
     "location": {
       "src": "ref-images/dental/UP4MMXPAR_loc.webp",
       "width": 611,
@@ -1653,6 +3833,52 @@
         "height": 800
       }
     },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/dental-photos/UP4DMXPAR_0_1.webp",
+          "width": 800,
+          "height": 623,
+          "credit": "Jikei"
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/dental-photos/UP4DMXPAR_1_2.webp",
+          "width": 800,
+          "height": 632,
+          "credit": "004"
+        },
+        {
+          "src": "ref-images/dental-photos/UP4DMXPAR_1_3.webp",
+          "width": 800,
+          "height": 651,
+          "credit": "Jikei"
+        }
+      ],
+      "3": [
+        {
+          "src": "ref-images/dental-photos/UP4DMXPAR_3_4.webp",
+          "width": 800,
+          "height": 739,
+          "credit": "Jemez"
+        },
+        {
+          "src": "ref-images/dental-photos/UP4DMXPAR_3_5.webp",
+          "width": 800,
+          "height": 663,
+          "credit": "Maxwell 73_137_2-15"
+        }
+      ],
+      "4": [
+        {
+          "src": "ref-images/dental-photos/UP4DMXPAR_4_6.webp",
+          "width": 800,
+          "height": 689,
+          "credit": "Ousley"
+        }
+      ]
+    },
     "location": {
       "src": "ref-images/dental/UP4DMXPAR_loc.webp",
       "width": 611,
@@ -1672,16 +3898,38 @@
         "width": 432,
         "height": 800
       },
-      "2.1": {
-        "src": "ref-images/dental/UM3PEG_2.1.webp",
-        "width": 432,
-        "height": 800
-      },
-      "2.2": {
-        "src": "ref-images/dental/UM3PEG_2.2.webp",
+      "2": {
+        "src": "ref-images/dental/UM3PEG_2.webp",
         "width": 432,
         "height": 800
       }
+    },
+    "moreDrawings": {
+      "2": [
+        {
+          "src": "ref-images/dental/UM3PEG_2_2.webp",
+          "width": 432,
+          "height": 800
+        }
+      ]
+    },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/dental-photos/UM3PEG_0_1.webp",
+          "width": 364,
+          "height": 800,
+          "credit": "Corey AMNH"
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/dental-photos/UM3PEG_2_2.webp",
+          "width": 610,
+          "height": 800,
+          "credit": "Ousley"
+        }
+      ]
     },
     "location": {
       "src": "ref-images/dental/UM3PEG_loc.webp",
@@ -1697,6 +3945,29 @@
         "width": 800,
         "height": 716
       }
+    },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/dental-photos/UM3CA_0_1.webp",
+          "width": 393,
+          "height": 800,
+          "credit": "Paris"
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/dental-photos/UM3CA_1_2.webp",
+          "width": 541,
+          "height": 800,
+          "credit": "Paris"
+        },
+        {
+          "src": "ref-images/dental-photos/UM3CA_1_3.webp",
+          "width": 448,
+          "height": 800
+        }
+      ]
     },
     "location": {
       "src": "ref-images/dental/UM3CA_loc.webp",
@@ -1743,6 +4014,31 @@
         "height": 718
       }
     },
+    "photos": {
+      "2": [
+        {
+          "src": "ref-images/dental-photos/UM1MC_2_1.webp",
+          "width": 752,
+          "height": 800
+        }
+      ],
+      "3": [
+        {
+          "src": "ref-images/dental-photos/UM1MC_3_2.webp",
+          "width": 799,
+          "height": 800,
+          "credit": "Seattle"
+        }
+      ],
+      "4": [
+        {
+          "src": "ref-images/dental-photos/UM1MC_4_3.webp",
+          "width": 800,
+          "height": 796,
+          "credit": "Alameda"
+        }
+      ]
+    },
     "location": {
       "src": "ref-images/dental/UM1MC_loc.webp",
       "width": 800,
@@ -1787,6 +4083,80 @@
         "width": 800,
         "height": 699
       }
+    },
+    "photos": {
+      "1": [
+        {
+          "src": "ref-images/dental-photos/UM2MC_1_1.webp",
+          "width": 787,
+          "height": 800,
+          "credit": "Grenada"
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/dental-photos/UM2MC_2_2.webp",
+          "width": 800,
+          "height": 798,
+          "credit": "Grenada b"
+        },
+        {
+          "src": "ref-images/dental-photos/UM2MC_2_3.webp",
+          "width": 800,
+          "height": 748,
+          "credit": "Grenada"
+        }
+      ],
+      "3": [
+        {
+          "src": "ref-images/dental-photos/UM2MC_3_4.webp",
+          "width": 800,
+          "height": 674,
+          "credit": "E3031"
+        },
+        {
+          "src": "ref-images/dental-photos/UM2MC_3_5.webp",
+          "width": 800,
+          "height": 630,
+          "credit": "Grenada c"
+        }
+      ],
+      "4": [
+        {
+          "src": "ref-images/dental-photos/UM2MC_4_6.webp",
+          "width": 800,
+          "height": 749,
+          "credit": "Grenada a"
+        },
+        {
+          "src": "ref-images/dental-photos/UM2MC_4_7.webp",
+          "width": 800,
+          "height": 786,
+          "credit": "Tokyo"
+        }
+      ],
+      "5": [
+        {
+          "src": "ref-images/dental-photos/UM2MC_5_8.webp",
+          "width": 768,
+          "height": 800,
+          "credit": "M38"
+        }
+      ],
+      "6": [
+        {
+          "src": "ref-images/dental-photos/UM2MC_6_9.webp",
+          "width": 800,
+          "height": 750,
+          "credit": "A8"
+        },
+        {
+          "src": "ref-images/dental-photos/UM2MC_6_10.webp",
+          "width": 800,
+          "height": 754,
+          "credit": "M27"
+        }
+      ]
     },
     "location": {
       "src": "ref-images/dental/UM2MC_loc.webp",
@@ -1833,6 +4203,80 @@
         "height": 699
       }
     },
+    "photos": {
+      "1": [
+        {
+          "src": "ref-images/dental-photos/max_metacone_m3_1_1.webp",
+          "width": 787,
+          "height": 800,
+          "credit": "Grenada"
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/dental-photos/max_metacone_m3_2_2.webp",
+          "width": 800,
+          "height": 798,
+          "credit": "Grenada b"
+        },
+        {
+          "src": "ref-images/dental-photos/max_metacone_m3_2_3.webp",
+          "width": 800,
+          "height": 748,
+          "credit": "Grenada"
+        }
+      ],
+      "3": [
+        {
+          "src": "ref-images/dental-photos/max_metacone_m3_3_4.webp",
+          "width": 800,
+          "height": 674,
+          "credit": "E3031"
+        },
+        {
+          "src": "ref-images/dental-photos/max_metacone_m3_3_5.webp",
+          "width": 800,
+          "height": 630,
+          "credit": "Grenada c"
+        }
+      ],
+      "4": [
+        {
+          "src": "ref-images/dental-photos/max_metacone_m3_4_6.webp",
+          "width": 800,
+          "height": 749,
+          "credit": "Grenada a"
+        },
+        {
+          "src": "ref-images/dental-photos/max_metacone_m3_4_7.webp",
+          "width": 800,
+          "height": 786,
+          "credit": "Tokyo"
+        }
+      ],
+      "5": [
+        {
+          "src": "ref-images/dental-photos/max_metacone_m3_5_8.webp",
+          "width": 768,
+          "height": 800,
+          "credit": "M38"
+        }
+      ],
+      "6": [
+        {
+          "src": "ref-images/dental-photos/max_metacone_m3_6_9.webp",
+          "width": 800,
+          "height": 750,
+          "credit": "A8"
+        },
+        {
+          "src": "ref-images/dental-photos/max_metacone_m3_6_10.webp",
+          "width": 800,
+          "height": 754,
+          "credit": "M27"
+        }
+      ]
+    },
     "location": {
       "src": "ref-images/dental/max_metacone_m3_loc.webp",
       "width": 800,
@@ -1877,6 +4321,54 @@
         "width": 800,
         "height": 690
       }
+    },
+    "photos": {
+      "1": [
+        {
+          "src": "ref-images/dental-photos/UM1HC_1_1.webp",
+          "width": 800,
+          "height": 729,
+          "credit": "Heather"
+        },
+        {
+          "src": "ref-images/dental-photos/UM1HC_1_2.webp",
+          "width": 800,
+          "height": 757,
+          "credit": "Seattle"
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/dental-photos/UM1HC_2_3.webp",
+          "width": 800,
+          "height": 761,
+          "credit": "E982 UM2"
+        }
+      ],
+      "3": [
+        {
+          "src": "ref-images/dental-photos/UM1HC_3_4.webp",
+          "width": 719,
+          "height": 800,
+          "credit": "23"
+        }
+      ],
+      "4": [
+        {
+          "src": "ref-images/dental-photos/UM1HC_4_5.webp",
+          "width": 800,
+          "height": 760,
+          "credit": "14"
+        }
+      ],
+      "5": [
+        {
+          "src": "ref-images/dental-photos/UM1HC_5_6.webp",
+          "width": 695,
+          "height": 800,
+          "credit": "16"
+        }
+      ]
     },
     "location": {
       "src": "ref-images/dental/UM1HC_loc.webp",
@@ -1923,6 +4415,54 @@
         "height": 661
       }
     },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/dental-photos/UM2HC_0_1.webp",
+          "width": 800,
+          "height": 657,
+          "credit": "Alameda"
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/dental-photos/UM2HC_1_2.webp",
+          "width": 800,
+          "height": 731,
+          "credit": "Seattle"
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/dental-photos/UM2HC_2_3.webp",
+          "width": 800,
+          "height": 768,
+          "credit": "Grenada"
+        },
+        {
+          "src": "ref-images/dental-photos/UM2HC_2_4.webp",
+          "width": 800,
+          "height": 691,
+          "credit": "Ousley a"
+        }
+      ],
+      "4": [
+        {
+          "src": "ref-images/dental-photos/UM2HC_4_5.webp",
+          "width": 800,
+          "height": 680,
+          "credit": "73_108_109-5"
+        }
+      ],
+      "6": [
+        {
+          "src": "ref-images/dental-photos/UM2HC_6_6.webp",
+          "width": 800,
+          "height": 707,
+          "credit": "Ousley"
+        }
+      ]
+    },
     "location": {
       "src": "ref-images/dental/UM2HC_loc.webp",
       "width": 800,
@@ -1968,6 +4508,54 @@
         "height": 661
       }
     },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/dental-photos/max_hypocone_m3_0_1.webp",
+          "width": 800,
+          "height": 657,
+          "credit": "Alameda"
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/dental-photos/max_hypocone_m3_1_2.webp",
+          "width": 800,
+          "height": 731,
+          "credit": "Seattle"
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/dental-photos/max_hypocone_m3_2_3.webp",
+          "width": 800,
+          "height": 768,
+          "credit": "Grenada"
+        },
+        {
+          "src": "ref-images/dental-photos/max_hypocone_m3_2_4.webp",
+          "width": 800,
+          "height": 691,
+          "credit": "Ousley a"
+        }
+      ],
+      "4": [
+        {
+          "src": "ref-images/dental-photos/max_hypocone_m3_4_5.webp",
+          "width": 800,
+          "height": 680,
+          "credit": "73_108_109-5"
+        }
+      ],
+      "6": [
+        {
+          "src": "ref-images/dental-photos/max_hypocone_m3_6_6.webp",
+          "width": 800,
+          "height": 707,
+          "credit": "Ousley"
+        }
+      ]
+    },
     "location": {
       "src": "ref-images/dental/max_hypocone_m3_loc.webp",
       "width": 800,
@@ -2007,6 +4595,47 @@
         "width": 800,
         "height": 702
       }
+    },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/dental-photos/UM1C5_0_1.webp",
+          "width": 783,
+          "height": 800
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/dental-photos/UM1C5_1_2.webp",
+          "width": 800,
+          "height": 751,
+          "credit": "41"
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/dental-photos/UM1C5_2_3.webp",
+          "width": 800,
+          "height": 763,
+          "credit": "Maxwell 73_137_2-15"
+        }
+      ],
+      "4": [
+        {
+          "src": "ref-images/dental-photos/UM1C5_4_4.webp",
+          "width": 800,
+          "height": 774,
+          "credit": "Jikei"
+        }
+      ],
+      "5": [
+        {
+          "src": "ref-images/dental-photos/UM1C5_5_5.webp",
+          "width": 800,
+          "height": 756,
+          "credit": "Corey NMNH"
+        }
+      ]
     },
     "location": {
       "src": "ref-images/dental/UM1C5_loc.webp",
@@ -2048,6 +4677,62 @@
         "height": 637
       }
     },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/dental-photos/UM2C5_0_1.webp",
+          "width": 800,
+          "height": 709,
+          "credit": "Grenada"
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/dental-photos/UM2C5_1_2.webp",
+          "width": 800,
+          "height": 750,
+          "credit": "A8"
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/dental-photos/UM2C5_2_3.webp",
+          "width": 800,
+          "height": 745,
+          "credit": "Alameda"
+        }
+      ],
+      "3": [
+        {
+          "src": "ref-images/dental-photos/UM2C5_3_4.webp",
+          "width": 800,
+          "height": 783,
+          "credit": "A7"
+        },
+        {
+          "src": "ref-images/dental-photos/UM2C5_3_5.webp",
+          "width": 756,
+          "height": 800,
+          "credit": "M38"
+        }
+      ],
+      "4": [
+        {
+          "src": "ref-images/dental-photos/UM2C5_4_6.webp",
+          "width": 800,
+          "height": 671,
+          "credit": "E968"
+        }
+      ],
+      "5": [
+        {
+          "src": "ref-images/dental-photos/UM2C5_5_7.webp",
+          "width": 800,
+          "height": 764,
+          "credit": "Grenada"
+        }
+      ]
+    },
     "location": {
       "src": "ref-images/dental/UM2C5_loc.webp",
       "width": 800,
@@ -2087,6 +4772,62 @@
         "width": 800,
         "height": 637
       }
+    },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/dental-photos/max_cusp_m3_0_1.webp",
+          "width": 800,
+          "height": 709,
+          "credit": "Grenada"
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/dental-photos/max_cusp_m3_1_2.webp",
+          "width": 800,
+          "height": 750,
+          "credit": "A8"
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/dental-photos/max_cusp_m3_2_3.webp",
+          "width": 800,
+          "height": 745,
+          "credit": "Alameda"
+        }
+      ],
+      "3": [
+        {
+          "src": "ref-images/dental-photos/max_cusp_m3_3_4.webp",
+          "width": 800,
+          "height": 783,
+          "credit": "A7"
+        },
+        {
+          "src": "ref-images/dental-photos/max_cusp_m3_3_5.webp",
+          "width": 756,
+          "height": 800,
+          "credit": "M38"
+        }
+      ],
+      "4": [
+        {
+          "src": "ref-images/dental-photos/max_cusp_m3_4_6.webp",
+          "width": 800,
+          "height": 671,
+          "credit": "E968"
+        }
+      ],
+      "5": [
+        {
+          "src": "ref-images/dental-photos/max_cusp_m3_5_7.webp",
+          "width": 800,
+          "height": 764,
+          "credit": "Grenada"
+        }
+      ]
     },
     "location": {
       "src": "ref-images/dental/max_cusp_m3_loc.webp",
@@ -2138,6 +4879,71 @@
         "height": 625
       }
     },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/dental-photos/UM1CB_0_1.webp",
+          "width": 708,
+          "height": 800,
+          "credit": "Jikei"
+        },
+        {
+          "src": "ref-images/dental-photos/UM1CB_0_2.webp",
+          "width": 800,
+          "height": 770,
+          "credit": "Maxwell 73_108_105a-7"
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/dental-photos/UM1CB_1_3.webp",
+          "width": 776,
+          "height": 800,
+          "credit": "Berlin"
+        },
+        {
+          "src": "ref-images/dental-photos/UM1CB_1_4.webp",
+          "width": 689,
+          "height": 800,
+          "credit": "Maxwell BIA"
+        }
+      ],
+      "3": [
+        {
+          "src": "ref-images/dental-photos/UM1CB_3_5.webp",
+          "width": 800,
+          "height": 733,
+          "credit": "INAH A"
+        },
+        {
+          "src": "ref-images/dental-photos/UM1CB_3_6.webp",
+          "width": 800,
+          "height": 795,
+          "credit": "INAH"
+        }
+      ],
+      "4": [
+        {
+          "src": "ref-images/dental-photos/UM1CB_4_7.webp",
+          "width": 800,
+          "height": 791,
+          "credit": "AMNH"
+        }
+      ],
+      "5": [
+        {
+          "src": "ref-images/dental-photos/UM1CB_5_8.webp",
+          "width": 754,
+          "height": 800,
+          "credit": "Tokyo"
+        },
+        {
+          "src": "ref-images/dental-photos/UM1CB_5_9.webp",
+          "width": 800,
+          "height": 697
+        }
+      ]
+    },
     "location": {
       "src": "ref-images/dental/UM1CB_loc.webp",
       "width": 800,
@@ -2187,6 +4993,62 @@
         "width": 800,
         "height": 655
       }
+    },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/dental-photos/UM2CB_0_1.webp",
+          "width": 800,
+          "height": 657,
+          "credit": "Alameda"
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/dental-photos/UM2CB_2_2.webp",
+          "width": 800,
+          "height": 704,
+          "credit": "Berlin a"
+        }
+      ],
+      "3": [
+        {
+          "src": "ref-images/dental-photos/UM2CB_3_3.webp",
+          "width": 800,
+          "height": 749,
+          "credit": "Maxwell BIA"
+        }
+      ],
+      "4": [
+        {
+          "src": "ref-images/dental-photos/UM2CB_4_4.webp",
+          "width": 800,
+          "height": 771,
+          "credit": "Seattle a"
+        },
+        {
+          "src": "ref-images/dental-photos/UM2CB_4_5.webp",
+          "width": 800,
+          "height": 783,
+          "credit": "Tokyo"
+        }
+      ],
+      "5": [
+        {
+          "src": "ref-images/dental-photos/UM2CB_5_6.webp",
+          "width": 800,
+          "height": 713,
+          "credit": "Berlin"
+        }
+      ],
+      "6": [
+        {
+          "src": "ref-images/dental-photos/UM2CB_6_7.webp",
+          "width": 800,
+          "height": 652,
+          "credit": "Berlin"
+        }
+      ]
     },
     "location": {
       "src": "ref-images/dental/UM2CB_loc.webp",
@@ -2238,6 +5100,62 @@
         "height": 655
       }
     },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/dental-photos/max_carabelli_m3_0_1.webp",
+          "width": 800,
+          "height": 657,
+          "credit": "Alameda"
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/dental-photos/max_carabelli_m3_2_2.webp",
+          "width": 800,
+          "height": 704,
+          "credit": "Berlin a"
+        }
+      ],
+      "3": [
+        {
+          "src": "ref-images/dental-photos/max_carabelli_m3_3_3.webp",
+          "width": 800,
+          "height": 749,
+          "credit": "Maxwell BIA"
+        }
+      ],
+      "4": [
+        {
+          "src": "ref-images/dental-photos/max_carabelli_m3_4_4.webp",
+          "width": 800,
+          "height": 771,
+          "credit": "Seattle a"
+        },
+        {
+          "src": "ref-images/dental-photos/max_carabelli_m3_4_5.webp",
+          "width": 800,
+          "height": 783,
+          "credit": "Tokyo"
+        }
+      ],
+      "5": [
+        {
+          "src": "ref-images/dental-photos/max_carabelli_m3_5_6.webp",
+          "width": 800,
+          "height": 713,
+          "credit": "Berlin"
+        }
+      ],
+      "6": [
+        {
+          "src": "ref-images/dental-photos/max_carabelli_m3_6_7.webp",
+          "width": 800,
+          "height": 652,
+          "credit": "Berlin"
+        }
+      ]
+    },
     "location": {
       "src": "ref-images/dental/max_carabelli_m3_loc.webp",
       "width": 800,
@@ -2282,6 +5200,37 @@
         "width": 667,
         "height": 800
       }
+    },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/dental-photos/UM1PS_0_1.webp",
+          "width": 800,
+          "height": 652,
+          "credit": "Grenada"
+        },
+        {
+          "src": "ref-images/dental-photos/UM1PS_0_2.webp",
+          "width": 785,
+          "height": 800,
+          "credit": "Jikei"
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/dental-photos/UM1PS_2_3.webp",
+          "width": 800,
+          "height": 725,
+          "credit": "Seattle a"
+        }
+      ],
+      "4": [
+        {
+          "src": "ref-images/dental-photos/UM1PS_4_4.webp",
+          "width": 800,
+          "height": 692
+        }
+      ]
     },
     "location": {
       "src": "ref-images/dental/UM1PS_loc.webp",
@@ -2328,6 +5277,45 @@
         "height": 800
       }
     },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/dental-photos/UM2PS_0_1.webp",
+          "width": 800,
+          "height": 788
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/dental-photos/UM2PS_1_2.webp",
+          "width": 800,
+          "height": 635,
+          "credit": "INAH a M1"
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/dental-photos/UM2PS_2_3.webp",
+          "width": 792,
+          "height": 800,
+          "credit": "COREY NMNH"
+        }
+      ],
+      "4": [
+        {
+          "src": "ref-images/dental-photos/UM2PS_4_4.webp",
+          "width": 800,
+          "height": 761,
+          "credit": "COREY NMNH"
+        },
+        {
+          "src": "ref-images/dental-photos/UM2PS_4_5.webp",
+          "width": 800,
+          "height": 669,
+          "credit": "INAH M3"
+        }
+      ]
+    },
     "location": {
       "src": "ref-images/dental/UM2PS_loc.webp",
       "width": 647,
@@ -2373,6 +5361,45 @@
         "height": 800
       }
     },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/dental-photos/max_para_m3_0_1.webp",
+          "width": 800,
+          "height": 788
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/dental-photos/max_para_m3_1_2.webp",
+          "width": 800,
+          "height": 635,
+          "credit": "INAH a M1"
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/dental-photos/max_para_m3_2_3.webp",
+          "width": 792,
+          "height": 800,
+          "credit": "COREY NMNH"
+        }
+      ],
+      "4": [
+        {
+          "src": "ref-images/dental-photos/max_para_m3_4_4.webp",
+          "width": 800,
+          "height": 761,
+          "credit": "COREY NMNH"
+        },
+        {
+          "src": "ref-images/dental-photos/max_para_m3_4_5.webp",
+          "width": 800,
+          "height": 669,
+          "credit": "INAH M3"
+        }
+      ]
+    },
     "location": {
       "src": "ref-images/dental/max_para_m3_loc.webp",
       "width": 647,
@@ -2402,6 +5429,57 @@
         "width": 647,
         "height": 800
       }
+    },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/dental-photos/UM1EE_0_1.webp",
+          "width": 651,
+          "height": 800,
+          "credit": "Grenada"
+        },
+        {
+          "src": "ref-images/dental-photos/UM1EE_0_2.webp",
+          "width": 800,
+          "height": 558,
+          "credit": "alameda"
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/dental-photos/UM1EE_1_3.webp",
+          "width": 752,
+          "height": 800,
+          "credit": "Maxwell BIA"
+        },
+        {
+          "src": "ref-images/dental-photos/UM1EE_1_4.webp",
+          "width": 800,
+          "height": 790,
+          "credit": "Senegal"
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/dental-photos/UM1EE_2_5.webp",
+          "width": 742,
+          "height": 800,
+          "credit": "Maxwell BIA"
+        }
+      ],
+      "3": [
+        {
+          "src": "ref-images/dental-photos/UM1EE_3_6.webp",
+          "width": 761,
+          "height": 800,
+          "credit": "a"
+        },
+        {
+          "src": "ref-images/dental-photos/UM1EE_3_7.webp",
+          "width": 681,
+          "height": 800
+        }
+      ]
     },
     "location": {
       "src": "ref-images/dental/UM1EE_loc.webp",
@@ -2433,6 +5511,57 @@
         "height": 800
       }
     },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/dental-photos/UM2EE_0_1.webp",
+          "width": 651,
+          "height": 800,
+          "credit": "Grenada"
+        },
+        {
+          "src": "ref-images/dental-photos/UM2EE_0_2.webp",
+          "width": 800,
+          "height": 558,
+          "credit": "alameda"
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/dental-photos/UM2EE_1_3.webp",
+          "width": 752,
+          "height": 800,
+          "credit": "Maxwell BIA"
+        },
+        {
+          "src": "ref-images/dental-photos/UM2EE_1_4.webp",
+          "width": 800,
+          "height": 790,
+          "credit": "Senegal"
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/dental-photos/UM2EE_2_5.webp",
+          "width": 742,
+          "height": 800,
+          "credit": "Maxwell BIA"
+        }
+      ],
+      "3": [
+        {
+          "src": "ref-images/dental-photos/UM2EE_3_6.webp",
+          "width": 761,
+          "height": 800,
+          "credit": "a"
+        },
+        {
+          "src": "ref-images/dental-photos/UM2EE_3_7.webp",
+          "width": 681,
+          "height": 800
+        }
+      ]
+    },
     "location": {
       "src": "ref-images/dental/UM2EE_loc.webp",
       "width": 647,
@@ -2462,6 +5591,57 @@
         "width": 647,
         "height": 800
       }
+    },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/dental-photos/max_ext_m3_0_1.webp",
+          "width": 651,
+          "height": 800,
+          "credit": "Grenada"
+        },
+        {
+          "src": "ref-images/dental-photos/max_ext_m3_0_2.webp",
+          "width": 800,
+          "height": 558,
+          "credit": "alameda"
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/dental-photos/max_ext_m3_1_3.webp",
+          "width": 752,
+          "height": 800,
+          "credit": "Maxwell BIA"
+        },
+        {
+          "src": "ref-images/dental-photos/max_ext_m3_1_4.webp",
+          "width": 800,
+          "height": 790,
+          "credit": "Senegal"
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/dental-photos/max_ext_m3_2_5.webp",
+          "width": 742,
+          "height": 800,
+          "credit": "Maxwell BIA"
+        }
+      ],
+      "3": [
+        {
+          "src": "ref-images/dental-photos/max_ext_m3_3_6.webp",
+          "width": 761,
+          "height": 800,
+          "credit": "a"
+        },
+        {
+          "src": "ref-images/dental-photos/max_ext_m3_3_7.webp",
+          "width": 681,
+          "height": 800
+        }
+      ]
     },
     "location": {
       "src": "ref-images/dental/max_ext_m3_loc.webp",
@@ -2493,6 +5673,38 @@
         "height": 800
       }
     },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/dental-photos/LI1SS_0_1.webp",
+          "width": 610,
+          "height": 800,
+          "credit": "40"
+        },
+        {
+          "src": "ref-images/dental-photos/LI1SS_0_2.webp",
+          "width": 573,
+          "height": 800,
+          "credit": "Alameda"
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/dental-photos/LI1SS_1_4.webp",
+          "width": 613,
+          "height": 800,
+          "credit": "Alameda"
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/dental-photos/LI1SS_2_3.webp",
+          "width": 633,
+          "height": 800,
+          "credit": "UADY"
+        }
+      ]
+    },
     "location": {
       "src": "ref-images/dental/LI1SS_loc.webp",
       "width": 475,
@@ -2523,6 +5735,32 @@
         "height": 800
       }
     },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/dental-photos/LI2SS_0_1.webp",
+          "width": 602,
+          "height": 800,
+          "credit": "M23"
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/dental-photos/LI2SS_1_2.webp",
+          "width": 644,
+          "height": 800,
+          "credit": "Alamdea"
+        }
+      ],
+      "3": [
+        {
+          "src": "ref-images/dental-photos/LI2SS_3_3.webp",
+          "width": 548,
+          "height": 800,
+          "credit": "M3"
+        }
+      ]
+    },
     "location": {
       "src": "ref-images/dental/LI2SS_loc.webp",
       "width": 600,
@@ -2530,7 +5768,18 @@
     }
   },
   "LI1CA": {
-    "kind": "none"
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "1": [
+        {
+          "src": "ref-images/dental-photos/LI1CA_1_1.webp",
+          "width": 800,
+          "height": 378,
+          "credit": "Maxwell"
+        }
+      ]
+    }
   },
   "LCDR": {
     "kind": "states",
@@ -2566,6 +5815,48 @@
         "height": 800
       }
     },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/dental-photos/LCDR_0_1.webp",
+          "width": 691,
+          "height": 800,
+          "credit": "Anna"
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/dental-photos/LCDR_1_2.webp",
+          "width": 694,
+          "height": 800,
+          "credit": "50"
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/dental-photos/LCDR_2_3.webp",
+          "width": 696,
+          "height": 800,
+          "credit": "Maxwell"
+        }
+      ],
+      "3": [
+        {
+          "src": "ref-images/dental-photos/LCDR_3_4.webp",
+          "width": 647,
+          "height": 800,
+          "credit": "Berlin"
+        }
+      ],
+      "5": [
+        {
+          "src": "ref-images/dental-photos/LCDR_5_5.webp",
+          "width": 800,
+          "height": 786,
+          "credit": "M4"
+        }
+      ]
+    },
     "location": {
       "src": "ref-images/dental/LCDR_loc.webp",
       "width": 542,
@@ -2595,6 +5886,11 @@
         "width": 689,
         "height": 800
       },
+      "4": {
+        "src": "ref-images/dental/LP3LC_4.webp",
+        "width": 689,
+        "height": 800
+      },
       "5": {
         "src": "ref-images/dental/LP3LC_5.webp",
         "width": 689,
@@ -2602,6 +5898,11 @@
       },
       "6": {
         "src": "ref-images/dental/LP3LC_6.webp",
+        "width": 689,
+        "height": 800
+      },
+      "7": {
+        "src": "ref-images/dental/LP3LC_7.webp",
         "width": 689,
         "height": 800
       },
@@ -2614,27 +5915,71 @@
         "src": "ref-images/dental/LP3LC_9.webp",
         "width": 689,
         "height": 800
-      },
-      "4.1": {
-        "src": "ref-images/dental/LP3LC_4.1.webp",
-        "width": 689,
-        "height": 800
-      },
-      "4.2": {
-        "src": "ref-images/dental/LP3LC_4.2.webp",
-        "width": 689,
-        "height": 800
-      },
-      "7.1": {
-        "src": "ref-images/dental/LP3LC_7.1.webp",
-        "width": 689,
-        "height": 800
-      },
-      "7.2": {
-        "src": "ref-images/dental/LP3LC_7.2.webp",
-        "width": 689,
-        "height": 800
       }
+    },
+    "moreDrawings": {
+      "4": [
+        {
+          "src": "ref-images/dental/LP3LC_4_2.webp",
+          "width": 689,
+          "height": 800
+        }
+      ],
+      "7": [
+        {
+          "src": "ref-images/dental/LP3LC_7_2.webp",
+          "width": 689,
+          "height": 800
+        }
+      ]
+    },
+    "photos": {
+      "1": [
+        {
+          "src": "ref-images/dental-photos/LP3LC_1_1.webp",
+          "width": 800,
+          "height": 679,
+          "credit": "39"
+        },
+        {
+          "src": "ref-images/dental-photos/LP3LC_1_2.webp",
+          "width": 767,
+          "height": 800,
+          "credit": "Alameda"
+        }
+      ],
+      "3": [
+        {
+          "src": "ref-images/dental-photos/LP3LC_3_3.webp",
+          "width": 756,
+          "height": 800,
+          "credit": "Berlin"
+        }
+      ],
+      "5": [
+        {
+          "src": "ref-images/dental-photos/LP3LC_5_4.webp",
+          "width": 781,
+          "height": 800,
+          "credit": "Alameda"
+        }
+      ],
+      "7": [
+        {
+          "src": "ref-images/dental-photos/LP3LC_7_5.webp",
+          "width": 800,
+          "height": 763,
+          "credit": "E2644"
+        }
+      ],
+      "8": [
+        {
+          "src": "ref-images/dental-photos/LP3LC_8_6.webp",
+          "width": 784,
+          "height": 800,
+          "credit": "M39"
+        }
+      ]
     },
     "location": {
       "src": "ref-images/dental/LP3LC_loc.webp",
@@ -2685,21 +6030,95 @@
         "width": 594,
         "height": 800
       },
+      "8": {
+        "src": "ref-images/dental/LP4LC_8.webp",
+        "width": 594,
+        "height": 800
+      },
       "9": {
         "src": "ref-images/dental/LP4LC_9.webp",
         "width": 594,
         "height": 800
-      },
-      "8.1": {
-        "src": "ref-images/dental/LP4LC_8.1.webp",
-        "width": 594,
-        "height": 800
-      },
-      "8.2": {
-        "src": "ref-images/dental/LP4LC_8.2.webp",
-        "width": 594,
-        "height": 800
       }
+    },
+    "moreDrawings": {
+      "8": [
+        {
+          "src": "ref-images/dental/LP4LC_8_2.webp",
+          "width": 594,
+          "height": 800
+        }
+      ]
+    },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/dental-photos/LP4LC_0_1.webp",
+          "width": 800,
+          "height": 756,
+          "credit": "0550"
+        },
+        {
+          "src": "ref-images/dental-photos/LP4LC_0_2.webp",
+          "width": 800,
+          "height": 777,
+          "credit": "Nova"
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/dental-photos/LP4LC_2_3.webp",
+          "width": 800,
+          "height": 690,
+          "credit": "A"
+        }
+      ],
+      "3": [
+        {
+          "src": "ref-images/dental-photos/LP4LC_3_4.webp",
+          "width": 800,
+          "height": 737,
+          "credit": "Alameda a"
+        },
+        {
+          "src": "ref-images/dental-photos/LP4LC_3_5.webp",
+          "width": 800,
+          "height": 746,
+          "credit": "Alameda"
+        }
+      ],
+      "4": [
+        {
+          "src": "ref-images/dental-photos/LP4LC_4_6.webp",
+          "width": 790,
+          "height": 800,
+          "credit": "Maxwell a"
+        }
+      ],
+      "6": [
+        {
+          "src": "ref-images/dental-photos/LP4LC_6_7.webp",
+          "width": 800,
+          "height": 763,
+          "credit": "Berlin"
+        }
+      ],
+      "8": [
+        {
+          "src": "ref-images/dental-photos/LP4LC_8_8.webp",
+          "width": 752,
+          "height": 800,
+          "credit": "MAXWELL"
+        }
+      ],
+      "9": [
+        {
+          "src": "ref-images/dental-photos/LP4LC_9_9.webp",
+          "width": 800,
+          "height": 728,
+          "credit": "Alameda"
+        }
+      ]
     },
     "location": {
       "src": "ref-images/dental/LP4LC_loc.webp",
@@ -2720,6 +6139,30 @@
         "width": 800,
         "height": 706
       }
+    },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/dental-photos/LP3EF_0_1.webp",
+          "width": 766,
+          "height": 800,
+          "credit": "Alameda"
+        },
+        {
+          "src": "ref-images/dental-photos/LP3EF_0_2.webp",
+          "width": 759,
+          "height": 800,
+          "credit": "Seattle"
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/dental-photos/LP3EF_1_3.webp",
+          "width": 696,
+          "height": 800,
+          "credit": "45 MAXWELL"
+        }
+      ]
     }
   },
   "mand_elong_pm2": {
@@ -2735,10 +6178,58 @@
         "width": 800,
         "height": 706
       }
+    },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/dental-photos/mand_elong_pm2_0_1.webp",
+          "width": 766,
+          "height": 800,
+          "credit": "Alameda"
+        },
+        {
+          "src": "ref-images/dental-photos/mand_elong_pm2_0_2.webp",
+          "width": 759,
+          "height": 800,
+          "credit": "Seattle"
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/dental-photos/mand_elong_pm2_1_3.webp",
+          "width": 696,
+          "height": 800,
+          "credit": "45 MAXWELL"
+        }
+      ]
     }
   },
   "LM3CA": {
-    "kind": "none"
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/dental-photos/LM3CA_0_1.webp",
+          "width": 443,
+          "height": 800,
+          "credit": "Alameda"
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/dental-photos/LM3CA_1_2.webp",
+          "width": 387,
+          "height": 800,
+          "credit": "Alameda"
+        }
+      ]
+    },
+    "location": {
+      "src": "ref-images/dental/LM3CA_loc.webp",
+      "width": 800,
+      "height": 666
+    }
   },
   "LM1AF": {
     "kind": "states",
@@ -2769,6 +6260,54 @@
         "height": 800
       }
     },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/dental-photos/LM1AF_0_1.webp",
+          "width": 733,
+          "height": 800,
+          "credit": "Maxwell"
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/dental-photos/LM1AF_1_2.webp",
+          "width": 753,
+          "height": 800,
+          "credit": "Alameda"
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/dental-photos/LM1AF_2_3.webp",
+          "width": 800,
+          "height": 770,
+          "credit": "Berlin"
+        }
+      ],
+      "3": [
+        {
+          "src": "ref-images/dental-photos/LM1AF_3_4.webp",
+          "width": 763,
+          "height": 800,
+          "credit": "Anna"
+        },
+        {
+          "src": "ref-images/dental-photos/LM1AF_3_5.webp",
+          "width": 706,
+          "height": 800,
+          "credit": "Berlin"
+        }
+      ],
+      "4": [
+        {
+          "src": "ref-images/dental-photos/LM1AF_4_6.webp",
+          "width": 800,
+          "height": 768,
+          "credit": "M44"
+        }
+      ]
+    },
     "location": {
       "src": "ref-images/dental/LM1AF_loc.webp",
       "width": 750,
@@ -2793,6 +6332,16 @@
         "width": 728,
         "height": 800
       }
+    },
+    "photos": {
+      "2": [
+        {
+          "src": "ref-images/dental-photos/LM1GP_2_1.webp",
+          "width": 775,
+          "height": 800,
+          "credit": "X INAH"
+        }
+      ]
     },
     "location": {
       "src": "ref-images/dental/LM1GP_loc.webp",
@@ -2819,6 +6368,38 @@
         "height": 800
       }
     },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/dental-photos/LM2PG_0_1.webp",
+          "width": 759,
+          "height": 800,
+          "credit": "Y OUSLEY"
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/dental-photos/LM2PG_1_2.webp",
+          "width": 731,
+          "height": 800,
+          "credit": "+ Corey AMNH"
+        },
+        {
+          "src": "ref-images/dental-photos/LM2PG_1_3.webp",
+          "width": 701,
+          "height": 800,
+          "credit": "+ INAH a"
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/dental-photos/LM2PG_2_4.webp",
+          "width": 797,
+          "height": 800,
+          "credit": "X Alameda"
+        }
+      ]
+    },
     "location": {
       "src": "ref-images/dental/LM2PG_loc.webp",
       "width": 762,
@@ -2844,6 +6425,38 @@
         "height": 800
       }
     },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/dental-photos/mand_groove_m3_0_1.webp",
+          "width": 759,
+          "height": 800,
+          "credit": "Y OUSLEY"
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/dental-photos/mand_groove_m3_1_2.webp",
+          "width": 731,
+          "height": 800,
+          "credit": "+ Corey AMNH"
+        },
+        {
+          "src": "ref-images/dental-photos/mand_groove_m3_1_3.webp",
+          "width": 701,
+          "height": 800,
+          "credit": "+ INAH a"
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/dental-photos/mand_groove_m3_2_4.webp",
+          "width": 797,
+          "height": 800,
+          "credit": "X Alameda"
+        }
+      ]
+    },
     "location": {
       "src": "ref-images/dental/mand_groove_m3_loc.webp",
       "width": 762,
@@ -2868,6 +6481,38 @@
         "width": 728,
         "height": 800
       }
+    },
+    "photos": {
+      "4": [
+        {
+          "src": "ref-images/dental-photos/LM1CN_4_1.webp",
+          "width": 724,
+          "height": 800,
+          "credit": "Ousley"
+        }
+      ],
+      "5": [
+        {
+          "src": "ref-images/dental-photos/LM1CN_5_2.webp",
+          "width": 773,
+          "height": 800,
+          "credit": "Tokyo"
+        }
+      ],
+      "6": [
+        {
+          "src": "ref-images/dental-photos/LM1CN_6_3.webp",
+          "width": 715,
+          "height": 800,
+          "credit": "Berlin"
+        },
+        {
+          "src": "ref-images/dental-photos/LM1CN_6_4.webp",
+          "width": 685,
+          "height": 800,
+          "credit": "Tokyo"
+        }
+      ]
     },
     "location": {
       "src": "ref-images/dental/LM1CN_loc.webp",
@@ -2899,6 +6544,38 @@
         "height": 762
       }
     },
+    "photos": {
+      "3": [
+        {
+          "src": "ref-images/dental-photos/LM2CN_3_1.webp",
+          "width": 788,
+          "height": 800,
+          "credit": "alameda"
+        },
+        {
+          "src": "ref-images/dental-photos/LM2CN_3_2.webp",
+          "width": 800,
+          "height": 798,
+          "credit": "grenada"
+        }
+      ],
+      "5": [
+        {
+          "src": "ref-images/dental-photos/LM2CN_5_3.webp",
+          "width": 738,
+          "height": 800,
+          "credit": "Jikei"
+        }
+      ],
+      "6": [
+        {
+          "src": "ref-images/dental-photos/LM2CN_6_4.webp",
+          "width": 758,
+          "height": 800,
+          "credit": "0374"
+        }
+      ]
+    },
     "location": {
       "src": "ref-images/dental/LM2CN_loc.webp",
       "width": 800,
@@ -2928,6 +6605,38 @@
         "width": 800,
         "height": 762
       }
+    },
+    "photos": {
+      "3": [
+        {
+          "src": "ref-images/dental-photos/mand_cusp_m3_3_1.webp",
+          "width": 788,
+          "height": 800,
+          "credit": "alameda"
+        },
+        {
+          "src": "ref-images/dental-photos/mand_cusp_m3_3_2.webp",
+          "width": 800,
+          "height": 798,
+          "credit": "grenada"
+        }
+      ],
+      "5": [
+        {
+          "src": "ref-images/dental-photos/mand_cusp_m3_5_3.webp",
+          "width": 738,
+          "height": 800,
+          "credit": "Jikei"
+        }
+      ],
+      "6": [
+        {
+          "src": "ref-images/dental-photos/mand_cusp_m3_6_4.webp",
+          "width": 758,
+          "height": 800,
+          "credit": "0374"
+        }
+      ]
     },
     "location": {
       "src": "ref-images/dental/mand_cusp_m3_loc.webp",
@@ -2959,6 +6668,37 @@
         "height": 800
       }
     },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/dental-photos/LM1DW_0_1.webp",
+          "width": 707,
+          "height": 800,
+          "credit": "M37"
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/dental-photos/LM1DW_1_2.webp",
+          "width": 800,
+          "height": 784,
+          "credit": "50"
+        },
+        {
+          "src": "ref-images/dental-photos/LM1DW_1_3.webp",
+          "width": 724,
+          "height": 800,
+          "credit": "Berlin"
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/dental-photos/LM1DW_2_4.webp",
+          "width": 800,
+          "height": 719
+        }
+      ]
+    },
     "location": {
       "src": "ref-images/dental/LM1DW_loc.webp",
       "width": 774,
@@ -2988,6 +6728,11 @@
         "width": 800,
         "height": 625
       },
+      "4": {
+        "src": "ref-images/dental/LM1PR_4.webp",
+        "width": 800,
+        "height": 625
+      },
       "5": {
         "src": "ref-images/dental/LM1PR_5.webp",
         "width": 800,
@@ -3002,17 +6747,78 @@
         "src": "ref-images/dental/LM1PR_7.webp",
         "width": 800,
         "height": 625
-      },
-      "4.1": {
-        "src": "ref-images/dental/LM1PR_4.1.webp",
-        "width": 800,
-        "height": 625
-      },
-      "4.2": {
-        "src": "ref-images/dental/LM1PR_4.2.webp",
-        "width": 800,
-        "height": 625
       }
+    },
+    "moreDrawings": {
+      "4": [
+        {
+          "src": "ref-images/dental/LM1PR_4_2.webp",
+          "width": 800,
+          "height": 625
+        }
+      ]
+    },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/dental-photos/LM1PR_0_1.webp",
+          "width": 800,
+          "height": 766,
+          "credit": "39"
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/dental-photos/LM1PR_1_2.webp",
+          "width": 800,
+          "height": 694,
+          "credit": "Tokyo"
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/dental-photos/LM1PR_2_3.webp",
+          "width": 800,
+          "height": 619,
+          "credit": "INAH Merida"
+        }
+      ],
+      "3": [
+        {
+          "src": "ref-images/dental-photos/LM1PR_3_4.webp",
+          "width": 772,
+          "height": 800,
+          "credit": "E1457"
+        },
+        {
+          "src": "ref-images/dental-photos/LM1PR_3_5.webp",
+          "width": 800,
+          "height": 428,
+          "credit": "M43"
+        }
+      ],
+      "5": [
+        {
+          "src": "ref-images/dental-photos/LM1PR_5_6.webp",
+          "width": 775,
+          "height": 800,
+          "credit": "INAH"
+        },
+        {
+          "src": "ref-images/dental-photos/LM1PR_5_7.webp",
+          "width": 800,
+          "height": 479,
+          "credit": "M18"
+        }
+      ],
+      "6": [
+        {
+          "src": "ref-images/dental-photos/LM1PR_6_8.webp",
+          "width": 800,
+          "height": 780,
+          "credit": "Ousley"
+        }
+      ]
     },
     "location": {
       "src": "ref-images/dental/LM1PR_loc.webp",
@@ -3043,6 +6849,11 @@
         "width": 800,
         "height": 650
       },
+      "4": {
+        "src": "ref-images/dental/LM2PR_4.webp",
+        "width": 800,
+        "height": 650
+      },
       "5": {
         "src": "ref-images/dental/LM2PR_5.webp",
         "width": 800,
@@ -3057,17 +6868,72 @@
         "src": "ref-images/dental/LM2PR_7.webp",
         "width": 800,
         "height": 650
-      },
-      "4.1": {
-        "src": "ref-images/dental/LM2PR_4.1.webp",
-        "width": 800,
-        "height": 650
-      },
-      "4.2": {
-        "src": "ref-images/dental/LM2PR_4.2.webp",
-        "width": 800,
-        "height": 650
       }
+    },
+    "moreDrawings": {
+      "4": [
+        {
+          "src": "ref-images/dental/LM2PR_4_2.webp",
+          "width": 800,
+          "height": 650
+        }
+      ]
+    },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/dental-photos/LM2PR_0_1.webp",
+          "width": 753,
+          "height": 800,
+          "credit": "Alameda a"
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/dental-photos/LM2PR_1_2.webp",
+          "width": 800,
+          "height": 719,
+          "credit": "INAH Merida"
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/dental-photos/LM2PR_2_3.webp",
+          "width": 797,
+          "height": 800,
+          "credit": "INAH"
+        }
+      ],
+      "3": [
+        {
+          "src": "ref-images/dental-photos/LM2PR_3_4.webp",
+          "width": 789,
+          "height": 800,
+          "credit": "INAH"
+        }
+      ],
+      "6": [
+        {
+          "src": "ref-images/dental-photos/LM2PR_6_5.webp",
+          "width": 800,
+          "height": 766,
+          "credit": "Berlin M3"
+        },
+        {
+          "src": "ref-images/dental-photos/LM2PR_6_6.webp",
+          "width": 800,
+          "height": 660,
+          "credit": "Seattle"
+        }
+      ],
+      "7": [
+        {
+          "src": "ref-images/dental-photos/LM2PR_7_7.webp",
+          "width": 800,
+          "height": 663,
+          "credit": "Seattle"
+        }
+      ]
     },
     "location": {
       "src": "ref-images/dental/LM2PR_loc.webp",
@@ -3098,6 +6964,11 @@
         "width": 800,
         "height": 650
       },
+      "4": {
+        "src": "ref-images/dental/mand_proto_m3_4.webp",
+        "width": 800,
+        "height": 650
+      },
       "5": {
         "src": "ref-images/dental/mand_proto_m3_5.webp",
         "width": 800,
@@ -3112,17 +6983,72 @@
         "src": "ref-images/dental/mand_proto_m3_7.webp",
         "width": 800,
         "height": 650
-      },
-      "4.1": {
-        "src": "ref-images/dental/mand_proto_m3_4.1.webp",
-        "width": 800,
-        "height": 650
-      },
-      "4.2": {
-        "src": "ref-images/dental/mand_proto_m3_4.2.webp",
-        "width": 800,
-        "height": 650
       }
+    },
+    "moreDrawings": {
+      "4": [
+        {
+          "src": "ref-images/dental/mand_proto_m3_4_2.webp",
+          "width": 800,
+          "height": 650
+        }
+      ]
+    },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/dental-photos/mand_proto_m3_0_1.webp",
+          "width": 753,
+          "height": 800,
+          "credit": "Alameda a"
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/dental-photos/mand_proto_m3_1_2.webp",
+          "width": 800,
+          "height": 719,
+          "credit": "INAH Merida"
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/dental-photos/mand_proto_m3_2_3.webp",
+          "width": 797,
+          "height": 800,
+          "credit": "INAH"
+        }
+      ],
+      "3": [
+        {
+          "src": "ref-images/dental-photos/mand_proto_m3_3_4.webp",
+          "width": 789,
+          "height": 800,
+          "credit": "INAH"
+        }
+      ],
+      "6": [
+        {
+          "src": "ref-images/dental-photos/mand_proto_m3_6_5.webp",
+          "width": 800,
+          "height": 766,
+          "credit": "Berlin M3"
+        },
+        {
+          "src": "ref-images/dental-photos/mand_proto_m3_6_6.webp",
+          "width": 800,
+          "height": 660,
+          "credit": "Seattle"
+        }
+      ],
+      "7": [
+        {
+          "src": "ref-images/dental-photos/mand_proto_m3_7_7.webp",
+          "width": 800,
+          "height": 663,
+          "credit": "Seattle"
+        }
+      ]
     },
     "location": {
       "src": "ref-images/dental/mand_proto_m3_loc.webp",
@@ -3144,6 +7070,16 @@
         "height": 800
       }
     },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/dental-photos/LM1TC_0_1.webp",
+          "width": 737,
+          "height": 800,
+          "credit": "Alameda"
+        }
+      ]
+    },
     "location": {
       "src": "ref-images/dental/LM1TC_loc.webp",
       "width": 731,
@@ -3164,6 +7100,24 @@
         "height": 800
       }
     },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/dental-photos/LM2TC_0_1.webp",
+          "width": 797,
+          "height": 800,
+          "credit": "INAH"
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/dental-photos/LM2TC_1_2.webp",
+          "width": 710,
+          "height": 800,
+          "credit": "INAH"
+        }
+      ]
+    },
     "location": {
       "src": "ref-images/dental/LM2TC_loc.webp",
       "width": 762,
@@ -3183,6 +7137,24 @@
         "width": 762,
         "height": 800
       }
+    },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/dental-photos/mand_trigonid_m3_0_1.webp",
+          "width": 797,
+          "height": 800,
+          "credit": "INAH"
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/dental-photos/mand_trigonid_m3_1_2.webp",
+          "width": 710,
+          "height": 800,
+          "credit": "INAH"
+        }
+      ]
     },
     "location": {
       "src": "ref-images/dental/mand_trigonid_m3_loc.webp",
@@ -3224,6 +7196,40 @@
         "height": 800
       }
     },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/dental-photos/LM1C5_0_1.webp",
+          "width": 767,
+          "height": 800,
+          "credit": "worn MAXWELL"
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/dental-photos/LM1C5_2_2.webp",
+          "width": 787,
+          "height": 800,
+          "credit": "Ousley"
+        }
+      ],
+      "4": [
+        {
+          "src": "ref-images/dental-photos/LM1C5_4_3.webp",
+          "width": 773,
+          "height": 800,
+          "credit": "Tokyo"
+        }
+      ],
+      "5": [
+        {
+          "src": "ref-images/dental-photos/LM1C5_5_4.webp",
+          "width": 800,
+          "height": 758,
+          "credit": "Seattle"
+        }
+      ]
+    },
     "location": {
       "src": "ref-images/dental/LM1C5_loc.webp",
       "width": 696,
@@ -3263,6 +7269,46 @@
         "width": 800,
         "height": 800
       }
+    },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/dental-photos/LM2C5_0_1.webp",
+          "width": 800,
+          "height": 795,
+          "credit": "H8"
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/dental-photos/LM2C5_2_2.webp",
+          "width": 698,
+          "height": 800,
+          "credit": "17"
+        }
+      ],
+      "4": [
+        {
+          "src": "ref-images/dental-photos/LM2C5_4_3.webp",
+          "width": 779,
+          "height": 800,
+          "credit": "M46"
+        },
+        {
+          "src": "ref-images/dental-photos/LM2C5_4_4.webp",
+          "width": 613,
+          "height": 800,
+          "credit": "Tokyo"
+        }
+      ],
+      "5": [
+        {
+          "src": "ref-images/dental-photos/LM2C5_5_5.webp",
+          "width": 767,
+          "height": 800,
+          "credit": "Maxwell 73.126.2"
+        }
+      ]
     },
     "location": {
       "src": "ref-images/dental/LM2C5_loc.webp",
@@ -3304,6 +7350,46 @@
         "height": 800
       }
     },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/dental-photos/mand_cusp5_m3_0_1.webp",
+          "width": 800,
+          "height": 795,
+          "credit": "H8"
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/dental-photos/mand_cusp5_m3_2_2.webp",
+          "width": 698,
+          "height": 800,
+          "credit": "17"
+        }
+      ],
+      "4": [
+        {
+          "src": "ref-images/dental-photos/mand_cusp5_m3_4_3.webp",
+          "width": 779,
+          "height": 800,
+          "credit": "M46"
+        },
+        {
+          "src": "ref-images/dental-photos/mand_cusp5_m3_4_4.webp",
+          "width": 613,
+          "height": 800,
+          "credit": "Tokyo"
+        }
+      ],
+      "5": [
+        {
+          "src": "ref-images/dental-photos/mand_cusp5_m3_5_5.webp",
+          "width": 767,
+          "height": 800,
+          "credit": "Maxwell 73.126.2"
+        }
+      ]
+    },
     "location": {
       "src": "ref-images/dental/mand_cusp5_m3_loc.webp",
       "width": 800,
@@ -3343,6 +7429,58 @@
         "width": 667,
         "height": 800
       }
+    },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/dental-photos/LM1C6_0_1.webp",
+          "width": 800,
+          "height": 800,
+          "credit": "Alameda"
+        },
+        {
+          "src": "ref-images/dental-photos/LM1C6_0_2.webp",
+          "width": 800,
+          "height": 785,
+          "credit": "Tokyo"
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/dental-photos/LM1C6_1_3.webp",
+          "width": 728,
+          "height": 800,
+          "credit": "OUSLEY"
+        },
+        {
+          "src": "ref-images/dental-photos/LM1C6_1_4.webp",
+          "width": 705,
+          "height": 800,
+          "credit": "Tokyo"
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/dental-photos/LM1C6_2_5.webp",
+          "width": 735,
+          "height": 800,
+          "credit": "Berlin"
+        }
+      ],
+      "5": [
+        {
+          "src": "ref-images/dental-photos/LM1C6_5_6.webp",
+          "width": 691,
+          "height": 800,
+          "credit": "ENAH"
+        },
+        {
+          "src": "ref-images/dental-photos/LM1C6_5_7.webp",
+          "width": 757,
+          "height": 800,
+          "credit": "OUSLEY"
+        }
+      ]
     },
     "location": {
       "src": "ref-images/dental/LM1C6_loc.webp",
@@ -3384,6 +7522,44 @@
         "height": 800
       }
     },
+    "photos": {
+      "2": [
+        {
+          "src": "ref-images/dental-photos/LM2C6_2_1.webp",
+          "width": 721,
+          "height": 800,
+          "credit": "0374"
+        },
+        {
+          "src": "ref-images/dental-photos/LM2C6_2_2.webp",
+          "width": 800,
+          "height": 791,
+          "credit": "OUSLEY"
+        }
+      ],
+      "3": [
+        {
+          "src": "ref-images/dental-photos/LM2C6_3_3.webp",
+          "width": 722,
+          "height": 800,
+          "credit": "Seattle"
+        }
+      ],
+      "4": [
+        {
+          "src": "ref-images/dental-photos/LM2C6_4_4.webp",
+          "width": 689,
+          "height": 800,
+          "credit": "INAH"
+        },
+        {
+          "src": "ref-images/dental-photos/LM2C6_4_5.webp",
+          "width": 741,
+          "height": 800,
+          "credit": "MAXWELL"
+        }
+      ]
+    },
     "location": {
       "src": "ref-images/dental/LM2C6_loc.webp",
       "width": 764,
@@ -3424,6 +7600,44 @@
         "height": 800
       }
     },
+    "photos": {
+      "2": [
+        {
+          "src": "ref-images/dental-photos/mand_cusp6_m3_2_1.webp",
+          "width": 721,
+          "height": 800,
+          "credit": "0374"
+        },
+        {
+          "src": "ref-images/dental-photos/mand_cusp6_m3_2_2.webp",
+          "width": 800,
+          "height": 791,
+          "credit": "OUSLEY"
+        }
+      ],
+      "3": [
+        {
+          "src": "ref-images/dental-photos/mand_cusp6_m3_3_3.webp",
+          "width": 722,
+          "height": 800,
+          "credit": "Seattle"
+        }
+      ],
+      "4": [
+        {
+          "src": "ref-images/dental-photos/mand_cusp6_m3_4_4.webp",
+          "width": 689,
+          "height": 800,
+          "credit": "INAH"
+        },
+        {
+          "src": "ref-images/dental-photos/mand_cusp6_m3_4_5.webp",
+          "width": 741,
+          "height": 800,
+          "credit": "MAXWELL"
+        }
+      ]
+    },
     "location": {
       "src": "ref-images/dental/mand_cusp6_m3_loc.webp",
       "width": 764,
@@ -3458,6 +7672,72 @@
         "width": 723,
         "height": 800
       }
+    },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/dental-photos/LM1C7_0_1.webp",
+          "width": 683,
+          "height": 800,
+          "credit": "17"
+        },
+        {
+          "src": "ref-images/dental-photos/LM1C7_0_2.webp",
+          "width": 751,
+          "height": 800,
+          "credit": "Tokyo"
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/dental-photos/LM1C7_1_3.webp",
+          "width": 800,
+          "height": 742,
+          "credit": "40"
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/dental-photos/LM1C7_2_4.webp",
+          "width": 788,
+          "height": 800,
+          "credit": "Berlin a"
+        },
+        {
+          "src": "ref-images/dental-photos/LM1C7_2_5.webp",
+          "width": 713,
+          "height": 800,
+          "credit": "Berlin"
+        }
+      ],
+      "3": [
+        {
+          "src": "ref-images/dental-photos/LM1C7_3_6.webp",
+          "width": 707,
+          "height": 800,
+          "credit": "37"
+        },
+        {
+          "src": "ref-images/dental-photos/LM1C7_3_7.webp",
+          "width": 734,
+          "height": 800,
+          "credit": "E2257"
+        }
+      ],
+      "4": [
+        {
+          "src": "ref-images/dental-photos/LM1C7_4_8.webp",
+          "width": 779,
+          "height": 800,
+          "credit": "Berlin a"
+        },
+        {
+          "src": "ref-images/dental-photos/LM1C7_4_9.webp",
+          "width": 788,
+          "height": 800,
+          "credit": "Maxwell BIA"
+        }
+      ]
     },
     "location": {
       "src": "ref-images/dental/LM1C7_loc.webp",
@@ -3494,6 +7774,54 @@
         "height": 800
       }
     },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/dental-photos/LM2C7_0_1.webp",
+          "width": 694,
+          "height": 800,
+          "credit": "H2"
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/dental-photos/LM2C7_1_2.webp",
+          "width": 767,
+          "height": 800,
+          "credit": "Berlin"
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/dental-photos/LM2C7_2_3.webp",
+          "width": 746,
+          "height": 800,
+          "credit": "37"
+        }
+      ],
+      "3": [
+        {
+          "src": "ref-images/dental-photos/LM2C7_3_4.webp",
+          "width": 786,
+          "height": 800,
+          "credit": "Berlin"
+        }
+      ],
+      "4": [
+        {
+          "src": "ref-images/dental-photos/LM2C7_4_5.webp",
+          "width": 737,
+          "height": 800,
+          "credit": "E643"
+        },
+        {
+          "src": "ref-images/dental-photos/LM2C7_4_6.webp",
+          "width": 782,
+          "height": 800,
+          "credit": "Ousley"
+        }
+      ]
+    },
     "location": {
       "src": "ref-images/dental/LM2C7_loc.webp",
       "width": 780,
@@ -3529,6 +7857,54 @@
         "height": 800
       }
     },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/dental-photos/mand_cusp7_m3_0_1.webp",
+          "width": 694,
+          "height": 800,
+          "credit": "H2"
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/dental-photos/mand_cusp7_m3_1_2.webp",
+          "width": 767,
+          "height": 800,
+          "credit": "Berlin"
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/dental-photos/mand_cusp7_m3_2_3.webp",
+          "width": 746,
+          "height": 800,
+          "credit": "37"
+        }
+      ],
+      "3": [
+        {
+          "src": "ref-images/dental-photos/mand_cusp7_m3_3_4.webp",
+          "width": 786,
+          "height": 800,
+          "credit": "Berlin"
+        }
+      ],
+      "4": [
+        {
+          "src": "ref-images/dental-photos/mand_cusp7_m3_4_5.webp",
+          "width": 737,
+          "height": 800,
+          "credit": "E643"
+        },
+        {
+          "src": "ref-images/dental-photos/mand_cusp7_m3_4_6.webp",
+          "width": 782,
+          "height": 800,
+          "credit": "Ousley"
+        }
+      ]
+    },
     "location": {
       "src": "ref-images/dental/mand_cusp7_m3_loc.webp",
       "width": 780,
@@ -3558,6 +7934,46 @@
         "width": 582,
         "height": 800
       }
+    },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/dental-photos/LM1EE_0_1.webp",
+          "width": 800,
+          "height": 741,
+          "credit": "Jikei"
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/dental-photos/LM1EE_1_2.webp",
+          "width": 800,
+          "height": 674,
+          "credit": "Jikei"
+        },
+        {
+          "src": "ref-images/dental-photos/LM1EE_1_3.webp",
+          "width": 800,
+          "height": 681,
+          "credit": "alameda"
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/dental-photos/LM1EE_2_4.webp",
+          "width": 800,
+          "height": 740,
+          "credit": "Tokyo"
+        }
+      ],
+      "3": [
+        {
+          "src": "ref-images/dental-photos/LM1EE_3_5.webp",
+          "width": 800,
+          "height": 691,
+          "credit": "ALAMEDA"
+        }
+      ]
     },
     "location": {
       "src": "ref-images/dental/LM1EE_loc.webp",
@@ -3589,6 +8005,46 @@
         "height": 800
       }
     },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/dental-photos/LM2EE_0_1.webp",
+          "width": 800,
+          "height": 741,
+          "credit": "Jikei"
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/dental-photos/LM2EE_1_2.webp",
+          "width": 800,
+          "height": 674,
+          "credit": "Jikei"
+        },
+        {
+          "src": "ref-images/dental-photos/LM2EE_1_3.webp",
+          "width": 800,
+          "height": 681,
+          "credit": "alameda"
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/dental-photos/LM2EE_2_4.webp",
+          "width": 800,
+          "height": 740,
+          "credit": "Tokyo"
+        }
+      ],
+      "3": [
+        {
+          "src": "ref-images/dental-photos/LM2EE_3_5.webp",
+          "width": 800,
+          "height": 691,
+          "credit": "ALAMEDA"
+        }
+      ]
+    },
     "location": {
       "src": "ref-images/dental/LM2EE_loc.webp",
       "width": 582,
@@ -3619,6 +8075,46 @@
         "height": 800
       }
     },
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/dental-photos/mand_ext_m3_0_1.webp",
+          "width": 800,
+          "height": 741,
+          "credit": "Jikei"
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/dental-photos/mand_ext_m3_1_2.webp",
+          "width": 800,
+          "height": 674,
+          "credit": "Jikei"
+        },
+        {
+          "src": "ref-images/dental-photos/mand_ext_m3_1_3.webp",
+          "width": 800,
+          "height": 681,
+          "credit": "alameda"
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/dental-photos/mand_ext_m3_2_4.webp",
+          "width": 800,
+          "height": 740,
+          "credit": "Tokyo"
+        }
+      ],
+      "3": [
+        {
+          "src": "ref-images/dental-photos/mand_ext_m3_3_5.webp",
+          "width": 800,
+          "height": 691,
+          "credit": "ALAMEDA"
+        }
+      ]
+    },
     "location": {
       "src": "ref-images/dental/mand_ext_m3_loc.webp",
       "width": 582,
@@ -3626,67 +8122,361 @@
     }
   },
   "C1_lipping": {
-    "kind": "none"
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "1": [
+        {
+          "src": "ref-images/photos/C1_lipping_1_1.webp",
+          "width": 800,
+          "height": 528
+        }
+      ]
+    }
   },
   "C1_Eburnation": {
-    "kind": "none"
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/photos/C1_Eburnation_0_1.webp",
+          "width": 800,
+          "height": 467
+        }
+      ]
+    }
   },
   "L1_spinous_process_flattening": {
-    "kind": "none"
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "1": [
+        {
+          "src": "ref-images/photos/L1_spinous_process_flattening_1_1.webp",
+          "width": 800,
+          "height": 628
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/photos/L1_spinous_process_flattening_2_1.webp",
+          "width": 800,
+          "height": 597
+        }
+      ]
+    }
   },
   "L1_superior_ring_fusion": {
-    "kind": "none"
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/photos/L1_superior_ring_fusion_0_1.webp",
+          "width": 800,
+          "height": 634
+        }
+      ]
+    }
   },
   "L1_inferior_ring_fusion": {
-    "kind": "none"
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/photos/L1_inferior_ring_fusion_0_1.webp",
+          "width": 800,
+          "height": 634
+        }
+      ]
+    }
   },
   "L1_superior_surface_morphology": {
-    "kind": "none"
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "1": [
+        {
+          "src": "ref-images/photos/L1_superior_surface_morphology_1_1.webp",
+          "width": 800,
+          "height": 644
+        }
+      ]
+    }
   },
   "L1_inferior_surface_morphology": {
-    "kind": "none"
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/photos/L1_inferior_surface_morphology_0_1.webp",
+          "width": 800,
+          "height": 650
+        }
+      ]
+    }
   },
   "L5_superior_ring_fusion": {
-    "kind": "none"
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "3": [
+        {
+          "src": "ref-images/photos/L5_superior_ring_fusion_3_1.webp",
+          "width": 800,
+          "height": 692
+        }
+      ]
+    }
   },
   "L5_inferior_ring_fusion": {
-    "kind": "none"
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/photos/L5_inferior_ring_fusion_0_1.webp",
+          "width": 800,
+          "height": 567
+        }
+      ],
+      "3": [
+        {
+          "src": "ref-images/photos/L5_inferior_ring_fusion_3_1.webp",
+          "width": 800,
+          "height": 513
+        },
+        {
+          "src": "ref-images/photos/L5_inferior_ring_fusion_3_2.webp",
+          "width": 800,
+          "height": 692
+        }
+      ]
+    }
   },
   "L5_superior_surface_morphology": {
-    "kind": "none"
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/photos/L5_superior_surface_morphology_0_1.webp",
+          "width": 800,
+          "height": 558
+        }
+      ]
+    }
   },
   "L5_inferior_surface_morphology": {
-    "kind": "none"
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "1": [
+        {
+          "src": "ref-images/photos/L5_inferior_surface_morphology_1_1.webp",
+          "width": 800,
+          "height": 634
+        }
+      ]
+    }
   },
   "L5_superior_margin": {
-    "kind": "none"
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/photos/L5_superior_margin_0_1.webp",
+          "width": 800,
+          "height": 582
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/photos/L5_superior_margin_2_1.webp",
+          "width": 800,
+          "height": 575
+        },
+        {
+          "src": "ref-images/photos/L5_superior_margin_2_2.webp",
+          "width": 800,
+          "height": 570
+        },
+        {
+          "src": "ref-images/photos/L5_superior_margin_2_3.webp",
+          "width": 800,
+          "height": 532
+        }
+      ]
+    }
   },
   "L5_inferior_margin": {
-    "kind": "none"
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/photos/L5_inferior_margin_0_1.webp",
+          "width": 800,
+          "height": 570
+        },
+        {
+          "src": "ref-images/photos/L5_inferior_margin_0_2.webp",
+          "width": 800,
+          "height": 532
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/photos/L5_inferior_margin_1_1.webp",
+          "width": 800,
+          "height": 575
+        },
+        {
+          "src": "ref-images/photos/L5_inferior_margin_1_2.webp",
+          "width": 800,
+          "height": 596
+        }
+      ]
+    }
   },
   "C3_C7_lipping": {
-    "kind": "none"
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/photos/C3_C7_lipping_0_1.webp",
+          "width": 800,
+          "height": 497
+        },
+        {
+          "src": "ref-images/photos/C3_C7_lipping_0_2.webp",
+          "width": 682,
+          "height": 800
+        }
+      ]
+    }
   },
   "T1_T12_lipping": {
-    "kind": "none"
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/photos/T1_T12_lipping_0_1.webp",
+          "width": 800,
+          "height": 696
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/photos/T1_T12_lipping_1_1.webp",
+          "width": 800,
+          "height": 571
+        }
+      ]
+    }
   },
   "L1_L5_lipping": {
-    "kind": "none"
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/photos/L1_L5_lipping_0_1.webp",
+          "width": 800,
+          "height": 524
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/photos/L1_L5_lipping_1_1.webp",
+          "width": 800,
+          "height": 655
+        }
+      ]
+    }
   },
   "C3_C7_candlewax": {
-    "kind": "none"
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/photos/C3_C7_candlewax_0_1.webp",
+          "width": 682,
+          "height": 800
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/photos/C3_C7_candlewax_1_1.webp",
+          "width": 800,
+          "height": 784
+        }
+      ]
+    }
   },
   "T1_T12_candlewax": {
-    "kind": "none"
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "1": [
+        {
+          "src": "ref-images/photos/T1_T12_candlewax_1_1.webp",
+          "width": 698,
+          "height": 800
+        }
+      ]
+    }
   },
   "L1_L5_candlewax": {
-    "kind": "none"
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/photos/L1_L5_candlewax_0_1.webp",
+          "width": 800,
+          "height": 607
+        },
+        {
+          "src": "ref-images/photos/L1_L5_candlewax_0_2.webp",
+          "width": 800,
+          "height": 465
+        }
+      ]
+    }
   },
   "C3_C7_DISH": {
-    "kind": "none"
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/photos/C3_C7_DISH_0_1.webp",
+          "width": 693,
+          "height": 800
+        }
+      ]
+    }
   },
   "T1_T12_DISH": {
-    "kind": "none"
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "1": [
+        {
+          "src": "ref-images/photos/T1_T12_DISH_1_1.webp",
+          "width": 602,
+          "height": 800
+        }
+      ]
+    }
   },
   "L1_L5_DISH": {
     "kind": "none"
@@ -3695,13 +8485,43 @@
     "kind": "none"
   },
   "Sternum_central_dorsal_ridge": {
-    "kind": "none"
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/photos/Sternum_central_dorsal_ridge_0_1.webp",
+          "width": 375,
+          "height": 800
+        }
+      ]
+    }
   },
   "R2": {
-    "kind": "none"
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "1": [
+        {
+          "src": "ref-images/photos/R2_1_1.webp",
+          "width": 768,
+          "height": 800
+        }
+      ]
+    }
   },
   "R3_10": {
-    "kind": "none"
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "1": [
+        {
+          "src": "ref-images/photos/R3_10_1_1.webp",
+          "width": 800,
+          "height": 731
+        }
+      ]
+    }
   },
   "R2_ossification": {
     "kind": "none"
@@ -3710,7 +8530,17 @@
     "kind": "none"
   },
   "R2_shingle": {
-    "kind": "none"
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/photos/R2_shingle_0_1.webp",
+          "width": 800,
+          "height": 581
+        }
+      ]
+    }
   },
   "R3_10_shingle": {
     "kind": "none"
@@ -3791,13 +8621,31 @@
     "caption": "Postcranial form, item 13 · Maximum Length of the Humerus"
   },
   "HumMXD": {
-    "kind": "none"
+    "kind": "figure",
+    "figure": {
+      "src": "ref-images/dcp/illustration-15.webp",
+      "width": 1000,
+      "height": 252
+    },
+    "caption": "DCP 2.0 fig. 31 · Selected measurement of the humerus"
   },
   "HumMWD": {
-    "kind": "none"
+    "kind": "figure",
+    "figure": {
+      "src": "ref-images/dcp/illustration-15.webp",
+      "width": 1000,
+      "height": 252
+    },
+    "caption": "DCP 2.0 fig. 31 · Selected measurement of the humerus"
   },
   "HumEB": {
-    "kind": "none"
+    "kind": "figure",
+    "figure": {
+      "src": "ref-images/dcp/illustration-15.webp",
+      "width": 1000,
+      "height": 252
+    },
+    "caption": "DCP 2.0 fig. 31 · Selected measurement of the humerus"
   },
   "HumHXD": {
     "kind": "figure",
@@ -3818,13 +8666,31 @@
     "caption": "Postcranial form, item 18 · Maximum Length of the Radius"
   },
   "RadMXD": {
-    "kind": "none"
+    "kind": "figure",
+    "figure": {
+      "src": "ref-images/dcp/illustration-16.webp",
+      "width": 719,
+      "height": 175
+    },
+    "caption": "DCP 2.0 fig. 32 · Selected measurement of the radius"
   },
   "RadMWD": {
-    "kind": "none"
+    "kind": "figure",
+    "figure": {
+      "src": "ref-images/dcp/illustration-16.webp",
+      "width": 719,
+      "height": 175
+    },
+    "caption": "DCP 2.0 fig. 32 · Selected measurement of the radius"
   },
   "RadHXD": {
-    "kind": "none"
+    "kind": "figure",
+    "figure": {
+      "src": "ref-images/dcp/illustration-16.webp",
+      "width": 719,
+      "height": 175
+    },
+    "caption": "DCP 2.0 fig. 32 · Selected measurement of the radius"
   },
   "UlnXL": {
     "kind": "figure",
@@ -3845,13 +8711,31 @@
     "caption": "Postcranial form, item 23 · Maximum Midshaft Diameter of the Ulna"
   },
   "UlnMWD": {
-    "kind": "none"
+    "kind": "figure",
+    "figure": {
+      "src": "ref-images/dcp/illustration-17.webp",
+      "width": 788,
+      "height": 266
+    },
+    "caption": "DCP 2.0 fig. 33 · Selected measurement of the ulna"
   },
   "UlnPL": {
-    "kind": "none"
+    "kind": "figure",
+    "figure": {
+      "src": "ref-images/dcp/illustration-17.webp",
+      "width": 788,
+      "height": 266
+    },
+    "caption": "DCP 2.0 fig. 33 · Selected measurement of the ulna"
   },
   "UlnDWC": {
-    "kind": "none"
+    "kind": "figure",
+    "figure": {
+      "src": "ref-images/dcp/illustration-17.webp",
+      "width": 788,
+      "height": 266
+    },
+    "caption": "DCP 2.0 fig. 33 · Selected measurement of the ulna"
   },
   "UlnOPXB": {
     "kind": "figure",
@@ -3863,43 +8747,188 @@
     "caption": "Postcranial form, item 27 · Olecranon Breadth"
   },
   "Medial_epiphysis_fusion": {
-    "kind": "none"
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "3": [
+        {
+          "src": "ref-images/photos/Medial_epiphysis_fusion_3_1.webp",
+          "width": 800,
+          "height": 760
+        }
+      ]
+    }
   },
   "Medial_epiphysis_gravel": {
     "kind": "none"
   },
   "Medial_macroporosity": {
-    "kind": "none"
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "1": [
+        {
+          "src": "ref-images/photos/Medial_macroporosity_1_1.webp",
+          "width": 800,
+          "height": 747
+        }
+      ]
+    }
   },
   "Lateral_macroporosity": {
     "kind": "none"
   },
   "Glenoid_fossa_lipping": {
-    "kind": "none"
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "1": [
+        {
+          "src": "ref-images/photos/Glenoid_fossa_lipping_1_1.webp",
+          "width": 547,
+          "height": 800
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/photos/Glenoid_fossa_lipping_2_1.webp",
+          "width": 531,
+          "height": 800
+        }
+      ]
+    }
   },
   "Lesser_tubercle_anterior_bumps": {
-    "kind": "none"
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/photos/Lesser_tubercle_anterior_bumps_0_1.webp",
+          "width": 800,
+          "height": 730
+        }
+      ]
+    }
   },
   "Lesser_tubercle_margin_shape": {
-    "kind": "none"
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "1": [
+        {
+          "src": "ref-images/photos/Lesser_tubercle_margin_shape_1_1.webp",
+          "width": 664,
+          "height": 800
+        }
+      ]
+    }
   },
   "Greater_tubercle_pits": {
-    "kind": "none"
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/photos/Greater_tubercle_pits_0_1.webp",
+          "width": 800,
+          "height": 605
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/photos/Greater_tubercle_pits_1_1.webp",
+          "width": 640,
+          "height": 800
+        }
+      ]
+    }
   },
   "Medial_epicondyle_texture": {
-    "kind": "none"
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/photos/Medial_epicondyle_texture_0_1.webp",
+          "width": 541,
+          "height": 800
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/photos/Medial_epicondyle_texture_1_1.webp",
+          "width": 696,
+          "height": 800
+        }
+      ]
+    }
   },
   "Lateral_epicondyle_texture": {
-    "kind": "none"
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/photos/Lateral_epicondyle_texture_0_1.webp",
+          "width": 749,
+          "height": 800
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/photos/Lateral_epicondyle_texture_1_1.webp",
+          "width": 649,
+          "height": 800
+        }
+      ]
+    }
   },
   "Radial_tuberosity_crest": {
-    "kind": "none"
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/photos/Radial_tuberosity_crest_0_1.webp",
+          "width": 434,
+          "height": 800
+        }
+      ]
+    }
   },
   "Ulna_olecranon_spur": {
-    "kind": "none"
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/photos/Ulna_olecranon_spur_0_1.webp",
+          "width": 660,
+          "height": 800
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/photos/Ulna_olecranon_spur_1_1.webp",
+          "width": 580,
+          "height": 800
+        }
+      ]
+    }
   },
   "Trapezium_lipping": {
-    "kind": "none"
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/photos/Trapezium_lipping_0_1.webp",
+          "width": 471,
+          "height": 800
+        }
+      ]
+    }
   },
   "SacAH": {
     "kind": "figure",
@@ -3920,10 +8949,22 @@
     "caption": "Postcranial form, item 29 · Anterior Breadth of the Sacrum"
   },
   "SacS1B": {
-    "kind": "none"
+    "kind": "figure",
+    "figure": {
+      "src": "ref-images/dcp/illustration-18.webp",
+      "width": 572,
+      "height": 332
+    },
+    "caption": "DCP 2.0 fig. 34 · Selected measurement of the sacrum"
   },
   "SacS1APD": {
-    "kind": "none"
+    "kind": "figure",
+    "figure": {
+      "src": "ref-images/dcp/illustration-18.webp",
+      "width": 572,
+      "height": 332
+    },
+    "caption": "DCP 2.0 fig. 34 · Selected measurement of the sacrum"
   },
   "PUM": {
     "kind": "figure",
@@ -4016,49 +9057,274 @@
     "caption": "Postcranial form, item 62 · Vertical Acetabular Diameter"
   },
   "VA": {
-    "kind": "none"
+    "kind": "states",
+    "states": {
+      "2": {
+        "src": "ref-images/drawings/VA_2.webp",
+        "width": 198,
+        "height": 265
+      },
+      "3": {
+        "src": "ref-images/drawings/VA_3.webp",
+        "width": 180,
+        "height": 260
+      },
+      "4": {
+        "src": "ref-images/drawings/VA_4.webp",
+        "width": 176,
+        "height": 278
+      },
+      "5": {
+        "src": "ref-images/drawings/VA_5.webp",
+        "width": 173,
+        "height": 261
+      }
+    }
   },
   "SPC": {
-    "kind": "none"
+    "kind": "states",
+    "states": {
+      "4": {
+        "src": "ref-images/drawings/SPC_4.webp",
+        "width": 194,
+        "height": 276
+      },
+      "5": {
+        "src": "ref-images/drawings/SPC_5.webp",
+        "width": 216,
+        "height": 254
+      }
+    }
   },
   "MA": {
-    "kind": "none"
+    "kind": "states",
+    "states": {
+      "1": {
+        "src": "ref-images/drawings/MA_1.webp",
+        "width": 134,
+        "height": 383
+      },
+      "5": {
+        "src": "ref-images/drawings/MA_5.webp",
+        "width": 107,
+        "height": 359
+      }
+    }
   },
   "CompositeArc": {
-    "kind": "none"
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/photos/CompositeArc_0_1.webp",
+          "width": 717,
+          "height": 800
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/photos/CompositeArc_1_1.webp",
+          "width": 591,
+          "height": 800
+        }
+      ]
+    }
   },
   "IliumShape": {
-    "kind": "none"
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "1": [
+        {
+          "src": "ref-images/photos/IliumShape_1_1.webp",
+          "width": 686,
+          "height": 800
+        },
+        {
+          "src": "ref-images/photos/IliumShape_1_2.webp",
+          "width": 717,
+          "height": 800
+        }
+      ]
+    }
   },
   "ASHeight": {
-    "kind": "none"
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/photos/ASHeight_0_1.webp",
+          "width": 600,
+          "height": 800
+        },
+        {
+          "src": "ref-images/photos/ASHeight_0_2.webp",
+          "width": 600,
+          "height": 800
+        },
+        {
+          "src": "ref-images/photos/ASHeight_0_3.webp",
+          "width": 555,
+          "height": 800
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/photos/ASHeight_1_1.webp",
+          "width": 800,
+          "height": 600
+        },
+        {
+          "src": "ref-images/photos/ASHeight_1_2.webp",
+          "width": 600,
+          "height": 800
+        },
+        {
+          "src": "ref-images/photos/ASHeight_1_3.webp",
+          "width": 800,
+          "height": 799
+        }
+      ]
+    }
   },
   "GSN": {
     "kind": "none"
   },
   "S1_Margin": {
-    "kind": "none"
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/photos/S1_Margin_0_1.webp",
+          "width": 800,
+          "height": 624
+        },
+        {
+          "src": "ref-images/photos/S1_Margin_0_2.webp",
+          "width": 800,
+          "height": 551
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/photos/S1_Margin_2_1.webp",
+          "width": 800,
+          "height": 648
+        }
+      ]
+    }
   },
   "S1_S2_fusion": {
-    "kind": "none"
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "1": [
+        {
+          "src": "ref-images/photos/S1_S2_fusion_1_1.webp",
+          "width": 800,
+          "height": 704
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/photos/S1_S2_fusion_2_1.webp",
+          "width": 800,
+          "height": 650
+        }
+      ]
+    }
   },
   "Sacral_elbow": {
-    "kind": "none"
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/photos/Sacral_elbow_0_1.webp",
+          "width": 614,
+          "height": 800
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/photos/Sacral_elbow_1_1.webp",
+          "width": 692,
+          "height": 800
+        }
+      ]
+    }
   },
   "Sacroiliac_joint_fusion_left": {
-    "kind": "none"
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/photos/Sacroiliac_joint_fusion_left_0_1.webp",
+          "width": 800,
+          "height": 492
+        }
+      ]
+    }
   },
   "Sacroiliac_joint_fusion_right": {
     "kind": "none"
   },
   "Iliac_crest_fusion": {
-    "kind": "none"
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/photos/Iliac_crest_fusion_0_1.webp",
+          "width": 800,
+          "height": 613
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/photos/Iliac_crest_fusion_2_1.webp",
+          "width": 800,
+          "height": 508
+        }
+      ]
+    }
   },
   "Iliac_crest_tuberculum_ossification": {
-    "kind": "none"
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "1": [
+        {
+          "src": "ref-images/photos/Iliac_crest_tuberculum_ossification_1_1.webp",
+          "width": 800,
+          "height": 582
+        }
+      ],
+      "2": [
+        {
+          "src": "ref-images/photos/Iliac_crest_tuberculum_ossification_2_1.webp",
+          "width": 800,
+          "height": 497
+        }
+      ]
+    }
   },
   "Iliac_AIIS_exostoses": {
-    "kind": "none"
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "1": [
+        {
+          "src": "ref-images/photos/Iliac_AIIS_exostoses_1_1.webp",
+          "width": 758,
+          "height": 800
+        }
+      ]
+    }
   },
   "Superior_Posterior_Iliac_Exostoses": {
     "kind": "none"
@@ -4067,43 +9333,169 @@
     "kind": "none"
   },
   "Posterior_exostoses": {
-    "kind": "none"
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/photos/Posterior_exostoses_0_1.webp",
+          "width": 800,
+          "height": 613
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/photos/Posterior_exostoses_1_1.webp",
+          "width": 656,
+          "height": 800
+        }
+      ]
+    }
   },
   "Posterior_margin_lipping": {
-    "kind": "none"
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "1": [
+        {
+          "src": "ref-images/photos/Posterior_margin_lipping_1_1.webp",
+          "width": 548,
+          "height": 800
+        },
+        {
+          "src": "ref-images/photos/Posterior_margin_lipping_1_2.webp",
+          "width": 595,
+          "height": 800
+        }
+      ]
+    }
   },
   "Articular_surface_extra_bone": {
-    "kind": "none"
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/photos/Articular_surface_extra_bone_0_1.webp",
+          "width": 741,
+          "height": 800
+        }
+      ]
+    }
   },
   "Inferior_joint_lipping": {
     "kind": "none"
   },
   "Ischial_tuberosity_superior_margin_spur": {
-    "kind": "none"
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/photos/Ischial_tuberosity_superior_margin_spur_0_1.webp",
+          "width": 738,
+          "height": 800
+        }
+      ]
+    }
   },
   "Ischial_tuberosity_superior_median_spur": {
-    "kind": "none"
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "1": [
+        {
+          "src": "ref-images/photos/Ischial_tuberosity_superior_median_spur_1_1.webp",
+          "width": 764,
+          "height": 800
+        }
+      ]
+    }
   },
   "Ischial_tuberosity_bumps": {
-    "kind": "none"
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "1": [
+        {
+          "src": "ref-images/photos/Ischial_tuberosity_bumps_1_1.webp",
+          "width": 688,
+          "height": 800
+        }
+      ]
+    }
   },
   "Pubic_symphysis": {
     "kind": "none"
   },
   "Pubic_symphyseal_collar": {
-    "kind": "none"
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/photos/Pubic_symphyseal_collar_0_1.webp",
+          "width": 575,
+          "height": 800
+        }
+      ]
+    }
   },
   "Symphyseal_relief": {
-    "kind": "none"
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "1": [
+        {
+          "src": "ref-images/photos/Symphyseal_relief_1_1.webp",
+          "width": 575,
+          "height": 800
+        }
+      ]
+    }
   },
   "Superior_protuberance": {
     "kind": "none"
   },
   "Ventral_symphyseal_margin": {
-    "kind": "none"
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/photos/Ventral_symphyseal_margin_0_1.webp",
+          "width": 465,
+          "height": 800
+        }
+      ],
+      "3": [
+        {
+          "src": "ref-images/photos/Ventral_symphyseal_margin_3_1.webp",
+          "width": 529,
+          "height": 800
+        }
+      ]
+    }
   },
   "Dorsal_symphyseal_margin": {
-    "kind": "none"
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "2": [
+        {
+          "src": "ref-images/photos/Dorsal_symphyseal_margin_2_1.webp",
+          "width": 575,
+          "height": 800
+        }
+      ],
+      "3": [
+        {
+          "src": "ref-images/photos/Dorsal_symphyseal_margin_3_1.webp",
+          "width": 529,
+          "height": 800
+        }
+      ]
+    }
   },
   "Transverse_organization": {
     "kind": "none"
@@ -4190,7 +9582,13 @@
     "caption": "Postcranial form, item 33 · Maximum Midshaft Diameter of the Femur"
   },
   "FemMWD": {
-    "kind": "none"
+    "kind": "figure",
+    "figure": {
+      "src": "ref-images/dcp/illustration-20.webp",
+      "width": 1000,
+      "height": 223
+    },
+    "caption": "DCP 2.0 fig. 36 · Selected measurement of the femur"
   },
   "FemMC": {
     "kind": "figure",
@@ -4223,7 +9621,13 @@
     }
   },
   "FemSAPD": {
-    "kind": "none"
+    "kind": "figure",
+    "figure": {
+      "src": "ref-images/dcp/illustration-20.webp",
+      "width": 1000,
+      "height": 223
+    },
+    "caption": "DCP 2.0 fig. 36 · Selected measurement of the femur"
   },
   "FemLCAPD": {
     "kind": "figure",
@@ -4298,7 +9702,13 @@
     "caption": "Postcranial form, item 44 · Maximum Midshaft Diameter of the Tibia"
   },
   "TibMWD": {
-    "kind": "none"
+    "kind": "figure",
+    "figure": {
+      "src": "ref-images/dcp/illustration-21.webp",
+      "width": 1000,
+      "height": 242
+    },
+    "caption": "DCP 2.0 fig. 37 · Selected measurement of the tibia"
   },
   "TibMC": {
     "kind": "figure",
@@ -4355,10 +9765,44 @@
     "kind": "none"
   },
   "Head_surface_extra_bone": {
-    "kind": "none"
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/photos/Head_surface_extra_bone_0_1.webp",
+          "width": 703,
+          "height": 800
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/photos/Head_surface_extra_bone_1_1.webp",
+          "width": 800,
+          "height": 782
+        }
+      ]
+    }
   },
   "Greater_trochanter_roughening": {
-    "kind": "none"
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/photos/Greater_trochanter_roughening_0_1.webp",
+          "width": 550,
+          "height": 800
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/photos/Greater_trochanter_roughening_1_1.webp",
+          "width": 632,
+          "height": 800
+        }
+      ]
+    }
   },
   "Trochanteric_fossa_exostoses": {
     "kind": "none"
@@ -4367,7 +9811,24 @@
     "kind": "none"
   },
   "Fibular_wings": {
-    "kind": "none"
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/photos/Fibular_wings_0_1.webp",
+          "width": 696,
+          "height": 800
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/photos/Fibular_wings_1_1.webp",
+          "width": 552,
+          "height": 800
+        }
+      ]
+    }
   },
   "Overall_skeleton_weight": {
     "kind": "none"

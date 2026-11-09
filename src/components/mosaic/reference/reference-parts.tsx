@@ -7,6 +7,7 @@ import { Kbd } from "@/components/ui/kbd"
 import { imageUrl } from "@/data"
 import type { Highlight, ImageAsset, ReferenceEntry, Variable } from "@/data/types"
 import { cn } from "@/lib/utils"
+import { effectiveMedia, examplesOf, hasDrawings, hasPhotos, setRefMedia, useRefMedia, type RefMedia } from "@/workup/ref-media"
 
 // Building blocks of the reference panel, shared by the three presenters
 // (Explorations rows 1 and 1.5). Images come from the manifest; on the public
@@ -19,25 +20,11 @@ export type ReferenceData = {
   value: string | null
 }
 
-export function PanelHeader({ label, onClose }: { label: string; onClose?: () => void }) {
-  const [mode, setMode] = useState<"Drawings" | "Photos">("Drawings")
+export function PanelHeader({ label, entry, onClose }: { label: string; entry?: ReferenceEntry; onClose?: () => void }) {
   return (
     <div className="flex h-8 items-center gap-2">
       <span className="min-w-0 truncate text-xs font-medium text-muted-foreground">{label}</span>
-      <div className="ml-auto flex gap-0.5">
-        {(["Drawings", "Photos"] as const).map((m) => (
-          <Button
-            key={m}
-            size="sm"
-            tabIndex={-1}
-            variant={mode === m ? "secondary" : "ghost"}
-            className="text-xs"
-            onClick={() => setMode(m)}
-          >
-            {m}
-          </Button>
-        ))}
-      </div>
+      <MediaToggle entry={entry} className="ml-auto" />
       {onClose && (
         <Button variant="ghost" size="icon" tabIndex={-1} aria-label="Close reference" onClick={onClose}>
           <X />
@@ -45,6 +32,80 @@ export function PanelHeader({ label, onClose }: { label: string; onClose?: () =>
       )}
     </div>
   )
+}
+
+// Drawings / Photos. The choice stays as set across fields; a Variable
+// without photos (or without drawings) shows what it has, and the other
+// button is disabled.
+function MediaToggle({ entry, className }: { entry?: ReferenceEntry; className?: string }) {
+  const chosen = useRefMedia()
+  const shown = entry ? effectiveMedia(entry, chosen) : chosen
+  const available: Record<RefMedia, boolean> = {
+    drawings: !entry || entry.kind !== "states" || hasDrawings(entry),
+    photos: !!entry && hasPhotos(entry),
+  }
+  return (
+    <div className={cn("flex gap-0.5", className)}>
+      {(["drawings", "photos"] as const).map((m) => (
+        <Button
+          key={m}
+          size="sm"
+          tabIndex={-1}
+          variant={shown === m ? "secondary" : "ghost"}
+          className="text-xs capitalize"
+          disabled={!available[m]}
+          title={available[m] ? undefined : `No ${m} for this field yet`}
+          aria-pressed={shown === m}
+          onClick={() => setRefMedia(m)}
+        >
+          {m}
+        </Button>
+      ))}
+    </div>
+  )
+}
+
+// ‹ 1 / 3 › over an image, for states with several examples.
+function ExampleNav({ at, count, onStep, credit }: { at: number; count: number; onStep: (d: number) => void; credit?: string }) {
+  if (count < 2 && !credit) return null
+  return (
+    <div className="pointer-events-none absolute inset-x-2 bottom-2 flex justify-center">
+      <div className="pointer-events-auto flex items-center gap-0.5 rounded-md border bg-background/95 text-xs text-muted-foreground shadow-sm">
+        {count > 1 && (
+          <Button variant="ghost" size="icon" tabIndex={-1} aria-label="Previous example" className="size-6" onClick={() => onStep(-1)}>
+            <ChevronLeft />
+          </Button>
+        )}
+        <span className="px-1 tabular-nums">
+          {count > 1 && `${at + 1} / ${count}`}
+          {count > 1 && credit && " · "}
+          {credit}
+        </span>
+        {count > 1 && (
+          <Button variant="ghost" size="icon" tabIndex={-1} aria-label="Next example" className="size-6" onClick={() => onStep(1)}>
+            <ChevronRight />
+          </Button>
+        )}
+      </div>
+    </div>
+  )
+}
+
+// The examples of one state in the media shown, and which one is up. Goes
+// back to the first when the state or media changes.
+function useExamples(entry: ReferenceEntry, code: string | undefined) {
+  const media = effectiveMedia(entry, useRefMedia())
+  const list = examplesOf(entry, media, code)
+  const key = `${media}:${code}`
+  const [pos, setPos] = useState({ key, at: 0 })
+  const at = pos.key === key ? Math.min(pos.at, Math.max(0, list.length - 1)) : 0
+  return {
+    media,
+    list,
+    at,
+    asset: list[at] ?? null,
+    step: (d: number) => setPos({ key, at: (at + d + list.length) % Math.max(1, list.length) }),
+  }
 }
 
 // One image (or its placeholder) at a fixed box, with an Enlarge button. By
@@ -57,6 +118,7 @@ export function RefImage({
   className,
   fit = "contain",
   onEnlarge,
+  overlay,
 }: {
   asset: ImageAsset | null
   caption: string
@@ -64,6 +126,7 @@ export function RefImage({
   className?: string
   fit?: "contain" | "cover"
   onEnlarge?: () => void
+  overlay?: ReactNode
 }) {
   const [bigOwn, setBig] = useState(false)
   const big = bigOwn && !onEnlarge
@@ -85,6 +148,7 @@ export function RefImage({
         >
           <Maximize2 />
         </Button>
+        {overlay}
       </div>
       <Dialog open={big} onOpenChange={setBig}>
         <DialogContent className="sm:max-w-[min(1100px,calc(100vw-4rem))]">
@@ -161,11 +225,12 @@ export function StateStrip({
   showImages?: boolean
 }) {
   const states = data.variable.states ?? []
-  const assets = data.entry.kind === "states" ? data.entry.states : {}
+  const media = effectiveMedia(data.entry, useRefMedia())
   return (
     <div className="flex gap-1.5" onMouseLeave={() => onPreview(null)}>
       {states.map((s) => {
-        const url = assets[s.code] ? imageUrl(assets[s.code]) : null
+        const first = examplesOf(data.entry, media, s.code)[0]
+        const url = first ? imageUrl(first) : null
         const selected = data.value === s.code
         return (
           <button
@@ -208,9 +273,6 @@ export type StateHandlers = {
   onSelect: (code: string) => void
 }
 
-const stateAsset = (data: ReferenceData, code: string | undefined) =>
-  data.entry.kind === "states" ? data.entry.states[code ?? ""] ?? null : null
-
 const stateCaption = (data: ReferenceData, code: string | undefined) => {
   const state = data.variable.states?.find((s) => s.code === code)
   return `State ${code}${state?.label ? `: ${state.label}` : ""}`
@@ -232,13 +294,15 @@ export function LargeState({
   const states = data.variable.states ?? []
   const code = preview ?? data.value ?? states[0]?.code
   const how = preview ? "previewing" : data.value ? "selected" : "first"
+  const ex = useExamples(data.entry, code)
   return (
     <>
       <RefImage
-        asset={stateAsset(data, code)}
-        caption={`Drawing · ${stateCaption(data, code)} (${how})`}
+        asset={ex.asset}
+        caption={`${ex.media === "photos" ? "Photo" : "Drawing"} · ${stateCaption(data, code)} (${how})`}
         className={className}
         onEnlarge={() => setViewer(true)}
+        overlay={<ExampleNav at={ex.at} count={ex.list.length} onStep={ex.step} credit={ex.asset?.credit} />}
       />
       {viewer && (
         <StateViewer data={data} start={code} handlers={handlers} onClose={() => setViewer(false)} />
@@ -268,6 +332,7 @@ function StateViewer({
   const at = Math.max(0, states.findIndex((s) => s.code === viewing))
   const step = (d: number) => setViewing(states[(at + d + states.length) % states.length]?.code)
   const chosen = viewing !== undefined && viewing === data.value
+  const ex = useExamples(data.entry, viewing)
 
   // Mirror the shown state into the shared preview, so the row and the panel
   // follow along; clear it on close.
@@ -288,6 +353,9 @@ function StateViewer({
           if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
             e.preventDefault()
             step(e.key === "ArrowLeft" ? -1 : 1)
+          } else if ((e.key === "ArrowUp" || e.key === "ArrowDown") && ex.list.length > 1) {
+            e.preventDefault()
+            ex.step(e.key === "ArrowUp" ? -1 : 1)
           } else if (e.key === "Enter" && viewing) {
             e.preventDefault()
             handlers.onSelect(viewing)
@@ -301,17 +369,21 @@ function StateViewer({
         }}
         onCloseAutoFocus={(e) => e.preventDefault()}
       >
-        <div className="flex flex-col gap-1">
-          <DialogTitle className="text-base">
-            {data.variable.name} · {stateCaption(data, viewing)}
-          </DialogTitle>
-          <DialogDescription className="text-xs">
-            {data.value ? `Chosen: state ${data.value}.` : "Not scored yet."} ←/→ or click a thumbnail to compare; Enter
-            chooses the one shown.
-          </DialogDescription>
+        <div className="flex items-start gap-4 pr-8">
+          <div className="flex min-w-0 flex-1 flex-col gap-1">
+            <DialogTitle className="text-base">
+              {data.variable.name} · {stateCaption(data, viewing)}
+            </DialogTitle>
+            <DialogDescription className="text-xs">
+              {data.value ? `Chosen: state ${data.value}.` : "Not scored yet."} ←/→ or click a thumbnail to compare
+              {ex.list.length > 1 ? "; ↑/↓ for more examples of this state" : ""}; Enter chooses the one shown.
+            </DialogDescription>
+          </div>
+          <MediaToggle entry={data.entry} />
         </div>
         <div className="relative h-[55vh] min-h-48 rounded-lg border bg-white p-4">
-          <ImageBody asset={stateAsset(data, viewing)} caption={stateCaption(data, viewing)} large />
+          <ImageBody asset={ex.asset} caption={stateCaption(data, viewing)} large />
+          <ExampleNav at={ex.at} count={ex.list.length} onStep={ex.step} credit={ex.asset?.credit} />
           {states.length > 1 && (
             <>
               <Button
@@ -337,7 +409,7 @@ function StateViewer({
         </div>
         <div className="flex gap-2 overflow-x-auto pb-1" role="listbox" aria-label="States">
           {states.map((s) => {
-            const asset = stateAsset(data, s.code)
+            const asset = examplesOf(data.entry, ex.media, s.code)[0]
             const url = asset ? imageUrl(asset) : null
             const selected = data.value === s.code
             return (
@@ -406,7 +478,7 @@ export function MetricFigure({ data, className }: { data: ReferenceData; classNa
   return (
     <RefImage
       asset={data.entry.figure}
-      caption={`${data.entry.caption} · DCP #${data.variable.dcp}`}
+      caption={data.variable.dcp ? `${data.entry.caption} · DCP #${data.variable.dcp}` : data.entry.caption}
       highlight={data.entry.highlight}
       className={className}
     />
@@ -437,7 +509,7 @@ export function MoreSection({ v }: { v: Variable }) {
       </CollapsibleTrigger>
       <CollapsibleContent className="pt-1 text-xs text-muted-foreground">
         {v.modality === "metric"
-          ? `${v.fullName ?? v.name} (DCP 2.0 #${v.dcp}). Orientation notes and citations come with the reference delivery.`
+          ? `${v.fullName ?? v.name}${v.dcp ? ` (DCP 2.0 #${v.dcp})` : ""}. Orientation notes and citations come with the reference delivery.`
           : `Method: ${v.method || "—"}. Orientation notes and citations come with the reference delivery.`}
       </CollapsibleContent>
     </Collapsible>

@@ -59,13 +59,24 @@ export type ImageAsset = {
   src: string
   width: number
   height: number
+  // Photos only: the specimen or collection, from the file name.
+  credit?: string
 }
 
 // Fractions of the figure's width and height.
 export type Highlight = { x: number; y: number; w: number; h: number }
 
 export type ReferenceEntry =
-  | { kind: "states"; states: Record<string, ImageAsset>; location?: ImageAsset }
+  // `states` holds one drawing per Character state (may be empty when only
+  // photos exist); `photos` holds any number of example photos per state.
+  | {
+      kind: "states"
+      states: Record<string, ImageAsset>
+      // Further example drawings of a state, after the one in `states`.
+      moreDrawings?: Record<string, ImageAsset[]>
+      photos?: Record<string, ImageAsset[]>
+      location?: ImageAsset
+    }
   | { kind: "figure"; figure: ImageAsset; caption: string; highlight?: Highlight }
   | { kind: "none" }
 

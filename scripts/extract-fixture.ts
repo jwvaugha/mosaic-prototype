@@ -8,7 +8,12 @@
 // data-collection forms.
 //
 // Local only: needs the MOSAIC References folder next to this repo, plus macOS
-// `sips` (BMP → PNG) and poppler's `pdfimages` / `pdftotext`.
+// `sips` (BMP → PNG) and poppler's `pdfimages` / `pdftotext` / `pdftoppm`.
+//
+// The images come from Google Drive downloads of the PIs' "MOSAIC Photos"
+// folder. A large download arrives split across several zips, so each
+// download holds part of the tree: PHOTO_ROOTS are read together, newest
+// first, and a file found in more than one wins from the newest.
 //
 //   npm run fixture -- --references "../References"
 
@@ -34,12 +39,26 @@ const root = path.resolve(import.meta.dirname, "..")
 const refArg = process.argv.indexOf("--references")
 const REF = path.resolve(root, refArg > -1 ? process.argv[refArg + 1] : "../References")
 const OUT_IMG = path.join(root, "public/ref-images")
-const MMS_DIR = path.join(REF, "MOSAIC Photos/Cranial Images/Morphological/MMS line drawings")
-const DENTAL_DIR = path.join(REF, "MOSAIC Photos/Dental Images/Morphological")
+const PHOTO_ROOTS = ["MOSAIC Photos 2", "MOSAIC Photos"].map((d) => path.join(REF, d))
 const CRANIAL_XLSX = path.join(REF, "MOSAIC Photos/Cranial Images/MOSAIC_CranialVariables10.1.26.xlsx")
 const POSTCRANIAL_XLSX = path.join(REF, "MOSAIC_PostcranialVariables.xlsx")
 const DENTAL_XLSX = path.join(REF, "MOSAIC Photos/Dental Images/Morphological/MOSAIC_DentalVariables.xlsx")
 const POSTCRANIAL_PDF = path.join(REF, "MOSAIC Postcranial Metrics Data Collection Form.pdf")
+const ILLUSTRATIONS_PDF = path.join(REF, "MOSAIC Photos 2/Cranial Images/Metric/illustrations.pdf")
+
+// Image files under one folder of the photo tree, across every download:
+// basename → full path (the newest download's copy).
+function photoFiles(rel: string): Map<string, string> {
+  const out = new Map<string, string>()
+  for (const r of PHOTO_ROOTS) {
+    const dir = path.join(r, rel)
+    if (!fs.existsSync(dir)) continue
+    for (const f of fs.readdirSync(dir)) {
+      if (/\.(bmp|png|jpe?g|tiff?)$/i.test(f) && !out.has(f)) out.set(f, path.join(dir, f))
+    }
+  }
+  return out
+}
 
 // ---------------------------------------------------------------------------
 // Grouping. Each section lists its bone groups by Variable name (the
@@ -346,6 +365,60 @@ const DENTAL_FILE_PREFIX: Record<string, string> = {
   LM2PR: "LM2PS",
 }
 
+// Per-state drawings outside FoRDent, named <code>_<state>.<ext>. MMS traits
+// go to mms/ (cleared for the public site); the others to drawings/.
+const DRAWING_DIRS = [
+  "Cranial Images/Morphological/MMS line drawings",
+  // Walker (2008) cranial sex traits.
+  "Cranial Images/Morphological/Line Drawings",
+  // Klales et al. (2012) pelvic sex traits.
+  "Postcranial Images/Morphological/Line Drawings",
+]
+
+// Example photos per state, named <code><state><letter> (MMS) or
+// <code>_<state><letter> (the others). The MMS photo folders abbreviate some
+// traits differently from the dictionary.
+const PHOTO_DIRS = [
+  "Cranial Images/Morphological/TA3 Photos",
+  "Postcranial Images/Morphological/TA3 Age Photos",
+  "Postcranial Images/Morphological/Auricular Elevation",
+  "Postcranial Images/Morphological/Composite Arc",
+  "Postcranial Images/Morphological/Ilium Shape",
+]
+const MMS_PHOTO_DIR = "Cranial Images/Morphological/MMS Photographs"
+const MMS_PHOTO_PREFIX: Record<string, string> = { NFS: "NasFrntSut", NO: "NaOvg", OBS: "ORB", PZT: "PZTub", SPS: "SnSut" }
+// Misspelt TA3 file names.
+const PHOTO_NAME_FIXES: Record<string, string> = { t1_t12_liping: "T1_T12_lipping" }
+
+// FoRDent photos: "<abbr> <state> <specimen>.png", with the abbreviation in
+// any case and sometimes spaced or underscored ("UP3M MXPAR", "UP4DMXPAR_3").
+// They match a trait's abbreviation or its drawings' prefix
+// (DENTAL_FILE_PREFIX); the rest are listed here.
+const DENTAL_PHOTO_ALIAS: Record<string, string> = { UI1WING: "WING", UI1DIASTEMA: "DIAS", "UI2PEG-REDUCED": "UI2PEG" }
+const photoKey = (abbr: string) => {
+  const k = abbr.toUpperCase().replace(/[\s_]/g, "")
+  return DENTAL_PHOTO_ALIAS[k] ?? k
+}
+
+// DCP 2.0 figures in illustrations.pdf (UTK; local builds only) that show
+// each cranial and mandibular measurement. The figures carry no labels, so
+// they're matched by caption and shown without a highlight.
+const ILLUSTRATION_PAGES: Record<number, string[]> = {
+  5: ["GOL", "BNL", "BBH", "BPL"],
+  6: ["XCB", "ZYB"],
+  7: ["MAB", "MAL", "AUB", "ASB", "FOB"],
+  8: ["WFB", "NLH", "NLB", "UFHT", "NPH"],
+  9: ["OBH", "OBB", "EKB", "DKB"],
+  10: ["FRC", "PAC", "OCC", "FOL"],
+  11: ["GNI", "GOG", "CDL"],
+  12: ["HML", "WRB", "XRH", "MLT", "MAN"],
+}
+// Postcranial bones in illustrations.pdf, for measurements the postcranial
+// form has no figure for.
+const ILLUSTRATION_BONES: Record<string, number> = {
+  clavicle: 13, scapula: 14, humerus: 15, radius: 16, ulna: 17, sacrum: 18, "os-coxae": 19, femur: 20, tibia: 21, fibula: 22, calcaneus: 23,
+}
+
 // ---------------------------------------------------------------------------
 
 type Row = (string | number)[]
@@ -446,7 +519,7 @@ function pagesWithFigures(): number[] {
   return [...pages].sort((a, b) => a - b)
 }
 
-async function toWebp(srcFile: string, outRel: string): Promise<ImageAsset> {
+async function toWebp(srcFile: string, outRel: string, credit?: string): Promise<ImageAsset> {
   const outFile = path.join(OUT_IMG, outRel)
   fs.mkdirSync(path.dirname(outFile), { recursive: true })
   let input = srcFile
@@ -457,14 +530,18 @@ async function toWebp(srcFile: string, outRel: string): Promise<ImageAsset> {
   }
   // Capped in size: the enlarged view is the largest place they appear. The
   // FoRDent pencil drawings are grayscale and compress poorly, so they go
-  // smaller and lose their (empty) colour channels.
+  // smaller and lose their (empty) colour channels. Photos, the most
+  // numerous, go smaller too.
   const pencil = outRel.startsWith("dental/")
+  const photo = outRel.startsWith("photos/") || outRel.startsWith("dental-photos/")
+  const max = pencil || photo ? 800 : 1000
   let img = sharp(input)
+    .rotate()
     .flatten({ background: "#ffffff" })
-    .resize({ width: pencil ? 800 : 1000, height: pencil ? 800 : 1000, fit: "inside", withoutEnlargement: true })
+    .resize({ width: max, height: max, fit: "inside", withoutEnlargement: true })
   if (pencil) img = img.grayscale()
-  const info = await img.webp({ quality: pencil ? 70 : 78 }).toFile(outFile)
-  return { src: `ref-images/${outRel}`, width: info.width, height: info.height }
+  const info = await img.webp({ quality: pencil ? 70 : photo ? 72 : 78 }).toFile(outFile)
+  return { src: `ref-images/${outRel}`, width: info.width, height: info.height, ...(credit ? { credit } : {}) }
 }
 
 // ---------------------------------------------------------------------------
@@ -491,7 +568,62 @@ async function main() {
   const morphAbbrs = new Set([...cranialMorph.values()].map((t) => t.abbr).filter(Boolean))
   const idFor = (code: string, modality: Modality) =>
     (modality === "metric" && morphAbbrs.has(code)) || variables[code] ? `${code}-${modality}` : code
-  const mmsFiles = fs.readdirSync(MMS_DIR).filter((f) => f.endsWith(".bmp"))
+
+  // Drawings: "<code>_<state>" (lower-cased) → file.
+  const drawings = new Map<string, string>()
+  for (const dir of DRAWING_DIRS) {
+    for (const [f, full] of photoFiles(dir)) {
+      const key = f.replace(/\.[^.]+$/, "").toLowerCase()
+      if (!drawings.has(key)) drawings.set(key, full)
+    }
+  }
+
+  // Photos: code (lower-cased) → state → files, in file-name order.
+  const photos = new Map<string, Map<string, string[]>>()
+  const unmatchedPhotos: string[] = []
+  const addPhoto = (code: string, state: string, file: string) => {
+    const byState = photos.get(code.toLowerCase()) ?? new Map<string, string[]>()
+    byState.set(state, [...(byState.get(state) ?? []), file])
+    photos.set(code.toLowerCase(), byState)
+  }
+  const mmsPhotoDirs = new Set(
+    PHOTO_ROOTS.flatMap((r) => {
+      const d = path.join(r, MMS_PHOTO_DIR)
+      return fs.existsSync(d) ? fs.readdirSync(d).filter((x) => fs.statSync(path.join(d, x)).isDirectory()) : []
+    }),
+  )
+  for (const sub of [...mmsPhotoDirs].sort()) {
+    for (const [f, full] of [...photoFiles(path.join(MMS_PHOTO_DIR, sub))].sort()) {
+      const m = f.match(/^([A-Za-z]+?)(\d)([A-Z])\.\w+$/)
+      if (m) addPhoto(MMS_PHOTO_PREFIX[m[1]] ?? m[1], m[2], full)
+      else unmatchedPhotos.push(f)
+    }
+  }
+  for (const dir of PHOTO_DIRS) {
+    for (const [f, full] of [...photoFiles(dir)].sort()) {
+      const m = f.match(/^(.+?)_(\d)[A-Za-z]?\.\w+$/)
+      if (m) addPhoto(PHOTO_NAME_FIXES[m[1].toLowerCase()] ?? m[1], m[2], full)
+      else unmatchedPhotos.push(f)
+    }
+  }
+  const usedPhotoCodes = new Set<string>()
+
+  // Photos of a Variable's states, converted; states not on its scale are
+  // reported and left out.
+  async function photosFor(code: string, states: CharacterState[], outDir: string) {
+    const byState = photos.get(code.toLowerCase())
+    const out: Record<string, ImageAsset[]> = {}
+    if (!byState) return out
+    usedPhotoCodes.add(code.toLowerCase())
+    for (const [state, files] of byState) {
+      if (!states.some((s) => s.code === state)) {
+        unmatchedPhotos.push(`${code} state ${state} (not on the scale): ${files.map((f) => path.basename(f)).join(", ")}`)
+        continue
+      }
+      out[state] = await Promise.all(files.map((f, i) => toWebp(f, `${outDir}/${code}_${state}_${i + 1}.webp`)))
+    }
+    return out
+  }
 
   async function addMorph(name: string, source: Map<string, { abbr: string; method: string; desc: string; states: CharacterState[] }>) {
     const t = source.get(name)
@@ -506,15 +638,18 @@ async function main() {
       method: t.method,
       states: t.states,
     }
-    // MMS traits have one drawing per Character state.
+    // One drawing per Character state, where the trait has them.
     const states: Record<string, ImageAsset> = {}
-    if (t.method === "MMS") {
-      for (const s of t.states) {
-        const file = mmsFiles.find((f) => f === `${code}_${s.code}.bmp`)
-        if (file) states[s.code] = await toWebp(path.join(MMS_DIR, file), `mms/${code}_${s.code}.webp`)
-      }
+    const dir = t.method === "MMS" ? "mms" : "drawings"
+    for (const s of t.states) {
+      const file = drawings.get(`${code}_${s.code}`.toLowerCase())
+      if (file) states[s.code] = await toWebp(file, `${dir}/${code}_${s.code}.webp`)
     }
-    manifest[id] = Object.keys(states).length ? { kind: "states", states } : { kind: "none" }
+    const statePhotos = await photosFor(code, t.states, "photos")
+    manifest[id] =
+      Object.keys(states).length || Object.keys(statePhotos).length
+        ? { kind: "states", states, ...(Object.keys(statePhotos).length ? { photos: statePhotos } : {}) }
+        : { kind: "none" }
     return id
   }
 
@@ -542,15 +677,32 @@ async function main() {
 
   // Dentition · Morphological: grouped by jaw and tooth class, with states
   // and drawings from the FoRDent image set (the sheet doesn't list states).
+  // The first download filed the drawings under Maxilla/ and Mandible/; the
+  // second under "<jaw> Line Drawings/", beside "<jaw> Photos/".
   const dentalFiles = new Map<string, string[]>()
+  const dentalPhotos = new Map<string, { state: string; file: string; credit: string }[]>()
   for (const jaw of ["Maxilla", "Mandible"]) {
-    for (const f of fs.readdirSync(path.join(DENTAL_DIR, jaw))) {
-      if (f.endsWith(".png")) dentalFiles.set(f, [...(dentalFiles.get(f) ?? []), path.join(DENTAL_DIR, jaw, f)])
+    const seen = new Map([...photoFiles(`Dental Images/Morphological/${jaw} Line Drawings`), ...photoFiles(`Dental Images/Morphological/${jaw}`)])
+    for (const [f, full] of seen) {
+      if (f.endsWith(".png")) dentalFiles.set(f, [...(dentalFiles.get(f) ?? []), full])
+    }
+    for (const [f, full] of [...photoFiles(`Dental Images/Morphological/${jaw} Photos`)].sort()) {
+      const m = f.match(/^(.+?)[\s_]+(\d+(?:\.\d+)?)[\s_]*(.*?)\.png$/i)
+      if (!m) {
+        unmatchedPhotos.push(f)
+        continue
+      }
+      const key = photoKey(m[1])
+      const state = m[2].split(".")[0]
+      dentalPhotos.set(key, [...(dentalPhotos.get(key) ?? []), { state, file: full, credit: m[3].trim() }])
     }
   }
+  const usedDentalPhotos = new Set<string>()
   const dentalStatesFor = (abbr: string) => {
     const prefix = DENTAL_FILE_PREFIX[abbr] ?? abbr
-    const states = new Map<string, string>()
+    // A state with more than one example drawing is filed as 4.1, 4.2…
+    // (Andrea Zurek-Ost, 2026-11): those are examples of state 4, not states.
+    const states = new Map<string, string[]>()
     let location: string | undefined
     for (const f of [...dentalFiles.keys()].sort()) {
       if (!f.startsWith(`${prefix}_`)) continue
@@ -559,10 +711,13 @@ async function main() {
         if (!location || /New/.test(suffix)) location = dentalFiles.get(f)![0]
         continue
       }
-      const m = suffix.match(/^(\d+(?:\.\d+)?)/)
-      if (m && !states.has(m[1])) states.set(m[1], dentalFiles.get(f)![0])
+      const m = suffix.match(/^(\d+)(?:\.\d+)?/)
+      if (m) states.set(m[1], [...(states.get(m[1]) ?? []), dentalFiles.get(f)![0]])
     }
-    return { states, location }
+    const keys = [...new Set([photoKey(abbr), photoKey(prefix)])]
+    const shots = keys.flatMap((k) => dentalPhotos.get(k) ?? [])
+    for (const k of keys) if (dentalPhotos.has(k)) usedDentalPhotos.add(k)
+    return { states, location, shots }
   }
   const dentalGroups: Group[] = [
     { id: "max-incisors", name: "Maxillary incisors", codes: [] },
@@ -593,9 +748,12 @@ async function main() {
     const sibling = name.replace(/_m3$/, "_m2").replace(/_pm2$/, "_pm1")
     const abbr = t.abbr || dentalMorph.get(sibling)?.abbr || ""
     const code = t.abbr || name
-    const { states: files, location } = abbr ? dentalStatesFor(abbr) : { states: new Map<string, string>(), location: undefined }
+    const { states: files, location, shots } = abbr
+      ? dentalStatesFor(abbr)
+      : { states: new Map<string, string[]>(), location: undefined, shots: [] }
     const listed = t.states.filter((s) => s.code)
-    let states: CharacterState[] = [...files.keys()]
+    // The scale is every state with a drawing or a photo.
+    let states: CharacterState[] = [...new Set([...files.keys(), ...shots.map((p) => p.state)])]
       .sort((a, b) => Number(a) - Number(b))
       .map((c) => ({ code: c, label: listed.find((s) => s.code === c)?.label ?? "" }))
     const inferred = states.length === 0
@@ -610,16 +768,26 @@ async function main() {
     const short = t.desc.replace(/^(Maxillary|Mandibular) (incisor|canine|premolar|molar) /, "").replace(/ - /, ", ")
     variables[id] = { id, code, name: sentenceCase(short), modality: "morph", method: "FoRDent", states, statesPending: inferred || undefined }
     const assets: Record<string, ImageAsset> = {}
-    if (abbr) {
-      for (const [c, file] of files) assets[c] = await toWebp(file, `dental/${code}_${c}.webp`)
+    const more: Record<string, ImageAsset[]> = {}
+    for (const [c, list] of files) {
+      assets[c] = await toWebp(list[0], `dental/${code}_${c}.webp`)
+      if (list.length > 1) more[c] = await Promise.all(list.slice(1).map((f, i) => toWebp(f, `dental/${code}_${c}_${i + 2}.webp`)))
     }
-    manifest[id] = Object.keys(assets).length
-      ? {
-          kind: "states",
-          states: assets,
-          location: location ? await toWebp(location, `dental/${code}_loc.webp`) : undefined,
-        }
-      : { kind: "none" }
+    const shotAssets: Record<string, ImageAsset[]> = {}
+    for (const [i, p] of shots.entries()) {
+      const asset = await toWebp(p.file, `dental-photos/${code}_${p.state}_${i + 1}.webp`, p.credit || undefined)
+      shotAssets[p.state] = [...(shotAssets[p.state] ?? []), asset]
+    }
+    manifest[id] =
+      Object.keys(assets).length || shots.length
+        ? {
+            kind: "states",
+            states: assets,
+            ...(Object.keys(more).length ? { moreDrawings: more } : {}),
+            ...(shots.length ? { photos: shotAssets } : {}),
+            location: location ? await toWebp(location, `dental/${code}_loc.webp`) : undefined,
+          }
+        : { kind: "none" }
     return id
   }
 
@@ -696,14 +864,70 @@ async function main() {
     if (b) manifest[v.id] = { kind: "figure", figure: b.asset, caption: b.caption, highlight: b.box }
   }
 
+  // DCP 2.0 illustrations for the cranium and mandible, and for postcranial
+  // measurements still without a figure. Each page is cut above its caption.
+  const illustrations = new Map<number, { asset: ImageAsset; caption: string }>()
+  async function illustration(page: number) {
+    const have = illustrations.get(page)
+    if (have) return have
+    const scale = 150 / 72
+    const base = path.join(figTmp, `ill-${page}`)
+    execFileSync("pdftoppm", ["-r", "150", "-f", String(page), "-l", String(page), "-png", "-singlefile", ILLUSTRATIONS_PDF, base])
+    const bbox = execFileSync("pdftotext", ["-bbox", "-f", String(page), "-l", String(page), ILLUSTRATIONS_PDF, "-"], { encoding: "utf8" })
+    const words = [...bbox.matchAll(/yMin="([\d.]+)"[^>]*>([^<]*)</g)]
+    const at = words.findIndex((w) => w[2] === "Figure")
+    const meta = await sharp(`${base}.png`).metadata()
+    const top = at > -1 ? Math.floor(Number(words[at][1]) * scale) - 8 : meta.height!
+    // Two passes: sharp can't trim and extract in one pipeline.
+    const above = await sharp(`${base}.png`).extract({ left: 0, top: 0, width: meta.width!, height: top }).png().toBuffer()
+    await sharp(above).trim().toFile(`${base}-crop.png`)
+    const caption = `DCP 2.0 fig. ${words[at + 1]?.[2]} · ${words.slice(at + 2).map((w) => w[2]).join(" ").replace(/[.\s]+$/, "")}`
+    const out = { asset: await toWebp(`${base}-crop.png`, `dcp/illustration-${page}.webp`), caption }
+    illustrations.set(page, out)
+    return out
+  }
+  const skullSections = new Set(["cranium-metric", "mandible-metric"])
+  const skullIds = new Map(
+    sections.filter((s) => skullSections.has(s.id)).flatMap((s) => s.bones.flatMap((b) => b.variableIds)).map((id) => [variables[id].code, id]),
+  )
+  for (const [page, codes] of Object.entries(ILLUSTRATION_PAGES)) {
+    for (const code of codes) {
+      const id = skullIds.get(code)
+      if (!id) throw new Error(`No cranial measurement ${code} for illustration page ${page}`)
+      const { asset, caption } = await illustration(Number(page))
+      manifest[id] = { kind: "figure", figure: asset, caption }
+    }
+  }
+  for (const s of sections.filter((x) => x.modality === "metric")) {
+    for (const b of s.bones) {
+      const page = ILLUSTRATION_BONES[b.id]
+      if (!page) continue
+      for (const id of b.variableIds) {
+        if (manifest[id].kind !== "none") continue
+        const { asset, caption } = await illustration(page)
+        manifest[id] = { kind: "figure", figure: asset, caption }
+      }
+    }
+  }
+
+  for (const code of photos.keys()) if (!usedPhotoCodes.has(code)) unmatchedPhotos.push(`${code}: no Variable with this code`)
+  for (const key of dentalPhotos.keys()) {
+    if (!usedDentalPhotos.has(key)) unmatchedPhotos.push(`${key} (dental): no trait with this abbreviation`)
+  }
+
   sections.sort((a, b) => REGION_ORDER.indexOf(a.region) - REGION_ORDER.indexOf(b.region) || (a.modality === "metric" ? -1 : 1))
 
   for (const s of sections) {
     const ids = s.bones.flatMap((b) => b.variableIds)
     const kinds = ids.map((id) => manifest[id].kind)
+    const entries = ids.map((id) => manifest[id])
+    const drawn = entries.filter((e) => e.kind === "states" && Object.keys(e.states).length).length
+    const photographed = entries.filter((e) => e.kind === "states" && e.photos).length
+    const photoCount = entries.reduce((n, e) => n + (e.kind === "states" && e.photos ? Object.values(e.photos).flat().length : 0), 0)
     report.push(
       `| ${s.title} | ${ids.length}${s.calculated ? ` + ${s.calculated.length} calculated` : ""} | ` +
-        `${kinds.filter((k) => k === "states").length} per-state · ${kinds.filter((k) => k === "figure").length} figure · ${kinds.filter((k) => k === "none").length} none | ` +
+        `${drawn} drawn · ${kinds.filter((k) => k === "figure").length} figure · ${kinds.filter((k) => k === "none").length} none | ` +
+        `${photographed ? `${photographed} (${photoCount} photos)` : ""} | ` +
         `${ids.filter((id) => variables[id].statesPending).length || ""} |`,
     )
   }
@@ -716,12 +940,15 @@ async function main() {
     "",
     `Generated ${fixture.generatedAt} by \`npm run fixture\`. ${Object.keys(variables).length} Variables in ${sections.length} sections.`,
     "",
-    "| Section | Variables | Reference images | States pending |",
-    "| --- | --- | --- | --- |",
+    "| Section | Variables | Drawings and figures | With photos | States pending |",
+    "| --- | --- | --- | --- | --- |",
     ...report,
     "",
     "\"States pending\": dental traits with no FoRDent image set, given absent/present until the states are confirmed.",
     "",
+    ...(unmatchedPhotos.length
+      ? ["## Photos not used", "", "Files the script couldn't place, usually a name it doesn't recognise:", "", ...unmatchedPhotos.map((u) => `- ${u}`), ""]
+      : []),
   ]
   fs.writeFileSync(path.join(root, "scripts/manifest-report.md"), lines.join("\n"))
   console.log(lines.join("\n"))

@@ -33,6 +33,11 @@ const SCENARIOS = {
   "ref-D-morph": { q: "?inc=skip-section&seed=midway&ref=D&auto=morph,metric&start=cranium-morph", steps: [["dismiss"]] },
   "ref-A-metric": { q: "?inc=skip-section&seed=midway&ref=A&auto=morph,metric&start=lower-limb-metric", steps: [["dismiss"]] },
   "ref-C-metric": { q: "?inc=skip-section&seed=midway&ref=C&auto=morph,metric&start=lower-limb-metric", steps: [["dismiss"]] },
+  "photos-A-mms": { q: "?seed=midway&ref=A&auto=morph,metric&start=cranium-morph#/", steps: [["dismiss"], ["key", "KeyR"], ["click", "button::-p-text(photos)"]] },
+  "photos-A-dental": { q: "?seed=fresh&ref=A&auto=morph,metric&start=dentition-morph#/", steps: [["dismiss"], ["key", "KeyR"], ["click", "button::-p-text(photos)"]] },
+  "photos-C-vertebrae": { q: "?seed=fresh&ref=C&auto=morph,metric&start=vertebrae-morph#/", steps: [["dismiss"], ["key", "KeyR"]] },
+  "figure-A-cranium": { q: "?seed=fresh&ref=A&auto=morph,metric&start=cranium-metric#/", steps: [["dismiss"], ["key", "KeyR"]] },
+  "photos-viewer": { q: "?seed=fresh&ref=A&auto=morph,metric&start=cranium-morph#/", steps: [["dismiss"], ["key", "KeyR"], ["click", "button::-p-text(photos)"], ["click", "button[aria-label=Enlarge]"]] },
   "ref-D-metric": { q: "?inc=skip-section&seed=midway&ref=D&auto=morph,metric&start=lower-limb-metric", steps: [["dismiss"]] },
 }
 

@@ -84,7 +84,7 @@ function DockedColumnFor({ data, onClose }: { data: ReferenceData; onClose: () =
   const preview = states.preview
   return (
     <aside aria-label="Reference" className={DOCKED_CLASS}>
-      <PanelHeader label="Reference" onClose={onClose} />
+      <PanelHeader label="Reference" entry={data.entry} onClose={onClose} />
       <div className="flex flex-col gap-0.5">
         <span className="text-base font-semibold">{v.name}</span>
         <span className="font-mono text-xs text-muted-foreground">{v.code}</span>
@@ -129,7 +129,7 @@ export function InlineExpansion({ data, onClose }: { data: ReferenceData; onClos
           <MetricFigure data={data} className={wide ? "h-[200px] w-full" : "h-[182px] w-full shrink-0 @min-[560px]:w-[218px]"} />
         )}
         <div className="flex min-w-0 flex-1 flex-col gap-2.5">
-          <PanelHeader label={`Reference · ${v.code}`} onClose={onClose} />
+          <PanelHeader label={`Reference · ${v.code}`} entry={data.entry} onClose={onClose} />
           {v.modality === "morph" && (
             <>
               <StateStrip data={data} preview={preview} onPreview={states.onPreview} onSelect={states.onSelect} thumbClassName="h-20" />
@@ -211,7 +211,7 @@ function BottomDockFor({ data, onClose }: { data: ReferenceData; onClose: () => 
         <MetricFigure data={data} className="h-full w-[45%] max-w-[520px] min-w-[200px] shrink-0" />
       )}
       <div className="flex min-w-0 flex-1 flex-col gap-2.5">
-        <PanelHeader label={`Reference · ${v.name} (${v.code})`} onClose={onClose} />
+        <PanelHeader label={`Reference · ${v.name} (${v.code})`} entry={data.entry} onClose={onClose} />
         {v.modality === "morph" ? (
           <>
             <StateStrip data={data} preview={preview} onPreview={states.onPreview} onSelect={states.onSelect} thumbClassName="h-[104px]" />
