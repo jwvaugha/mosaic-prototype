@@ -1,4 +1,4 @@
-import { BookImage, CircleHelp, FileUp } from "lucide-react"
+import { CircleHelp, FileUp } from "lucide-react"
 import { useLayoutEffect, useState } from "react"
 import { BoneGroupHeader } from "@/components/mosaic/bone-group-header"
 import { CalculatedGroup } from "@/components/mosaic/calculated-group"
@@ -6,13 +6,14 @@ import { ContinueFooter } from "@/components/mosaic/continue-footer"
 import { MetricVariableRow } from "@/components/mosaic/metric-variable-row"
 import { FirstUseHint } from "@/components/mosaic/first-use-hint"
 import { InlineExpansion } from "@/components/mosaic/reference/presenters"
+import { ReferenceButton } from "@/components/mosaic/reference/reference-button"
+import type { RefLayout } from "@/config/test-config"
 import type { ReferenceData } from "@/components/mosaic/reference/reference-parts"
 import { MorphVariableRow } from "@/components/mosaic/morph-variable-row"
 import { RowNote } from "@/components/mosaic/row-note"
 import { Button } from "@/components/ui/button"
 import { ButtonGroup } from "@/components/ui/button-group"
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
-import { Kbd } from "@/components/ui/kbd"
 import { useConfig } from "@/config/config-context"
 import { FLAG_KEYS } from "@/lib/keys"
 import { imageManifest } from "@/data"
@@ -40,10 +41,9 @@ export function SectionView({
   referenceToggle,
 }: {
   onContinue: () => void
-  // The reference panel's switch, in the section header (every layout; the
-  // bottom dock also keeps its strip). hideWhenOpen: the docked column (A)
-  // drops the button while open, since the column sits where it would be.
-  referenceToggle: { open: boolean; onToggle: () => void; hideWhenOpen: boolean } | null
+  // The reference panel's switch and place, in the section header (every
+  // layout; the bottom dock also keeps its strip).
+  referenceToggle: { open: boolean; onToggle: () => void; onLayout: (l: RefLayout) => void } | null
   // Presenter C renders under the focused row.
   inlineReference: { data: ReferenceData | null; close: () => void } | null
 }) {
@@ -62,14 +62,18 @@ export function SectionView({
   const footer = [...head, `${c.blank} unreached`].join(" · ")
 
   const hintField = state.focus?.kind === "field" ? variable(state.focus.id) : null
+  const inlineOpen = !!inlineReference?.data
   // The card goes to the right of the whole row when its full width fits
   // there (even over the reference panel), otherwise directly below the row;
-  // it never covers the row. The row exists only after render, so find it in
-  // an effect, and re-decide when the window resizes.
+  // it never covers the row, nor the inline reference under it (the card
+  // anchors to both together). The row exists only after render, so find it
+  // in an effect, and re-decide when the window resizes.
   const [hintAnchor, setHintAnchor] = useState<HTMLElement | null>(null)
   const [hintSide, setHintSide] = useState<"right" | "bottom">("right")
   useLayoutEffect(() => {
-    const row = hintField ? document.querySelector<HTMLElement>(`[data-variable="${hintField.id}"] > div`) : null
+    const row = hintField
+      ? document.querySelector<HTMLElement>(`[data-variable="${hintField.id}"]${inlineOpen ? "" : " > div"}`)
+      : null
     setHintAnchor(row)
     const place = () => {
       if (row) setHintSide(row.getBoundingClientRect().right + HINT_WIDTH + 32 <= window.innerWidth ? "right" : "bottom")
@@ -77,7 +81,7 @@ export function SectionView({
     place()
     window.addEventListener("resize", place)
     return () => window.removeEventListener("resize", place)
-  }, [hintField?.id, section.id])
+  }, [hintField?.id, section.id, inlineOpen])
   // General on purpose: it explains the pattern, not the field it opens on.
   const hintCopy =
     policy.allowSkip && policy.allowFlag
@@ -144,23 +148,15 @@ export function SectionView({
               </Tooltip>
             </ButtonGroup>
           )}
-          {/* Show / Hide reference. In the docked layout it goes away while the
-              panel is on (the column covers that corner); the panel's own ×
-              (or R) turns it off there. */}
-          {referenceToggle && !(referenceToggle.hideWhenOpen && referenceToggle.open) && (
-            <Button
-              variant="outline"
-              size="sm"
-              tabIndex={-1}
-              className="text-xs"
-              aria-pressed={referenceToggle.open}
-              onMouseDown={(e) => e.preventDefault()}
-              onClick={referenceToggle.onToggle}
-            >
-              <BookImage />
-              {referenceToggle.open ? "Hide reference" : "Show reference"}
-              <Kbd>R</Kbd>
-            </Button>
+          {/* Show / Hide reference, and where it appears. It stays in every
+              layout, so the place can be changed while the panel is on. */}
+          {referenceToggle && (
+            <ReferenceButton
+              open={referenceToggle.open}
+              layout={config.refLayout}
+              onToggle={referenceToggle.onToggle}
+              onLayout={referenceToggle.onLayout}
+            />
           )}
         </div>
         <p className="text-sm text-muted-foreground">{pane}</p>

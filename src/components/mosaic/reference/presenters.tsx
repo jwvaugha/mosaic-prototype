@@ -1,4 +1,4 @@
-import { BookImage, ChevronUp } from "lucide-react"
+import { BookImage, ChevronUp, GripVertical } from "lucide-react"
 import { useRef, useState, type ReactNode } from "react"
 import { Kbd } from "@/components/ui/kbd"
 import { showsCode } from "@/lib/variable-label"
@@ -84,9 +84,12 @@ function Placeholder({ compact }: { compact?: boolean }) {
 // drags to make it wider (feedback 2026-11-09); the drawings grow with it
 // (container queries), and the width is kept in this browser. A double-click
 // on the edge goes back to the default.
+// The outer box sizes and places the column; the inner one scrolls, so the
+// resize edge and its grip stay put while the content scrolls.
 const DOCKED_CLASS =
-  "@container relative flex w-[360px] shrink-0 flex-col gap-4 overflow-y-auto border-l bg-background p-6 max-xl:w-[300px] max-xl:p-5 " +
+  "relative flex w-[360px] shrink-0 border-l bg-background max-xl:w-[300px] " +
   "max-lg:absolute max-lg:inset-y-0 max-lg:right-0 max-lg:z-20 max-lg:w-[320px] max-lg:shadow-xl"
+const DOCKED_SCROLL_CLASS = "@container flex min-w-0 flex-1 flex-col gap-4 overflow-y-auto p-6 max-xl:p-5"
 
 const WIDTH_KEY = "mosaic-proto:reference-width"
 export const DOCKED_MIN = 300
@@ -128,6 +131,8 @@ function DockedShell({ children }: { children: ReactNode }) {
       onClick={back.onClick}
       onFocus={back.onFocus}
     >
+      {/* The edge: a wide hit area along the border with a grip in the
+          middle, so it reads as something to drag. */}
       <div
         role="separator"
         aria-orientation="vertical"
@@ -136,7 +141,7 @@ function DockedShell({ children }: { children: ReactNode }) {
         aria-valuemin={DOCKED_MIN}
         title="Drag to resize · double-click to reset"
         data-testid="reference-resize"
-        className="group/resize absolute inset-y-0 left-0 z-10 w-2 -translate-x-1 cursor-col-resize touch-none"
+        className="group/resize absolute inset-y-0 left-0 z-10 w-3 -translate-x-1/2 cursor-col-resize touch-none"
         onPointerDown={(e) => {
           if (e.button !== 0) return
           e.preventDefault()
@@ -155,9 +160,15 @@ function DockedShell({ children }: { children: ReactNode }) {
         }}
         onDoubleClick={() => save(null)}
       >
-        <span className="absolute inset-y-0 left-1 w-0.5 bg-transparent transition-colors group-hover/resize:bg-ring group-active/resize:bg-ring" />
+        <span className="absolute inset-y-0 left-1/2 w-0.5 -translate-x-1/2 bg-transparent transition-colors group-hover/resize:bg-ring group-active/resize:bg-ring" />
+        <span
+          aria-hidden
+          className="absolute top-1/2 left-1/2 flex h-10 w-3 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border bg-background text-muted-foreground shadow-xs transition-colors group-hover/resize:border-ring group-hover/resize:text-foreground"
+        >
+          <GripVertical className="size-3" />
+        </span>
       </div>
-      {children}
+      <div className={DOCKED_SCROLL_CLASS}>{children}</div>
     </aside>
   )
 }

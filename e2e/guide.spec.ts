@@ -43,7 +43,7 @@ test("A 'Try it' link opens the prototype on that section with the reference on"
 })
 
 test("Old links with the bottom dock's former letter, D, open layout B", async ({ page }) => {
-  await page.goto("./?ref=D&dim=0&start=cranium-morph#/")
+  await page.goto("./?ref=D&refon=0&dim=0&start=cranium-morph#/")
   await page.getByRole("button", { name: "Got it" }).click({ timeout: 2000 }).catch(() => {})
   await expect(page.getByRole("button", { name: "Show reference panel" })).toBeVisible()
 })

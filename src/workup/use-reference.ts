@@ -15,9 +15,11 @@ export function useReference(): {
   layout: RefLayout
   toggle: () => void
   close: () => void
+  // Choosing a place also opens the panel.
+  setLayout: (l: RefLayout) => void
 } {
   const { state, dispatch } = useWorkup()
-  const { config } = useConfig()
+  const { config, setConfig } = useConfig()
   const f = state.focus
   const v = f?.kind === "field" ? variable(f.id) : null
   return {
@@ -26,5 +28,9 @@ export function useReference(): {
     layout: config.refLayout,
     toggle: () => dispatch({ type: "toggleReference" }),
     close: () => dispatch({ type: "closeReference" }),
+    setLayout: (l) => {
+      setConfig((c) => ({ ...c, refLayout: l }))
+      dispatch({ type: "openReference" })
+    },
   }
 }

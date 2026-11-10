@@ -45,23 +45,53 @@ const UPDATES: Update[] = [
   {
     id: "2026-11-10-panel-flags-rail",
     date: "2026-11-10",
-    title: "A wider reference panel, brighter flags",
-    intro: <>More changes from your first round of feedback, mostly to the reference panel beside the fields.</>,
+    title: "The reference panel: open from the start, wider, and where you want it",
+    intro: <>More changes from your first round of feedback, mostly to the reference panel.</>,
     notes: true,
     changes: [
+      {
+        title: <>The reference panel starts open</>,
+        body: (
+          <>
+            Several of you had to hunt for the Show reference button, and most of you kept the panel open once you found
+            it. It now starts open, in the column beside the fields, which most of you preferred. {k("R")} or Hide
+            reference still closes it.
+          </>
+        ),
+        tryIt: {
+          label: "Try it in Cranium · Morphological",
+          href: tryLink({ start: "cranium-morph", ref: "A", refon: "1" }),
+        },
+      },
+      {
+        title: <>Choose where the panel goes</>,
+        body: (
+          <>
+            The arrow beside Show/Hide reference opens a menu with two places: <em>Beside the fields</em>, a column that
+            never moves, or <em>Under the field</em>, with larger drawings right below the field you're on. Choosing one
+            opens the panel there, and the prototype remembers your choice. The strip along the bottom is no longer
+            offered, since none of you picked it.
+          </>
+        ),
+        tryIt: {
+          label: "Try it in Cranium · Morphological",
+          href: tryLink({ start: "cranium-morph", ref: "A", refon: "1" }),
+          how: <>Click the arrow beside Hide reference and choose Under the field.</>,
+        },
+      },
       {
         title: <>Drag the reference panel wider</>,
         body: (
           <>
-            Several of you found the drawings small beside the fields. Drag the panel's left edge to make it as wide as you
-            like, and the drawings and photos grow with it. It keeps that width the next time you open the prototype.
+            Several of you found the drawings small beside the fields. Drag the grip on the panel's left edge to make it as
+            wide as you like, and the drawings and photos grow with it. It keeps that width the next time you open the prototype.
             Double-click the edge to go back to the usual width.
           </>
         ),
         tryIt: {
           label: "Try it in Cranium · Morphological",
           href: tryLink({ start: "cranium-morph", ref: "A", refon: "1" }),
-          how: <>Point at the panel's left edge until the cursor changes, then drag it to the left.</>,
+          how: <>Drag the small grip halfway down the panel's left edge to the left.</>,
         },
       },
       {
@@ -542,8 +572,8 @@ export function Guide() {
             </li>
             <li>Reloading the page starts the Workup again; the real app saves as you go.</li>
             <li>
-              To compare reference panel layouts, open <strong className="text-foreground">Test mode</strong> from the
-              strip at the very bottom of the prototype.
+              To move the reference panel, use the arrow beside Show/Hide reference. Test mode, the strip at the very
+              bottom of the prototype, still has the bottom dock for comparison.
             </li>
           </ul>
         </section>

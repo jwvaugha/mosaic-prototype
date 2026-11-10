@@ -135,7 +135,7 @@ test.describe("Region rail", () => {
 test.describe("Reference panel switch", () => {
   test("bottom dock: a strip when off that opens the dock; placeholder off a field", async ({ page }) => {
     await page.setViewportSize({ width: 1280, height: 900 })
-    await page.goto("./?seed=midway&ref=B&dim=0&start=cranium-morph#/")
+    await page.goto("./?seed=midway&ref=B&refon=0&dim=0&start=cranium-morph#/")
     await page.getByRole("button", { name: "Got it" }).click({ timeout: 2000 }).catch(() => {})
     const strip = page.getByRole("button", { name: "Show reference panel" })
     await expect(strip).toBeVisible()
@@ -148,7 +148,7 @@ test.describe("Reference panel switch", () => {
 
   test("docked: the sticky section header carries the switch and stays in view", async ({ page }) => {
     await page.setViewportSize({ width: 1280, height: 700 })
-    await page.goto("./?seed=midway&ref=A&dim=0&start=cranium-morph#/")
+    await page.goto("./?seed=midway&ref=A&refon=0&dim=0&start=cranium-morph#/")
     await page.getByRole("button", { name: "Got it" }).click({ timeout: 2000 }).catch(() => {})
     await page.locator("main").evaluate((m) => (m.scrollTop = 900))
     const btn = page.getByRole("button", { name: /Show reference/ })
@@ -168,7 +168,7 @@ test("intro card: beside the row when it fits, otherwise below it, never over it
     const card = page.getByText("Score it, Skip it, or come back to it").locator("..")
     await expect(card).toBeVisible()
     const c = (await card.boundingBox())!
-    const r = (await page.locator('[data-variable="NAS"] > div').boundingBox())!
+    const r = (await page.locator('[data-variable="NAS"] > div').first().boundingBox())!
     const overlaps = c.x < r.x + r.width - 1 && r.x < c.x + c.width - 1 && c.y < r.y + r.height - 1 && r.y < c.y + c.height - 1
     expect(overlaps, `card overlaps the row at ${width}px`).toBe(false)
     await page.screenshot({ path: `e2e/.shots/intro-${width}.png` })

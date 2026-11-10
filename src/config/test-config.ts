@@ -12,8 +12,8 @@ export type RefLayout = "A" | "B" | "C"
 export type TestConfig = {
   // One layout for both modalities.
   refLayout: RefLayout
-  // The reference panel's on/off switch at the start of a Workup (off by
-  // default since 2026-10-28, so users discover it).
+  // The reference panel's on/off switch at the start of a Workup. On by
+  // default since 2026-11-10: testers had to hunt for it when it started off.
   refStartsOn: boolean
   incompletion: IncompletionId
   showKeyHints: boolean
@@ -27,7 +27,7 @@ export type TestConfig = {
 
 export const DEFAULT_CONFIG: TestConfig = {
   refLayout: "A",
-  refStartsOn: false,
+  refStartsOn: true,
   incompletion: "skip-and-flag",
   showKeyHints: true,
   introDim: true,
@@ -42,7 +42,7 @@ const SEEDS = ["fresh", "midway"]
 export function toQuery(c: TestConfig): string {
   const p = new URLSearchParams()
   p.set("ref", c.refLayout)
-  if (c.refStartsOn) p.set("refon", "1")
+  p.set("refon", c.refStartsOn ? "1" : "0")
   p.set("inc", c.incompletion)
   if (!c.showKeyHints) p.set("hints", "0")
   if (!c.introDim) p.set("dim", "0")
@@ -72,7 +72,7 @@ export function fromQuery(query: string, base: TestConfig = DEFAULT_CONFIG): Tes
 const renamed = (layout: string) => (layout === "D" ? "B" : layout)
 
 // Bumped when defaults change, so earlier visits don't keep stale settings.
-const STORAGE_KEY = "mosaic-prototype-config-v5"
+const STORAGE_KEY = "mosaic-prototype-config-v6"
 
 export function loadConfig(): TestConfig {
   let stored = DEFAULT_CONFIG

@@ -93,3 +93,22 @@ test("a flagged field reads as highlighted", async ({ page }) => {
   expect(await pill.evaluate((el) => getComputedStyle(el).backgroundColor)).toBe("rgb(254, 240, 138)")
   await page.screenshot({ path: "e2e/.shots/feedback-flag.png" })
 })
+
+test("the reference starts on, beside the fields, and its menu moves it under the field", async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 })
+  await page.goto("./?seed=fresh&dim=0&start=cranium-morph#/")
+  await page.getByRole("button", { name: "Got it" }).click()
+  await expect(page.getByRole("complementary", { name: "Reference" })).toBeVisible()
+  await expect(page.getByTestId("reference-resize")).toBeVisible()
+  await page.getByRole("button", { name: "Where the reference appears" }).click()
+  await expect(page.getByRole("menuitemradio", { name: /Beside the fields/ })).toHaveAttribute("aria-checked", "true")
+  await page.waitForTimeout(300)
+  await page.screenshot({ path: "e2e/.shots/feedback-reference-menu.png" })
+  await page.getByRole("menuitemradio", { name: /Under the field/ }).click()
+  await expect(page.getByRole("complementary", { name: "Reference" })).toHaveCount(0)
+  await expect(page.locator('[data-variable="NAS"]').getByText(/^Reference ·/)).toBeVisible()
+  // The choice is kept for the next visit.
+  await page.goto("./?dim=0&start=cranium-morph#/".replace("?", "?seed=fresh&"))
+  await page.getByRole("button", { name: "Got it" }).click()
+  await expect(page.locator('[data-variable="NAS"]').getByText(/^Reference ·/)).toBeVisible()
+})

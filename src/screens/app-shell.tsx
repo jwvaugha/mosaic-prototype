@@ -174,10 +174,9 @@ function AppShell() {
             <SectionView
               onContinue={onContinue}
               inlineReference={inline ? ref : null}
-              // Every layout switches the panel from the sticky section header
-              // (the bottom dock keeps its strip too). Inline and bottom dock
-              // show "Hide reference" while on; docked drops the button.
-              referenceToggle={{ open: ref.open, onToggle: ref.toggle, hideWhenOpen: ref.layout === "A" }}
+              // Every layout switches the panel, and chooses its place, from
+              // the sticky section header (the bottom dock keeps its strip too).
+              referenceToggle={{ open: ref.open, onToggle: ref.toggle, onLayout: ref.setLayout }}
             />
           </main>
           {dockLayout && (dock ? <BottomDock data={ref.data} onClose={ref.close} /> : <DockStrip onOpen={ref.toggle} />)}

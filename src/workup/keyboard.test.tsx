@@ -231,8 +231,14 @@ describe("bone headers", () => {
     expect(within(row("NBS")).getByRole("button", { pressed: true })).toHaveTextContent("Come back to this")
   })
 
+  it("the reference panel starts on, in the docked column", async () => {
+    setup("inc=skip-and-flag")
+    expect(screen.getByRole("complementary", { name: "Reference" })).toBeInTheDocument()
+    expect(screen.getByRole("button", { name: /^Hide reference ?R$/ })).toBeInTheDocument()
+  })
+
   it("R shows and hides the reference panel, which stays on as focus moves", async () => {
-    const user = setup("inc=skip-and-flag")
+    const user = setup("inc=skip-and-flag&refon=0")
     await focusFirst(user)
     expect(screen.queryByRole("complementary", { name: "Reference" })).toBeNull()
     await user.keyboard("r")
@@ -244,19 +250,32 @@ describe("bone headers", () => {
     expect(screen.queryByRole("complementary", { name: "Reference" })).toBeNull()
   })
 
-  it("docked: the header button opens the panel and goes away; the panel's × closes it", async () => {
-    const user = setup("inc=skip-and-flag&ref=A")
+  it("docked: the header button stays, as Hide reference; the panel's × closes it too", async () => {
+    const user = setup("inc=skip-and-flag&ref=A&refon=0")
     await user.click(screen.getByRole("button", { name: /Show reference/ }))
     expect(screen.getByRole("complementary", { name: "Reference" })).toBeInTheDocument()
-    expect(screen.queryByRole("button", { name: /(Show|Hide) reference/ })).toBeNull()
+    expect(screen.getByRole("button", { name: /^Hide reference ?R$/ })).toHaveAttribute("aria-pressed", "true")
     await user.click(screen.getByRole("button", { name: "Close reference" }))
     expect(screen.queryByRole("complementary", { name: "Reference" })).toBeNull()
     expect(screen.getByRole("button", { name: /Show reference/ })).toBeInTheDocument()
   })
 
+  it("the reference button's menu moves the panel under the field, and opens it", async () => {
+    const user = setup("inc=skip-and-flag&ref=A&refon=0")
+    await focusFirst(user)
+    await user.click(screen.getByRole("button", { name: "Where the reference appears" }))
+    expect(screen.getByRole("menuitemradio", { name: /Beside the fields/ })).toHaveAttribute("aria-checked", "true")
+    expect(screen.queryByRole("menuitemradio", { name: /bottom/i })).toBeNull()
+    await user.click(screen.getByRole("menuitemradio", { name: /Under the field/ }))
+    expect(screen.queryByRole("complementary", { name: "Reference" })).toBeNull()
+    expect(within(row("NAS")).getByText(/^Reference ·/)).toBeInTheDocument()
+    await user.click(screen.getByRole("button", { name: "Where the reference appears" }))
+    expect(screen.getByRole("menuitemradio", { name: /Under the field/ })).toHaveAttribute("aria-checked", "true")
+  })
+
   it("inline and bottom dock: the header button stays, as Hide reference, and turns the panel off", async () => {
     for (const layout of ["C", "B"]) {
-      const user = setup(`inc=skip-and-flag&ref=${layout}`)
+      const user = setup(`inc=skip-and-flag&ref=${layout}&refon=0`)
       await focusFirst(user)
       await user.click(screen.getByRole("button", { name: /^Show reference ?R$/ }))
       const hide = screen.getByRole("button", { name: /^Hide reference ?R$/ })
