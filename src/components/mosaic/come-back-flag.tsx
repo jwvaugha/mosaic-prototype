@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils"
 
 // WF / Come-back flag (Flows 2.1, 2.2). Sits in the gutter right of the row.
 //   Offer:   dashed chip "Come back to this ⌥F", on hover or focus
-//   Flagged: navy outline pill "Come back · <reason>"
+//   Flagged: highlighter-yellow pill "Come back · <reason>"
 // Flagging opens the optional reason popover without taking focus, so the
 // keyboard flow carries on; it closes when focus leaves the row.
 
@@ -54,7 +54,7 @@ export function ComeBackFlag({
           rowFocused && "opacity-100",
         )}
       >
-        <Flag className="size-3.5" />
+        <Flag className="size-4" />
         Come back to this
         {showKeyHints && <Kbd>{FLAG_KEYS}</Kbd>}
       </button>
@@ -69,9 +69,9 @@ export function ComeBackFlag({
           tabIndex={-1}
           aria-pressed
           onClick={() => setOpen((o) => !o)}
-          className="mt-[3px] flex h-6 items-center gap-1.5 rounded-full border border-primary bg-background py-1 pr-2.5 pl-2 text-xs font-medium text-primary"
+          className="mt-[3px] flex h-6 items-center gap-1.5 rounded-full border border-flag-border bg-flag py-1 pr-2.5 pl-2 text-xs font-medium text-flag-foreground"
         >
-          <Flag className="size-3.5" />
+          <Flag className="size-4" />
           {reason ? `Come back · ${FLAG_REASONS[reason]}` : "Come back to this"}
         </button>
       </PopoverAnchor>

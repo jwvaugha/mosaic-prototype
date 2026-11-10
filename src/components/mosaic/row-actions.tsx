@@ -58,18 +58,20 @@ export function rowActionList({
   return list
 }
 
-// Width needed to show everything inline. Buttons: Skip ≈ 66 px, Come back
-// ≈ 142 (with "Option F"), Clear ≈ 72; icons 36 each. Tailwind only sees literal class names,
+// Width needed to show everything inline. Buttons: Skip ≈ 70 px, Come back
+// ≈ 146 (with "Option F"), Clear ≈ 76; icons 36 each. Icons are 16 px
+// (18 for Reference and Note), larger than the button defaults (feedback
+// 2026-11-09). Tailwind only sees literal class names,
 // so each case is spelled out.
 const FITS: Record<string, [string, string]> = {
   "0": ["hidden @min-[80px]:flex", "@min-[80px]:hidden"],
   "0r": ["hidden @min-[120px]:flex", "@min-[120px]:hidden"],
-  "1": ["hidden @min-[150px]:flex", "@min-[150px]:hidden"],
-  "1r": ["hidden @min-[190px]:flex", "@min-[190px]:hidden"],
-  "2": ["hidden @min-[296px]:flex", "@min-[296px]:hidden"],
-  "2r": ["hidden @min-[336px]:flex", "@min-[336px]:hidden"],
-  "3": ["hidden @min-[370px]:flex", "@min-[370px]:hidden"],
-  "3r": ["hidden @min-[410px]:flex", "@min-[410px]:hidden"],
+  "1": ["hidden @min-[154px]:flex", "@min-[154px]:hidden"],
+  "1r": ["hidden @min-[194px]:flex", "@min-[194px]:hidden"],
+  "2": ["hidden @min-[304px]:flex", "@min-[304px]:hidden"],
+  "2r": ["hidden @min-[344px]:flex", "@min-[344px]:hidden"],
+  "3": ["hidden @min-[382px]:flex", "@min-[382px]:hidden"],
+  "3r": ["hidden @min-[422px]:flex", "@min-[422px]:hidden"],
 }
 
 export function RowActions({
@@ -98,7 +100,7 @@ export function RowActions({
             size="xs"
             tabIndex={-1}
             onClick={a.onClick}
-            className="text-xs font-normal text-muted-foreground hover:text-foreground"
+            className="text-xs font-normal text-muted-foreground hover:text-foreground [&_svg:not([class*='size-'])]:size-4"
           >
             {showKeyHints ? <Kbd>{a.keys}</Kbd> : a.icon}
             {a.label}
@@ -163,7 +165,7 @@ function IconAction({
   return (
     <Tooltip>
       <TooltipTrigger asChild>
-        <Button variant="ghost" size="icon" tabIndex={-1} aria-label={label} onClick={onClick}>
+        <Button variant="ghost" size="icon" tabIndex={-1} aria-label={label} onClick={onClick} className="[&_svg:not([class*='size-'])]:size-[18px]">
           {children}
         </Button>
       </TooltipTrigger>

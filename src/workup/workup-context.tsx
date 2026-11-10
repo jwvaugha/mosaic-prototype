@@ -24,6 +24,9 @@ type WorkupContextValue = {
   // Puts DOM focus on a registered element now, e.g. after a click on a
   // row's label, where the browser wouldn't move focus by itself.
   focusNow: (key: string) => void
+  // Puts DOM focus back on the stop in `state.focus` (a field, a bone header,
+  // Continue), e.g. after a click in the reference panel took it away.
+  refocus: () => void
 }
 
 const WorkupContext = createContext<WorkupContextValue | null>(null)
@@ -97,8 +100,12 @@ export function WorkupProvider({ children }: { children: ReactNode }) {
     if (el && el !== document.activeElement && !el.contains(document.activeElement)) focusInto(el)
   }, [])
 
+  const refocus = useCallback(() => {
+    if (currentKey.current) focusNow(currentKey.current)
+  }, [focusNow])
+
   return (
-    <WorkupContext.Provider value={{ state, dispatch, register, focusNow }}>
+    <WorkupContext.Provider value={{ state, dispatch, register, focusNow, refocus }}>
       <PreviewProvider>{children}</PreviewProvider>
     </WorkupContext.Provider>
   )

@@ -14,7 +14,7 @@ test("Design updates: newest first, keys stay in view, notes survive leaving and
   // The keys column stays on screen while the updates scroll.
   await page.mouse.wheel(0, 1500)
   await page.waitForTimeout(200)
-  const keys = await page.getByRole("heading", { name: "Keys" }).boundingBox()
+  const keys = await page.getByRole("heading", { name: "Keys", exact: true }).boundingBox()
   expect(keys!.y).toBeGreaterThanOrEqual(0)
   expect(keys!.y).toBeLessThan(200)
   await page.screenshot({ path: "e2e/.shots/design-updates-scrolled.png" })

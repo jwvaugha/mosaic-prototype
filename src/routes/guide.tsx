@@ -43,6 +43,77 @@ const k = (s: string) => <Kbd>{s}</Kbd>
 
 const UPDATES: Update[] = [
   {
+    id: "2026-11-10-panel-flags-rail",
+    date: "2026-11-10",
+    title: "A wider reference panel, brighter flags",
+    intro: <>More changes from your first round of feedback, mostly to the reference panel beside the fields.</>,
+    notes: true,
+    changes: [
+      {
+        title: <>Drag the reference panel wider</>,
+        body: (
+          <>
+            Several of you found the drawings small beside the fields. Drag the panel's left edge to make it as wide as you
+            like, and the drawings and photos grow with it. It keeps that width the next time you open the prototype.
+            Double-click the edge to go back to the usual width.
+          </>
+        ),
+        tryIt: {
+          label: "Try it in Cranium · Morphological",
+          href: tryLink({ start: "cranium-morph", ref: "A", refon: "1" }),
+          how: <>Point at the panel's left edge until the cursor changes, then drag it to the left.</>,
+        },
+      },
+      {
+        title: <>Clicking in the panel no longer stops the keys</>,
+        body: (
+          <>
+            After a click in the panel (a drawing, its text, or its close button), the keys stopped working until you
+            clicked a field again. Now the field you were on keeps the keys, so you can click a drawing to score it and
+            carry on by keyboard.
+          </>
+        ),
+        tryIt: {
+          label: "Try it in Cranium · Morphological",
+          href: tryLink({ start: "cranium-morph", ref: "A", refon: "1" }),
+          how: (
+            <>
+              Click a drawing in the panel, then press {k("↓")} to go to the next trait.
+            </>
+          ),
+        },
+      },
+      {
+        title: <>Fields to come back to stand out</>,
+        body: (
+          <>
+            A marked field now shows a yellow "Come back" label, and its count beside the Region and on Analyze is yellow too.
+            The yellow is a highlighter, not a warning: out-of-range values keep their amber triangle. The Skip, Come back
+            and note icons on each row are also larger.
+          </>
+        ),
+        tryIt: {
+          label: "Try it in Cranium · Morphological",
+          href: tryLink({ start: "cranium-morph" }),
+          how: (
+            <>
+              Press {k(FLAG_KEYS)} on a trait.
+            </>
+          ),
+        },
+      },
+      {
+        title: <>The Regions list keeps its header</>,
+        body: (
+          <>
+            The button that collapses the Regions list, and the overall progress, now stay at the top while the list
+            scrolls, so you don't have to scroll back up to reach them.
+          </>
+        ),
+      },
+    ],
+  },
+  {
     id: "2026-11-09-more-photos",
     date: "2026-11-09",
     title: "Twice as many reference photos",

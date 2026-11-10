@@ -135,18 +135,20 @@ function CollapsedRail({ regions, totals, onCollapse }: RegionRailProps) {
   return (
     <Sidebar className="h-full w-14 shrink-0 border-r" collapsible="none" aria-label="Regions">
       <div className="flex flex-col items-center gap-1 overflow-y-auto py-3">
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <Button variant="ghost" size="icon" aria-label="Expand Regions" onClick={() => onCollapse(false)}>
-              <PanelLeftOpen />
-            </Button>
-          </TooltipTrigger>
-          <TooltipContent side="right">Expand Regions</TooltipContent>
-        </Tooltip>
-        <Progress
-          className="my-2 h-1.5 w-8 bg-primary/20"
-          value={totals.total ? totals.done / totals.total : 0}
-        />
+        <div className="sticky -top-3 z-10 -mt-3 flex w-full flex-col items-center bg-sidebar pt-3">
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Button variant="ghost" size="icon" aria-label="Expand Regions" onClick={() => onCollapse(false)}>
+                <PanelLeftOpen />
+              </Button>
+            </TooltipTrigger>
+            <TooltipContent side="right">Expand Regions</TooltipContent>
+          </Tooltip>
+          <Progress
+            className="my-2 h-1.5 w-8 bg-primary/20"
+            value={totals.total ? totals.done / totals.total : 0}
+          />
+        </div>
         {regions.map((r) => {
           const current = r.modalities.some((m) => m.current)
           const first = r.modalities.find((m) => m.onSelect)
@@ -223,7 +225,9 @@ function ExpandedRail(props: RegionRailProps) {
           </>
         ) : (
           <>
-            <div className="flex flex-col gap-2">
+            {/* The header, with the collapse button and overall progress, stays
+                at the top while the Region list scrolls (feedback 2026-11-09). */}
+            <div className="sticky top-0 z-10 -mx-4 -mt-4 flex flex-col gap-2 border-b bg-sidebar px-4 pt-4 pb-3">
               <div className="flex h-8 items-center">
                 <span className="text-xs font-medium text-muted-foreground">Regions</span>
                 <Button
@@ -732,12 +736,12 @@ function IssueCounts({ errors, warnings, flagged }: { errors?: number; warnings?
   )
 }
 
-// WF / Rail flag count in the wireframes: navy outline pill.
+// WF / Rail flag count: the same highlighter-yellow pill as a flagged row.
 export function RailFlagCount({ count }: { count: number }) {
   return (
     <span
       aria-label={`${count} to come back to`}
-      className="flex shrink-0 items-center gap-0.5 rounded-full border border-primary px-1.5 text-xs font-medium text-primary"
+      className="flex shrink-0 items-center gap-0.5 rounded-full border border-flag-border bg-flag px-1.5 text-xs font-medium text-flag-foreground"
     >
       <Flag className="size-3" />
       {count}

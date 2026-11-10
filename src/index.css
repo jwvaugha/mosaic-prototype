@@ -18,6 +18,9 @@
     --color-warning-foreground: var(--warning-foreground);
     --color-warning-muted: var(--warning-muted);
     --color-warning-muted-foreground: var(--warning-muted-foreground);
+    --color-flag: var(--flag);
+    --color-flag-border: var(--flag-border);
+    --color-flag-foreground: var(--flag-foreground);
     --color-success: var(--success);
     --color-success-foreground: var(--success-foreground);
     --color-success-muted: var(--success-muted);
@@ -100,6 +103,11 @@
     --warning-foreground: #451a03;
     --warning-muted: #fffbeb;
     --warning-muted-foreground: #92400e;
+    /* Come back to: a highlighter yellow, kept clear of the amber warning
+       (feedback 2026-11-09: make the flag easier to spot). */
+    --flag: #fef08a;
+    --flag-border: #d4b106;
+    --flag-foreground: #05265b;
     --success: #00734e;
     --success-foreground: #eefaf4;
     --success-muted: #eefaf4;
@@ -142,6 +150,9 @@
     --warning-foreground: #451a03;
     --warning-muted: #451a03;
     --warning-muted-foreground: #fde68a;
+    --flag: #fde047;
+    --flag-border: #fde047;
+    --flag-foreground: #0c173e;
     --success: #63bd94;
     --success-foreground: #002114;
     --success-muted: #003b26;

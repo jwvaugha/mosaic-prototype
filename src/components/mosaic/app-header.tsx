@@ -89,7 +89,7 @@ export function WorkupFooter({ flagBadge, onAnalyze }: { flagBadge?: number; onA
       <Button size="sm" tabIndex={-1} className="relative text-xs" onClick={onAnalyze}>
         Analyze
         {!!flagBadge && (
-          <span className="absolute -top-2 -right-2 flex items-center gap-0.5 rounded-full border border-primary bg-background px-1.5 text-xs text-primary">
+          <span className="absolute -top-2 -right-2 flex items-center gap-0.5 rounded-full border border-flag-border bg-flag px-1.5 text-xs font-medium text-flag-foreground">
             <Flag className="size-3" />
             {flagBadge}
           </span>

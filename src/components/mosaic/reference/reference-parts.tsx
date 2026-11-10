@@ -1,4 +1,5 @@
 import { ChevronDown, ChevronLeft, ChevronRight, Image as ImageIcon, Maximize2, X } from "lucide-react"
+import { useWorkup } from "@/workup/workup-context"
 import { useEffect, useRef, useState, type ReactNode } from "react"
 import { Button } from "@/components/ui/button"
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
@@ -333,6 +334,7 @@ function StateViewer({
   const step = (d: number) => setViewing(states[(at + d + states.length) % states.length]?.code)
   const chosen = viewing !== undefined && viewing === data.value
   const ex = useExamples(data.entry, viewing)
+  const { refocus } = useWorkup()
 
   // Mirror the shown state into the shared preview, so the row and the panel
   // follow along; clear it on close.
@@ -367,7 +369,11 @@ function StateViewer({
           e.preventDefault()
           ;(e.currentTarget as HTMLElement | null)?.focus()
         }}
-        onCloseAutoFocus={(e) => e.preventDefault()}
+        // Back to the field, so the data-entry keys work again.
+        onCloseAutoFocus={(e) => {
+          e.preventDefault()
+          refocus()
+        }}
       >
         <div className="flex items-start gap-4 pr-8">
           <div className="flex min-w-0 flex-1 flex-col gap-1">

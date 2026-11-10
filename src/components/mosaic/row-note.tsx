@@ -49,7 +49,7 @@ export function RowNote({
                   className="text-primary"
                   onClick={onOpen}
                 >
-                  <NotebookText />
+                  <NotebookText className="size-[18px]" />
                 </Button>
               </TooltipTrigger>
               <TooltipContent className="max-w-xs whitespace-pre-wrap">
