@@ -112,3 +112,24 @@ test("the reference starts on, beside the fields, and its menu moves it under th
   await page.getByRole("button", { name: "Got it" }).click()
   await expect(page.locator('[data-variable="NAS"]').getByText(/^Reference ·/)).toBeVisible()
 })
+
+test("header buttons move under the progress line together when they don't fit beside the title", async ({ page }) => {
+  const boxes = async () => {
+    const title = (await page.getByRole("heading", { level: 1 }).boundingBox())!
+    const progress = (await page.locator("header p").first().boundingBox())!
+    const imp = (await page.getByRole("button", { name: /Import data/ }).boundingBox())!
+    const ref = (await page.getByRole("button", { name: /Hide reference/ }).boundingBox())!
+    return { title, progress, imp, ref }
+  }
+  await page.setViewportSize({ width: 1440, height: 900 })
+  await page.goto("./?seed=midway&ref=A&dim=0&start=lower-limb-metric#/")
+  let b = await boxes()
+  expect(b.imp.y).toBeLessThan(b.progress.y) // beside the title
+  expect(Math.abs(b.imp.y - b.ref.y)).toBeLessThan(4)
+
+  await page.setViewportSize({ width: 1100, height: 900 })
+  b = await boxes()
+  expect(b.imp.y).toBeGreaterThanOrEqual(b.progress.y + b.progress.height) // under the progress line
+  expect(Math.abs(b.imp.y - b.ref.y)).toBeLessThan(4) // still on one row
+  expect(b.imp.x).toBeLessThan(b.ref.x)
+})

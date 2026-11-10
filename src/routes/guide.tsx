@@ -141,6 +141,16 @@ const UPDATES: Update[] = [
           </>
         ),
       },
+      {
+        title: <>A tidier section header in a narrow window</>,
+        body: (
+          <>
+            When the window is too narrow for the buttons to sit beside the section's name, Import data and Show
+            reference now move together onto their own line under the progress, instead of one of them breaking off
+            on its own.
+          </>
+        ),
+      },
     ],
   },
   {

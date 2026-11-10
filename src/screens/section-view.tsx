@@ -126,40 +126,48 @@ export function SectionView({
       {/* Sticky measures from inside the pane's top padding, so it's pulled up
           by that padding (-top-*) to sit flush with the top edge. */}
       <header className="sticky -top-6 z-10 -mt-6 flex w-full flex-col gap-1 bg-background pt-6 pb-3 lg:-top-8 lg:-mt-8 lg:pt-8">
-        <div className="flex min-h-8 flex-wrap items-center gap-x-3 gap-y-2">
-          <h1 className="mr-auto text-2xl font-semibold">{section.title}</h1>
-          {section.modality === "metric" && (
-            // Generic on purpose: which file formats apply depends on the
-            // Region (3Skull and FORDISC are cranial). Display-only.
-            <ButtonGroup>
-              <Button variant="outline" size="sm" tabIndex={-1} className="text-xs">
-                <FileUp /> Import data
-              </Button>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <Button variant="outline" size="icon-sm" tabIndex={-1} aria-label="About importing data">
-                    <CircleHelp />
-                  </Button>
-                </TooltipTrigger>
-                <TooltipContent className="max-w-xs">
-                  Fill this section's measurements from a file instead of typing them, for example a 3Skull or FORDISC
-                  export. Imported values arrive for you to review before they count.
-                </TooltipContent>
-              </Tooltip>
-            </ButtonGroup>
-          )}
-          {/* Show / Hide reference, and where it appears. It stays in every
-              layout, so the place can be changed while the panel is on. */}
-          {referenceToggle && (
-            <ReferenceButton
-              open={referenceToggle.open}
-              layout={config.refLayout}
-              onToggle={referenceToggle.onToggle}
-              onLayout={referenceToggle.onLayout}
-            />
-          )}
+        {/* Title and progress on the left, buttons on the right. When the
+            buttons don't fit beside the title they wrap as one group below
+            the progress line. The progress line takes no width of its own
+            (w-0 min-w-full), so only the title decides when they wrap. */}
+        <div className="flex flex-wrap items-start gap-x-3 gap-y-3">
+          <div className="flex min-w-0 flex-1 basis-auto flex-col gap-1">
+            <h1 className="flex min-h-8 items-center text-2xl font-semibold">{section.title}</h1>
+            <p className="w-0 min-w-full text-sm text-muted-foreground">{pane}</p>
+          </div>
+          <div data-testid="section-actions" className="flex shrink-0 items-center gap-3">
+            {section.modality === "metric" && (
+              // Generic on purpose: which file formats apply depends on the
+              // Region (3Skull and FORDISC are cranial). Display-only.
+              <ButtonGroup>
+                <Button variant="outline" size="sm" tabIndex={-1} className="text-xs">
+                  <FileUp /> Import data
+                </Button>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Button variant="outline" size="icon-sm" tabIndex={-1} aria-label="About importing data">
+                      <CircleHelp />
+                    </Button>
+                  </TooltipTrigger>
+                  <TooltipContent className="max-w-xs">
+                    Fill this section's measurements from a file instead of typing them, for example a 3Skull or FORDISC
+                    export. Imported values arrive for you to review before they count.
+                  </TooltipContent>
+                </Tooltip>
+              </ButtonGroup>
+            )}
+            {/* Show / Hide reference, and where it appears. It stays in every
+                layout, so the place can be changed while the panel is on. */}
+            {referenceToggle && (
+              <ReferenceButton
+                open={referenceToggle.open}
+                layout={config.refLayout}
+                onToggle={referenceToggle.onToggle}
+                onLayout={referenceToggle.onLayout}
+              />
+            )}
+          </div>
         </div>
-        <p className="text-sm text-muted-foreground">{pane}</p>
       </header>
 
       <div className="flex flex-col gap-6">
