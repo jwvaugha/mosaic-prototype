@@ -33,7 +33,7 @@ const LAYOUTS: { id: RefLayout; label: string; hint: string }[] = [
 ]
 
 
-function Group({ icon, title, note, children }: { icon: ReactNode; title: string; note?: string; children: ReactNode }) {
+export function Group({ icon, title, note, children }: { icon: ReactNode; title: string; note?: string; children: ReactNode }) {
   return (
     <section className="flex flex-col gap-4 rounded-xl border bg-background p-4">
       <header className="flex items-center gap-2">
@@ -52,7 +52,7 @@ function Group({ icon, title, note, children }: { icon: ReactNode; title: string
   )
 }
 
-function Field({ label, children }: { label: string; children: ReactNode }) {
+export function Field({ label, children }: { label: string; children: ReactNode }) {
   return (
     <div className="flex flex-col gap-2">
       <span className="text-xs font-medium text-muted-foreground">{label}</span>
@@ -61,7 +61,7 @@ function Field({ label, children }: { label: string; children: ReactNode }) {
   )
 }
 
-function Toggle({ label, checked, onChange }: { label: string; checked: boolean; onChange: (v: boolean) => void }) {
+export function Toggle({ label, checked, onChange }: { label: string; checked: boolean; onChange: (v: boolean) => void }) {
   return (
     <label className="flex items-center justify-between gap-3 text-sm">
       {label}
@@ -104,7 +104,7 @@ function Segments<T extends string>({
   )
 }
 
-function Choices<T extends string>({
+export function Choices<T extends string>({
   name,
   value,
   options,
