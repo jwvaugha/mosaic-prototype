@@ -56,6 +56,12 @@ describe("Results", () => {
     expect(screen.getByRole("button", { name: "About White in the training data" })).toBeInTheDocument()
   })
 
+  it("keeps Back to Workup display-only, so testers can't leave for an unrelated Workup", () => {
+    renderWith({})
+    expect(screen.getByRole("button", { name: /Back to Workup/ })).toBeDisabled()
+    expect(screen.queryByRole("link", { name: /Back to Workup/ })).not.toBeInTheDocument()
+  })
+
   it("caps the copied summary below 100%", () => {
     expect(summaryLine(scenario("rich"), true)).toContain("Male >99%")
   })

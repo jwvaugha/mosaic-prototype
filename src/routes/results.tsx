@@ -21,6 +21,7 @@ import { Kbd } from "@/components/ui/kbd"
 import { Separator } from "@/components/ui/separator"
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from "@/components/ui/sheet"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
 import { cn } from "@/lib/utils"
 import { BandTable } from "@/results/band-chart"
 import {
@@ -483,11 +484,18 @@ export function Results() {
 
         <header className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
           <div className="flex flex-col gap-2">
-            <Button asChild variant="ghost" size="sm" className="-ml-2 w-fit text-muted-foreground">
-              <a href="#/">
-                <ArrowLeft /> Back to Workup
-              </a>
-            </Button>
+            {/* Display-only: the results prototype isn't wired to a Workup, so
+                going "back" would land testers in an unrelated data-entry session. */}
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <span className="-ml-2 w-fit" tabIndex={0}>
+                  <Button variant="ghost" size="sm" disabled className="pointer-events-none text-muted-foreground">
+                    <ArrowLeft /> Back to Workup
+                  </Button>
+                </span>
+              </TooltipTrigger>
+              <TooltipContent>Display-only in the prototype</TooltipContent>
+            </Tooltip>
             <div className="flex flex-col gap-1">
               <h1 className="text-3xl font-semibold">Results</h1>
               <p className="flex flex-wrap items-center gap-x-2 text-sm text-muted-foreground">
