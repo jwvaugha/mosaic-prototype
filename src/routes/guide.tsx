@@ -48,6 +48,41 @@ const k = (s: string) => <Kbd>{s}</Kbd>
 
 const UPDATES: Update[] = [
   {
+    id: "2026-11-18-dental-descriptions",
+    date: "2026-11-18",
+    title: "Descriptions for the dental traits",
+    intro: <>The dental traits now say what each score means.</>,
+    notes: true,
+    changes: [
+      {
+        title: <>Every dental state is described</>,
+        body: (
+          <>
+            The descriptions from FoRDent are now in the reference panel and the enlarged view, for all but one state of
+            the Dentition · Morphological traits. Before, almost every state read "No description yet". Third molars show
+            the second molar's descriptions, since they're scored on the same scale. If a description reads wrongly, or
+            doesn't match its drawing, please say which trait and state.
+          </>
+        ),
+        goTo: { label: "Try it in Dentition · Morphological", href: tryLink({ start: "dentition-morph", ref: "A", refon: "1" }) },
+      },
+      {
+        title: <>{k("E")} closes the enlarged view too</>,
+        body: <>{k("E")} now closes the enlarged view as well as opening it, so you can check a state and carry on.</>,
+        how: <>On a trait, press {k("E")} twice.</>,
+      },
+      {
+        title: <>Drawings and Photos appear only where there's a choice</>,
+        body: (
+          <>
+            The Drawings / Photos buttons now show only on traits that have both. Where there are only drawings, or only
+            photos, the panel simply shows them.
+          </>
+        ),
+      },
+    ],
+  },
+  {
     id: "2026-11-18-drawings-photos-keys",
     date: "2026-11-18",
     title: "Reference images from the keyboard, and a clearer enlarged view",
@@ -466,7 +501,7 @@ const KEYS: { k: ReactNode; d: string; isNew?: boolean }[] = [
   { k: <Kbd>{FLAG_KEYS}</Kbd>, d: "Mark to come back to and move on (again to unmark)" },
   { k: <Kbd>R</Kbd>, d: "Show or hide the reference panel" },
   { k: <KbdGroup><Kbd>D</Kbd><Kbd>P</Kbd></KbdGroup>, d: "Reference drawings / photos (opens the panel if it's closed)", isNew: true },
-  { k: <Kbd>E</Kbd>, d: "Open the enlarged view of the field's reference; Esc comes back", isNew: true },
+  { k: <Kbd>E</Kbd>, d: "Open or close the enlarged view of the field's reference (Esc closes it too)", isNew: true },
   { k: <Kbd>N</Kbd>, d: "Add or edit a note (Enter saves, ⇧Enter starts a new line, Esc cancels)", isNew: true },
   { k: <KbdGroup><Kbd>⌃</Kbd><Kbd>⌥</Kbd><Kbd>↓</Kbd></KbdGroup>, d: "Next section from anywhere (↑ for the previous)" },
   { k: <Kbd>F6</Kbd>, d: "Jump to the Regions list; Esc comes back" },
