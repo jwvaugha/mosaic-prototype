@@ -1,6 +1,7 @@
 import { BookImage, Eraser, FilePlus, Flag, FlagOff, MinusCircle, MoreHorizontal, Undo2 } from "lucide-react"
-import type { ReactNode } from "react"
+import { useLayoutEffect, useRef, useState, type ReactNode } from "react"
 import { FLAG_KEYS } from "@/lib/keys"
+import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
@@ -16,9 +17,10 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip
 // that show their shortcut, so they work with the mouse as well as the keys.
 //
 // They take whatever space is left after the field's input. When it fits
-// them all (a CSS container query) they show inline; otherwise every one of
-// them folds into a single "⋯" menu, which needs 36 px, so the row never
-// wraps because of them.
+// them all they show inline; otherwise every one of them folds into a single
+// "⋯" menu, which needs 36 px, so the row never wraps because of them. The fit
+// is measured, not estimated: labels change (Flag / Unflag, key hints on or
+// off) and a flag chip or note icon takes some of the row.
 
 export type RowAction = {
   id: "skip" | "flag" | "clear"
@@ -58,22 +60,6 @@ export function rowActionList({
   return list
 }
 
-// Width needed to show everything inline. Buttons: Skip ≈ 70 px, Flag
-// ≈ 110 (with "Option F"), Clear ≈ 76; icons 36 each. Icons are 16 px
-// (18 for Reference and Note), larger than the button defaults (feedback
-// 2026-11-09). Tailwind only sees literal class names,
-// so each case is spelled out.
-const FITS: Record<string, [string, string]> = {
-  "0": ["hidden @min-[80px]:flex", "@min-[80px]:hidden"],
-  "0r": ["hidden @min-[120px]:flex", "@min-[120px]:hidden"],
-  "1": ["hidden @min-[154px]:flex", "@min-[154px]:hidden"],
-  "1r": ["hidden @min-[194px]:flex", "@min-[194px]:hidden"],
-  "2": ["hidden @min-[304px]:flex", "@min-[304px]:hidden"],
-  "2r": ["hidden @min-[344px]:flex", "@min-[344px]:hidden"],
-  "3": ["hidden @min-[382px]:flex", "@min-[382px]:hidden"],
-  "3r": ["hidden @min-[422px]:flex", "@min-[422px]:hidden"],
-}
-
 export function RowActions({
   actions,
   showKeyHints,
@@ -89,10 +75,34 @@ export function RowActions({
   // A note's icon stays on the row itself, so it isn't repeated here.
   hasNote?: boolean
 }) {
-  const [inline, folded] = FITS[`${Math.min(actions.length, 3)}${onReference ? "r" : ""}`]
+  const box = useRef<HTMLDivElement>(null)
+  const row = useRef<HTMLDivElement>(null)
+  const [fits, setFits] = useState(true)
+  useLayoutEffect(() => {
+    const b = box.current
+    const r = row.current
+    if (!b || !r) return
+    // The inline set always lays out at its natural width (off-flow when it
+    // doesn't fit), so both sides of the comparison stay measurable.
+    const check = () => setFits(r.offsetWidth <= b.clientWidth)
+    check()
+    if (typeof ResizeObserver === "undefined") return
+    const ro = new ResizeObserver(check)
+    ro.observe(b)
+    ro.observe(r)
+    return () => ro.disconnect()
+  }, [])
   return (
-    <div className="@container flex min-w-9 flex-1 justify-end">
-      <div className={`items-center gap-0.5 ${inline}`}>
+    <div ref={box} className="@container relative flex min-w-9 flex-1 justify-end">
+      <div
+        ref={row}
+        aria-hidden={!fits || undefined}
+        inert={!fits || undefined}
+        className={cn(
+          "flex w-max items-center gap-0.5",
+          !fits && "pointer-events-none invisible absolute top-0 right-0",
+        )}
+      >
         {actions.map((a) => (
           <Button
             key={a.id}
@@ -117,7 +127,7 @@ export function RowActions({
           </IconAction>
         )}
       </div>
-      <div className={folded}>
+      {!fits && (
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="ghost" size="icon" tabIndex={-1} aria-label="More actions">
@@ -146,7 +156,7 @@ export function RowActions({
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
-      </div>
+      )}
     </div>
   )
 }
