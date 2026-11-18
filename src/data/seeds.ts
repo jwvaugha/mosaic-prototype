@@ -29,7 +29,7 @@ export const SEEDS: Record<SeedId, Seed> = {
       TibCML: "371",
       // Out of range (38–60), already acknowledged.
       TibDEB: "62",
-      // Shoulder & upper limb starts set aside, keeping these 8 values.
+      // Upper limb starts set aside, keeping these 8 values.
       ClavXL: "148",
       ClavMXD: "13",
       ClavMWD: "11",

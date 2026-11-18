@@ -146,23 +146,17 @@
             "MT",
             "PZTub",
             "IOB",
-            "ORB"
-          ]
-        },
-        {
-          "id": "sex-traits",
-          "name": "Sex traits",
-          "variableIds": [
-            "NC",
-            "MP",
-            "SOM",
-            "GL"
+            "ORB",
+            "SOM"
           ]
         },
         {
           "id": "vault-palate",
           "name": "Vault and palate",
           "variableIds": [
+            "GL",
+            "MP",
+            "NC",
             "NasFrntSut",
             "SnSut",
             "PBD",
@@ -416,10 +410,10 @@
       ]
     },
     {
-      "id": "vertebrae-morph",
-      "region": "Vertebrae",
+      "id": "thorax-morph",
+      "region": "Thorax",
       "modality": "morph",
-      "title": "Vertebrae · Morphological",
+      "title": "Thorax · Morphological",
       "bones": [
         {
           "id": "c1",
@@ -466,15 +460,7 @@
             "T1_T12_DISH",
             "L1_L5_DISH"
           ]
-        }
-      ]
-    },
-    {
-      "id": "thorax-morph",
-      "region": "Thorax",
-      "modality": "morph",
-      "title": "Thorax · Morphological",
-      "bones": [
+        },
         {
           "id": "sternum",
           "name": "Sternum and first rib",
@@ -499,10 +485,10 @@
       ]
     },
     {
-      "id": "shoulder-metric",
-      "region": "Shoulder & upper limb",
+      "id": "upper-limb-metric",
+      "region": "Upper limb",
       "modality": "metric",
-      "title": "Shoulder & upper limb · Metric",
+      "title": "Upper limb · Metric",
       "bones": [
         {
           "id": "clavicle",
@@ -564,10 +550,10 @@
       ]
     },
     {
-      "id": "shoulder-morph",
-      "region": "Shoulder & upper limb",
+      "id": "upper-limb-morph",
+      "region": "Upper limb",
       "modality": "morph",
-      "title": "Shoulder & upper limb · Morphological",
+      "title": "Upper limb · Morphological",
       "bones": [
         {
           "id": "clavicle-m",
@@ -629,8 +615,8 @@
           ]
         },
         {
-          "id": "os-coxae",
-          "name": "Os coxae",
+          "id": "innominate",
+          "name": "Innominate",
           "bilateral": true,
           "variableIds": [
             "PUM",
@@ -654,20 +640,6 @@
       "title": "Pelvis · Morphological",
       "bones": [
         {
-          "id": "os-coxae-sex",
-          "name": "Os coxae",
-          "bilateral": true,
-          "variableIds": [
-            "VA",
-            "SPC",
-            "MA",
-            "CompositeArc",
-            "IliumShape",
-            "ASHeight",
-            "GSN"
-          ]
-        },
-        {
           "id": "sacrum-m",
           "name": "Sacrum and sacroiliac joint",
           "variableIds": [
@@ -683,12 +655,28 @@
           "name": "Ilium",
           "bilateral": true,
           "variableIds": [
+            "IliumShape",
+            "GSN",
+            "CompositeArc",
             "Iliac_crest_fusion",
             "Iliac_crest_tuberculum_ossification",
             "Iliac_AIIS_exostoses",
             "Superior_Posterior_Iliac_Exostoses",
             "Inferior_Posterior_Iliac_Exostoses",
             "Posterior_exostoses"
+          ]
+        },
+        {
+          "id": "auricular",
+          "name": "Auricular surface",
+          "bilateral": true,
+          "variableIds": [
+            "ASHeight",
+            "Transverse_organization",
+            "Surface_texture",
+            "Microporosity",
+            "Macroporosity",
+            "Apical_change"
           ]
         },
         {
@@ -712,28 +700,19 @@
           ]
         },
         {
-          "id": "pubic-symphysis",
-          "name": "Pubic symphysis",
+          "id": "pubis",
+          "name": "Pubis",
           "bilateral": true,
           "variableIds": [
+            "VA",
+            "SPC",
+            "MA",
             "Pubic_symphysis",
             "Pubic_symphyseal_collar",
             "Symphyseal_relief",
             "Superior_protuberance",
             "Ventral_symphyseal_margin",
             "Dorsal_symphyseal_margin"
-          ]
-        },
-        {
-          "id": "auricular",
-          "name": "Auricular surface",
-          "bilateral": true,
-          "variableIds": [
-            "Transverse_organization",
-            "Surface_texture",
-            "Microporosity",
-            "Macroporosity",
-            "Apical_change"
           ]
         }
       ]
@@ -1826,10 +1805,39 @@
         }
       ]
     },
-    "NC": {
-      "id": "NC",
-      "code": "NC",
-      "name": "Nuchal crest",
+    "SOM": {
+      "id": "SOM",
+      "code": "SOM",
+      "name": "Supraorbital margin",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        },
+        {
+          "code": "5",
+          "label": ""
+        }
+      ]
+    },
+    "GL": {
+      "id": "GL",
+      "code": "GL",
+      "name": "Glabella",
       "modality": "morph",
       "method": "",
       "states": [
@@ -1884,39 +1892,10 @@
         }
       ]
     },
-    "SOM": {
-      "id": "SOM",
-      "code": "SOM",
-      "name": "Supraorbital margin",
-      "modality": "morph",
-      "method": "",
-      "states": [
-        {
-          "code": "1",
-          "label": ""
-        },
-        {
-          "code": "2",
-          "label": ""
-        },
-        {
-          "code": "3",
-          "label": ""
-        },
-        {
-          "code": "4",
-          "label": ""
-        },
-        {
-          "code": "5",
-          "label": ""
-        }
-      ]
-    },
-    "GL": {
-      "id": "GL",
-      "code": "GL",
-      "name": "Glabella",
+    "NC": {
+      "id": "NC",
+      "code": "NC",
+      "name": "Nuchal crest",
       "modality": "morph",
       "method": "",
       "states": [
@@ -6379,173 +6358,6 @@
       "precision": 1,
       "definition": "Maximum vertical diameter of the acetabulum, measured on the acetabular rim, as a prolongation of the longitudinal axis of the ischium"
     },
-    "VA": {
-      "id": "VA",
-      "code": "VA",
-      "name": "Ventral arc",
-      "modality": "morph",
-      "method": "",
-      "states": [
-        {
-          "code": "1",
-          "label": ""
-        },
-        {
-          "code": "2",
-          "label": ""
-        },
-        {
-          "code": "3",
-          "label": ""
-        },
-        {
-          "code": "4",
-          "label": ""
-        },
-        {
-          "code": "5",
-          "label": ""
-        }
-      ]
-    },
-    "SPC": {
-      "id": "SPC",
-      "code": "SPC",
-      "name": "Subpubic contour",
-      "modality": "morph",
-      "method": "",
-      "states": [
-        {
-          "code": "1",
-          "label": ""
-        },
-        {
-          "code": "2",
-          "label": ""
-        },
-        {
-          "code": "3",
-          "label": ""
-        },
-        {
-          "code": "4",
-          "label": ""
-        },
-        {
-          "code": "5",
-          "label": ""
-        }
-      ]
-    },
-    "MA": {
-      "id": "MA",
-      "code": "MA",
-      "name": "Medial aspect of the ischiopubic ramus",
-      "modality": "morph",
-      "method": "",
-      "states": [
-        {
-          "code": "1",
-          "label": ""
-        },
-        {
-          "code": "2",
-          "label": ""
-        },
-        {
-          "code": "3",
-          "label": ""
-        },
-        {
-          "code": "4",
-          "label": ""
-        },
-        {
-          "code": "5",
-          "label": ""
-        }
-      ]
-    },
-    "CompositeArc": {
-      "id": "CompositeArc",
-      "code": "CompositeArc",
-      "name": "Composite arc",
-      "modality": "morph",
-      "method": "",
-      "states": [
-        {
-          "code": "0",
-          "label": "single"
-        },
-        {
-          "code": "1",
-          "label": "double"
-        }
-      ]
-    },
-    "IliumShape": {
-      "id": "IliumShape",
-      "code": "IliumShape",
-      "name": "Ilium shape",
-      "modality": "morph",
-      "method": "",
-      "states": [
-        {
-          "code": "0",
-          "label": "rounded"
-        },
-        {
-          "code": "1",
-          "label": "flattened"
-        }
-      ]
-    },
-    "ASHeight": {
-      "id": "ASHeight",
-      "code": "ASHeight",
-      "name": "Auricular surface height",
-      "modality": "morph",
-      "method": "",
-      "states": [
-        {
-          "code": "0",
-          "label": "flat"
-        },
-        {
-          "code": "1",
-          "label": "raised"
-        }
-      ]
-    },
-    "GSN": {
-      "id": "GSN",
-      "code": "GSN",
-      "name": "Greater sciatic notch",
-      "modality": "morph",
-      "method": "",
-      "states": [
-        {
-          "code": "1",
-          "label": ""
-        },
-        {
-          "code": "2",
-          "label": ""
-        },
-        {
-          "code": "3",
-          "label": ""
-        },
-        {
-          "code": "4",
-          "label": ""
-        },
-        {
-          "code": "5",
-          "label": ""
-        }
-      ]
-    },
     "S1_Margin": {
       "id": "S1_Margin",
       "code": "S1_Margin",
@@ -6644,6 +6456,69 @@
         {
           "code": "2",
           "label": "SA only"
+        }
+      ]
+    },
+    "IliumShape": {
+      "id": "IliumShape",
+      "code": "IliumShape",
+      "name": "Ilium shape",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "rounded"
+        },
+        {
+          "code": "1",
+          "label": "flattened"
+        }
+      ]
+    },
+    "GSN": {
+      "id": "GSN",
+      "code": "GSN",
+      "name": "Greater sciatic notch",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        },
+        {
+          "code": "5",
+          "label": ""
+        }
+      ]
+    },
+    "CompositeArc": {
+      "id": "CompositeArc",
+      "code": "CompositeArc",
+      "name": "Composite arc",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "single"
+        },
+        {
+          "code": "1",
+          "label": "double"
         }
       ]
     },
@@ -6765,6 +6640,152 @@
         }
       ]
     },
+    "ASHeight": {
+      "id": "ASHeight",
+      "code": "ASHeight",
+      "name": "Auricular surface height",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": "flat"
+        },
+        {
+          "code": "1",
+          "label": "raised"
+        }
+      ]
+    },
+    "Transverse_organization": {
+      "id": "Transverse_organization",
+      "code": "Transverse_organization",
+      "name": "Auricular surface tansverse organization",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        }
+      ]
+    },
+    "Surface_texture": {
+      "id": "Surface_texture",
+      "code": "Surface_texture",
+      "name": "Auricular surface surface texture",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        }
+      ]
+    },
+    "Microporosity": {
+      "id": "Microporosity",
+      "code": "Microporosity",
+      "name": "Auricular surface microporosity",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        }
+      ]
+    },
+    "Macroporosity": {
+      "id": "Macroporosity",
+      "code": "Macroporosity",
+      "name": "Auricular surface macroporosity",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        }
+      ]
+    },
+    "Apical_change": {
+      "id": "Apical_change",
+      "code": "Apical_change",
+      "name": "Auricular surface apical change",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "0",
+          "label": ""
+        },
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        }
+      ]
+    },
     "Posterior_margin_lipping": {
       "id": "Posterior_margin_lipping",
       "code": "Posterior_margin_lipping",
@@ -6868,6 +6889,93 @@
         {
           "code": "2",
           "label": ">=50%"
+        }
+      ]
+    },
+    "VA": {
+      "id": "VA",
+      "code": "VA",
+      "name": "Ventral arc",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        },
+        {
+          "code": "5",
+          "label": ""
+        }
+      ]
+    },
+    "SPC": {
+      "id": "SPC",
+      "code": "SPC",
+      "name": "Subpubic contour",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        },
+        {
+          "code": "5",
+          "label": ""
+        }
+      ]
+    },
+    "MA": {
+      "id": "MA",
+      "code": "MA",
+      "name": "Medial aspect of the ischiopubic ramus",
+      "modality": "morph",
+      "method": "",
+      "states": [
+        {
+          "code": "1",
+          "label": ""
+        },
+        {
+          "code": "2",
+          "label": ""
+        },
+        {
+          "code": "3",
+          "label": ""
+        },
+        {
+          "code": "4",
+          "label": ""
+        },
+        {
+          "code": "5",
+          "label": ""
         }
       ]
     },
@@ -7018,135 +7126,6 @@
         {
           "code": "3",
           "label": "breakdown"
-        }
-      ]
-    },
-    "Transverse_organization": {
-      "id": "Transverse_organization",
-      "code": "Transverse_organization",
-      "name": "Auricular surface tansverse organization",
-      "modality": "morph",
-      "method": "",
-      "states": [
-        {
-          "code": "0",
-          "label": ""
-        },
-        {
-          "code": "1",
-          "label": ""
-        },
-        {
-          "code": "2",
-          "label": ""
-        },
-        {
-          "code": "3",
-          "label": ""
-        },
-        {
-          "code": "4",
-          "label": ""
-        }
-      ]
-    },
-    "Surface_texture": {
-      "id": "Surface_texture",
-      "code": "Surface_texture",
-      "name": "Auricular surface surface texture",
-      "modality": "morph",
-      "method": "",
-      "states": [
-        {
-          "code": "0",
-          "label": ""
-        },
-        {
-          "code": "1",
-          "label": ""
-        },
-        {
-          "code": "2",
-          "label": ""
-        },
-        {
-          "code": "3",
-          "label": ""
-        },
-        {
-          "code": "4",
-          "label": ""
-        }
-      ]
-    },
-    "Microporosity": {
-      "id": "Microporosity",
-      "code": "Microporosity",
-      "name": "Auricular surface microporosity",
-      "modality": "morph",
-      "method": "",
-      "states": [
-        {
-          "code": "0",
-          "label": ""
-        },
-        {
-          "code": "1",
-          "label": ""
-        },
-        {
-          "code": "2",
-          "label": ""
-        },
-        {
-          "code": "3",
-          "label": ""
-        },
-        {
-          "code": "4",
-          "label": ""
-        }
-      ]
-    },
-    "Macroporosity": {
-      "id": "Macroporosity",
-      "code": "Macroporosity",
-      "name": "Auricular surface macroporosity",
-      "modality": "morph",
-      "method": "",
-      "states": [
-        {
-          "code": "0",
-          "label": ""
-        },
-        {
-          "code": "1",
-          "label": ""
-        },
-        {
-          "code": "2",
-          "label": ""
-        }
-      ]
-    },
-    "Apical_change": {
-      "id": "Apical_change",
-      "code": "Apical_change",
-      "name": "Auricular surface apical change",
-      "modality": "morph",
-      "method": "",
-      "states": [
-        {
-          "code": "0",
-          "label": ""
-        },
-        {
-          "code": "1",
-          "label": ""
-        },
-        {
-          "code": "2",
-          "label": ""
         }
       ]
     },

@@ -1,6 +1,6 @@
 # Fixture and image report
 
-Generated 2026-11-18 by `npm run fixture`. 369 Variables in 15 sections.
+Generated 2026-11-18 by `npm run fixture`. 369 Variables in 14 sections.
 
 | Section | Variables | Drawings and figures | With photos | States pending |
 | --- | --- | --- | --- | --- |
@@ -10,10 +10,9 @@ Generated 2026-11-18 by `npm run fixture`. 369 Variables in 15 sections.
 | Mandible · Morphological | 6 | 0 drawn · 0 figure · 6 none |  |  |
 | Dentition · Metric | 8 | 0 drawn · 0 figure · 8 none |  |  |
 | Dentition · Morphological | 79 | 77 drawn · 0 figure · 0 none | 78 (766 photos) |  |
-| Vertebrae · Morphological | 22 | 0 drawn · 0 figure · 0 none | 22 (72 photos) |  |
-| Thorax · Morphological | 9 | 0 drawn · 0 figure · 2 none | 7 (11 photos) |  |
-| Shoulder & upper limb · Metric | 22 | 0 drawn · 22 figure · 0 none |  |  |
-| Shoulder & upper limb · Morphological | 13 | 0 drawn · 0 figure · 0 none | 13 (31 photos) |  |
+| Thorax · Morphological | 31 | 0 drawn · 0 figure · 2 none | 29 (83 photos) |  |
+| Upper limb · Metric | 22 | 0 drawn · 22 figure · 0 none |  |  |
+| Upper limb · Morphological | 13 | 0 drawn · 0 figure · 0 none | 13 (31 photos) |  |
 | Pelvis · Metric | 14 | 0 drawn · 14 figure · 0 none |  |  |
 | Pelvis · Morphological | 35 | 3 drawn · 0 figure · 8 none | 24 (70 photos) |  |
 | Lower limb · Metric | 21 | 0 drawn · 21 figure · 0 none |  |  |

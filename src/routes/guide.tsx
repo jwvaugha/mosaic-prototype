@@ -48,6 +48,52 @@ const k = (s: string) => <Kbd>{s}</Kbd>
 
 const UPDATES: Update[] = [
   {
+    id: "2026-11-18-regions-by-location",
+    date: "2026-11-18",
+    title: "Traits grouped by where they are",
+    intro: (
+      <>
+        Traits are now grouped by where they sit on the skeleton, not by the estimate they're traditionally used for,
+        so that no group suggests a trait only matters for sex or age.
+      </>
+    ),
+    notes: true,
+    changes: [
+      {
+        title: <>No more "Sex traits" group on the cranium</>,
+        body: (
+          <>
+            Glabella, mastoid process and nuchal crest are now under Vault and palate, and the supraorbital margin is
+            under Zygomatic and orbit.
+          </>
+        ),
+        goTo: { label: "Try it in Cranium · Morphological", href: tryLink({ start: "cranium-morph", ref: "A", refon: "1" }) },
+      },
+      {
+        title: <>"Innominate," and the pelvic traits by location</>,
+        body: (
+          <>
+            "Os coxae" is now "Innominate." In Pelvis · Morphological, ilium shape, greater sciatic notch and composite
+            arc are under Ilium, auricular surface height is under Auricular surface, and the ventral arc, subpubic
+            contour and medial aspect of the ischiopubic ramus are under Pubis, with the pubic symphysis. The sacrum
+            stays in Pelvis for now. If you'd look for it elsewhere, please say where.
+          </>
+        ),
+        goTo: { label: "Try it in Pelvis · Morphological", href: tryLink({ start: "pelvis-morph", ref: "A", refon: "1" }) },
+      },
+      {
+        title: <>Thorax holds the vertebrae and ribs; "Upper limb"</>,
+        body: (
+          <>
+            The vertebrae are now in Thorax, ahead of the sternum and ribs, so there's no separate Vertebrae Region.
+            "Shoulder & upper limb" is now "Upper limb," which still includes the clavicle and scapula.
+          </>
+        ),
+        how: <>Look at the Regions list on the left.</>,
+      },
+    ],
+  },
+  {
     id: "2026-11-18-dental-descriptions",
     date: "2026-11-18",
     title: "Descriptions for the dental traits",

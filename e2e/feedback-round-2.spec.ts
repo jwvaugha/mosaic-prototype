@@ -16,7 +16,7 @@ for (const ref of ["A", "C"]) {
     // The focused field is far above the footer; pressing the mouse must not
     // pull the page back to it.
     await page.getByRole("button", { name: /^Continue to/ }).click()
-    await expect(page.getByRole("heading", { level: 1 })).toHaveText("Vertebrae · Morphological")
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText("Thorax · Morphological")
   })
 }
 

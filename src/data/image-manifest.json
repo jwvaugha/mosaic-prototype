@@ -2008,66 +2008,6 @@
       ]
     }
   },
-  "NC": {
-    "kind": "states",
-    "states": {
-      "1": {
-        "src": "ref-images/drawings/NC_1.webp",
-        "width": 297,
-        "height": 392
-      },
-      "2": {
-        "src": "ref-images/drawings/NC_2.webp",
-        "width": 253,
-        "height": 378
-      },
-      "3": {
-        "src": "ref-images/drawings/NC_3.webp",
-        "width": 297,
-        "height": 400
-      },
-      "4": {
-        "src": "ref-images/drawings/NC_4.webp",
-        "width": 297,
-        "height": 406
-      },
-      "5": {
-        "src": "ref-images/drawings/NC_5.webp",
-        "width": 255,
-        "height": 378
-      }
-    }
-  },
-  "MP": {
-    "kind": "states",
-    "states": {
-      "1": {
-        "src": "ref-images/drawings/MP_1.webp",
-        "width": 294,
-        "height": 295
-      },
-      "2": {
-        "src": "ref-images/drawings/MP_2.webp",
-        "width": 259,
-        "height": 277
-      },
-      "3": {
-        "src": "ref-images/drawings/MP_3.webp",
-        "width": 277,
-        "height": 247
-      },
-      "4": {
-        "src": "ref-images/drawings/MP_4.webp",
-        "width": 288,
-        "height": 283
-      },
-      "5": {
-        "src": "ref-images/drawings/MP_5.webp",
-        "width": 277,
-        "height": 385
-      }
-    }
-  },
   "SOM": {
     "kind": "states",
     "states": {
@@ -2125,6 +2065,66 @@
         "src": "ref-images/drawings/GL_5.webp",
         "width": 217,
         "height": 409
+      }
+    }
+  },
+  "MP": {
+    "kind": "states",
+    "states": {
+      "1": {
+        "src": "ref-images/drawings/MP_1.webp",
+        "width": 294,
+        "height": 295
+      },
+      "2": {
+        "src": "ref-images/drawings/MP_2.webp",
+        "width": 259,
+        "height": 277
+      },
+      "3": {
+        "src": "ref-images/drawings/MP_3.webp",
+        "width": 277,
+        "height": 247
+      },
+      "4": {
+        "src": "ref-images/drawings/MP_4.webp",
+        "width": 288,
+        "height": 283
+      },
+      "5": {
+        "src": "ref-images/drawings/MP_5.webp",
+        "width": 277,
+        "height": 385
+      }
+    }
+  },
+  "NC": {
+    "kind": "states",
+    "states": {
+      "1": {
+        "src": "ref-images/drawings/NC_1.webp",
+        "width": 297,
+        "height": 392
+      },
+      "2": {
+        "src": "ref-images/drawings/NC_2.webp",
+        "width": 253,
+        "height": 378
+      },
+      "3": {
+        "src": "ref-images/drawings/NC_3.webp",
+        "width": 297,
+        "height": 400
+      },
+      "4": {
+        "src": "ref-images/drawings/NC_4.webp",
+        "width": 297,
+        "height": 406
+      },
+      "5": {
+        "src": "ref-images/drawings/NC_5.webp",
+        "width": 255,
+        "height": 378
       }
     }
   },
@@ -12020,219 +12020,6 @@
     },
     "caption": "Postcranial form, item 62 · Vertical Acetabular Diameter"
   },
-  "VA": {
-    "kind": "states",
-    "states": {
-      "1": {
-        "src": "ref-images/drawings/VA_1.webp",
-        "width": 193,
-        "height": 254
-      },
-      "2": {
-        "src": "ref-images/drawings/VA_2.webp",
-        "width": 198,
-        "height": 265
-      },
-      "3": {
-        "src": "ref-images/drawings/VA_3.webp",
-        "width": 180,
-        "height": 260
-      },
-      "4": {
-        "src": "ref-images/drawings/VA_4.webp",
-        "width": 176,
-        "height": 278
-      },
-      "5": {
-        "src": "ref-images/drawings/VA_5.webp",
-        "width": 173,
-        "height": 261
-      }
-    }
-  },
-  "SPC": {
-    "kind": "states",
-    "states": {
-      "1": {
-        "src": "ref-images/drawings/SPC_1.webp",
-        "width": 274,
-        "height": 272
-      },
-      "2": {
-        "src": "ref-images/drawings/SPC_2.webp",
-        "width": 256,
-        "height": 310
-      },
-      "3": {
-        "src": "ref-images/drawings/SPC_3.webp",
-        "width": 221,
-        "height": 276
-      },
-      "4": {
-        "src": "ref-images/drawings/SPC_4.webp",
-        "width": 194,
-        "height": 276
-      },
-      "5": {
-        "src": "ref-images/drawings/SPC_5.webp",
-        "width": 216,
-        "height": 254
-      }
-    }
-  },
-  "MA": {
-    "kind": "states",
-    "states": {
-      "1": {
-        "src": "ref-images/drawings/MA_1.webp",
-        "width": 134,
-        "height": 383
-      },
-      "2": {
-        "src": "ref-images/drawings/MA_2.webp",
-        "width": 139,
-        "height": 390
-      },
-      "3": {
-        "src": "ref-images/drawings/MA_3.webp",
-        "width": 116,
-        "height": 375
-      },
-      "4": {
-        "src": "ref-images/drawings/MA_4.webp",
-        "width": 125,
-        "height": 372
-      },
-      "5": {
-        "src": "ref-images/drawings/MA_5.webp",
-        "width": 107,
-        "height": 359
-      }
-    }
-  },
-  "CompositeArc": {
-    "kind": "states",
-    "states": {},
-    "photos": {
-      "0": [
-        {
-          "src": "ref-images/photos/CompositeArc_0_1.webp",
-          "width": 717,
-          "height": 800
-        },
-        {
-          "src": "ref-images/photos/CompositeArc_0_2.webp",
-          "width": 506,
-          "height": 800
-        }
-      ],
-      "1": [
-        {
-          "src": "ref-images/photos/CompositeArc_1_1.webp",
-          "width": 591,
-          "height": 800
-        },
-        {
-          "src": "ref-images/photos/CompositeArc_1_2.webp",
-          "width": 580,
-          "height": 800
-        }
-      ]
-    }
-  },
-  "IliumShape": {
-    "kind": "states",
-    "states": {},
-    "photos": {
-      "0": [
-        {
-          "src": "ref-images/photos/IliumShape_0_1.webp",
-          "width": 631,
-          "height": 800
-        },
-        {
-          "src": "ref-images/photos/IliumShape_0_2.webp",
-          "width": 598,
-          "height": 800
-        }
-      ],
-      "1": [
-        {
-          "src": "ref-images/photos/IliumShape_1_1.webp",
-          "width": 686,
-          "height": 800
-        },
-        {
-          "src": "ref-images/photos/IliumShape_1_2.webp",
-          "width": 717,
-          "height": 800
-        }
-      ]
-    }
-  },
-  "ASHeight": {
-    "kind": "states",
-    "states": {},
-    "photos": {
-      "0": [
-        {
-          "src": "ref-images/photos/ASHeight_0_1.webp",
-          "width": 600,
-          "height": 800
-        },
-        {
-          "src": "ref-images/photos/ASHeight_0_2.webp",
-          "width": 800,
-          "height": 482
-        },
-        {
-          "src": "ref-images/photos/ASHeight_0_3.webp",
-          "width": 600,
-          "height": 800
-        },
-        {
-          "src": "ref-images/photos/ASHeight_0_4.webp",
-          "width": 555,
-          "height": 800
-        }
-      ],
-      "1": [
-        {
-          "src": "ref-images/photos/ASHeight_1_1.webp",
-          "width": 600,
-          "height": 800
-        },
-        {
-          "src": "ref-images/photos/ASHeight_1_2.webp",
-          "width": 800,
-          "height": 600
-        },
-        {
-          "src": "ref-images/photos/ASHeight_1_3.webp",
-          "width": 600,
-          "height": 800
-        },
-        {
-          "src": "ref-images/photos/ASHeight_1_4.webp",
-          "width": 800,
-          "height": 454
-        },
-        {
-          "src": "ref-images/photos/ASHeight_1_5.webp",
-          "width": 551,
-          "height": 800
-        },
-        {
-          "src": "ref-images/photos/ASHeight_1_6.webp",
-          "width": 800,
-          "height": 799
-        }
-      ]
-    }
-  },
-  "GSN": {
-    "kind": "none"
-  },
   "S1_Margin": {
     "kind": "states",
     "states": {},
@@ -12345,6 +12132,69 @@
   "Sacroiliac_joint_fusion_right": {
     "kind": "none"
   },
+  "IliumShape": {
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/photos/IliumShape_0_1.webp",
+          "width": 631,
+          "height": 800
+        },
+        {
+          "src": "ref-images/photos/IliumShape_0_2.webp",
+          "width": 598,
+          "height": 800
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/photos/IliumShape_1_1.webp",
+          "width": 686,
+          "height": 800
+        },
+        {
+          "src": "ref-images/photos/IliumShape_1_2.webp",
+          "width": 717,
+          "height": 800
+        }
+      ]
+    }
+  },
+  "GSN": {
+    "kind": "none"
+  },
+  "CompositeArc": {
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/photos/CompositeArc_0_1.webp",
+          "width": 717,
+          "height": 800
+        },
+        {
+          "src": "ref-images/photos/CompositeArc_0_2.webp",
+          "width": 506,
+          "height": 800
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/photos/CompositeArc_1_1.webp",
+          "width": 591,
+          "height": 800
+        },
+        {
+          "src": "ref-images/photos/CompositeArc_1_2.webp",
+          "width": 580,
+          "height": 800
+        }
+      ]
+    }
+  },
   "Iliac_crest_fusion": {
     "kind": "states",
     "states": {},
@@ -12455,6 +12305,81 @@
         }
       ]
     }
+  },
+  "ASHeight": {
+    "kind": "states",
+    "states": {},
+    "photos": {
+      "0": [
+        {
+          "src": "ref-images/photos/ASHeight_0_1.webp",
+          "width": 600,
+          "height": 800
+        },
+        {
+          "src": "ref-images/photos/ASHeight_0_2.webp",
+          "width": 800,
+          "height": 482
+        },
+        {
+          "src": "ref-images/photos/ASHeight_0_3.webp",
+          "width": 600,
+          "height": 800
+        },
+        {
+          "src": "ref-images/photos/ASHeight_0_4.webp",
+          "width": 555,
+          "height": 800
+        }
+      ],
+      "1": [
+        {
+          "src": "ref-images/photos/ASHeight_1_1.webp",
+          "width": 600,
+          "height": 800
+        },
+        {
+          "src": "ref-images/photos/ASHeight_1_2.webp",
+          "width": 800,
+          "height": 600
+        },
+        {
+          "src": "ref-images/photos/ASHeight_1_3.webp",
+          "width": 600,
+          "height": 800
+        },
+        {
+          "src": "ref-images/photos/ASHeight_1_4.webp",
+          "width": 800,
+          "height": 454
+        },
+        {
+          "src": "ref-images/photos/ASHeight_1_5.webp",
+          "width": 551,
+          "height": 800
+        },
+        {
+          "src": "ref-images/photos/ASHeight_1_6.webp",
+          "width": 800,
+          "height": 799
+        }
+      ]
+    }
+  },
+  "Transverse_organization": {
+    "kind": "none"
+  },
+  "Surface_texture": {
+    "kind": "none"
+  },
+  "Microporosity": {
+    "kind": "none"
+  },
+  "Macroporosity": {
+    "kind": "none"
+  },
+  "Apical_change": {
+    "kind": "none"
   },
   "Posterior_margin_lipping": {
     "kind": "states",
@@ -12589,6 +12514,96 @@
       ]
     }
   },
+  "VA": {
+    "kind": "states",
+    "states": {
+      "1": {
+        "src": "ref-images/drawings/VA_1.webp",
+        "width": 193,
+        "height": 254
+      },
+      "2": {
+        "src": "ref-images/drawings/VA_2.webp",
+        "width": 198,
+        "height": 265
+      },
+      "3": {
+        "src": "ref-images/drawings/VA_3.webp",
+        "width": 180,
+        "height": 260
+      },
+      "4": {
+        "src": "ref-images/drawings/VA_4.webp",
+        "width": 176,
+        "height": 278
+      },
+      "5": {
+        "src": "ref-images/drawings/VA_5.webp",
+        "width": 173,
+        "height": 261
+      }
+    }
+  },
+  "SPC": {
+    "kind": "states",
+    "states": {
+      "1": {
+        "src": "ref-images/drawings/SPC_1.webp",
+        "width": 274,
+        "height": 272
+      },
+      "2": {
+        "src": "ref-images/drawings/SPC_2.webp",
+        "width": 256,
+        "height": 310
+      },
+      "3": {
+        "src": "ref-images/drawings/SPC_3.webp",
+        "width": 221,
+        "height": 276
+      },
+      "4": {
+        "src": "ref-images/drawings/SPC_4.webp",
+        "width": 194,
+        "height": 276
+      },
+      "5": {
+        "src": "ref-images/drawings/SPC_5.webp",
+        "width": 216,
+        "height": 254
+      }
+    }
+  },
+  "MA": {
+    "kind": "states",
+    "states": {
+      "1": {
+        "src": "ref-images/drawings/MA_1.webp",
+        "width": 134,
+        "height": 383
+      },
+      "2": {
+        "src": "ref-images/drawings/MA_2.webp",
+        "width": 139,
+        "height": 390
+      },
+      "3": {
+        "src": "ref-images/drawings/MA_3.webp",
+        "width": 116,
+        "height": 375
+      },
+      "4": {
+        "src": "ref-images/drawings/MA_4.webp",
+        "width": 125,
+        "height": 372
+      },
+      "5": {
+        "src": "ref-images/drawings/MA_5.webp",
+        "width": 107,
+        "height": 359
+      }
+    }
+  },
   "Pubic_symphysis": {
     "kind": "none"
   },
@@ -12710,21 +12725,6 @@
         }
       ]
     }
-  },
-  "Transverse_organization": {
-    "kind": "none"
-  },
-  "Surface_texture": {
-    "kind": "none"
-  },
-  "Microporosity": {
-    "kind": "none"
-  },
-  "Macroporosity": {
-    "kind": "none"
-  },
-  "Apical_change": {
-    "kind": "none"
   },
   "FemXL": {
     "kind": "figure",

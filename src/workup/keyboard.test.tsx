@@ -56,7 +56,7 @@ describe("keyboard: all modes", () => {
     const user = setup("inc=flag-section")
     await focusFirst(user)
     // Each later bone adds its header and Condition chips as Tab stops.
-    const bones = 7
+    const bones = 6
     for (let i = 1; i < fieldIds(MORPH).length + (bones - 1) * 2; i++) await user.keyboard("{Tab}")
     expect(focusedRow()).toBe(fieldIds(MORPH).at(-1))
     await user.keyboard("{Tab}")

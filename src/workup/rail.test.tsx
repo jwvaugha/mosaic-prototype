@@ -31,19 +31,19 @@ describe("Region Rail", () => {
   it("shows every Region: expanded, collapsed, set aside and not in the Workup", () => {
     setup()
     const regions = within(tree()).getAllByRole("treeitem").filter((el) => el.getAttribute("aria-level") === "1")
-    expect(regions).toHaveLength(9)
+    expect(regions).toHaveLength(8)
     expect(region("Cranium")).toHaveAttribute("aria-expanded", "true")
     expect(region("Mandible")).toHaveAttribute("aria-expanded", "false")
-    expect(region("Shoulder & upper limb")).toHaveAccessibleName(/set aside, 8 kept/)
-    expect(region("Thorax")).toHaveAccessibleName(/not in this Workup/)
+    expect(region("Upper limb")).toHaveAccessibleName(/set aside, 8 kept/)
+    expect(region("Whole skeleton")).toHaveAccessibleName(/not in this Workup/)
   })
 
   it("adds a Region left out at Inventory, which raises the total", async () => {
     const user = setup()
     const before = Number(summary().textContent!.match(/of (\d+)/)![1])
-    await user.click(within(region("Thorax")).getByRole("button", { name: /add/ }))
-    expect(region("Thorax")).toHaveAttribute("aria-expanded", "true")
-    expect(summary()).toHaveTextContent(`of ${before + 9} done`)
+    await user.click(within(region("Whole skeleton")).getByRole("button", { name: /add/ }))
+    expect(region("Whole skeleton")).toHaveAttribute("aria-expanded", "true")
+    expect(summary()).toHaveTextContent(`of ${before + 1} done`)
   })
 
   it("removing a Region with Observations sets it aside; without, it goes back to + add", async () => {
@@ -106,8 +106,8 @@ describe("Region Rail", () => {
     expect(document.activeElement).toBe(region("Cranium"))
     await user.keyboard("{ArrowLeft}")
     expect(region("Cranium")).toHaveAttribute("aria-expanded", "false")
-    // Down past Mandible, Dentition, Vertebrae, Thorax, Shoulder, Pelvis to Lower limb.
-    for (let i = 0; i < 7; i++) await user.keyboard("{ArrowDown}")
+    // Down past Mandible, Dentition, Thorax, Upper limb, Pelvis to Lower limb.
+    for (let i = 0; i < 6; i++) await user.keyboard("{ArrowDown}")
     expect(document.activeElement).toBe(region("Lower limb"))
     await user.keyboard("{ArrowRight}{ArrowRight}{Enter}")
     expect(heading()).toHaveTextContent("Lower limb · Metric")

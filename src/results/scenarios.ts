@@ -282,7 +282,7 @@ export function scenario(id: ScenarioId): Analysis {
             result: {
               kind: "not-enough",
               reason: "No long-bone measurements.",
-              wouldHelp: ["Lower limb", "Shoulder & upper limb"],
+              wouldHelp: ["Lower limb", "Upper limb"],
             },
           },
         },

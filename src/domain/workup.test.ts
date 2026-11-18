@@ -116,7 +116,7 @@ describe("Tab order", () => {
     const path = tabPath(initialState(), MORPH)
     expect(path.slice(0, 4)).toEqual(["bone:nasal", "conditions:nasal", "NAS", "NAW"])
     expect(path.filter((p) => !p.includes(":"))).toEqual([...fieldIds(MORPH), "continue"])
-    expect(path.filter((p) => p.startsWith("bone:"))).toHaveLength(7)
+    expect(path.filter((p) => p.startsWith("bone:"))).toHaveLength(6)
   })
 
   it("passes over Skipped rows going forward, but not backward", () => {

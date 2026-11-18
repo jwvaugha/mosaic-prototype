@@ -105,9 +105,15 @@ const SECTIONS: SectionSpec[] = [
     modality: "morph",
     groups: [
       { id: "nasal", name: "Nasal aperture and bones", codes: ["NAShape", "NAWidth", "NBShape", "NBContour", "ANSpine", "INAperture", "NaOvg"] },
-      { id: "midface", name: "Zygomatic and orbit", codes: ["ZSCourse", "MTub", "PZTub", "IOBreadth", "OrbShape"] },
-      { id: "sex-traits", name: "Sex traits", codes: ["NC", "MP", "SOM", "GL"] },
-      { id: "vault-palate", name: "Vault and palate", codes: ["NasFrntSut", "SnSut", "PBDep", "TPSut", "PalSh", "Parietal_depression", "Occipital_condyle_lipping"] },
+      // No estimate-type groups (PIs, 2026-11-18): each trait sits where it is
+      // on the skull, so Walker's sex traits are split between the orbit (SOM)
+      // and the vault (GL, MP, NC).
+      { id: "midface", name: "Zygomatic and orbit", codes: ["ZSCourse", "MTub", "PZTub", "IOBreadth", "OrbShape", "SOM"] },
+      {
+        id: "vault-palate",
+        name: "Vault and palate",
+        codes: ["GL", "MP", "NC", "NasFrntSut", "SnSut", "PBDep", "TPSut", "PalSh", "Parietal_depression", "Occipital_condyle_lipping"],
+      },
       { id: "vault-sutures", name: "Vault sutures", codes: ["Midlambdoid", "Lambda", "Obelion", "Anterior_sagittal", "Bregma", "Midcoronal", "Pterion", "Sphenofrontal", "Inf_sphenotemporal", "Sup_sphenotemporal"] },
       { id: "maxillary-sutures", name: "Maxillary sutures", codes: ["IN", "AMP", "TP", "PMP", "GPF"] },
       { id: "sos", name: "Spheno-occipital synchondrosis", codes: ["SOS_fusion", "SOS_fusion_AdultAge"] },
@@ -141,9 +147,10 @@ const SECTIONS: SectionSpec[] = [
     ],
   },
   // Dentition · Morphological groups are built from the dictionary below.
+  // Thorax holds the vertebrae and the ribs (PIs, 2026-11-18).
   {
-    id: "vertebrae-morph",
-    region: "Vertebrae",
+    id: "thorax-morph",
+    region: "Thorax",
     modality: "morph",
     groups: [
       { id: "c1", name: "Atlas (C1)", codes: ["C1_lipping", "C1_Eburnation"] },
@@ -162,20 +169,13 @@ const SECTIONS: SectionSpec[] = [
         name: "Vertebral column",
         codes: ["C3_C7_lipping", "T1_T12_lipping", "L1_L5_lipping", "C3_C7_candlewax", "T1_T12_candlewax", "L1_L5_candlewax", "C3_C7_DISH", "T1_T12_DISH", "L1_L5_DISH"],
       },
-    ],
-  },
-  {
-    id: "thorax-morph",
-    region: "Thorax",
-    modality: "morph",
-    groups: [
       { id: "sternum", name: "Sternum and first rib", codes: ["R1_fusion", "Sternum_central_dorsal_ridge"] },
       { id: "ribs", name: "Ribs", codes: ["R2", "R3_10", "R2_ossification", "R3_10_ossification", "R2_shingle", "R3_10_shingle", "Sternal_rib_ends"] },
     ],
   },
   {
-    id: "shoulder-metric",
-    region: "Shoulder & upper limb",
+    id: "upper-limb-metric",
+    region: "Upper limb",
     modality: "metric",
     groups: [
       { id: "clavicle", name: "Clavicle", bilateral: true, codes: ["ClavXL", "ClavMXD", "ClavMWD"] },
@@ -186,8 +186,8 @@ const SECTIONS: SectionSpec[] = [
     ],
   },
   {
-    id: "shoulder-morph",
-    region: "Shoulder & upper limb",
+    id: "upper-limb-morph",
+    region: "Upper limb",
     modality: "morph",
     groups: [
       { id: "clavicle-m", name: "Clavicle", bilateral: true, codes: ["Medial_epiphysis_fusion", "Medial_epiphysis_gravel", "Medial_macroporosity", "Lateral_macroporosity"] },
@@ -207,7 +207,7 @@ const SECTIONS: SectionSpec[] = [
     modality: "metric",
     groups: [
       { id: "sacrum", name: "Sacrum", codes: ["SacAH", "SacAB", "SacS1B", "SacS1APD"] },
-      { id: "os-coxae", name: "Os coxae", bilateral: true, codes: ["PUM", "SPU", "DCOX", "IIMT", "ISMM", "SCOX", "SS", "SA", "SIS_PCMetric", "VEAC"] },
+      { id: "innominate", name: "Innominate", bilateral: true, codes: ["PUM", "SPU", "DCOX", "IIMT", "ISMM", "SCOX", "SS", "SA", "SIS_PCMetric", "VEAC"] },
     ],
   },
   {
@@ -215,13 +215,31 @@ const SECTIONS: SectionSpec[] = [
     region: "Pelvis",
     modality: "morph",
     groups: [
-      { id: "os-coxae-sex", name: "Os coxae", bilateral: true, codes: ["VA", "SPC", "MA", "CompositeArc", "IliumShape", "ASHeight", "GSN"] },
+      // Grouped by where each trait sits, not by estimate (PIs, 2026-11-18):
+      // the ilium's sex traits join its other traits, auricular surface height joins
+      // the auricular surface, and Phenice's traits join the pubis.
       { id: "sacrum-m", name: "Sacrum and sacroiliac joint", codes: ["S1_Margin", "S1_S2_fusion", "Sacral_elbow", "Sacroiliac_joint_fusion_left", "Sacroiliac_joint_fusion_right"] },
       {
         id: "ilium",
         name: "Ilium",
         bilateral: true,
-        codes: ["Iliac_crest_fusion", "Iliac_crest_tuberculum_ossification", "Iliac_AIIS_exostoses", "Superior_Posterior_Iliac_Exostoses", "Inferior_Posterior_Iliac_Exostoses", "Posterior_exostoses"],
+        codes: [
+          "IliumShape",
+          "GSN",
+          "CompositeArc",
+          "Iliac_crest_fusion",
+          "Iliac_crest_tuberculum_ossification",
+          "Iliac_AIIS_exostoses",
+          "Superior_Posterior_Iliac_Exostoses",
+          "Inferior_Posterior_Iliac_Exostoses",
+          "Posterior_exostoses",
+        ],
+      },
+      {
+        id: "auricular",
+        name: "Auricular surface",
+        bilateral: true,
+        codes: ["ASHeight", "Transverse_organization", "Surface_texture", "Microporosity", "Macroporosity", "Apical_change"],
       },
       { id: "acetabulum", name: "Acetabulum", bilateral: true, codes: ["Posterior_margin_lipping", "Articular_surface_extra_bone", "Inferior_joint_lipping"] },
       {
@@ -231,16 +249,10 @@ const SECTIONS: SectionSpec[] = [
         codes: ["Ischial_tuberosity_superior_margin_spur", "Ischial_tuberosity_superior_median_spur", "Ischial_tuberosity_bumps"],
       },
       {
-        id: "pubic-symphysis",
-        name: "Pubic symphysis",
+        id: "pubis",
+        name: "Pubis",
         bilateral: true,
-        codes: ["Pubic_symphysis", "Pubic_symphyseal_collar", "Symphyseal_relief", "Superior_protuberance", "Ventral_symphyseal_margin", "Dorsal_symphyseal_margin"],
-      },
-      {
-        id: "auricular",
-        name: "Auricular surface",
-        bilateral: true,
-        codes: ["Transverse_organization", "Surface_texture", "Microporosity", "Macroporosity", "Apical_change"],
+        codes: ["VA", "SPC", "MA", "Pubic_symphysis", "Pubic_symphyseal_collar", "Symphyseal_relief", "Superior_protuberance", "Ventral_symphyseal_margin", "Dorsal_symphyseal_margin"],
       },
     ],
   },
@@ -282,7 +294,7 @@ const SECTIONS: SectionSpec[] = [
   },
 ]
 
-const REGION_ORDER = ["Cranium", "Mandible", "Dentition", "Vertebrae", "Thorax", "Shoulder & upper limb", "Pelvis", "Lower limb", "Whole skeleton"]
+const REGION_ORDER = ["Cranium", "Mandible", "Dentition", "Thorax", "Upper limb", "Pelvis", "Lower limb", "Whole skeleton"]
 
 // Short names that read well under their bone header (the wireframes use
 // "Maximum length" under Femur). Others come from the form or dictionary.
@@ -770,7 +782,7 @@ async function main() {
     const cls = tooth.startsWith("i") ? "incisors" : tooth === "c" ? "canine" : tooth.startsWith("pm") ? "premolars" : "molars"
     dentalGroups.find((g) => g.id === `${jaw}-${cls}`)!.codes.push(name)
   }
-  SECTIONS.splice(SECTIONS.findIndex((s) => s.id === "vertebrae-morph"), 0, {
+  SECTIONS.splice(SECTIONS.findIndex((s) => s.id === "thorax-morph"), 0, {
     id: "dentition-morph",
     region: "Dentition",
     modality: "morph",
