@@ -1,6 +1,6 @@
 // Builds src/data/fixture.json and src/data/image-manifest.json from the MOSAIC
 // data dictionaries and reference files, and writes the reference images to
-// public/ref-images/ (only mms/ is committed; see src/data/index.ts).
+// public/ref-images/ (all committed; see src/data/index.ts).
 //
 // Every Variable in the dictionaries becomes a field, grouped into the nine
 // Regions × Metric/Morphological sections of the rail (requirements: Data

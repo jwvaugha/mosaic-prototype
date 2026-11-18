@@ -48,6 +48,41 @@ const k = (s: string) => <Kbd>{s}</Kbd>
 
 const UPDATES: Update[] = [
   {
+    id: "2026-11-18-all-figures",
+    date: "2026-11-18",
+    title: "Every reference figure, on every field",
+    intro: (
+      <>
+        The reference panel now shows the measurement figures and method drawings that used to be grey boxes, so you
+        can judge it as it will really work.
+      </>
+    ),
+    notes: true,
+    changes: [
+      {
+        title: <>Measurement figures for Metric fields</>,
+        body: (
+          <>
+            Most postcranial measurements have their own figure with the measurement marked in red, and the cranial,
+            mandible and innominate measurements show their figures from the data-collection references. Tell us if a figure marks the wrong measurement or is
+            hard to read at the panel's size.
+          </>
+        ),
+        how: <>Open any Metric section and focus a measurement with the reference panel on.</>,
+      },
+      {
+        title: <>Drawings for the cranial and pelvic sex traits</>,
+        body: (
+          <>
+            Glabella, mastoid process, nuchal crest and supraorbital margin, and the ventral arc, subpubic contour and
+            medial aspect of the ischiopubic ramus, now show their drawings for each score.
+          </>
+        ),
+        how: <>In Cranium · Morphological (Vault and palate) or Pelvis · Morphological (Pubis), focus one of these traits.</>,
+      },
+    ],
+  },
+  {
     id: "2026-11-18-regions-by-location",
     date: "2026-11-18",
     title: "Traits grouped by where they are",

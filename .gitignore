@@ -23,15 +23,8 @@ dist-ssr
 *.sln
 *.sw?
 
-# Reference images: the MSU (mms/) and FoRDent (dental/) drawings are cleared
-# for the public site (2026-10-28), and the photos (photos/, dental-photos/)
-# since 2026-11-09. Everything else stays local until cleared; the Pages build
-# draws placeholders for it.
-public/ref-images/*
-!public/ref-images/mms/
-!public/ref-images/dental/
-!public/ref-images/photos/
-!public/ref-images/dental-photos/
+# Reference images are all committed: the PIs cleared every one for the
+# prototype's public site on 2026-11-18 (provisionally; see src/data/index.ts).
 
 # Playwright
 e2e/.results/

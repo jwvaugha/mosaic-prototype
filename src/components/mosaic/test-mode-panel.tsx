@@ -11,7 +11,7 @@ import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from "
 import { Switch } from "@/components/ui/switch"
 import { useConfig } from "@/config/config-context"
 import { DEFAULT_CONFIG, type TestConfig } from "@/config/test-config"
-import { fixture, localImages } from "@/data"
+import { fixture } from "@/data"
 import { SEEDS, type SeedId } from "@/data/seeds"
 import { clearEvents, getEvents, subscribeEvents } from "@/lib/event-log"
 import { cn } from "@/lib/utils"
@@ -161,11 +161,6 @@ export function TestModePanel({ fieldSummary }: { fieldSummary: string }) {
               <p className="text-xs text-muted-foreground">
                 In the app the panel is one switch that stays as set: the button in the section header (docked and
                 inline), the strip along the bottom (bottom dock), or R.
-              </p>
-              <p className="text-xs text-muted-foreground">
-                {localImages
-                  ? "Showing every reference image (local build)."
-                  : "MSU and FoRDent drawings are shown. Metric figures from DCP 2.0 are grey placeholders until cleared."}
               </p>
             </Group>
 

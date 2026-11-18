@@ -55,7 +55,7 @@ export type Fixture = {
 }
 
 export type ImageAsset = {
-  // Path under public/, served only in local builds (VITE_REAL_IMAGES=1).
+  // Path under public/.
   src: string
   width: number
   height: number

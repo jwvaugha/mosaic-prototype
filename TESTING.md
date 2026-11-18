@@ -54,10 +54,10 @@ See the in-app guide (`#/guide`): one task, repeated under the four reference-pa
 
 ## Reference images
 
-The MSU (MMS) drawings are on the public site; the PIs cleared them on 2026-10-28. The DCP 2.0 figures used for Metric fields come from a UTK manual and stay local until cleared, so Pages shows placeholders at their real sizes. To see them, run the prototype locally. It needs the MOSAIC `References` folder beside this one, plus macOS `sips` and poppler:
+Every reference image is committed and on the public site: the PIs cleared them all for the prototype on 2026-11-18 (provisionally; it isn't published or circulated professionally). To rebuild them from the PIs' files, you need the MOSAIC `References` folder beside this one, plus macOS `sips` and poppler:
 
 ```sh
 npm install
-npm run fixture                 # extracts images into public/ref-images (git-ignored)
-VITE_REAL_IMAGES=1 npm run dev  # http://localhost:5173/mosaic-prototype/
+npm run fixture   # extracts images into public/ref-images
+npm run dev       # http://localhost:5173/mosaic-prototype/
 ```
