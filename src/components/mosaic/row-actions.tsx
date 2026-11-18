@@ -53,13 +53,13 @@ export function rowActionList({
   list.push(
     flagged
       ? { id: "flag", label: "Unflag", keys: FLAG_KEYS, icon: <FlagOff />, onClick: onFlag }
-      : { id: "flag", label: "Come back", keys: FLAG_KEYS, icon: <Flag />, onClick: onFlag },
+      : { id: "flag", label: "Flag", keys: FLAG_KEYS, icon: <Flag />, onClick: onFlag },
   )
   return list
 }
 
-// Width needed to show everything inline. Buttons: Skip ≈ 70 px, Come back
-// ≈ 146 (with "Option F"), Clear ≈ 76; icons 36 each. Icons are 16 px
+// Width needed to show everything inline. Buttons: Skip ≈ 70 px, Flag
+// ≈ 110 (with "Option F"), Clear ≈ 76; icons 36 each. Icons are 16 px
 // (18 for Reference and Note), larger than the button defaults (feedback
 // 2026-11-09). Tailwind only sees literal class names,
 // so each case is spelled out.

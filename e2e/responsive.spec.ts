@@ -165,7 +165,7 @@ test("intro card: beside the row when it fits, otherwise below it, never over it
     await page.goto(`./?seed=fresh&ref=${layout}&start=cranium-morph#/`)
     await page.evaluate(() => localStorage.setItem("mosaic-proto:guide-prompted", "1"))
     await page.reload()
-    const card = page.getByText("Score it, Skip it, or come back to it").locator("..")
+    const card = page.getByText("Score it, Skip it, or Flag it").locator("..")
     await expect(card).toBeVisible()
     const c = (await card.boundingBox())!
     const r = (await page.locator('[data-variable="NAS"] > div').first().boundingBox())!

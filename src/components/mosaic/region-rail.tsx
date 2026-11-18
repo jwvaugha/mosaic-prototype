@@ -739,7 +739,7 @@ function IssueCounts({ errors, warnings, flagged }: { errors?: number; warnings?
 export function RailFlagCount({ count }: { count: number }) {
   return (
     <span
-      aria-label={`${count} to come back to`}
+      aria-label={`${count} flagged`}
       className="flex shrink-0 items-center gap-0.5 rounded-full border border-flag-border bg-flag px-1.5 text-xs font-medium text-flag-foreground"
     >
       <Flag className="size-3" />

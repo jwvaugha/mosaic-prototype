@@ -55,7 +55,7 @@ export function PreAnalysisDialog(p: PreAnalysisProps) {
         </div>
 
         {p.mode !== "skip" && p.flagged.length > 0 && (
-          <Block icon={<Flag className="size-4 text-primary" />} title="Fields you flagged to come back to" count={String(p.flagged.length)}>
+          <Block icon={<Flag className="size-4 text-primary" />} title="Fields you flagged" count={String(p.flagged.length)}>
             <div className="flex flex-col gap-1">
               {p.flagged.map((f) => (
                 <ComeBackListItem key={f.id} title={f.title} where={f.where} onGoTo={() => p.onGoTo(f.id)} />

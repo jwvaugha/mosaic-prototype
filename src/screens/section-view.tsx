@@ -58,7 +58,7 @@ export function SectionView({
   // Skipped fields count as done (feedback, 2026-11-09).
   const head = [`${c.recorded + c.skipped} of ${c.total} done`]
   if (c.skipped) head.push(`${c.skipped} skipped`)
-  if (c.flagged) head.push(`${c.flagged} to come back to`)
+  if (c.flagged) head.push(`${c.flagged} flagged`)
   const pane = [...head, `${c.blank} remaining`].join(" · ")
   const footer = [...head, `${c.blank} unreached`].join(" · ")
 
@@ -87,12 +87,12 @@ export function SectionView({
   const hintCopy =
     policy.allowSkip && policy.allowFlag
       ? {
-          title: "Score it, Skip it, or come back to it",
-          body: "Score a trait by clicking a score or typing its number, or type a measurement. If something can't be scored, Skip it. If you'll score it later, mark it to come back to; MOSAIC lists those again before the Analysis.",
+          title: "Score it, Skip it, or Flag it",
+          body: "Score a trait by clicking a score or typing its number, or type a measurement. If something can't be scored, Skip it. If you'll score it later, Flag it; MOSAIC lists flagged fields again before the Analysis.",
           note: "Both are also on each row's buttons when you point at it.",
           keys: [
             ["−", "Skip"],
-            [FLAG_KEYS, "Come back"],
+            [FLAG_KEYS, "Flag"],
             ["R", "Reference"],
           ] as [string, string][],
         }
@@ -104,10 +104,10 @@ export function SectionView({
             keys: [["−", "Skip"]] as [string, string][],
           }
         : {
-            title: "Score it, or come back to it",
-            body: "Score a trait by clicking a score or typing its number, or type a measurement. Not ready to score something? Mark it to come back to, and MOSAIC lists it again before the Analysis.",
+            title: "Score it, or Flag it",
+            body: "Score a trait by clicking a score or typing its number, or type a measurement. Not ready to score something? Flag it, and MOSAIC lists it again before the Analysis.",
             note: "Fields you leave blank are fine: they're left out of the Analysis.",
-            keys: [[FLAG_KEYS, "Come back"]] as [string, string][],
+            keys: [[FLAG_KEYS, "Flag"]] as [string, string][],
           }
   const hintOpen = !state.firstUseHintSeen && state.focus?.kind === "field"
 

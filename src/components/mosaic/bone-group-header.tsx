@@ -43,7 +43,7 @@ export function BoneGroupHeader({
   const [conditions, setConditions] = useState<string[]>([])
   const parts = [`${counts.recorded + counts.skipped} of ${counts.total} done`]
   if (counts.skipped) parts.push(`${counts.skipped} skipped`)
-  if (counts.flagged) parts.push(`${counts.flagged} to come back to`)
+  if (counts.flagged) parts.push(`${counts.flagged} flagged`)
 
   const onHeaderKey = (e: KeyboardEvent) => {
     if (!bilateral || e.altKey || e.ctrlKey || e.metaKey) return

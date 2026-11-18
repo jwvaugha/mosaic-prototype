@@ -88,7 +88,7 @@ test("a flagged field reads as highlighted", async ({ page }) => {
   await page.goto("./?seed=fresh&ref=A&dim=0&start=cranium-morph#/")
   await page.getByRole("button", { name: "Got it" }).click()
   await page.keyboard.press("Alt+KeyF")
-  const pill = page.locator("[aria-pressed=true]", { hasText: "Come back" }).first()
+  const pill = page.locator("[aria-pressed=true][aria-label^=Flagged]").first()
   await expect(pill).toBeVisible()
   expect(await pill.evaluate((el) => getComputedStyle(el).backgroundColor)).toBe("rgb(254, 240, 138)")
   await page.screenshot({ path: "e2e/.shots/feedback-flag.png" })

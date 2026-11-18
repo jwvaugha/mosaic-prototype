@@ -48,6 +48,36 @@ const k = (s: string) => <Kbd>{s}</Kbd>
 
 const UPDATES: Update[] = [
   {
+    id: "2026-11-18-flag",
+    date: "2026-11-18",
+    title: "\u201cCome back to\u201d is now Flag",
+    intro: <>A shorter name for marking a field you'll score later, and a quieter mark on the row.</>,
+    notes: true,
+    changes: [
+      {
+        title: <>The button reads Flag</>,
+        body: (
+          <>
+            What was \u201cCome back\u201d on each row's buttons and in the first-use hint is now Flag, and the section and bone counts read \u201c1 flagged\u201d. It works as
+            before: {k(FLAG_KEYS)} flags the field and moves on, and MOSAIC lists flagged fields again before the
+            Analysis.
+          </>
+        ),
+        how: <>Point at any row, or focus a field and press {k(FLAG_KEYS)}.</>,
+      },
+      {
+        title: <>A flagged field shows just the flag</>,
+        body: (
+          <>
+            The yellow mark beside a flagged row is now only the flag icon, so it takes less room next to the
+            buttons. Point at it to see the reason, if you gave one; click it to add or change the reason.
+          </>
+        ),
+        how: <>Flag a field and look beside its row.</>,
+      },
+    ],
+  },
+  {
     id: "2026-11-18-all-figures",
     date: "2026-11-18",
     title: "Every reference figure, on every field",
@@ -584,7 +614,7 @@ const KEYS: { k: ReactNode; d: string; isNew?: boolean }[] = [
   { k: <Kbd>Space</Kbd>, d: "Mark the state you're on, or tick a Condition" },
   { k: <Kbd>⌫</Kbd>, d: "Clear a trait's score" },
   { k: <Kbd>−</Kbd>, d: "Skip the field (again to un-Skip); on a bone's header, Skip its blanks" },
-  { k: <Kbd>{FLAG_KEYS}</Kbd>, d: "Mark to come back to and move on (again to unmark)" },
+  { k: <Kbd>{FLAG_KEYS}</Kbd>, d: "Flag to score later and move on (again to unflag)", isNew: true },
   { k: <Kbd>R</Kbd>, d: "Show or hide the reference panel" },
   { k: <KbdGroup><Kbd>D</Kbd><Kbd>P</Kbd></KbdGroup>, d: "Reference drawings / photos (opens the panel if it's closed)", isNew: true },
   { k: <Kbd>E</Kbd>, d: "Open or close the enlarged view of the field's reference (Esc closes it too)", isNew: true },

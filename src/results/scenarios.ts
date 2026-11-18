@@ -122,7 +122,7 @@ export function scenario(id: ScenarioId): Analysis {
         ],
         notAnalysed: [
           { name: "Ilium · Auricular surface", region: "Pelvis", reason: "Skipped" },
-          { name: "Femur · Maximum length", region: "Lower limb", reason: "Come back to: bone out for imaging" },
+          { name: "Femur · Maximum length", region: "Lower limb", reason: "Flagged: bone out for imaging" },
         ],
       }
 

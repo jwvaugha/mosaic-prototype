@@ -97,7 +97,7 @@ export function FlagCheckDialog({
       <DialogContent showCloseButton={false} className="gap-4 sm:max-w-[512px]" onCloseAutoFocus={returnToWorkup}>
         <div className="flex flex-col gap-1.5">
           <DialogTitle className="text-lg">
-            {n} {n === 1 ? "field" : "fields"} to come back to in {sectionTitle}
+            {n} flagged {n === 1 ? "field" : "fields"} in {sectionTitle}
           </DialogTitle>
           <DialogDescription>
             You flagged these before moving on. They stay flagged, and they'll be listed again before you run the

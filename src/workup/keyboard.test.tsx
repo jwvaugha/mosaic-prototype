@@ -116,7 +116,7 @@ describe("keyboard: 2 / 2.5 · Come back to", () => {
     expect(focusedRow()).toBe("NAS")
     const flagged = () => within(row("NAS")).queryByRole("button", { pressed: true })
     await user.keyboard("{Alt>}f{/Alt}")
-    expect(flagged()).toHaveTextContent("Come back to this")
+    expect(flagged()).toHaveAccessibleName("Flagged")
     // Marking moves on, as Skip does; ↑ comes back, and unmarking stays put.
     expect(focusedRow()).toBe("NAW")
     await user.keyboard("{ArrowUp}")
@@ -227,8 +227,8 @@ describe("bone headers", () => {
     const user = setup("inc=skip-and-flag")
     await user.click(within(row("NAW")).getByRole("button", { name: /Skip/ }))
     expect(statusOf("NAW")).toBe("Skipped")
-    await user.click(within(row("NBS")).getByRole("button", { name: /Come back/ }))
-    expect(within(row("NBS")).getByRole("button", { pressed: true })).toHaveTextContent("Come back to this")
+    await user.click(within(row("NBS")).getByRole("button", { name: /Flag$/ }))
+    expect(within(row("NBS")).getByRole("button", { pressed: true })).toHaveAccessibleName("Flagged")
   })
 
   it("the reference panel starts on, in the docked column", async () => {

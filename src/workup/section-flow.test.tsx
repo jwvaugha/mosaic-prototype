@@ -50,7 +50,7 @@ describe("Continue under each policy", () => {
     await user.keyboard("{Control>}{Alt>}{ArrowUp}{/Alt}{/Control}")
     await user.keyboard("{Alt>}f{/Alt}") // focus lands on ANS, the first blank
     await user.click(continueButton())
-    expect(screen.getByRole("dialog")).toHaveTextContent("1 field to come back to in Cranium · Morphological")
+    expect(screen.getByRole("dialog")).toHaveTextContent("1 flagged field in Cranium · Morphological")
     expect(screen.getByRole("dialog")).toHaveTextContent("Anterior nasal spine · ANS")
   })
 
@@ -61,7 +61,7 @@ describe("Continue under each policy", () => {
     expect(heading()).toHaveTextContent("Mandible · Metric")
     await user.click(screen.getByRole("button", { name: /^Analyze/ }))
     const dialog = screen.getByRole("dialog")
-    expect(dialog).toHaveTextContent("Fields you flagged to come back to")
+    expect(dialog).toHaveTextContent("Fields you flagged")
     expect(dialog).toHaveTextContent("Anterior nasal spine · ANS")
     expect(dialog).toHaveTextContent("Unacknowledged warnings")
   })

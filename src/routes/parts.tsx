@@ -58,7 +58,7 @@ export function Parts() {
           <KeyHint keys="-" label="Skip" />
           <KeyHint keys="-" label="Un-skip" />
           <KeyHint keys="⇧-" label="Skip bone" />
-          <KeyHint keys={["⌥", "F"]} label="Come back to this" />
+          <KeyHint keys={["⌥", "F"]} label="Flag" />
           <KeyHint keys="?" label="Reference" />
           <KeyHint keys={["⌃", "⌥", "↓"]} label="Next section" />
         </div>

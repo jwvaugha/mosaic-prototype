@@ -8,8 +8,9 @@ import { FLAG_REASONS, type FlagReason } from "@/domain/workup"
 import { cn } from "@/lib/utils"
 
 // WF / Come-back flag (Flows 2.1, 2.2). Sits in the gutter right of the row.
-//   Offer:   dashed chip "Come back to this ⌥F", on hover or focus
-//   Flagged: highlighter-yellow pill "Come back · <reason>"
+//   Offer:   dashed chip "Flag ⌥F", on hover or focus
+//   Flagged: highlighter-yellow flag icon; the reason is in its label and
+//            tooltip
 // Flagging opens the optional reason popover without taking focus, so the
 // keyboard flow carries on; it closes when focus leaves the row.
 
@@ -41,6 +42,8 @@ export function ComeBackFlag({
     if (!rowFocused) setOpen(false)
   }, [rowFocused])
 
+  const label = reason ? `Flagged · ${FLAG_REASONS[reason]}` : "Flagged"
+
   if (!flagged) {
     return (
       <button
@@ -55,7 +58,7 @@ export function ComeBackFlag({
         )}
       >
         <Flag className="size-4" />
-        Come back to this
+        Flag
         {showKeyHints && <Kbd>{FLAG_KEYS}</Kbd>}
       </button>
     )
@@ -68,11 +71,12 @@ export function ComeBackFlag({
           type="button"
           tabIndex={-1}
           aria-pressed
+          aria-label={label}
+          title={label}
           onClick={() => setOpen((o) => !o)}
-          className="mt-[3px] flex h-6 items-center gap-1.5 rounded-full border border-flag-border bg-flag py-1 pr-2.5 pl-2 text-xs font-medium text-flag-foreground"
+          className="mt-[3px] flex size-6 items-center justify-center rounded-full border border-flag-border bg-flag text-flag-foreground"
         >
-          <Flag className="size-4" />
-          {reason ? `Come back · ${FLAG_REASONS[reason]}` : "Come back to this"}
+          <Flag className="size-3.5" />
         </button>
       </PopoverAnchor>
       <PopoverContent
@@ -81,7 +85,7 @@ export function ComeBackFlag({
         onOpenAutoFocus={(e) => e.preventDefault()}
         onCloseAutoFocus={(e) => e.preventDefault()}
       >
-        <span className="text-base font-semibold">Come back to {name}</span>
+        <span className="text-base font-semibold">Flag {name}</span>
         <span className="text-xs text-muted-foreground">Why? (optional)</span>
         <div className="flex flex-wrap gap-1.5">
           {(Object.keys(FLAG_REASONS) as FlagReason[]).map((r) => (
