@@ -10,7 +10,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from "@/components/ui/sheet"
 import { Switch } from "@/components/ui/switch"
 import { useConfig } from "@/config/config-context"
-import { DEFAULT_CONFIG, type RefLayout, type TestConfig } from "@/config/test-config"
+import { DEFAULT_CONFIG, type TestConfig } from "@/config/test-config"
 import { fixture, localImages } from "@/data"
 import { SEEDS, type SeedId } from "@/data/seeds"
 import { clearEvents, getEvents, subscribeEvents } from "@/lib/event-log"
@@ -19,19 +19,13 @@ import { useWorkup } from "@/workup/workup-context"
 
 // Prototype controls (not part of MOSAIC), opened with the pill in the
 // bottom-left corner or ⌃⌥T. Two groups:
-//   Reference panel   how the reference appears (layout, auto-show), which
-//                     is what the prototype now compares
+//   Reference panel   whether the panel starts on, and image notes. Where it
+//                     appears is settled: the app's split button picks A or C
+//                     (B is still reachable with ?ref=B)
 //   Testing           scenario, opening section, hints, resets, session log
 // Skip and "come back to" used to be a third, compared choice; since the PI
 // meeting of 2026-10-28 both are always available.
 // Everything but the log is kept in the URL, so "Copy link" shares the setup.
-
-const LAYOUTS: { id: RefLayout; label: string; hint: string }[] = [
-  { id: "A", label: "Docked column", hint: "Beside the rows on the right; never moves" },
-  { id: "B", label: "Bottom dock", hint: "A strip along the bottom of the screen" },
-  { id: "C", label: "Inline", hint: "Opens under the field; the page keeps your place" },
-]
-
 
 export function Group({ icon, title, note, children }: { icon: ReactNode; title: string; note?: string; children: ReactNode }) {
   return (
@@ -67,40 +61,6 @@ export function Toggle({ label, checked, onChange }: { label: string; checked: b
       {label}
       <Switch checked={checked} onCheckedChange={onChange} />
     </label>
-  )
-}
-
-// Compact segmented cards: one row of choices, each with a one-line hint.
-function Segments<T extends string>({
-  name,
-  value,
-  options,
-  onChange,
-}: {
-  name: string
-  value: T
-  options: { id: T; label: string; hint?: string }[]
-  onChange: (v: T) => void
-}) {
-  return (
-    <RadioGroup value={value} onValueChange={(v) => onChange(v as T)} className="grid grid-cols-3 gap-1.5">
-      {options.map((o) => (
-        <Label
-          key={o.id}
-          htmlFor={`${name}-${o.id}`}
-          className={cn(
-            "flex cursor-pointer flex-col items-start gap-1 rounded-lg border p-2.5 font-normal",
-            value === o.id && "border-primary bg-primary/5",
-          )}
-        >
-          <span className="flex items-center gap-2">
-            <RadioGroupItem id={`${name}-${o.id}`} value={o.id} />
-            <span className="text-sm font-medium">{o.label}</span>
-          </span>
-          {o.hint && <span className="text-xs leading-snug text-muted-foreground">{o.hint}</span>}
-        </Label>
-      ))}
-    </RadioGroup>
   )
 }
 
@@ -161,7 +121,6 @@ export function TestModePanel({ fieldSummary }: { fieldSummary: string }) {
   }
 
   const minutes = events.length ? ((events.at(-1)!.t - events[0].t) / 60000).toFixed(1) : "0"
-  const layout = LAYOUTS.find((l) => l.id === config.refLayout)!
 
   return (
     <>
@@ -174,7 +133,7 @@ export function TestModePanel({ fieldSummary }: { fieldSummary: string }) {
         className="flex h-5 items-center gap-1.5 rounded-full border border-dashed border-primary bg-background px-2 text-xs font-medium text-primary"
       >
         <FlaskConical className="size-3" />
-        Test mode · {layout.label}
+        Test mode
         <Kbd className="ml-0.5 h-4 text-[10px]">⌃⌥T</Kbd>
       </button>
 
@@ -194,14 +153,6 @@ export function TestModePanel({ fieldSummary }: { fieldSummary: string }) {
 
           <div className="flex flex-col gap-3 p-3">
             <Group icon={<BookImage />} title="Reference panel">
-              <Field label="Layout">
-                <Segments
-                  name="layout"
-                  value={config.refLayout}
-                  options={LAYOUTS}
-                  onChange={(v) => set((c) => ({ ...c, refLayout: v }))}
-                />
-              </Field>
               <Toggle
                 label="Panel starts on (restarts the Workup)"
                 checked={config.refStartsOn}
