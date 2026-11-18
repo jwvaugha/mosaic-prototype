@@ -1,7 +1,7 @@
 import { expect, test } from "@playwright/test"
 
 // E opens the enlarged view of the field's reference, even with the panel
-// closed; Esc hands the keys back to the field.
+// closed; E again, or Esc, closes it and hands the keys back to the field.
 
 test("E opens the state viewer at the previewed state, and Esc returns to the field", async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 })
@@ -22,9 +22,13 @@ test("E opens the state viewer at the previewed state, and Esc returns to the fi
   await page.keyboard.press("Escape")
   await expect(viewer).toHaveCount(0)
   await expect(page.locator("main :focus")).toHaveCount(1)
-  // A second E on the same field opens it again.
+  // A second E on the same field opens it again, and E closes it.
   await page.keyboard.press("e")
   await expect(viewer).toBeVisible()
+  await expect(page.locator('[role="dialog"]:focus, [role="dialog"] :focus')).toHaveCount(1)
+  await page.keyboard.press("e")
+  await expect(viewer).toHaveCount(0)
+  await expect(page.locator("main :focus")).toHaveCount(1)
 })
 
 test("E enlarges a measurement's figure", async ({ page }) => {
@@ -34,4 +38,8 @@ test("E enlarges a measurement's figure", async ({ page }) => {
   await page.locator("[data-variable] input").first().focus()
   await page.keyboard.press("e")
   await expect(page.getByRole("dialog")).toBeVisible()
+  // Wait for focus to move into the dialog, as it does before a person could press again.
+  await expect(page.locator('[role="dialog"]:focus, [role="dialog"] :focus')).toHaveCount(1)
+  await page.keyboard.press("e")
+  await expect(page.getByRole("dialog")).toHaveCount(0)
 })

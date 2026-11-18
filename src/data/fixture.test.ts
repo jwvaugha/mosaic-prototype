@@ -75,7 +75,11 @@ describe("fixture", () => {
     // DCP figures for postcranial measurements.
     expect(count("figure")).toBeGreaterThanOrEqual(40)
     for (const id of ["NAS", "NBC", "ZS"]) expect(imageManifest[id].kind).toBe("states")
-    for (const id of ["FemXL", "FemEB", "TibCML"]) expect(imageManifest[id]).toMatchObject({ kind: "figure", highlight: expect.any(Object) })
+    // Postcranial measurements have their own figure, the measurement drawn in red (2026-11-18).
+    for (const id of ["FemXL", "FemEB", "TibCML"]) {
+      const e = imageManifest[id]
+      expect(e.kind === "figure" && e.figure.src).toBe(`ref-images/dcp-measures/${id}.webp`)
+    }
   })
 
   it("treats dental sub-states (4.1, 4.2) as examples of one state, not states", () => {

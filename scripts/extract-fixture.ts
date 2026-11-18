@@ -39,10 +39,21 @@ const root = path.resolve(import.meta.dirname, "..")
 const refArg = process.argv.indexOf("--references")
 const REF = path.resolve(root, refArg > -1 ? process.argv[refArg + 1] : "../References")
 const OUT_IMG = path.join(root, "public/ref-images")
-const PHOTO_ROOTS = ["MOSAIC Photos 3", "MOSAIC Photos 2", "MOSAIC Photos"].map((d) => path.join(REF, d))
+// Newest first. Assets/MOSAIC Photos 3 is a later copy of the third download
+// with the postcranial folder replaced (2026-11-18): twice the morphological
+// photos and a Metric folder of per-measurement figures.
+const PHOTO_ROOTS = [
+  path.resolve(root, "../Assets/MOSAIC Photos 3"),
+  ...["MOSAIC Photos 3", "MOSAIC Photos 2", "MOSAIC Photos"].map((d) => path.join(REF, d)),
+]
 const CRANIAL_XLSX = path.join(REF, "MOSAIC Photos/Cranial Images/MOSAIC_CranialVariables10.1.26.xlsx")
 const POSTCRANIAL_XLSX = path.join(REF, "MOSAIC_PostcranialVariables.xlsx")
 const DENTAL_XLSX = path.join(REF, "MOSAIC Photos/Dental Images/Morphological/MOSAIC_DentalVariables.xlsx")
+// The third download's copy has FoRDent's state descriptions filled in (332
+// rows; the first's has 5), but leaves out the third molars, so the trait
+// list still comes from the first copy and this one only supplies
+// descriptions.
+const DENTAL_DESC_XLSX = path.join(REF, "MOSAIC Photos 3/Dental Images/Morphological/MOSAIC_DentalVariables.xlsx")
 const POSTCRANIAL_PDF = path.join(REF, "MOSAIC Postcranial Metrics Data Collection Form.pdf")
 const ILLUSTRATIONS_PDF = path.join(REF, "MOSAIC Photos 2/Cranial Images/Metric/illustrations.pdf")
 
@@ -441,7 +452,7 @@ function sheetRows(file: string, sheet: string): Row[] {
 const clean = (v: unknown) => String(v ?? "").trim()
 // Spelling errors in the dictionaries, fixed here until they're fixed at the
 // source (reported to Andie, 2026-11-09).
-const fixTypos = (s: string) => s.replace(/\btardrop\b/g, "teardrop")
+const fixTypos = (s: string) => s.replace(/\btardrop\b/g, "teardrop").replace(/\blegnth\b/g, "length")
 const sentenceCase = (s: string) => s.charAt(0).toUpperCase() + s.slice(1)
 const humanize = (code: string) => sentenceCase(code.replace(/_/g, " ").toLowerCase())
 const expandAbbrev = (s: string) =>
@@ -572,6 +583,17 @@ async function main() {
   const postMorph = readMorphSheet(POSTCRANIAL_XLSX, "Morphological Variables", { name: 0, desc: 1, state: 2, label: 3 })
   const dentalMetric = readMetricSheet(DENTAL_XLSX, "Metric Variables")
   const dentalMorph = readMorphSheet(DENTAL_XLSX, "Morphological Variables", { name: 0, abbr: 1, desc: 2, state: 3, label: 4 })
+  // State descriptions by database name, then state code. Every row repeats
+  // the trait's name, and codes may read "1.0".
+  const dentalDescriptions = new Map<string, Map<string, string>>()
+  for (const r of sheetRows(DENTAL_DESC_XLSX, "Morphological Variables")) {
+    const name = clean(r[0])
+    const code = clean(r[3]).replace(/\.0$/, "")
+    const label = fixTypos(clean(r[4]))
+    if (!name || code === "" || !label) continue
+    if (!dentalDescriptions.has(name)) dentalDescriptions.set(name, new Map())
+    dentalDescriptions.get(name)!.set(code, label)
+  }
   const form = readPostcranialForm()
   const postMetricCodes = [...postMetric.keys()]
   const itemOf = (code: string) => postMetricCodes.indexOf(code) + 6
@@ -768,7 +790,15 @@ async function main() {
     // The scale is every state with a drawing or a photo.
     let states: CharacterState[] = [...new Set([...files.keys(), ...shots.map((p) => p.state)])]
       .sort((a, b) => Number(a) - Number(b))
-      .map((c) => ({ code: c, label: listed.find((s) => s.code === c)?.label ?? "" }))
+      .map((c) => ({
+        code: c,
+        // Third molars (absent from the newer sheet) use the second's.
+        label:
+          listed.find((s) => s.code === c)?.label ||
+          dentalDescriptions.get(name)?.get(c) ||
+          dentalDescriptions.get(sibling)?.get(c) ||
+          "",
+      }))
     const inferred = states.length === 0
     if (inferred) states = [{ code: "0", label: "absent" }, { code: "1", label: "present" }]
     // Absence traits may have a drawing for one state only: complete the 0/1 scale.
@@ -913,6 +943,21 @@ async function main() {
       manifest[id] = { kind: "figure", figure: asset, caption }
     }
   }
+  // One figure per postcranial measurement, the measurement already marked in
+  // red (Postcranial Images/Metric, named by code). They replace the shared
+  // form pages and their drawn highlight boxes. Drawn from DCP 2.0, so local
+  // builds only, like the other DCP figures.
+  for (const [f, full] of [...photoFiles("Postcranial Images/Metric")].sort()) {
+    const code = f.replace(/\.[a-z]+$/i, "")
+    const id = byCode.get(code)
+    if (!id) {
+      unmatchedPhotos.push(`${f}: no measurement with this code`)
+      continue
+    }
+    const v = variables[id]
+    manifest[id] = { kind: "figure", figure: await toWebp(full, `dcp-measures/${code}.webp`), caption: `Measurement drawing · ${v.fullName ?? v.name}` }
+  }
+
   for (const s of sections.filter((x) => x.modality === "metric")) {
     for (const b of s.bones) {
       const page = ILLUSTRATION_BONES[b.id]

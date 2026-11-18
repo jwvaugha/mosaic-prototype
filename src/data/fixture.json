@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-09",
+  "generatedAt": "2026-11-18",
   "sections": [
     {
       "id": "cranium-metric",
@@ -2749,15 +2749,15 @@
       "states": [
         {
           "code": "1",
-          "label": ""
+          "label": "Winging: both maxillary central incisors' distal margins are anterior to their mesial margins, so that their labial surfaces form a \"V\" with the apex pointing in toward the palate"
         },
         {
           "code": "2",
-          "label": ""
+          "label": "Unilateral winging: one maxillary central incisor's distal margin is anterior to its mesial margin"
         },
         {
           "code": "3",
-          "label": ""
+          "label": "The maxillary central incisors are straight in relation to each other, or follow the curve of the rest of the arch"
         },
         {
           "code": "4",
@@ -2774,11 +2774,11 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "There is no gap or a gap of less than 1 mm between the two maxillary central incisors."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "A gap of more than 1 mm exists between the two maxillary central incisors."
         }
       ]
     },
@@ -2791,23 +2791,23 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "The labial surface is flat, with no curvature."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "The labial surface has very slight curvature, not exactly straight."
         },
         {
           "code": "2",
-          "label": ""
+          "label": "Curvature can be seen in the middle of the labial surface when veiwed from the occlusal view, but the tooth does not seem curved when viewed labially."
         },
         {
           "code": "3",
-          "label": ""
+          "label": "The outline of the tooth's labial surface appears curved from both occlusal and labial views, but is not so curved as to resemble a very wide u-shape."
         },
         {
           "code": "4",
-          "label": ""
+          "label": "The outline of the tooth's labial surface traces a very wide u-shape."
         }
       ]
     },
@@ -2820,31 +2820,31 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "Lingual surface is basically smooth with no marginal ridges."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "There are very slight elevations along the mesial and distal margins that can be seen and felt, but may only run one third the length of the margin."
         },
         {
           "code": "2",
-          "label": ""
+          "label": "Ridges can be easily seen, but are still slight. The ridges run more than one third but less than the full length of the margin."
         },
         {
           "code": "3",
-          "label": ""
+          "label": "There is stronger ridging present than previous grades. The ridges may converge toward the cingulum."
         },
         {
           "code": "4",
-          "label": ""
+          "label": "Ridges are wider but not as high as in higher scores. These ridges almost converge on the cingulum."
         },
         {
           "code": "5",
-          "label": ""
+          "label": "Wide, fairly high ridges that almost contact at the cingulum."
         },
         {
           "code": "6",
-          "label": ""
+          "label": "Wide, high ridge development, contacting at the cingulum."
         }
       ]
     },
@@ -2857,35 +2857,35 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "Lingual surface is basically smooth with no marginal ridges."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "There are very slight elevations along the mesial and distal margins that can be seen and felt."
         },
         {
           "code": "2",
-          "label": ""
+          "label": "Ridges can be easily seen, but are still slight. The ridges run more than one third but less than the full length of the margin."
         },
         {
           "code": "3",
-          "label": ""
+          "label": "There is stronger ridging present than previous grades. The ridges may converge toward the cingulum."
         },
         {
           "code": "4",
-          "label": ""
+          "label": "Ridges are wider but not as high as in higher scores. These ridges almost converge on the cingulum."
         },
         {
           "code": "5",
-          "label": ""
+          "label": "Wide, fairly high ridges that almost contact at the cingulum."
         },
         {
           "code": "6",
-          "label": ""
+          "label": "Wide, high ridge development, contacting at the cingulum."
         },
         {
           "code": "7",
-          "label": ""
+          "label": "Barrel-shaped tooth."
         }
       ]
     },
@@ -2898,31 +2898,31 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "The labial surface is smooth."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "Mesial and distal ridging can be seen, but only in strong contrasting or grazing light."
         },
         {
           "code": "2",
-          "label": ""
+          "label": "Mesial and distal ridging can be seen and felt, but it is subtle."
         },
         {
           "code": "3",
-          "label": ""
+          "label": "Ridging can be easily felt and seen, but is not prominent over half the total crown height."
         },
         {
           "code": "4",
-          "label": ""
+          "label": "Ridging is prominent along at least half the total crown height."
         },
         {
           "code": "5",
-          "label": ""
+          "label": "Ridging is prominent, and may be seen from the crown root junction to the occlusal edge."
         },
         {
           "code": "6",
-          "label": ""
+          "label": "Extreme double shovel: the marginal ridges are raised well above the middle part of the labial surface."
         }
       ]
     },
@@ -2935,31 +2935,31 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "The labial surface is smooth."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "Mesial and distal ridging can be seen, but only in strong contrasting or grazing light."
         },
         {
           "code": "2",
-          "label": ""
+          "label": "Mesial and distal ridging can be seen and felt, but it is subtle."
         },
         {
           "code": "3",
-          "label": ""
+          "label": "Ridging can be easily felt and seen, but is not prominent over half the crown height."
         },
         {
           "code": "4",
-          "label": ""
+          "label": "Ridging is prominent along at least half the total crown height."
         },
         {
           "code": "5",
-          "label": ""
+          "label": "Ridging is prominent, and may be seen from the crown root junction to the occlusal edge."
         },
         {
           "code": "6",
-          "label": ""
+          "label": "Extreme double shovel: the marginal ridges are raised well above the middle part of the labial surface."
         }
       ]
     },
@@ -2972,15 +2972,15 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "The maxillary lateral incisor is of the size expected given the size of the other teeth in the arch."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "The tooth is reduced in size, but has normal morphology for a maxillary lateral incisor."
         },
         {
           "code": "2",
-          "label": ""
+          "label": "The tooth is reduced in size and has simplified or peg-shaped morphology."
         }
       ]
     },
@@ -2993,11 +2993,11 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "The maxillary lateral incisor is present."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "The maxillary lateral incisor is absent, and there is no evidence that the tooth is unerupted or has been lost due to pathology, such as a space between UI1 and UC."
         }
       ]
     },
@@ -3010,23 +3010,23 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "There is no groove that crosses the cingulum."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "There is a groove that meets or crosses the cingulum on the mesiolingual surface of the tooth."
         },
         {
           "code": "2",
-          "label": ""
+          "label": "There is a groove that meets or crosses the cingulum on the distolingual surface of the tooth."
         },
         {
           "code": "3",
-          "label": ""
+          "label": "There are two grooves that meet or cross the cingulum of the tooth, one on the mesiolingal and one on the distolingual surface of the tooth."
         },
         {
           "code": "4",
-          "label": ""
+          "label": "There are single or multiple grooves that meet or cross the cingulum in the middle of the lingual surface of the tooth."
         }
       ]
     },
@@ -3039,23 +3039,23 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "There is no groove that crosses the cingulum."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "There is a groove that meets or crosses the cingulum on the mesiolingual surface of the tooth."
         },
         {
           "code": "2",
-          "label": ""
+          "label": "There is a groove that meets or crosses the cingulum on the distolingual surface of the tooth."
         },
         {
           "code": "3",
-          "label": ""
+          "label": "There are two grooves that meet or cross the cingulum of the tooth, one on the mesiolingal and one on the distolingual surface of the tooth."
         },
         {
           "code": "4",
-          "label": ""
+          "label": "There are single or multiple grooves that meet or cross the cingulum in the middle of the lingual surface of the tooth."
         }
       ]
     },
@@ -3068,31 +3068,31 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "The area of the cingulum is smooth."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "There is a faint ridging at or near the cingulum."
         },
         {
           "code": "2",
-          "label": ""
+          "label": "There is a slight but palpable ridge at or near the cingulum."
         },
         {
           "code": "3",
-          "label": ""
+          "label": "There is a clearly discernable ridge at or near the cingulum."
         },
         {
           "code": "4",
-          "label": ""
+          "label": "There is very strong ridging at or near the cingulum, thicker and longer than seen for lesser expressions."
         },
         {
           "code": "5",
-          "label": ""
+          "label": "There is a small cuspule arising from the cingulum. The apex of the cusp may or may not be free from the lingual surface of the tooth."
         },
         {
           "code": "6",
-          "label": ""
+          "label": "There is a strong cusp with a free apex arising from the cingulum."
         }
       ]
     },
@@ -3105,31 +3105,31 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "The area of the cingulum is smooth."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "There is a faint ridging at or near the cingulum."
         },
         {
           "code": "2",
-          "label": ""
+          "label": "There is a slight but palpable ridge at or near the cingulum."
         },
         {
           "code": "3",
-          "label": ""
+          "label": "There is a clearly discernable ridge at or near the cingulum."
         },
         {
           "code": "4",
-          "label": ""
+          "label": "There is very strong ridging at or near the cingulum, thicker and longer than seen for lesser expressions."
         },
         {
           "code": "5",
-          "label": ""
+          "label": "There is a small cuspule arising from the cingulum. The apex of the cusp may or may not be free from the lingual surface of the tooth."
         },
         {
           "code": "6",
-          "label": ""
+          "label": "There is a strong cusp with a free apex arising from the cingulum."
         }
       ]
     },
@@ -3142,31 +3142,31 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "Lingual surface is basically flat with no marginal ridges."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "There are very slight elevations along the mesial and distal margins that can be seen and felt, but may only run one third the length of the margin."
         },
         {
           "code": "2",
-          "label": ""
+          "label": "Ridges can be easily seen, but are still slight. The ridges run more than one third but less than the full length of the margin."
         },
         {
           "code": "3",
-          "label": ""
+          "label": "There is stronger ridging present than previous grades. The ridges may converge toward the cingulum."
         },
         {
           "code": "4",
-          "label": ""
+          "label": "Ridges are wider but not as high as in higher scores. These ridges almost converge on the cingulum."
         },
         {
           "code": "5",
-          "label": ""
+          "label": "Wide, fairly high ridges that almost contact at the cingulum."
         },
         {
           "code": "6",
-          "label": ""
+          "label": "Strongest ridge development, contacting at the cingulum."
         }
       ]
     },
@@ -3179,31 +3179,31 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "The area of the cingulum is smooth."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "There is a faint ridging at or near the cingulum."
         },
         {
           "code": "2",
-          "label": ""
+          "label": "There is a slight but palpable ridge at or near the cingulum."
         },
         {
           "code": "3",
-          "label": ""
+          "label": "There is a clearly discernable ridge at or near the cingulum."
         },
         {
           "code": "4",
-          "label": ""
+          "label": "There is very strong ridging at or near the cingulum, thicker and longer than seen for lesser expressions."
         },
         {
           "code": "5",
-          "label": ""
+          "label": "There is a small cuspule arising from the cingulum. The apex of the cusp may or may not be free from the lingual surface of the tooth."
         },
         {
           "code": "6",
-          "label": ""
+          "label": "There is a strong cusp with a free apex arising from the cingulum."
         }
       ]
     },
@@ -3216,19 +3216,19 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "The mesial and distal lingual marginal ridges are of equal size. Neither is attached to any present tuberculum dentale."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "The mesiolingual margin is wider and/or more prominent than the distolingual margin. The separation between the mesiolingual margin and the tuberculum dentale may be blurred."
         },
         {
           "code": "2",
-          "label": ""
+          "label": "The mesiolingual margin is wider and/or more prominent than the distolingual margin. The mesiolingual margin and the tuberculum dentale are attached to each other, but it can still be seen that they are two separate morphological features."
         },
         {
           "code": "3",
-          "label": ""
+          "label": "The mesiolingual margin is approximately half again wider and/or more prominent than the distolingual margin. The mesiolingual margin and the mesial side of the tuberculum dentale are incorporated in one continuous ridge."
         }
       ]
     },
@@ -3241,27 +3241,27 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "Distal accessory ridge is absent."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "A faint distal accessory ridge arises near the occlusal edge and can be seen in strong contrasting light."
         },
         {
           "code": "2",
-          "label": ""
+          "label": "A weak distal accessory ridge can be seen or felt arising near the occlusal edge."
         },
         {
           "code": "3",
-          "label": ""
+          "label": "A distal accessory ridge is thicker than seen in lower grades, but does not deflect the distal margin."
         },
         {
           "code": "4",
-          "label": ""
+          "label": "Distal accessory ridge is longer and thicker than seen in lower grades, and may deflect or shorten the distal margin."
         },
         {
           "code": "5",
-          "label": ""
+          "label": "Distal accessory ridge is thick and may resemble a triangle. The tooth's distal margin will be deflected or shortened to accommodate the ridge."
         }
       ]
     },
@@ -3274,19 +3274,19 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "There are no cuspules at the termination of the sagittal groove. The presence of only a very small ridge or budge that is closely associated with either the buccal or lingual cusp is considered grade 0."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "There is a cuspule on the mesial margin of the occlusal surface of the tooth at the termination of the sagittal groove."
         },
         {
           "code": "2",
-          "label": ""
+          "label": "There is a cuspule on the distal margin of the occlusal surface of the tooth at the termination of the sagittal groove."
         },
         {
           "code": "3",
-          "label": ""
+          "label": "There are cuspules on the mesial and distal margins of the occlusal surface of the tooth at the terminations of the sagittal groove."
         }
       ]
     },
@@ -3299,19 +3299,19 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "There are no cuspules at the termination of the sagittal groove. The presence of only a very small ridge or budge that is closely associated with either the buccal or lingual cusp is considered grade 0."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "There is a cuspule on the mesial margin of the occlusal surface of the tooth at the termination of the sagittal groove."
         },
         {
           "code": "2",
-          "label": ""
+          "label": "There is a cuspule on the distal margin of the occlusal surface of the tooth at the termination of the sagittal groove."
         },
         {
           "code": "3",
-          "label": ""
+          "label": "There are cuspules on the mesial and distal margins of the occlusal surface of the tooth at the terminations of the sagittal groove."
         }
       ]
     },
@@ -3324,11 +3324,11 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "There is no sagittally oriented groove on the distal occlusal surface of the buccal cusp."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "There is a a sagittally groove oriented on the distal occlusal surface of the buccal cusp. This groove is associated with a ridge that runs distobuccaly from the apex of the buccal cusp."
         }
       ]
     },
@@ -3341,23 +3341,23 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "The area on the buccal cusp between the central ridge and the mesial margin is smooth, with no trace of a crest."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "There is a slight crest that is observable in strong light in the area between the central ridge and the mesial margin of the buccal cusp."
         },
         {
           "code": "2",
-          "label": ""
+          "label": "There is a thin crest in the area between the central ridge and the mesial margin of the buccal cusp."
         },
         {
           "code": "3",
-          "label": ""
+          "label": "There is a crest in the area between the central ridge and the mesial margin of the buccal cusp. This crest is as readily observable as the central ridge, but thinner."
         },
         {
           "code": "4",
-          "label": ""
+          "label": "There is a crest in the area between the central ridge and the mesial margin of the buccal cusp. This crest is similar in size to the central ridge."
         }
       ]
     },
@@ -3370,23 +3370,23 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "The area on the buccal cusp between the central ridge and the mesial margin is smooth, with no trace of a crest."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "There is a slight crest is observable in strong light in the area between the central ridge and the mesial margin of the buccal cusp."
         },
         {
           "code": "2",
-          "label": ""
+          "label": "There is a thin crest in the area between the central ridge and the mesial margin of the buccal cusp."
         },
         {
           "code": "3",
-          "label": ""
+          "label": "There is a crest in the area between the central ridge and the mesial margin of the buccal cusp. This crest is as readily observable as the central ridge, but thinner."
         },
         {
           "code": "4",
-          "label": ""
+          "label": "There is a crest in the area between the central ridge and the mesial margin of the buccal cusp. This crest is similar in size to the central ridge."
         }
       ]
     },
@@ -3399,23 +3399,23 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "The area on the buccal cusp between the central ridge and the distal margin is smooth, with no trace of a crest."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "There is a slight crest is observable in strong light in the area between the central ridge and the distal margin of the buccal cusp."
         },
         {
           "code": "2",
-          "label": ""
+          "label": "There is a thin crest in the area between the central ridge and the distal margin of the buccal cusp."
         },
         {
           "code": "3",
-          "label": ""
+          "label": "There is a crest in the area between the central ridge and the distal margin of the buccal cusp. This crest is as readily observable as the central ridge, but thinner."
         },
         {
           "code": "4",
-          "label": ""
+          "label": "There is a crest in the area between the central ridge and the distal margin of the buccal cusp. This crest is similar in size to the central ridge."
         }
       ]
     },
@@ -3428,23 +3428,23 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "The area on the buccal cusp between the central ridge and the distal margin is smooth, with no trace of a crest."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "There is a slight crest is observable in strong light in the area between the central ridge and the distal margin of the buccal cusp."
         },
         {
           "code": "2",
-          "label": ""
+          "label": "There is a thin crest in the area between the central ridge and the distal margin of the buccal cusp."
         },
         {
           "code": "3",
-          "label": ""
+          "label": "There is a crest in the area between the central ridge and the distal margin of the buccal cusp. This crest is as readily observable as the central ridge, but thinner."
         },
         {
           "code": "4",
-          "label": ""
+          "label": "There is a crest in the area between the central ridge and the distal margin of the buccal cusp. This crest is similar in size to the central ridge."
         }
       ]
     },
@@ -3457,15 +3457,15 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "The maxillary third molar is of the size expected given the size of the other teeth in the arch."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "The tooth is reduced in size, but has normal morphology for a maxillary third molar."
         },
         {
           "code": "2",
-          "label": ""
+          "label": "The tooth is reduced to less than 7 mm in diameter and has simplified or peg-shaped morphology. These teeth often have two rudimentary cusps."
         }
       ]
     },
@@ -3478,11 +3478,11 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "The maxillary third molar is present."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "The maxillary third molar is absent and there is no evidence the tooth is unerupted or has been lost due to pathology or surgical removal, such as a gap distal to UM2."
         }
       ]
     },
@@ -3495,31 +3495,31 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "No third cusp is present, area is smooth."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "There is a ridge without a free apex at the site of the metacone."
         },
         {
           "code": "2",
-          "label": ""
+          "label": "A faint cuspule with a free apex is present."
         },
         {
           "code": "3",
-          "label": ""
+          "label": "A small cusp, about one third the size of the mesiobuccal cusp (cusp one), is present."
         },
         {
           "code": "4",
-          "label": ""
+          "label": "A moderate cusp, half to two thirds the size of the mesiobuccal cusp (cusp one), is present."
         },
         {
           "code": "5",
-          "label": ""
+          "label": "A large cusp is present. The cusp will be approximately the same size as the mesiobuccal cusp (cusp one)."
         },
         {
           "code": "6",
-          "label": ""
+          "label": "A very large cusp is present. The cusp will be larger than the mesiobuccal cusp (cusp one)."
         }
       ]
     },
@@ -3532,31 +3532,31 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "No third cusp is present, area is smooth."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "There is a ridge without a free apex at the site of the metacone."
         },
         {
           "code": "2",
-          "label": ""
+          "label": "A faint cuspule with a free apex is present."
         },
         {
           "code": "3",
-          "label": ""
+          "label": "A small cusp, about one third the size of the mesiobuccal cusp (cusp one), is present."
         },
         {
           "code": "4",
-          "label": ""
+          "label": "A moderate cusp, half to two thirds the size of the mesiobuccal cusp (cusp one), is present."
         },
         {
           "code": "5",
-          "label": ""
+          "label": "A large cusp is present. The cusp will be approximately the same size as the mesiobuccal cusp (cusp one)."
         },
         {
           "code": "6",
-          "label": ""
+          "label": "A very large cusp is present. The cusp will be larger than the mesiobuccal cusp (cusp one)."
         }
       ]
     },
@@ -3569,31 +3569,31 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "No third cusp is present, area is smooth."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "There is a ridge without a free apex at the site of the metacone."
         },
         {
           "code": "2",
-          "label": ""
+          "label": "A faint cuspule with a free apex is present."
         },
         {
           "code": "3",
-          "label": ""
+          "label": "A small cusp, about one third the size of the mesiobuccal cusp (cusp one), is present."
         },
         {
           "code": "4",
-          "label": ""
+          "label": "A moderate cusp, half to two thirds the size of the mesiobuccal cusp (cusp one), is present."
         },
         {
           "code": "5",
-          "label": ""
+          "label": "A large cusp is present. The cusp will be approximately the same size as the mesiobuccal cusp (cusp one)."
         },
         {
           "code": "6",
-          "label": ""
+          "label": "A very large cusp is present. The cusp will be larger than the mesiobuccal cusp (cusp one)."
         }
       ]
     },
@@ -3606,31 +3606,31 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "No fourth cusp is present, area is smooth."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "There is faint ridging at the site of the hypocone."
         },
         {
           "code": "2",
-          "label": ""
+          "label": "A strong ridge or faint cuspule is present."
         },
         {
           "code": "3",
-          "label": ""
+          "label": "A small cusp is present and is one third to two thirds the size of the mesiolingual cusp (cusp two)."
         },
         {
           "code": "4",
-          "label": ""
+          "label": "A moderate cusp is present and is almost as large as the mesiolingual cusp (cusp two)."
         },
         {
           "code": "5",
-          "label": ""
+          "label": "A large cusp is present. The cusp will be approximately the same size as the mesiolingual cusp (cusp two)."
         },
         {
           "code": "6",
-          "label": ""
+          "label": "A very large cusp is present. The cusp will be larger than the mesiolingual cusp (cusp two)."
         }
       ]
     },
@@ -3643,31 +3643,31 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "No fourth cusp is present, area is smooth."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "There is faint ridging at the site of the hypocone."
         },
         {
           "code": "2",
-          "label": ""
+          "label": "A strong ridge or faint cuspule is present."
         },
         {
           "code": "3",
-          "label": ""
+          "label": "A small cusp is present and is one third to two thirds the size of the mesiolingual cusp (cusp two)."
         },
         {
           "code": "4",
-          "label": ""
+          "label": "A moderate cusp is present and is almost as large as the mesiolingual cusp (cusp two)."
         },
         {
           "code": "5",
-          "label": ""
+          "label": "A large cusp is present. The cusp will be approximately the same size as the mesiolingual cusp (cusp two)."
         },
         {
           "code": "6",
-          "label": ""
+          "label": "A very large cusp is present. The cusp will be larger than the mesiolingual cusp (cusp two)."
         }
       ]
     },
@@ -3680,31 +3680,31 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "No fourth cusp is present, area is smooth."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "There is faint ridging at the site of the hypocone."
         },
         {
           "code": "2",
-          "label": ""
+          "label": "A strong ridge or faint cuspule is present."
         },
         {
           "code": "3",
-          "label": ""
+          "label": "A small cusp is present and is one third to two thirds the size of the mesiolingual cusp (cusp two)."
         },
         {
           "code": "4",
-          "label": ""
+          "label": "A moderate cusp is present and is almost as large as the mesiolingual cusp (cusp two)."
         },
         {
           "code": "5",
-          "label": ""
+          "label": "A large cusp is present. The cusp will be approximately the same size as the mesiolingual cusp (cusp two)."
         },
         {
           "code": "6",
-          "label": ""
+          "label": "A very large cusp is present. The cusp will be larger than the mesiolingual cusp (cusp two)."
         }
       ]
     },
@@ -3717,27 +3717,27 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "The site of the metaconule is a groove separating the distobuccal and distolingual cusps (cusps three and four)."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "The groove separating the distobuccal and distolingual cusps (cusps three and four) is absent. Instead, there is a flat area or a very small cuspule."
         },
         {
           "code": "2",
-          "label": ""
+          "label": "A low cuspule about one quarter the size of the distobuccal cusp (cusp three) is present."
         },
         {
           "code": "3",
-          "label": ""
+          "label": "A small cusp is present. The cusp is more prominent than in lower grades and approximately one quarter to one third the size of the distobuccal cusp (cusp three)."
         },
         {
           "code": "4",
-          "label": ""
+          "label": "A medium cusp is present. The cusp is between one third and one half the size of the distobuccal cusp (cusp three)."
         },
         {
           "code": "5",
-          "label": ""
+          "label": "A large cusp is present, and is one half or more the size of the distobuccal cusp (cusp five), causing a bulge in the distal margin of the tooth."
         }
       ]
     },
@@ -3750,27 +3750,27 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "The site of the metaconule is a groove separating the distobuccal and distolingual cusps (cusps three and four)."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "The groove separating the distobuccal and distolingual cusps (cusps three and four) is absent. Instead, there is a flat area or a very small cuspule."
         },
         {
           "code": "2",
-          "label": ""
+          "label": "A low cuspule about one quarter the size of the distobuccal cusp (cusp three) is present."
         },
         {
           "code": "3",
-          "label": ""
+          "label": "A small cusp is present. The cusp is more prominent than in lower grades and approximately one quarter to one third the size of the distobuccal cusp (cusp three)."
         },
         {
           "code": "4",
-          "label": ""
+          "label": "A medium cusp is present. The cusp is between one third and one half the size of the distobuccal cusp (cusp three)."
         },
         {
           "code": "5",
-          "label": ""
+          "label": "A large cusp is present, and is one half or more the size of the distobuccal cusp (cusp five), causing a bulge in the distal margin of the tooth."
         }
       ]
     },
@@ -3783,27 +3783,27 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "The site of the metaconule is a groove separating the distobuccal and distolingual cusps (cusps three and four)."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "The groove separating the distobuccal and distolingual cusps (cusps three and four) is absent. Instead, there is a flat area or a very small cuspule."
         },
         {
           "code": "2",
-          "label": ""
+          "label": "A low cuspule about one quarter the size of the distobuccal cusp (cusp three) is present."
         },
         {
           "code": "3",
-          "label": ""
+          "label": "A small cusp is present. The cusp is more prominent than in lower grades and approximately one quarter to one third the size of the distobuccal cusp (cusp three)."
         },
         {
           "code": "4",
-          "label": ""
+          "label": "A medium cusp is present. The cusp is between one third and one half the size of the distobuccal cusp (cusp three)."
         },
         {
           "code": "5",
-          "label": ""
+          "label": "A large cusp is present, and is one half or more the size of the distobuccal cusp (cusp five), causing a bulge in the distal margin of the tooth."
         }
       ]
     },
@@ -3816,35 +3816,35 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "The lingual surface of the mesiolingual cusp (cusp one) is smooth."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "A shallow groove runs in an occlusal-apical direction on the mesiolingual cusp."
         },
         {
           "code": "2",
-          "label": ""
+          "label": "There is a pit on the lingual surface of the mesiolingual cusp."
         },
         {
           "code": "3",
-          "label": ""
+          "label": "There is a small, shallow y-shaped groove on the lingual surface of the mesiolingual cusp."
         },
         {
           "code": "4",
-          "label": ""
+          "label": "There is a distinct y-shaped groove on the lingual surface of the mesiolingual csup."
         },
         {
           "code": "5",
-          "label": ""
+          "label": "There is a bulge that forms a small cusp without a free apex. The distal margin of this bulge does not contact the groove that separates the lingual surfaces of the mesiolingual and distolingual cusps."
         },
         {
           "code": "6",
-          "label": ""
+          "label": "There is a distinct cusp without a free apex on the lingual surface. The margin of this cusp is in contact with the groove that separates the lingual surfaces of the mesiolingual and distolingual cusps."
         },
         {
           "code": "7",
-          "label": ""
+          "label": "The cusp on the lingual surface of the mesiolingual cusp is large and has a free apex."
         }
       ]
     },
@@ -3857,35 +3857,35 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "The lingual surface of the mesiolingual cusp (cusp one) is smooth."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "A shallow groove runs in an occlusal-apical direction on the mesiolingual cusp."
         },
         {
           "code": "2",
-          "label": ""
+          "label": "There is a pit on the lingual surface of the mesiolingual cusp."
         },
         {
           "code": "3",
-          "label": ""
+          "label": "There is a small, shallow y-shaped groove on the lingual surface of the mesiolingual cusp."
         },
         {
           "code": "4",
-          "label": ""
+          "label": "There is a distinct y-shaped groove on the lingual surface of the mesiolingual csup."
         },
         {
           "code": "5",
-          "label": ""
+          "label": "There is a bulge that forms a small cusp without a free apex. The distal margin of this bulge does not contact the groove that separates the lingual surfaces of the mesiolingual and distolingual cusps."
         },
         {
           "code": "6",
-          "label": ""
+          "label": "There is a distinct cusp without a free apex on the lingual surface. The margin of this cusp is in contact with the groove that separates the lingual surfaces of the mesiolingual and distolingual cusps."
         },
         {
           "code": "7",
-          "label": ""
+          "label": "The cusp on the lingual surface of the mesiolingual cusp is large and has a free apex."
         }
       ]
     },
@@ -3898,35 +3898,35 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "The lingual surface of the mesiolingual cusp (cusp one) is smooth."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "A shallow groove runs in an occlusal-apical direction on the mesiolingual cusp."
         },
         {
           "code": "2",
-          "label": ""
+          "label": "There is a pit on the lingual surface of the mesiolingual cusp."
         },
         {
           "code": "3",
-          "label": ""
+          "label": "There is a small, shallow y-shaped groove on the lingual surface of the mesiolingual cusp."
         },
         {
           "code": "4",
-          "label": ""
+          "label": "There is a distinct y-shaped groove on the lingual surface of the mesiolingual csup."
         },
         {
           "code": "5",
-          "label": ""
+          "label": "There is a bulge that forms a small cusp without a free apex. The distal margin of this bulge does not contact the groove that separates the lingual surfaces of the mesiolingual and distolingual cusps."
         },
         {
           "code": "6",
-          "label": ""
+          "label": "There is a distinct cusp without a free apex on the lingual surface. The margin of this cusp is in contact with the groove that separates the lingual surfaces of the mesiolingual and distolingual cusps."
         },
         {
           "code": "7",
-          "label": ""
+          "label": "The cusp on the lingual surface of the mesiolingual cusp is large and has a free apex."
         }
       ]
     },
@@ -3939,31 +3939,31 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "The buccal surface of the tooth is smooth."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "There is a pit in or near the buccal groove."
         },
         {
           "code": "2",
-          "label": ""
+          "label": "There is a bulge or small cusp without a free apex arising from the buccal groove."
         },
         {
           "code": "3",
-          "label": ""
+          "label": "There is a small to medium sized cusp with a free apex on the buccal surface. This cusp is one quarter to one half the size of the mesiobuccal cusp (cusp two)."
         },
         {
           "code": "4",
-          "label": ""
+          "label": "There is a medium to large cusp on the tooth's buccal surface. This cusp is distinct, but still smaller than the tooth's mesiobuccal or distobuccal cusps."
         },
         {
           "code": "5",
-          "label": ""
+          "label": "There is a large cusp on the tooth's buccal surface. This cusp is similar in size or larger than the tooth's mesiobuccal or distobuccal cusps."
         },
         {
           "code": "6",
-          "label": ""
+          "label": "There is a structure resembling a supernumerary peg tooth attached to the buccal surface of the tooth, usually at the root."
         }
       ]
     },
@@ -3976,31 +3976,31 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "The buccal surface of the tooth is smooth."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "There is a pit in or near the buccal groove."
         },
         {
           "code": "2",
-          "label": ""
+          "label": "There is a bulge or small cusp without a free apex arising from the buccal groove."
         },
         {
           "code": "3",
-          "label": ""
+          "label": "There is a small to medium sized cusp with a free apex on the buccal surface. This cusp is one quarter to one half the size of the mesiobuccal cusp (cusp two)."
         },
         {
           "code": "4",
-          "label": ""
+          "label": "There is a medium to large cusp on the tooth's buccal surface. This cusp is distinct, but still smaller than the tooth's mesiobuccal or distobuccal cusps."
         },
         {
           "code": "5",
-          "label": ""
+          "label": "There is a large cusp on the tooth's buccal surface. This cusp is similar in size or larger than the tooth's mesiobuccal or distobuccal cusps."
         },
         {
           "code": "6",
-          "label": ""
+          "label": "There is a structure resembling a supernumerary peg tooth attached to the buccal surface of the tooth, usually at the root."
         }
       ]
     },
@@ -4013,31 +4013,31 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "The buccal surface of the tooth is smooth."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "There is a pit in or near the buccal groove."
         },
         {
           "code": "2",
-          "label": ""
+          "label": "There is a bulge or small cusp without a free apex arising from the buccal groove."
         },
         {
           "code": "3",
-          "label": ""
+          "label": "There is a small to medium sized cusp with a free apex on the buccal surface. This cusp is one quarter to one half the size of the mesiobuccal cusp (cusp two)."
         },
         {
           "code": "4",
-          "label": ""
+          "label": "There is a medium to large cusp on the tooth's buccal surface. This cusp is distinct, but still smaller than the tooth's mesiobuccal or distobuccal cusps."
         },
         {
           "code": "5",
-          "label": ""
+          "label": "There is a large cusp on the tooth's buccal surface. This cusp is similar in size or larger than the tooth's mesiobuccal or distobuccal cusps."
         },
         {
           "code": "6",
-          "label": ""
+          "label": "There is a structure resembling a supernumerary peg tooth attached to the buccal surface of the tooth, usually at the root."
         }
       ]
     },
@@ -4050,19 +4050,19 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "The enamel margin is straight or curved away from the tooth's apex."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "There is an extension of the enamel in line with the buccal groove. The extension is less than 2 mm long."
         },
         {
           "code": "2",
-          "label": ""
+          "label": "There is an extension of the enamel in line with the buccal groove. The extension is more than 2 mm but less than 4 mm long."
         },
         {
           "code": "3",
-          "label": ""
+          "label": "There is an extension of the enamel in line with the buccal groove. The extension is more than 4 mm long."
         }
       ]
     },
@@ -4075,19 +4075,19 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "The enamel margin is straight or curved away from the tooth's apex."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "There is an extension of the enamel in line with the buccal groove. The extension is less than 2 mm long."
         },
         {
           "code": "2",
-          "label": ""
+          "label": "There is an extension of the enamel in line with the buccal groove. The extension is more than 2 mm but less than 4 mm long."
         },
         {
           "code": "3",
-          "label": ""
+          "label": "There is an extension of the enamel in line with the buccal groove. The extension is more than 4 mm long."
         }
       ]
     },
@@ -4100,19 +4100,19 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "The enamel margin is straight or curved away from the tooth's apex."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "There is an extension of the enamel in line with the buccal groove. The extension is less than 2 mm long."
         },
         {
           "code": "2",
-          "label": ""
+          "label": "There is an extension of the enamel in line with the buccal groove. The extension is more than 2 mm but less than 4 mm long."
         },
         {
           "code": "3",
-          "label": ""
+          "label": "There is an extension of the enamel in line with the buccal groove. The extension is more than 4 mm long."
         }
       ]
     },
@@ -4125,19 +4125,19 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "Lingual surface is basically flat with no marginal ridges."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "There are very slight elevations along the mesial and distal margins that can be seen and felt."
         },
         {
           "code": "2",
-          "label": ""
+          "label": "Lingual marginal ridges can be easily seen, but are still slight and do not run the length of the margin."
         },
         {
           "code": "3",
-          "label": ""
+          "label": "There is stronger lingual marginal ridging present. The ridges may converge toward the cingulum."
         }
       ]
     },
@@ -4150,19 +4150,19 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "Lingual surface is basically flat with no marginal ridges."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "There are very slight elevations along the mesial and distal margins that can be seen and felt."
         },
         {
           "code": "2",
-          "label": ""
+          "label": "Lingual marginal ridges can be easily seen, but are still slight and do not run the length of the margin."
         },
         {
           "code": "3",
-          "label": ""
+          "label": "There is stronger lingual marginal ridging present. The ridges may converge toward the cingulum."
         }
       ]
     },
@@ -4175,11 +4175,11 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "The mandibular central incisor is present."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "The mandibular central incisor is absent, and there is no evidence the tooth is unerupted or has been lost due to pathology, such as a gap between LI1 and LC."
         }
       ]
     },
@@ -4192,27 +4192,27 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "Distal accessory ridge is absent."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "A faint distal accessory ridge arises near the occlusal edge and can be seen in strong contrasting light."
         },
         {
           "code": "2",
-          "label": ""
+          "label": "A weak distal accessory ridge can be seen or felt arising near the occlusal edge."
         },
         {
           "code": "3",
-          "label": ""
+          "label": "A distal accessory ridge is thicker than seen in lower grades, but does not deflect the distal margin."
         },
         {
           "code": "4",
-          "label": ""
+          "label": "Distal accessory ridge is longer and thicker than seen in lower grades, and may deflect or shorten the distal margin."
         },
         {
           "code": "5",
-          "label": ""
+          "label": "Distal accessory ridge is thick and may resemble a triangle. The tooth's distal margin will be deflected or shortened to accommodate the ridge."
         }
       ]
     },
@@ -4225,43 +4225,43 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "No lingual cusp with free apex."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "One lingual cusp."
         },
         {
           "code": "2",
-          "label": ""
+          "label": "Two lingual cusps, with the mesial cusp approximately two times larger than the distal."
         },
         {
           "code": "3",
-          "label": ""
+          "label": "Two lingual cusps, with the mesial cusp larger than the distal."
         },
         {
           "code": "4",
-          "label": ""
+          "label": "Two lingual cusps, equal in size."
         },
         {
           "code": "5",
-          "label": ""
+          "label": "Two lingual cusps, with the distal larger than the mesial."
         },
         {
           "code": "6",
-          "label": ""
+          "label": "Two lingual cusps, with the distal approximately two times the size of the mesial."
         },
         {
           "code": "7",
-          "label": ""
+          "label": "Two lingual cusps, with the distal more than twice the size of the mesial."
         },
         {
           "code": "8",
-          "label": ""
+          "label": "Three lingual cusps, each similar in size."
         },
         {
           "code": "9",
-          "label": ""
+          "label": "Three lingual cusps, with the most mesial cusp the largest."
         }
       ]
     },
@@ -4274,43 +4274,43 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "No lingual cusp with free apex."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "One lingual cusp."
         },
         {
           "code": "2",
-          "label": ""
+          "label": "Two lingual cusps, with the mesial cusp approximately two times larger than the distal."
         },
         {
           "code": "3",
-          "label": ""
+          "label": "Two lingual cusps, with the mesial cusp larger than the distal."
         },
         {
           "code": "4",
-          "label": ""
+          "label": "Two lingual cusps, equal in size."
         },
         {
           "code": "5",
-          "label": ""
+          "label": "Two lingual cusps, with the distal larger than the mesial."
         },
         {
           "code": "6",
-          "label": ""
+          "label": "Two lingual cusps, with the distal approximately two times the size of the mesial."
         },
         {
           "code": "7",
-          "label": ""
+          "label": "Two lingual cusps, with the distal more than twice the size of the mesial."
         },
         {
           "code": "8",
-          "label": ""
+          "label": "Three lingual cusps, each similar in size."
         },
         {
           "code": "9",
-          "label": ""
+          "label": "Three lingual cusps, with the most mesial cusp the largest."
         }
       ]
     },
@@ -4323,11 +4323,11 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "The overall tooth shape is square or round, with the buccolingual width appearing approximately the same as the mesiodistal length."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "The overall tooth shape is more rectangular, with the mesiodistal length appearing longer than the buccolingual breadth."
         }
       ]
     },
@@ -4340,11 +4340,11 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "The overall tooth shape is square or round, with the buccolingual width appearing approximately the same as the mesiodistal length."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "The overall tooth shape is more rectangular, with the mesiodistal length appearing longer than the buccolingual breadth."
         }
       ]
     },
@@ -4357,11 +4357,11 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "The mandibular third molar is present."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "The mandibular third molar is absent and is unlikely to be unerupted or have been lost due to pathology or surgical removal, such as a gap distal to LM2."
         }
       ]
     },
@@ -4374,23 +4374,23 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "No anterior fovea. The sulcus that runs mesiodistally between cusps one and two continues with no interruption to the mesial border of the occlusal surface."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "There is a faint or short groove between the mesiobuccal and mesiolingual cusps, which may be produced by a ridge connecting the mesial aspects of the cusps."
         },
         {
           "code": "2",
-          "label": ""
+          "label": "The groove stretches approximately one third across the occlusal surface of the tooth."
         },
         {
           "code": "3",
-          "label": ""
+          "label": "The groove stretches approximately half way across the occlusal surface of the tooth."
         },
         {
           "code": "4",
-          "label": ""
+          "label": "The groove stretches to or almost to the distal and mesial margins of the tooth."
         }
       ]
     },
@@ -4403,15 +4403,15 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "Y-groove. The mesiolingual cusp (cusp 2) and distobuccal cusp (cusp 3) meet at a groove, and the mesiobuccal cusp (cusp 1) and the distolingual cusp (cusp 4) do not appear to meet. This form is by far the most common on LM1."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "Plus-shaped groove. All four main cusps appear to touch at the center of the tooth, so that the primary grooves form a plus sign."
         },
         {
           "code": "2",
-          "label": ""
+          "label": "X-groove. The mesiobuccal cusp (cusp 1) and the distolingual cusp (cusp 4) meet at a groove and appear to touch, and the mesiolingual cusp (cusp 2) and distobuccal cusp (cusp 3) do not appear to meet."
         }
       ]
     },
@@ -4424,15 +4424,15 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "Y-groove. The mesiolingual cusp (cusp 2) and distobuccal cusp (cusp 3) meet at a groove, and the mesiobuccal cusp (cusp 1) and the distolingual cusp (cusp 4) do not appear to meet."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "Plus-shaped groove. All four main cusps appear to touch at the center of the tooth, so that the primary grooves form a plus sign."
         },
         {
           "code": "2",
-          "label": ""
+          "label": "X-groove. the mesiobuccal cusp (cusp 1) and the distolingual cusp (cusp 4) meet at a groove and appear to touch, and the mesiolingual cusp (cusp 2) and distobuccal cusp (cusp 3) do not appear to meet. This is the most common form for M2."
         }
       ]
     },
@@ -4445,15 +4445,15 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "Y-groove. The mesiolingual cusp (cusp 2) and distobuccal cusp (cusp 3) meet at a groove, and the mesiobuccal cusp (cusp 1) and the distolingual cusp (cusp 4) do not appear to meet."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "Plus-shaped groove. All four main cusps appear to touch at the center of the tooth, so that the primary grooves form a plus sign."
         },
         {
           "code": "2",
-          "label": ""
+          "label": "X-groove. the mesiobuccal cusp (cusp 1) and the distolingual cusp (cusp 4) meet at a groove and appear to touch, and the mesiolingual cusp (cusp 2) and distobuccal cusp (cusp 3) do not appear to meet. This is the most common form for M2."
         }
       ]
     },
@@ -4466,15 +4466,15 @@
       "states": [
         {
           "code": "4",
-          "label": ""
+          "label": "Only four cusps are present."
         },
         {
           "code": "5",
-          "label": ""
+          "label": "Cusp five is present."
         },
         {
           "code": "6",
-          "label": ""
+          "label": "Cusps five and six are present."
         }
       ]
     },
@@ -4491,15 +4491,15 @@
         },
         {
           "code": "4",
-          "label": ""
+          "label": "Only four cusps are present."
         },
         {
           "code": "5",
-          "label": ""
+          "label": "Cusp five is present."
         },
         {
           "code": "6",
-          "label": ""
+          "label": "Cusps five and six are present."
         }
       ]
     },
@@ -4516,15 +4516,15 @@
         },
         {
           "code": "4",
-          "label": ""
+          "label": "Only four cusps are present."
         },
         {
           "code": "5",
-          "label": ""
+          "label": "Cusp five is present."
         },
         {
           "code": "6",
-          "label": ""
+          "label": "Cusps five and six are present."
         }
       ]
     },
@@ -4537,19 +4537,19 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "The medial ridge of the mesiolingual cusp runs continuously in a straight line from the cusp tip to the central groove."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "The medial ridge is straight, but constricted near its midpoint."
         },
         {
           "code": "2",
-          "label": ""
+          "label": "The medial ridge does not run straight, but is deflected distally near its midpoint. The deflected ridge does not touch the distolingual cusp."
         },
         {
           "code": "3",
-          "label": ""
+          "label": "The medial ridge is deflected distally so that it is L-shaped, and contacts the distolingual cusp."
         }
       ]
     },
@@ -4562,35 +4562,35 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "The buccal surface is smooth."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "There is a pit in the buccal groove. In contemporary samples, there is often a restoration filling the pit."
         },
         {
           "code": "2",
-          "label": ""
+          "label": "The buccal groove curves distally and may make the shape of a faint “Y”."
         },
         {
           "code": "3",
-          "label": ""
+          "label": "There is a faint groove extending mesially from the buccal groove."
         },
         {
           "code": "4",
-          "label": ""
+          "label": "The groove extending mesially from the buccal groove is clealy vissible, but extends over less than one third of the buccal surface of the mesiobuccal cusp (cusp one)."
         },
         {
           "code": "5",
-          "label": ""
+          "label": "The groove extending mesially from the nuccal groove is deeper and/or longer, and may extend over half the buccal surface of the mesiobuccal cusp (cusp one)."
         },
         {
           "code": "6",
-          "label": ""
+          "label": "A small cusp with apex attached is formed by the extension of the mesial groove from the buccal groove."
         },
         {
           "code": "7",
-          "label": ""
+          "label": "There is a cusp with a free apex on the buccal surface of the mesiobuccal cusp (cusp one). Occasionally, this cusp is very large. When this large cusp is present, it is often unilateral."
         }
       ]
     },
@@ -4603,35 +4603,35 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "The buccal surface is smooth."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "There is a pit in the buccal groove. In contemporary samples, there is often a restoration filling the pit."
         },
         {
           "code": "2",
-          "label": ""
+          "label": "The buccal groove curves distally and may make the shape of a faint “Y”."
         },
         {
           "code": "3",
-          "label": ""
+          "label": "There is a faint groove extending mesially from the buccal groove."
         },
         {
           "code": "4",
-          "label": ""
+          "label": "The groove extending mesially from the buccal groove is clealy vissible, but extends over less than one third of the buccal surface of the mesiobuccal cusp (cusp one)."
         },
         {
           "code": "5",
-          "label": ""
+          "label": "The groove extending mesially from the nuccal groove is deeper and/or longer, and may extend over half the buccal surface of the mesiobuccal cusp (cusp one)."
         },
         {
           "code": "6",
-          "label": ""
+          "label": "A small cusp with apex attached is formed by the extension of the mesial groove from the buccal groove."
         },
         {
           "code": "7",
-          "label": ""
+          "label": "There is a cusp with a free apex on the buccal surface of the mesiobuccal cusp (cusp one). Occasionally, this cusp is very large. When this large cusp is present, it is often unilateral."
         }
       ]
     },
@@ -4644,35 +4644,35 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "The buccal surface is smooth."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "There is a pit in the buccal groove. In contemporary samples, there is often a restoration filling the pit."
         },
         {
           "code": "2",
-          "label": ""
+          "label": "The buccal groove curves distally and may make the shape of a faint “Y”."
         },
         {
           "code": "3",
-          "label": ""
+          "label": "There is a faint groove extending mesially from the buccal groove."
         },
         {
           "code": "4",
-          "label": ""
+          "label": "The groove extending mesially from the buccal groove is clealy vissible, but extends over less than one third of the buccal surface of the mesiobuccal cusp (cusp one)."
         },
         {
           "code": "5",
-          "label": ""
+          "label": "The groove extending mesially from the nuccal groove is deeper and/or longer, and may extend over half the buccal surface of the mesiobuccal cusp (cusp one)."
         },
         {
           "code": "6",
-          "label": ""
+          "label": "A small cusp with apex attached is formed by the extension of the mesial groove from the buccal groove."
         },
         {
           "code": "7",
-          "label": ""
+          "label": "There is a cusp with a free apex on the buccal surface of the mesiobuccal cusp (cusp one). Occasionally, this cusp is very large. When this large cusp is present, it is often unilateral."
         }
       ]
     },
@@ -4685,11 +4685,11 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "The groove between the mesiobuccal and mesiolingual cusps is continuous."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "There is a ridge of enamel that interrupts the groove that separates the mesiobuccal and mesiolingual cusps."
         }
       ]
     },
@@ -4702,11 +4702,11 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "The groove between the mesiobuccal and mesiolingual cusps is continuous."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "There is a ridge of enamel that interrupts the groove that separates the mesiobuccal and mesiolingual cusps."
         }
       ]
     },
@@ -4719,11 +4719,11 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "The groove between the mesiobuccal and mesiolingual cusps is continuous."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "There is a ridge of enamel that interrupts the groove that separates the mesiobuccal and mesiolingual cusps."
         }
       ]
     },
@@ -4736,27 +4736,27 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "The molar has only the four usual cusps."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "Cusp five is very small, less than one quarter the size of the distobuccal and distolingual cusps."
         },
         {
           "code": "2",
-          "label": ""
+          "label": "Cusp five is small, approximately one quarter the size of the distobuccal and distolingual cusps."
         },
         {
           "code": "3",
-          "label": ""
+          "label": "Cusp five is medium, approximately one third to one half the size of the distobuccal and distolingual cusps."
         },
         {
           "code": "4",
-          "label": ""
+          "label": "Cusp five is large, between one half and the same size as the distobuccal and distolingual cusps."
         },
         {
           "code": "5",
-          "label": ""
+          "label": "Cusp five is very large, the same size or larger than the distobuccal and distolingual cusps."
         }
       ]
     },
@@ -4769,27 +4769,27 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "The molar has only the four usual cusps."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "Cusp five is very small, less than one quarter the size of the distobuccal and distolingual cusps."
         },
         {
           "code": "2",
-          "label": ""
+          "label": "Cusp five is small, approximately one quarter the size of the distobuccal and distolingual cusps."
         },
         {
           "code": "3",
-          "label": ""
+          "label": "Cusp five is medium, approximately one third to one half the size of the distobuccal and distolingual cusps."
         },
         {
           "code": "4",
-          "label": ""
+          "label": "Cusp five is large, between one half and the same size as the distobuccal and distolingual cusps."
         },
         {
           "code": "5",
-          "label": ""
+          "label": "Cusp five is very large, the same size or larger than the distobuccal and distolingual cusps."
         }
       ]
     },
@@ -4802,27 +4802,27 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "The molar has only the four usual cusps."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "Cusp five is very small, less than one quarter the size of the distobuccal and distolingual cusps."
         },
         {
           "code": "2",
-          "label": ""
+          "label": "Cusp five is small, approximately one quarter the size of the distobuccal and distolingual cusps."
         },
         {
           "code": "3",
-          "label": ""
+          "label": "Cusp five is medium, approximately one third to one half the size of the distobuccal and distolingual cusps."
         },
         {
           "code": "4",
-          "label": ""
+          "label": "Cusp five is large, between one half and the same size as the distobuccal and distolingual cusps."
         },
         {
           "code": "5",
-          "label": ""
+          "label": "Cusp five is very large, the same size or larger than the distobuccal and distolingual cusps."
         }
       ]
     },
@@ -4835,27 +4835,27 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "The molar has only four or five cusps."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "There is a cusp lingual to cusp five. This cusp is very small, one third or less the size of cusp five."
         },
         {
           "code": "2",
-          "label": ""
+          "label": "There is a cusp lingual to cusp five. This cusp is larger than one-third the size of cusp five, but not as big as cusp five."
         },
         {
           "code": "3",
-          "label": ""
+          "label": "Cusps five and six are of equal size."
         },
         {
           "code": "4",
-          "label": ""
+          "label": "There is a cusp lingual to cusp five. This cusp is slightly larger than cusp five."
         },
         {
           "code": "5",
-          "label": ""
+          "label": "There is a cusp lingual to cusp five. This cusp is at least one third larger than cusp five."
         }
       ]
     },
@@ -4868,27 +4868,27 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "The molar has only four or five cusps."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "There is a cusp buccal lingual to cusp five. This cusp is very small, one third or less the size of cusp five."
         },
         {
           "code": "2",
-          "label": ""
+          "label": "There is a cusp buccal lingual to cusp five. This cusp is larger than one-third the size of cusp five, but not as big as cusp five."
         },
         {
           "code": "3",
-          "label": ""
+          "label": "Cusps five and six are of equal size."
         },
         {
           "code": "4",
-          "label": ""
+          "label": "There is a cusp buccal lingual to cusp five. This cusp is slightly larger than cusp five."
         },
         {
           "code": "5",
-          "label": ""
+          "label": "There is a cusp buccal lingual to cusp five. This cusp is at least one-third larger than cusp five."
         }
       ]
     },
@@ -4901,27 +4901,27 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "The molar has only four or five cusps."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "There is a cusp buccal lingual to cusp five. This cusp is very small, one third or less the size of cusp five."
         },
         {
           "code": "2",
-          "label": ""
+          "label": "There is a cusp buccal lingual to cusp five. This cusp is larger than one-third the size of cusp five, but not as big as cusp five."
         },
         {
           "code": "3",
-          "label": ""
+          "label": "Cusps five and six are of equal size."
         },
         {
           "code": "4",
-          "label": ""
+          "label": "There is a cusp buccal lingual to cusp five. This cusp is slightly larger than cusp five."
         },
         {
           "code": "5",
-          "label": ""
+          "label": "There is a cusp buccal lingual to cusp five. This cusp is at least one-third larger than cusp five."
         }
       ]
     },
@@ -4934,23 +4934,23 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "There is no cusp or ridge between the main mesiolingual and distolingal cusps."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "A faint cusp is present, demarcated by the presence of two lingual grooves. It may occur as a bulge along cusp two."
         },
         {
           "code": "2",
-          "label": ""
+          "label": "Cusp seven is small and may appear to lean toward cusp two."
         },
         {
           "code": "3",
-          "label": ""
+          "label": "Cusp seven is medium and in the midline between cusps two and four."
         },
         {
           "code": "4",
-          "label": ""
+          "label": "Cusp seven approaches the size of the mesiolingual cusp, and lies in the midline between the mesiolingual and distolingual cusps."
         }
       ]
     },
@@ -4963,23 +4963,23 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "There is no cusp or ridge between the main mesiolingual and distolingal cusps."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "A faint cusp is present, demarcated by the presence of two lingual grooves. It may occur as a bulge along cusp two."
         },
         {
           "code": "2",
-          "label": ""
+          "label": "Cusp seven is small and may appear to lean toward cusp two."
         },
         {
           "code": "3",
-          "label": ""
+          "label": "Cusp seven is medium and in the midline between cusps two and four."
         },
         {
           "code": "4",
-          "label": ""
+          "label": "Cusp seven approaches the size of the mesiolingual cusp, and lies in the midline between the mesiolingual and distolingual cusps."
         }
       ]
     },
@@ -4992,23 +4992,23 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "There is no cusp or ridge between the main mesiolingual and distolingal cusps."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "A faint cusp is present, demarcated by the presence of two lingual grooves. It may occur as a bulge along cusp two."
         },
         {
           "code": "2",
-          "label": ""
+          "label": "Cusp seven is small and may appear to lean toward cusp two."
         },
         {
           "code": "3",
-          "label": ""
+          "label": "Cusp seven is medium and in the midline between cusps two and four."
         },
         {
           "code": "4",
-          "label": ""
+          "label": "Cusp seven approaches the size of the mesiolingual cusp, and lies in the midline between the mesiolingual and distolingual cusps."
         }
       ]
     },
@@ -5021,19 +5021,19 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "The enamel margin is straight or curved away from the tooth's apex."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "There is an extension of the enamel in line with the buccal groove. The extension is less than 2 mm long."
         },
         {
           "code": "2",
-          "label": ""
+          "label": "There is an extension of the enamel in line with the buccal groove. The extension is more than 2 mm but less than 4 mm long."
         },
         {
           "code": "3",
-          "label": ""
+          "label": "There is an extension of the enamel in line with the buccal groove. The extension is more than 4 mm long."
         }
       ]
     },
@@ -5046,19 +5046,19 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "The enamel margin is straight or curved away from the tooth's apex."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "There is an extension of the enamel in line with the buccal groove. The extension is less than 2 mm long."
         },
         {
           "code": "2",
-          "label": ""
+          "label": "There is an extension of the enamel in line with the buccal groove. The extension is more than 2 mm but less than 4 mm long."
         },
         {
           "code": "3",
-          "label": ""
+          "label": "There is an extension of the enamel in line with the buccal groove. The extension is more than 4 mm long."
         }
       ]
     },
@@ -5071,19 +5071,19 @@
       "states": [
         {
           "code": "0",
-          "label": ""
+          "label": "The enamel margin is straight or curved away from the tooth's apex."
         },
         {
           "code": "1",
-          "label": ""
+          "label": "There is an extension of the enamel in line with the buccal groove. The extension is less than 2 mm long."
         },
         {
           "code": "2",
-          "label": ""
+          "label": "There is an extension of the enamel in line with the buccal groove. The extension is more than 2 mm but less than 4 mm long."
         },
         {
           "code": "3",
-          "label": ""
+          "label": "There is an extension of the enamel in line with the buccal groove. The extension is more than 4 mm long."
         }
       ]
     },

@@ -11420,200 +11420,200 @@
   "ClavXL": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/page-5.webp",
-      "width": 284,
-      "height": 600
+      "src": "ref-images/dcp-measures/ClavXL.webp",
+      "width": 1000,
+      "height": 439
     },
-    "caption": "Postcranial form, item 6 · Maximum Length of the Clavicle"
+    "caption": "Measurement drawing · Maximum Length of the Clavicle"
   },
   "ClavMXD": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/page-5.webp",
-      "width": 284,
-      "height": 600
+      "src": "ref-images/dcp-measures/ClavMXD.webp",
+      "width": 1000,
+      "height": 439
     },
-    "caption": "Postcranial form, item 7 · Maximum Diameter of the Clavicle at Midshaft"
+    "caption": "Measurement drawing · Maximum Diameter of the Clavicle at Midshaft"
   },
   "ClavMWD": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/page-5.webp",
-      "width": 284,
-      "height": 600
+      "src": "ref-images/dcp-measures/ClavMWD.webp",
+      "width": 1000,
+      "height": 439
     },
-    "caption": "Postcranial form, item 8 · Minimum Diameter of the Clavicle at Midshaft"
+    "caption": "Measurement drawing · Minimum Diameter of the Clavicle at Midshaft"
   },
   "ScH": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/page-6.webp",
-      "width": 591,
-      "height": 600
+      "src": "ref-images/dcp-measures/ScH.webp",
+      "width": 1000,
+      "height": 891
     },
-    "caption": "Postcranial form, item 9 · Height of the Scapula"
+    "caption": "Measurement drawing · Height of the Scapula"
   },
   "ScB": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/page-6.webp",
-      "width": 591,
-      "height": 600
+      "src": "ref-images/dcp-measures/ScB.webp",
+      "width": 1000,
+      "height": 880
     },
-    "caption": "Postcranial form, item 10 · Breadth of the Scapula"
+    "caption": "Measurement drawing · Breadth of the Scapula"
   },
   "ScGB": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/page-6.webp",
-      "width": 591,
-      "height": 600
+      "src": "ref-images/dcp-measures/ScGB.webp",
+      "width": 1000,
+      "height": 868
     },
-    "caption": "Postcranial form, item 11 · Glenoid Cavity Breadth"
+    "caption": "Measurement drawing · Glenoid Cavity Breadth"
   },
   "ScGH": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/page-7.webp",
-      "width": 800,
-      "height": 236
+      "src": "ref-images/dcp-measures/ScGH.webp",
+      "width": 1000,
+      "height": 885
     },
-    "caption": "Postcranial form, item 12 · Glenoid Cavity Height"
+    "caption": "Measurement drawing · Glenoid Cavity Height"
   },
   "HumXL": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/page-7.webp",
-      "width": 800,
-      "height": 236
+      "src": "ref-images/dcp-measures/HumXL.webp",
+      "width": 1000,
+      "height": 281
     },
-    "caption": "Postcranial form, item 13 · Maximum Length of the Humerus"
+    "caption": "Measurement drawing · Maximum Length of the Humerus"
   },
   "HumMXD": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/illustration-15.webp",
+      "src": "ref-images/dcp-measures/HumMXD.webp",
       "width": 1000,
-      "height": 252
+      "height": 287
     },
-    "caption": "DCP 2.0 fig. 31 · Selected measurement of the humerus"
+    "caption": "Measurement drawing · Maximum Diameter of the Humerus at Midshaft"
   },
   "HumMWD": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/illustration-15.webp",
+      "src": "ref-images/dcp-measures/HumMWD.webp",
       "width": 1000,
-      "height": 252
+      "height": 287
     },
-    "caption": "DCP 2.0 fig. 31 · Selected measurement of the humerus"
+    "caption": "Measurement drawing · Minimum Diameter of the Humerus at Midshaft"
   },
   "HumEB": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/illustration-15.webp",
+      "src": "ref-images/dcp-measures/HumEB.webp",
       "width": 1000,
-      "height": 252
+      "height": 281
     },
-    "caption": "DCP 2.0 fig. 31 · Selected measurement of the humerus"
+    "caption": "Measurement drawing · Epicondylar Breadth of the Humerus"
   },
   "HumHXD": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/page-9.webp",
-      "width": 800,
-      "height": 205
+      "src": "ref-images/dcp-measures/HumHXD.webp",
+      "width": 1000,
+      "height": 281
     },
-    "caption": "Postcranial form, item 17 · Maximum Vertical Diameter of the Head of the Humerus"
+    "caption": "Measurement drawing · Maximum Vertical Diameter of the Head of the Humerus"
   },
   "RadXL": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/page-9.webp",
-      "width": 800,
-      "height": 205
+      "src": "ref-images/dcp-measures/RadXL.webp",
+      "width": 1000,
+      "height": 230
     },
-    "caption": "Postcranial form, item 18 · Maximum Length of the Radius"
+    "caption": "Measurement drawing · Maximum Length of the Radius"
   },
   "RadMXD": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/illustration-16.webp",
-      "width": 719,
-      "height": 175
+      "src": "ref-images/dcp-measures/RadMXD.webp",
+      "width": 1000,
+      "height": 230
     },
-    "caption": "DCP 2.0 fig. 32 · Selected measurement of the radius"
+    "caption": "Measurement drawing · Maximum Diameter of the Radius at Midshaft"
   },
   "RadMWD": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/illustration-16.webp",
-      "width": 719,
-      "height": 175
+      "src": "ref-images/dcp-measures/RadMWD.webp",
+      "width": 1000,
+      "height": 230
     },
-    "caption": "DCP 2.0 fig. 32 · Selected measurement of the radius"
+    "caption": "Measurement drawing · Minimum Diameter of the Radius at Midshaft"
   },
   "RadHXD": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/illustration-16.webp",
-      "width": 719,
-      "height": 175
+      "src": "ref-images/dcp-measures/RadHXD.webp",
+      "width": 1000,
+      "height": 230
     },
-    "caption": "DCP 2.0 fig. 32 · Selected measurement of the radius"
+    "caption": "Measurement drawing · Maximum Diameter of the Radial Head"
   },
   "UlnXL": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/page-11.webp",
-      "width": 800,
-      "height": 266
+      "src": "ref-images/dcp-measures/UlnXL.webp",
+      "width": 1000,
+      "height": 298
     },
-    "caption": "Postcranial form, item 22 · Maximum Length of the Ulna"
+    "caption": "Measurement drawing · Maximum Length of the Ulna"
   },
   "UlnMXD": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/page-11.webp",
-      "width": 800,
-      "height": 266
+      "src": "ref-images/dcp-measures/UlnMXD.webp",
+      "width": 1000,
+      "height": 390
     },
-    "caption": "Postcranial form, item 23 · Maximum Midshaft Diameter of the Ulna"
+    "caption": "Measurement drawing · Maximum Midshaft Diameter of the Ulna"
   },
   "UlnMWD": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/illustration-17.webp",
-      "width": 788,
-      "height": 266
+      "src": "ref-images/dcp-measures/UlnMWD.webp",
+      "width": 1000,
+      "height": 390
     },
-    "caption": "DCP 2.0 fig. 33 · Selected measurement of the ulna"
+    "caption": "Measurement drawing · Minimum Midshaft Diameter of the Ulna"
   },
   "UlnPL": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/illustration-17.webp",
-      "width": 788,
-      "height": 266
+      "src": "ref-images/dcp-measures/UlnPL.webp",
+      "width": 1000,
+      "height": 298
     },
-    "caption": "DCP 2.0 fig. 33 · Selected measurement of the ulna"
+    "caption": "Measurement drawing · Physiological Length of the Ulna"
   },
   "UlnDWC": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/illustration-17.webp",
-      "width": 788,
-      "height": 266
+      "src": "ref-images/dcp-measures/UlnDWC.webp",
+      "width": 1000,
+      "height": 298
     },
-    "caption": "DCP 2.0 fig. 33 · Selected measurement of the ulna"
+    "caption": "Measurement drawing · Minimum Circumference of the Ulna"
   },
   "UlnOPXB": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/page-13.webp",
-      "width": 471,
-      "height": 600
+      "src": "ref-images/dcp-measures/UlnOPXB.webp",
+      "width": 1000,
+      "height": 298
     },
-    "caption": "Postcranial form, item 27 · Olecranon Breadth"
+    "caption": "Measurement drawing · Olecranon Breadth"
   },
   "Medial_epiphysis_fusion": {
     "kind": "states",
@@ -11897,38 +11897,38 @@
   "SacAH": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/page-13.webp",
-      "width": 471,
-      "height": 600
+      "src": "ref-images/dcp-measures/SacAH.webp",
+      "width": 1000,
+      "height": 540
     },
-    "caption": "Postcranial form, item 28 · Anterior Height of the Sacrum"
+    "caption": "Measurement drawing · Anterior Height of the Sacrum"
   },
   "SacAB": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/page-14.webp",
-      "width": 601,
-      "height": 600
+      "src": "ref-images/dcp-measures/SacAB.webp",
+      "width": 1000,
+      "height": 540
     },
-    "caption": "Postcranial form, item 29 · Anterior Breadth of the Sacrum"
+    "caption": "Measurement drawing · Anterior Breadth of the Sacrum"
   },
   "SacS1B": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/illustration-18.webp",
-      "width": 572,
-      "height": 332
+      "src": "ref-images/dcp-measures/SacS1B.webp",
+      "width": 1000,
+      "height": 540
     },
-    "caption": "DCP 2.0 fig. 34 · Selected measurement of the sacrum"
+    "caption": "Measurement drawing · Sacral S1 transverse diameter"
   },
   "SacS1APD": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/illustration-18.webp",
-      "width": 572,
-      "height": 332
+      "src": "ref-images/dcp-measures/SacS1APD.webp",
+      "width": 1000,
+      "height": 540
     },
-    "caption": "DCP 2.0 fig. 34 · Selected measurement of the sacrum"
+    "caption": "Measurement drawing · Sacral S1 anterior-posterior diameter"
   },
   "PUM": {
     "kind": "figure",
@@ -12729,251 +12729,191 @@
   "FemXL": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/page-15.webp",
-      "width": 800,
-      "height": 259
+      "src": "ref-images/dcp-measures/FemXL.webp",
+      "width": 1000,
+      "height": 272
     },
-    "caption": "DCP 2.0 fig. 3.22 · Maximum length and epicondylar breadth of the femur",
-    "highlight": {
-      "x": 0.03,
-      "y": 0.7,
-      "w": 0.9,
-      "h": 0.12
-    }
+    "caption": "Measurement drawing · Maximum Length of the Femur"
   },
   "FemBL": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/page-17.webp",
-      "width": 800,
-      "height": 258
+      "src": "ref-images/dcp-measures/FemBL.webp",
+      "width": 1000,
+      "height": 295
     },
-    "caption": "DCP 2.0 fig. 3.23 · Bicondylar length and midshaft circumference of the femur",
-    "highlight": {
-      "x": 0.04,
-      "y": 0.7,
-      "w": 0.92,
-      "h": 0.17
-    }
+    "caption": "Measurement drawing · Bicondylar Length of the Femur"
   },
   "FemEB": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/page-15.webp",
-      "width": 800,
-      "height": 259
+      "src": "ref-images/dcp-measures/FemEB.webp",
+      "width": 1000,
+      "height": 272
     },
-    "caption": "DCP 2.0 fig. 3.22 · Maximum length and epicondylar breadth of the femur",
-    "highlight": {
-      "x": 0.89,
-      "y": 0.08,
-      "w": 0.09,
-      "h": 0.52
-    }
+    "caption": "Measurement drawing · Epicondylar Breadth of the Femur"
   },
   "FemHXD": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/page-15.webp",
-      "width": 800,
-      "height": 259
+      "src": "ref-images/dcp-measures/FemHXD.webp",
+      "width": 1000,
+      "height": 272
     },
-    "caption": "DCP 2.0 fig. 3.22 · Maximum length and epicondylar breadth of the femur",
-    "highlight": {
-      "x": 0.03,
-      "y": 0.42,
-      "w": 0.11,
-      "h": 0.31
-    }
+    "caption": "Measurement drawing · Maximum Diameter of the Femur Head"
   },
   "FemMXD": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/page-15.webp",
-      "width": 800,
-      "height": 259
+      "src": "ref-images/dcp-measures/FemMXD.webp",
+      "width": 1000,
+      "height": 242
     },
-    "caption": "Postcranial form, item 33 · Maximum Midshaft Diameter of the Femur"
+    "caption": "Measurement drawing · Maximum Midshaft Diameter of the Femur"
   },
   "FemMWD": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/illustration-20.webp",
+      "src": "ref-images/dcp-measures/FemMWD.webp",
       "width": 1000,
-      "height": 223
+      "height": 242
     },
-    "caption": "DCP 2.0 fig. 36 · Selected measurement of the femur"
+    "caption": "Measurement drawing · Minimum Midshaft Diameter of the Femur"
   },
   "FemMC": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/page-17.webp",
-      "width": 800,
-      "height": 258
+      "src": "ref-images/dcp-measures/FemMC.webp",
+      "width": 1000,
+      "height": 295
     },
-    "caption": "DCP 2.0 fig. 3.23 · Bicondylar length and midshaft circumference of the femur",
-    "highlight": {
-      "x": 0.46,
-      "y": 0.2,
-      "w": 0.08,
-      "h": 0.2
-    }
+    "caption": "Measurement drawing · Circumference of the Femur at Midshaft"
   },
   "FemSTD": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/page-15.webp",
-      "width": 800,
-      "height": 259
+      "src": "ref-images/dcp-measures/FemSTD.webp",
+      "width": 1000,
+      "height": 242
     },
-    "caption": "DCP 2.0 fig. 3.22 · Maximum length and epicondylar breadth of the femur",
-    "highlight": {
-      "x": 0.24,
-      "y": 0.06,
-      "w": 0.05,
-      "h": 0.36
-    }
+    "caption": "Measurement drawing · Transverse Subtrochanteric Diameter of the Femur"
   },
   "FemSAPD": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/illustration-20.webp",
+      "src": "ref-images/dcp-measures/FemSAPD.webp",
       "width": 1000,
-      "height": 223
+      "height": 242
     },
-    "caption": "DCP 2.0 fig. 36 · Selected measurement of the femur"
+    "caption": "Measurement drawing · Anterio-posterior Subtrochanteric Diameter of the Femur"
   },
   "FemLCAPD": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/page-19.webp",
-      "width": 227,
-      "height": 185
+      "src": "ref-images/dcp-measures/FemLCAPD.webp",
+      "width": 1000,
+      "height": 820
     },
-    "caption": "Postcranial form, item 41 · Maximum Antero-Posterior Length of the Lateral Condyle"
+    "caption": "Measurement drawing · Maximum Antero-Posterior Length of the Lateral Condyle"
   },
   "FemMCAPD": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/page-19.webp",
-      "width": 227,
-      "height": 185
+      "src": "ref-images/dcp-measures/FemMCAPD.webp",
+      "width": 1000,
+      "height": 820
     },
-    "caption": "Postcranial form, item 42 · Maximum Antero-Posterior Length of the Medial Condyle"
+    "caption": "Measurement drawing · Maximum Antero-Posterior Length of the Medial Condyle"
   },
   "TibCML": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/page-20.webp",
-      "width": 800,
-      "height": 251
+      "src": "ref-images/dcp-measures/TibCML.webp",
+      "width": 1000,
+      "height": 273
     },
-    "caption": "DCP 2.0 fig. 3.25 · Selected measurements of the tibia",
-    "highlight": {
-      "x": 0.07,
-      "y": 0.68,
-      "w": 0.84,
-      "h": 0.16
-    }
+    "caption": "Measurement drawing · Length of the Tibia"
   },
   "TibPEB": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/page-20.webp",
-      "width": 800,
-      "height": 251
+      "src": "ref-images/dcp-measures/TibPEB.webp",
+      "width": 1000,
+      "height": 273
     },
-    "caption": "DCP 2.0 fig. 3.25 · Selected measurements of the tibia",
-    "highlight": {
-      "x": 0.02,
-      "y": 0.07,
-      "w": 0.12,
-      "h": 0.62
-    }
+    "caption": "Measurement drawing · Maximum Proximal Epiphyseal Breadth of the Tibia"
   },
   "TibDEB": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/page-20.webp",
-      "width": 800,
-      "height": 251
+      "src": "ref-images/dcp-measures/TibDEB.webp",
+      "width": 1000,
+      "height": 273
     },
-    "caption": "DCP 2.0 fig. 3.25 · Selected measurements of the tibia",
-    "highlight": {
-      "x": 0.81,
-      "y": 0.15,
-      "w": 0.17,
-      "h": 0.45
-    }
+    "caption": "Measurement drawing · Distal Epiphyseal Breadth of the Tibia"
   },
   "TibMXD": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/page-20.webp",
-      "width": 800,
-      "height": 251
+      "src": "ref-images/dcp-measures/TibMXD.webp",
+      "width": 1000,
+      "height": 273
     },
-    "caption": "Postcranial form, item 44 · Maximum Midshaft Diameter of the Tibia"
+    "caption": "Measurement drawing · Maximum Midshaft Diameter of the Tibia"
   },
   "TibMWD": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/illustration-21.webp",
+      "src": "ref-images/dcp-measures/TibMWD.webp",
       "width": 1000,
-      "height": 242
+      "height": 273
     },
-    "caption": "DCP 2.0 fig. 37 · Selected measurement of the tibia"
+    "caption": "Measurement drawing · Minimum Midshaft Diameter of the Tibia"
   },
   "TibMC": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/page-20.webp",
-      "width": 800,
-      "height": 251
+      "src": "ref-images/dcp-measures/TibMC.webp",
+      "width": 1000,
+      "height": 273
     },
-    "caption": "DCP 2.0 fig. 3.25 · Selected measurements of the tibia",
-    "highlight": {
-      "x": 0.46,
-      "y": 0.3,
-      "w": 0.07,
-      "h": 0.24
-    }
+    "caption": "Measurement drawing · Circumference of the Tibia at Midshaft"
   },
   "FibXL": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/page-22.webp",
-      "width": 800,
-      "height": 144
+      "src": "ref-images/dcp-measures/FibXL.webp",
+      "width": 1000,
+      "height": 207
     },
-    "caption": "Postcranial form, item 49 · Maximum Length of the Fibula"
+    "caption": "Measurement drawing · Maximum Length of the Fibula"
   },
   "FibMXD": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/page-23.webp",
-      "width": 800,
-      "height": 544
+      "src": "ref-images/dcp-measures/FibMXD.webp",
+      "width": 1000,
+      "height": 207
     },
-    "caption": "Postcranial form, item 50 · Maximum Diameter of the Fibula at Midshaft"
+    "caption": "Measurement drawing · Maximum Diameter of the Fibula at Midshaft"
   },
   "CalcXL": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/page-23.webp",
-      "width": 800,
-      "height": 544
+      "src": "ref-images/dcp-measures/CalcXL.webp",
+      "width": 1000,
+      "height": 823
     },
-    "caption": "Postcranial form, item 51 · Maximum Length of the Calcaneus"
+    "caption": "Measurement drawing · Maximum Length of the Calcaneus"
   },
   "CalcB": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/page-23.webp",
-      "width": 800,
-      "height": 544
+      "src": "ref-images/dcp-measures/CalcB.webp",
+      "width": 687,
+      "height": 1000
     },
-    "caption": "Postcranial form, item 52 · Middle Breadth of the Calcaneus"
+    "caption": "Measurement drawing · Middle Breadth of the Calcaneus"
   },
   "Fovea_tuberosity_margin_lipping": {
     "kind": "states",

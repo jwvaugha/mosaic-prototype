@@ -12,7 +12,7 @@ import { imageUrl } from "@/data"
 import type { Highlight, ImageAsset, ReferenceEntry, Variable } from "@/data/types"
 import { cn } from "@/lib/utils"
 import { useEnlargeRequest } from "@/workup/enlarge-request"
-import { effectiveMedia, examplesOf, hasDrawings, hasPhotos, setRefMedia, useRefMedia, type RefMedia } from "@/workup/ref-media"
+import { effectiveMedia, examplesOf, hasDrawings, hasPhotos, setRefMedia, useRefMedia } from "@/workup/ref-media"
 
 // Building blocks of the reference panel, shared by the three presenters
 // (Explorations rows 1 and 1.5). Images come from the manifest; on the public
@@ -29,7 +29,9 @@ export function PanelHeader({ label, entry, onClose }: { label: string; entry?: 
   return (
     <div className="flex h-8 items-center gap-2">
       <span className="min-w-0 truncate text-xs font-medium text-muted-foreground">{label}</span>
-      <MediaToggle entry={entry} className="ml-auto" />
+      {/* The spacer keeps ✕ at the right edge when there's no toggle. */}
+      <span className="flex-1" />
+      <MediaToggle entry={entry} />
       {onClose && (
         <Button variant="ghost" size="icon" tabIndex={-1} aria-label="Close reference" onClick={onClose}>
           <X />
@@ -39,16 +41,12 @@ export function PanelHeader({ label, entry, onClose }: { label: string; entry?: 
   )
 }
 
-// Drawings / Photos. The choice stays as set across fields; a Variable
-// without photos (or without drawings) shows what it has, and the other
-// button is disabled.
+// Drawings / Photos. The choice stays as set across fields. Shown only for a
+// Variable that has both: with one kind of image there's nothing to switch.
 function MediaToggle({ entry, className }: { entry?: ReferenceEntry; className?: string }) {
   const chosen = useRefMedia()
-  const shown = entry ? effectiveMedia(entry, chosen) : chosen
-  const available: Record<RefMedia, boolean> = {
-    drawings: !entry || entry.kind !== "states" || hasDrawings(entry),
-    photos: !!entry && hasPhotos(entry),
-  }
+  if (!entry || !hasDrawings(entry) || !hasPhotos(entry)) return null
+  const shown = effectiveMedia(entry, chosen)
   return (
     <div className={cn("flex gap-0.5", className)}>
       {(["drawings", "photos"] as const).map((m) => (
@@ -58,8 +56,6 @@ function MediaToggle({ entry, className }: { entry?: ReferenceEntry; className?:
           tabIndex={-1}
           variant={shown === m ? "secondary" : "ghost"}
           className="text-xs capitalize"
-          disabled={!available[m]}
-          title={available[m] ? undefined : `No ${m} for this field yet`}
           aria-pressed={shown === m}
           aria-label={m === "photos" ? "Photos" : "Drawings"}
           aria-keyshortcuts={m[0].toUpperCase()}
@@ -163,7 +159,18 @@ export function RefImage({
         {overlay}
       </div>
       <Dialog open={big} onOpenChange={setBig}>
-        <DialogContent className="sm:max-w-[min(1100px,calc(100vw-4rem))]">
+        <DialogContent
+          className="sm:max-w-[min(1100px,calc(100vw-4rem))]"
+          onKeyDown={(e) => {
+            // E opened it; E closes it again, like Esc. No other key reaches
+            // the data-entry shortcuts while it's open.
+            e.stopPropagation()
+            if (e.code === "KeyE" && !e.altKey && !e.ctrlKey && !e.metaKey && !e.shiftKey) {
+              e.preventDefault()
+              setBig(false)
+            }
+          }}
+        >
           <DialogTitle className="text-base">{caption}</DialogTitle>
           <div className="h-[70vh] rounded-lg border bg-white p-4">{body(true)}</div>
         </DialogContent>
@@ -381,6 +388,10 @@ function StateViewer({
           } else if ((e.code === "KeyD" || e.code === "KeyP") && !e.altKey && !e.ctrlKey && !e.metaKey && !e.shiftKey) {
             e.preventDefault()
             setRefMedia(e.code === "KeyP" ? "photos" : "drawings")
+          } else if (e.code === "KeyE" && !e.altKey && !e.ctrlKey && !e.metaKey && !e.shiftKey) {
+            // E opened it; E closes it again, like Esc.
+            e.preventDefault()
+            onClose()
           }
         }}
         // Focus the viewer itself, not its first button, so ←/→ and Enter work

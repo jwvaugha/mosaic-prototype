@@ -1,6 +1,6 @@
 # Fixture and image report
 
-Generated 2026-11-09 by `npm run fixture`. 369 Variables in 15 sections.
+Generated 2026-11-18 by `npm run fixture`. 369 Variables in 15 sections.
 
 | Section | Variables | Drawings and figures | With photos | States pending |
 | --- | --- | --- | --- | --- |
