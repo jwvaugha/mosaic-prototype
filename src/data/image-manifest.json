@@ -3371,11 +3371,6 @@
           "height": 800
         }
       ]
-    },
-    "location": {
-      "src": "ref-images/dental/UI1SS_loc.webp",
-      "width": 566,
-      "height": 800
     }
   },
   "UI2SS": {
@@ -3535,11 +3530,6 @@
           "height": 800
         }
       ]
-    },
-    "location": {
-      "src": "ref-images/dental/UI2SS_loc.webp",
-      "width": 590,
-      "height": 800
     }
   },
   "UI1DS": {
@@ -3771,11 +3761,6 @@
           "height": 800
         }
       ]
-    },
-    "location": {
-      "src": "ref-images/dental/UI2DS_loc.webp",
-      "width": 747,
-      "height": 800
     }
   },
   "UI2PEG": {
@@ -4049,11 +4034,6 @@
           "height": 800
         }
       ]
-    },
-    "location": {
-      "src": "ref-images/dental/UI2IG_loc.webp",
-      "width": 500,
-      "height": 800
     }
   },
   "UI1TD": {
@@ -4474,11 +4454,6 @@
           "height": 800
         }
       ]
-    },
-    "location": {
-      "src": "ref-images/dental/UCSS_loc.webp",
-      "width": 584,
-      "height": 800
     }
   },
   "UCTD": {
@@ -5014,11 +4989,6 @@
           "height": 725
         }
       ]
-    },
-    "location": {
-      "src": "ref-images/dental/UP3DS_loc.webp",
-      "width": 605,
-      "height": 800
     }
   },
   "UP3MMXPAR": {
@@ -8361,11 +8331,6 @@
           "height": 800
         }
       ]
-    },
-    "location": {
-      "src": "ref-images/dental/LM3CA_loc.webp",
-      "width": 800,
-      "height": 666
     }
   },
   "LM1AF": {

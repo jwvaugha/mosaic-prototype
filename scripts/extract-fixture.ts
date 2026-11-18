@@ -763,8 +763,10 @@ async function main() {
     for (const f of [...dentalFiles.keys()].sort()) {
       if (!f.startsWith(`${prefix}_`)) continue
       const suffix = f.slice(prefix.length + 1, -4)
+      // Only the LocNew drawing marks the trait's location (Jackson,
+      // 2026-11-18); the older _Loc files are ignored, even when there's no LocNew.
       if (/^Loc/i.test(suffix)) {
-        if (!location || /New/.test(suffix)) location = dentalFiles.get(f)![0]
+        if (/^LocNew$/i.test(suffix)) location = dentalFiles.get(f)![0]
         continue
       }
       const m = suffix.match(/^(\d+)(?:\.\d+)?/)
