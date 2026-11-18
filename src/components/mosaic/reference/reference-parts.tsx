@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog"
 import { Kbd } from "@/components/ui/kbd"
+import { stateLabel } from "@/lib/variable-label"
 import { imageUrl } from "@/data"
 import type { Highlight, ImageAsset, ReferenceEntry, Variable } from "@/data/types"
 import { cn } from "@/lib/utils"
@@ -232,7 +233,7 @@ export function StateStrip({
             key={s.code}
             type="button"
             tabIndex={-1}
-            title={s.label ? `${s.code}: ${s.label}` : `State ${s.code}`}
+            title={s.label ? `${s.code}: ${stateLabel(s.label)}` : `State ${s.code}`}
             aria-pressed={selected}
             onMouseEnter={() => onPreview(s.code)}
             // Keep focus on the field, so typing carries on after a click.
@@ -270,7 +271,7 @@ export type StateHandlers = {
 
 const stateCaption = (data: ReferenceData, code: string | undefined) => {
   const state = data.variable.states?.find((s) => s.code === code)
-  return `State ${code}${state?.label ? `: ${state.label}` : ""}`
+  return `State ${code}${state?.label ? `: ${stateLabel(state.label)}` : ""}`
 }
 
 // The large image for a Morph Variable: the previewed, selected or first
@@ -407,7 +408,9 @@ function StateViewer({
             </>
           )}
         </div>
-        <div className="flex gap-2 overflow-x-auto pb-1" role="listbox" aria-label="States">
+        {/* Padding keeps the cards' selection rings and offset badges inside
+            the scroll area, which would otherwise clip them. */}
+        <div className="flex gap-3 overflow-x-auto px-2 pt-2.5 pb-2" role="listbox" aria-label="States">
           {states.map((s) => {
             const asset = examplesOf(data.entry, ex.media, s.code)[0]
             const url = asset ? imageUrl(asset) : null
@@ -422,28 +425,29 @@ function StateViewer({
                 onClick={() => setViewing(s.code)}
                 onDoubleClick={() => handlers.onSelect(s.code)}
                 className={cn(
-                  "flex w-32 shrink-0 flex-col gap-1.5 rounded-lg border p-1.5 text-left hover:border-primary/60",
+                  "relative flex w-32 shrink-0 flex-col rounded-lg border bg-background text-left hover:border-primary/60",
                   selected && "border-primary",
-                  viewing === s.code && "ring-2 ring-primary",
+                  viewing === s.code && "ring-2 ring-primary ring-offset-1 ring-offset-background",
                 )}
               >
-                <span className={cn("flex h-20 items-center justify-center rounded bg-muted", url && "bg-white")}>
+                {/* The number sits on the card's corner, off the caption. */}
+                <span
+                  className={cn(
+                    "absolute -top-2 -left-2 z-10 flex h-5 min-w-5 items-center justify-center rounded-md border bg-background px-1 text-xs font-medium shadow-xs",
+                    selected && "border-primary bg-primary text-primary-foreground",
+                  )}
+                >
+                  {s.code}
+                </span>
+                <span className={cn("flex h-20 items-center justify-center rounded-t-lg border-b bg-muted p-1.5", url && "bg-white")}>
                   {url ? (
                     <img src={url} alt="" className="max-h-full max-w-full object-contain" />
                   ) : (
                     <ImageIcon className="size-5 text-muted-foreground" />
                   )}
                 </span>
-                <span className="flex items-start gap-1.5 text-xs">
-                  <span
-                    className={cn(
-                      "shrink-0 rounded px-1.5 font-medium text-muted-foreground",
-                      selected && "bg-primary text-primary-foreground",
-                    )}
-                  >
-                    {s.code}
-                  </span>
-                  <span className="line-clamp-2 text-muted-foreground">{s.label || "No description yet"}</span>
+                <span className={cn("line-clamp-2 px-2 py-1.5 text-xs", s.label ? "text-foreground" : "text-muted-foreground italic")}>
+                  {s.label ? stateLabel(s.label) : "No description yet"}
                 </span>
               </button>
             )
@@ -515,19 +519,20 @@ export function StateDefinitions({ data, preview }: { data: ReferenceData; previ
           <li
             key={s.code}
             className={cn(
-              "flex items-start gap-2 rounded px-1 py-0.5",
+              "flex items-start gap-2 rounded px-1 py-0.5 leading-5",
               preview === s.code && "bg-muted",
             )}
           >
             <span
               className={cn(
-                "mt-px shrink-0 rounded px-1.5 text-xs font-medium text-muted-foreground",
+                // As tall as the text's first line, so the number sits centred on it.
+                "flex h-5 min-w-5 shrink-0 items-center justify-center rounded px-1.5 text-xs font-medium text-muted-foreground",
                 data.value === s.code && "bg-primary text-primary-foreground",
               )}
             >
               {s.code}
             </span>
-            <span className={cn(!s.label && "text-muted-foreground italic")}>{s.label || "No description yet"}</span>
+            <span className={cn(!s.label && "text-muted-foreground italic")}>{s.label ? stateLabel(s.label) : "No description yet"}</span>
           </li>
         ))}
       </ol>

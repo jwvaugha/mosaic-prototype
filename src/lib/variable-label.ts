@@ -13,3 +13,9 @@ export function showsCode(v: Pick<Variable, "code" | "name">): boolean {
 export function nameWithCode(v: Pick<Variable, "code" | "name">, sep = " · "): string {
   return showsCode(v) ? `${v.name}${sep}${v.code}` : v.name
 }
+
+// A Character state's description in sentence case. The dictionaries mostly
+// write them lower case ("bell shape"); only the first letter changes.
+export function stateLabel(label: string): string {
+  return label ? label[0].toUpperCase() + label.slice(1) : label
+}

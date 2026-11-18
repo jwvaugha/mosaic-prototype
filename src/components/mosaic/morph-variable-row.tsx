@@ -4,6 +4,7 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip
 import { cn } from "@/lib/utils"
 import { usePreviewFor } from "@/workup/preview-context"
 import { VariableRow, type RowProps } from "./variable-row"
+import { stateLabel } from "@/lib/variable-label"
 
 // Segmented Character-state buttons. The group is one Tab stop (Radix roving
 // focus); digit keys select a state through the keyboard controller.
@@ -114,7 +115,7 @@ export function CharacterStateGroup({
               {s.code}
             </ToggleGroupItem>
           </TooltipTrigger>
-          <TooltipContent>{s.label}</TooltipContent>
+          <TooltipContent>{stateLabel(s.label)}</TooltipContent>
         </Tooltip>
       ))}
     </ToggleGroup>
