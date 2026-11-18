@@ -50,7 +50,7 @@ const UPDATES: Update[] = [
   {
     id: "2026-11-18-flag",
     date: "2026-11-18",
-    title: "\u201cCome back to\u201d is now Flag",
+    title: "“Come back to” is now Flag",
     intro: <>A shorter name for marking a field you'll score later, and a quieter mark on the row.</>,
     notes: true,
     changes: [
@@ -58,7 +58,7 @@ const UPDATES: Update[] = [
         title: <>The button reads Flag</>,
         body: (
           <>
-            What was \u201cCome back\u201d on each row's buttons and in the first-use hint is now Flag, and the section and bone counts read \u201c1 flagged\u201d. It works as
+            What was “Come back” on each row's buttons and in the first-use hint is now Flag, and the section and bone counts read “1 flagged”. It works as
             before: {k(FLAG_KEYS)} flags the field and moves on, and MOSAIC lists flagged fields again before the
             Analysis.
           </>
