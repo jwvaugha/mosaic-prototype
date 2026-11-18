@@ -788,7 +788,9 @@ async function main() {
     }
     const shotAssets: Record<string, ImageAsset[]> = {}
     for (const [i, p] of shots.entries()) {
-      const asset = await toWebp(p.file, `dental-photos/${code}_${p.state}_${i + 1}.webp`, p.credit || undefined)
+      // No credit: the filename suffix is a collection or place name, which
+      // the PIs asked not to show (Andrea Zurek-Ost, 2026-11).
+      const asset = await toWebp(p.file, `dental-photos/${code}_${p.state}_${i + 1}.webp`)
       shotAssets[p.state] = [...(shotAssets[p.state] ?? []), asset]
     }
     manifest[id] =

@@ -11,8 +11,8 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip
 //   - no note: nothing here; "Add note" sits with the row's other actions
 //   - a note: this icon stays visible on the row; hovering previews the note,
 //     clicking edits it
-// The editor opens beside the row from either place, or with N. ⌘↵ saves, Esc
-// cancels. Notes never leave the device (requirements: Notes privacy).
+// The editor opens beside the row from either place, or with N. Enter (or ⌘↵)
+// saves, ⇧Enter starts a new line, Esc cancels. Notes never leave the device (requirements: Notes privacy).
 
 export function RowNote({
   name,
@@ -80,13 +80,15 @@ export function RowNote({
           placeholder="e.g. Measured on the right side; left is damaged."
           onChange={(e) => setDraft(e.target.value)}
           onKeyDown={(e) => {
-            if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) {
+            if (e.key === "Enter" && !e.shiftKey && !e.altKey) {
               e.preventDefault()
               onSave(draft)
             }
           }}
         />
-        <p className="text-xs text-muted-foreground">Notes stay on this device. They aren't sent with the Analysis.</p>
+        <p className="text-xs text-muted-foreground">
+          <Kbd>⇧</Kbd> <Kbd>Enter</Kbd> for a new line. Notes stay on this device; they aren't sent with the Analysis.
+        </p>
         <div className="flex items-center gap-2">
           {note && (
             <Button size="sm" variant="ghost" className="text-xs text-destructive" onClick={() => onSave("")}>
@@ -100,7 +102,7 @@ export function RowNote({
             Cancel
           </Button>
           <Button size="sm" className="text-xs" onClick={() => onSave(draft)}>
-            Save <Kbd className="bg-primary-foreground/20 text-primary-foreground">⌘↵</Kbd>
+            Save <Kbd className="bg-primary-foreground/20 text-primary-foreground">Enter</Kbd>
           </Button>
         </div>
       </PopoverContent>

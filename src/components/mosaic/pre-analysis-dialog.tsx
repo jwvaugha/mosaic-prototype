@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog"
 import { Separator } from "@/components/ui/separator"
 import { ComeBackListItem } from "./come-back-list-item"
+import { useReturnToWorkup } from "./section-check-dialog"
 
 // Pre-Analysis check (V2 09 for the Skip version, Flows 2.5.3 for the
 // come-back versions). Counts only, no values.
@@ -39,9 +40,12 @@ export function PreAnalysisDialog(p: PreAnalysisProps) {
   const blank = p.blankByRegion.reduce((a, r) => a + r.blank, 0)
   const regionsWithBlanks = p.blankByRegion.filter((r) => r.blank > 0)
 
+  const returnToWorkup = useReturnToWorkup()
   return (
     <Dialog open={p.open} onOpenChange={p.onOpenChange}>
-      <DialogContent showCloseButton={false} className="max-h-[calc(100svh-4rem)] gap-4 overflow-y-auto sm:max-w-[560px]">
+      <DialogContent showCloseButton={false} className="max-h-[calc(100svh-4rem)] gap-4 overflow-y-auto sm:max-w-[560px]"
+        onCloseAutoFocus={returnToWorkup}
+      >
         <div className="flex flex-col gap-1.5">
           <DialogTitle className="text-lg">Before you run the Analysis</DialogTitle>
           <DialogDescription>

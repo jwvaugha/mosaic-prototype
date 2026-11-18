@@ -10,7 +10,19 @@ import {
 } from "@/components/ui/alert-dialog"
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog"
+import { useWorkup } from "@/workup/workup-context"
 import { ComeBackListItem } from "./come-back-list-item"
+
+// Dialogs that send focus somewhere in the Workup ("Go to first blank", a
+// flagged field) hand it to the Workup's current stop on closing, rather than
+// back to the button that opened them.
+export function useReturnToWorkup() {
+  const { refocus } = useWorkup()
+  return (e: Event) => {
+    e.preventDefault()
+    refocus()
+  }
+}
 
 // Section checks on Continue.
 //   Flows 1.3: blanks in the Skip version (Alert Dialog). "Skip N and
@@ -35,9 +47,10 @@ export function SkipCheckDialog({
   const n = blankNames.length
   const listed =
     n <= 2 ? blankNames.join(" and ") : `${blankNames.slice(0, 2).join(", ")} and ${n - 2} more`
+  const returnToWorkup = useReturnToWorkup()
   return (
     <AlertDialog open={open} onOpenChange={(o) => !o && onClose()}>
-      <AlertDialogContent className="sm:max-w-[512px]">
+      <AlertDialogContent className="sm:max-w-[512px]" onCloseAutoFocus={returnToWorkup}>
         <AlertDialogHeader>
           <AlertDialogTitle className="text-lg">
             {n} {n === 1 ? "field" : "fields"} in {sectionTitle} {n === 1 ? "is" : "are"} blank
@@ -78,9 +91,10 @@ export function FlagCheckDialog({
   onContinue: () => void
 }) {
   const n = flagged.length
+  const returnToWorkup = useReturnToWorkup()
   return (
     <Dialog open={open} onOpenChange={(o) => !o && onStay()}>
-      <DialogContent showCloseButton={false} className="gap-4 sm:max-w-[512px]">
+      <DialogContent showCloseButton={false} className="gap-4 sm:max-w-[512px]" onCloseAutoFocus={returnToWorkup}>
         <div className="flex flex-col gap-1.5">
           <DialogTitle className="text-lg">
             {n} {n === 1 ? "field" : "fields"} to come back to in {sectionTitle}

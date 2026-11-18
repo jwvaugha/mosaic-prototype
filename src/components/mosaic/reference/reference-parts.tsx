@@ -67,26 +67,20 @@ function MediaToggle({ entry, className }: { entry?: ReferenceEntry; className?:
 }
 
 // ‹ 1 / 3 › over an image, for states with several examples.
-function ExampleNav({ at, count, onStep, credit }: { at: number; count: number; onStep: (d: number) => void; credit?: string }) {
-  if (count < 2 && !credit) return null
+function ExampleNav({ at, count, onStep }: { at: number; count: number; onStep: (d: number) => void }) {
+  if (count < 2) return null
   return (
     <div className="pointer-events-none absolute inset-x-2 bottom-2 flex justify-center">
       <div className="pointer-events-auto flex items-center gap-0.5 rounded-md border bg-background/95 text-xs text-muted-foreground shadow-sm">
-        {count > 1 && (
-          <Button variant="ghost" size="icon" tabIndex={-1} aria-label="Previous example" className="size-6" onClick={() => onStep(-1)}>
-            <ChevronLeft />
-          </Button>
-        )}
+        <Button variant="ghost" size="icon" tabIndex={-1} aria-label="Previous example" className="size-6" onClick={() => onStep(-1)}>
+          <ChevronLeft />
+        </Button>
         <span className="px-1 tabular-nums">
-          {count > 1 && `${at + 1} / ${count}`}
-          {count > 1 && credit && " · "}
-          {credit}
+          {at + 1} of {count}
         </span>
-        {count > 1 && (
-          <Button variant="ghost" size="icon" tabIndex={-1} aria-label="Next example" className="size-6" onClick={() => onStep(1)}>
-            <ChevronRight />
-          </Button>
-        )}
+        <Button variant="ghost" size="icon" tabIndex={-1} aria-label="Next example" className="size-6" onClick={() => onStep(1)}>
+          <ChevronRight />
+        </Button>
       </div>
     </div>
   )
@@ -303,7 +297,7 @@ export function LargeState({
         caption={`${ex.media === "photos" ? "Photo" : "Drawing"} · ${stateCaption(data, code)} (${how})`}
         className={className}
         onEnlarge={() => setViewer(true)}
-        overlay={<ExampleNav at={ex.at} count={ex.list.length} onStep={ex.step} credit={ex.asset?.credit} />}
+        overlay={<ExampleNav at={ex.at} count={ex.list.length} onStep={ex.step} />}
       />
       {viewer && (
         <StateViewer data={data} start={code} handlers={handlers} onClose={() => setViewer(false)} />
@@ -382,14 +376,14 @@ function StateViewer({
             </DialogTitle>
             <DialogDescription className="text-xs">
               {data.value ? `Chosen: state ${data.value}.` : "Not scored yet."} ←/→ or click a thumbnail to compare
-              {ex.list.length > 1 ? "; ↑/↓ for more examples of this state" : ""}; Enter chooses the one shown.
+              {ex.list.length > 1 ? "; ↑/↓ for more examples of this state" : ""}; Enter chooses the one shown; Esc closes.
             </DialogDescription>
           </div>
           <MediaToggle entry={data.entry} />
         </div>
         <div className="relative h-[55vh] min-h-48 rounded-lg border bg-white p-4">
           <ImageBody asset={ex.asset} caption={stateCaption(data, viewing)} large />
-          <ExampleNav at={ex.at} count={ex.list.length} onStep={ex.step} credit={ex.asset?.credit} />
+          <ExampleNav at={ex.at} count={ex.list.length} onStep={ex.step} />
           {states.length > 1 && (
             <>
               <Button
@@ -457,7 +451,7 @@ function StateViewer({
         </div>
         <div className="flex items-center justify-end gap-2">
           <Button variant="outline" onClick={onClose}>
-            Close
+            Close <Kbd>Esc</Kbd>
           </Button>
           <Button
             variant={chosen ? "outline" : "default"}
@@ -502,6 +496,43 @@ export function definitionOf(v: Variable): string {
   }
   const states = v.states?.map((s) => `${s.code} ${s.label}`).join(" · ")
   return `${v.name}: score the closest of ${v.states?.length} states. ${states}.`
+}
+
+// A Morph Variable's states as a list, one per line, so a state with no
+// description reads as missing rather than running into the next one. The
+// state being previewed or chosen is marked, as in the strip.
+export function StateDefinitions({ data, preview }: { data: ReferenceData; preview: string | null }) {
+  const v = data.variable
+  if (v.modality !== "morph") return <p className="text-sm">{definitionOf(v)}</p>
+  const states = v.states ?? []
+  return (
+    <div className="flex flex-col gap-1.5 text-sm">
+      <p className="text-sm">
+        {v.name}: score the closest of {states.length} states.
+      </p>
+      <ol className="flex flex-col gap-1">
+        {states.map((s) => (
+          <li
+            key={s.code}
+            className={cn(
+              "flex items-start gap-2 rounded px-1 py-0.5",
+              preview === s.code && "bg-muted",
+            )}
+          >
+            <span
+              className={cn(
+                "mt-px shrink-0 rounded px-1.5 text-xs font-medium text-muted-foreground",
+                data.value === s.code && "bg-primary text-primary-foreground",
+              )}
+            >
+              {s.code}
+            </span>
+            <span className={cn(!s.label && "text-muted-foreground italic")}>{s.label || "No description yet"}</span>
+          </li>
+        ))}
+      </ol>
+    </div>
+  )
 }
 
 export function MoreSection({ v }: { v: Variable }) {

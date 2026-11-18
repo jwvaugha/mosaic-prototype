@@ -25,7 +25,9 @@ type Notes = Record<string, string>
 
 // A link into the prototype with a given setup. The query sets the opening
 // section and the reference panel; `#/` is the prototype itself.
-const tryLink = (q: Record<string, string>) => `?${new URLSearchParams({ dim: "0", ...q })}#/`
+// Pins the decided incompletion policy, so a policy switched in Test mode
+// doesn't follow testers into the updates they try.
+const tryLink = (q: Record<string, string>) => `?${new URLSearchParams({ dim: "0", inc: "skip-and-flag", ...q })}#/`
 
 type Change = { title: ReactNode; body: ReactNode; tryIt?: { label: string; href: string; how?: ReactNode } }
 type Update = {
@@ -42,6 +44,77 @@ type Update = {
 const k = (s: string) => <Kbd>{s}</Kbd>
 
 const UPDATES: Update[] = [
+  {
+    id: "2026-11-18-round-2-fixes",
+    date: "2026-11-18",
+    title: "Fixes from your second round of feedback",
+    intro: <>Thank you for the notes on the last two updates. These fix the problems you ran into.</>,
+    notes: true,
+    changes: [
+      {
+        title: <>Come back to, and Alt F, are back</>,
+        body: (
+          <>
+            If you tried another way of skipping in Test mode during the first round, the prototype kept using it, and that
+            way has no "come back to". That's why {k("Alt")} {k("F")} seemed to do nothing for some of you. Everyone is now
+            back on Skip and Come back to, and the Try it links on this page always use it.
+          </>
+        ),
+        tryIt: {
+          label: "Try it in Cranium · Morphological",
+          href: tryLink({ start: "cranium-morph", ref: "A", refon: "1" }),
+          how: <>Press {k("Alt")} {k("F")} on a trait: it turns yellow and you move to the next one.</>,
+        },
+      },
+      {
+        title: <>Continue moves on at the first click</>,
+        body: (
+          <>
+            In a long section such as Dentition · Morphological, clicking Continue took you back up to the last trait you
+            were on instead of moving on. It now moves on, or asks about blank traits where it should.
+          </>
+        ),
+        tryIt: {
+          label: "Try it in Dentition · Morphological",
+          href: tryLink({ start: "dentition-morph", ref: "A", refon: "1" }),
+          how: <>Score a few traits, scroll to the bottom and click Continue.</>,
+        },
+      },
+      {
+        title: <>Enter saves a note</>,
+        body: (
+          <>
+            In the note box, {k("Enter")} now saves, and {k("⇧")} {k("Enter")} starts a new line. If the trait is already
+            scored, you move on to the next one, so you can work through a section without the mouse.
+          </>
+        ),
+        tryIt: {
+          label: "Try it in Cranium · Morphological",
+          href: tryLink({ start: "cranium-morph", ref: "A", refon: "1" }),
+          how: <>Score a trait, press {k("↑")} to go back to it, then {k("N")}, type a note and press {k("Enter")}.</>,
+        },
+      },
+      {
+        title: <>Leaving an enlarged drawing or photo by keyboard</>,
+        body: <>{k("Esc")} closes the enlarged view and returns you to the trait. The Close button now shows it.</>,
+      },
+      {
+        title: <>Every state listed, and cleaner photo captions</>,
+        body: (
+          <>
+            The reference panel now lists a trait's states one per line. Where we don't have a state's description yet,
+            it says so, rather than the next state's description seeming to belong to it. This shows up most in Dentition
+            · Morphological, where many descriptions are still to come. Photos no longer show the collection or place they
+            came from, only which example you're on ("1 of 3").
+          </>
+        ),
+        tryIt: {
+          label: "Try it in Dentition · Morphological",
+          href: tryLink({ start: "dentition-morph", ref: "A", refon: "1" }),
+        },
+      },
+    ],
+  },
   {
     id: "2026-11-10-panel-flags-rail",
     date: "2026-11-10",
@@ -381,16 +454,16 @@ const UPDATES: Update[] = [
 
 const KEYS: { k: ReactNode; d: string; isNew?: boolean }[] = [
   { k: <Kbd>Tab</Kbd>, d: "Next stop (⇧Tab goes back): each bone's header, its Condition chips, then its fields; the last is Continue" },
-  { k: <KbdGroup><Kbd>↑</Kbd><Kbd>↓</Kbd></KbdGroup>, d: "Previous / next field, Skipped ones included", isNew: true },
+  { k: <KbdGroup><Kbd>↑</Kbd><Kbd>↓</Kbd></KbdGroup>, d: "Previous / next field, Skipped ones included" },
   { k: <Kbd>0–9</Kbd>, d: "Score a trait by its number and move on" },
   { k: <KbdGroup><Kbd>←</Kbd><Kbd>→</Kbd></KbdGroup>, d: "Move between a trait's states (the reference follows)" },
-  { k: <Kbd>Enter</Kbd>, d: "Score the state you're on and move on; keep a measurement and move on", isNew: true },
+  { k: <Kbd>Enter</Kbd>, d: "Score the state you're on and move on; keep a measurement and move on" },
   { k: <Kbd>Space</Kbd>, d: "Mark the state you're on, or tick a Condition" },
   { k: <Kbd>⌫</Kbd>, d: "Clear a trait's score" },
   { k: <Kbd>−</Kbd>, d: "Skip the field (again to un-Skip); on a bone's header, Skip its blanks" },
-  { k: <Kbd>{FLAG_KEYS}</Kbd>, d: "Mark to come back to and move on (again to unmark)", isNew: true },
+  { k: <Kbd>{FLAG_KEYS}</Kbd>, d: "Mark to come back to and move on (again to unmark)" },
   { k: <Kbd>R</Kbd>, d: "Show or hide the reference panel" },
-  { k: <Kbd>N</Kbd>, d: "Add or edit a note (⌘↵ saves, Esc cancels)" },
+  { k: <Kbd>N</Kbd>, d: "Add or edit a note (Enter saves, ⇧Enter starts a new line, Esc cancels)", isNew: true },
   { k: <KbdGroup><Kbd>⌃</Kbd><Kbd>⌥</Kbd><Kbd>↓</Kbd></KbdGroup>, d: "Next section from anywhere (↑ for the previous)" },
   { k: <Kbd>F6</Kbd>, d: "Jump to the Regions list; Esc comes back" },
 ]
@@ -610,7 +683,7 @@ export function Guide() {
             ))}
           </dl>
           <p className="flex items-center gap-2 text-xs text-muted-foreground">
-            <span className="size-1.5 shrink-0 rounded-full bg-primary" /> Changed on November 9
+            <span className="size-1.5 shrink-0 rounded-full bg-primary" /> Changed on November 18
           </p>
           <p className="flex items-start gap-2 text-xs text-muted-foreground">
             <MousePointerClick className="mt-px size-3.5 shrink-0" /> On a PC, ⌃ is Ctrl and ⌥ is Alt. Everything also

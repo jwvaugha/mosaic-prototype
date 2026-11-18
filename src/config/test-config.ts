@@ -43,7 +43,8 @@ export function toQuery(c: TestConfig): string {
   const p = new URLSearchParams()
   p.set("ref", c.refLayout)
   p.set("refon", c.refStartsOn ? "1" : "0")
-  p.set("inc", c.incompletion)
+  // Only when it differs, so the address bar doesn't carry a policy around.
+  if (c.incompletion !== DEFAULT_CONFIG.incompletion) p.set("inc", c.incompletion)
   if (!c.showKeyHints) p.set("hints", "0")
   if (!c.introDim) p.set("dim", "0")
   if (c.seed !== "fresh") p.set("seed", c.seed)
@@ -72,7 +73,9 @@ export function fromQuery(query: string, base: TestConfig = DEFAULT_CONFIG): Tes
 const renamed = (layout: string) => (layout === "D" ? "B" : layout)
 
 // Bumped when defaults change, so earlier visits don't keep stale settings.
-const STORAGE_KEY = "mosaic-prototype-config-v6"
+// v7 (2026-11-18): testers who tried policy 1 in round 1 kept it, and lost
+// "come back to" and ⌥F without knowing why.
+const STORAGE_KEY = "mosaic-prototype-config-v7"
 
 export function loadConfig(): TestConfig {
   let stored = DEFAULT_CONFIG

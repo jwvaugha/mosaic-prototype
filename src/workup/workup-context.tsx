@@ -69,16 +69,26 @@ export function WorkupProvider({ children }: { children: ReactNode }) {
   const currentKey = useRef(key)
   currentKey.current = key
 
+  // Elements just detached, so a re-attach can tell a swap from a re-render.
+  const detached = useRef(new Map<string, HTMLElement>())
+
   const register = useCallback(
     (k: string) => (el: HTMLElement | null) => {
       if (!el) {
+        const prev = elements.current.get(k)
+        if (prev) detached.current.set(k, prev)
         elements.current.delete(k)
         return
       }
+      const prev = detached.current.get(k)
+      detached.current.delete(k)
       elements.current.set(k, el)
       // A row can swap its focus target while focused (Skip ↔ un-Skip);
       // keep focus on the replacement instead of dropping it to <body>.
-      if (k === currentKey.current && (!document.activeElement || document.activeElement === document.body)) {
+      // Only on a real swap: a re-render re-attaches the same element, and
+      // pulling focus back then would steal a mouse press on another control
+      // mid-click (Continue, 2026-11-18 feedback).
+      if (prev && prev !== el && k === currentKey.current && (!document.activeElement || document.activeElement === document.body)) {
         focusInto(el)
       }
     },

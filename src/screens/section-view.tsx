@@ -20,6 +20,7 @@ import { imageManifest } from "@/data"
 import {
   adjacentSection,
   fieldStatus,
+  nextTabTarget,
   sameFocus,
   type Focus,
   sectionCounts,
@@ -219,7 +220,14 @@ export function SectionView({
                       }}
                       onSave={(note) => {
                         dispatch({ type: "setNote", id, note })
-                        focusNow(id)
+                        // A field that's already scored or skipped moves on, as
+                        // scoring does; an unscored one stays, ready to score.
+                        const to = status === "unreached" ? null : nextTabTarget(state, { kind: "field", id }, 1)
+                        const key = to ? focusKey(to) : null
+                        if (to && key) {
+                          dispatch({ type: "focus", focus: to })
+                          focusNow(key)
+                        } else focusNow(id)
                       }}
                     />
                   ),

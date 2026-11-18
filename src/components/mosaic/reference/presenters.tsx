@@ -7,6 +7,7 @@ import { usePreviewFor } from "@/workup/preview-context"
 import { useWorkup } from "@/workup/workup-context"
 import {
   definitionOf,
+  StateDefinitions,
   Facts,
   LargeState,
   MetricFigure,
@@ -218,7 +219,7 @@ function DockedColumnFor({ data, onClose }: { data: ReferenceData; onClose: () =
           <p className="text-xs text-muted-foreground">Measurement drawing. Click the drawing to enlarge.</p>
         </>
       )}
-      <p className="text-sm">{definitionOf(v)}</p>
+      <StateDefinitions data={data} preview={preview} />
       {v.modality === "metric" && <Facts items={factsOf(data)} />}
       <MoreSection v={v} />
     </>
@@ -253,7 +254,7 @@ export function InlineExpansion({ data, onClose }: { data: ReferenceData; onClos
               <p className="text-xs text-muted-foreground">{morphHint}</p>
             </>
           )}
-          <p className="text-sm">{definitionOf(v)}</p>
+          <StateDefinitions data={data} preview={preview} />
           {v.modality === "metric" && <Facts items={factsOf(data)} />}
           <MoreSection v={v} />
         </div>
