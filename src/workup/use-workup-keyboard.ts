@@ -14,6 +14,9 @@ import { showUndoToast } from "@/components/mosaic/undo-toast"
 import { logEvent } from "@/lib/event-log"
 import { useRail } from "./rail-context"
 import { usePreview } from "./preview-context"
+import { setRefMedia } from "./ref-media"
+import { requestEnlarge } from "./enlarge-request"
+import { imageManifest } from "@/data"
 import { useWorkup } from "./workup-context"
 
 // All data-entry keys in one place (spec: Keyboard controller). What each key
@@ -29,6 +32,8 @@ import { useWorkup } from "./workup-context"
 //   - / ⇧-         Skip / un-Skip the field, Skip the bone   (allowSkip)
 //   ⌥F             toggle "come back to", advancing when set   (allowFlag)
 //   R / ?          show or hide the reference panel (one switch)
+//   D / P          reference drawings / photos (opens the panel if closed)
+//   E              enlarged view of the field's reference (opens the panel)
 //   N              open the field's note
 //   Esc            close the reference
 //   ⌃⌥↓ / ⌃⌥↑      next / previous section (anywhere)
@@ -144,6 +149,33 @@ export function useWorkupKeyboard() {
       e.preventDefault()
       log(e.key === "?" ? "?" : "R", fieldId)
       dispatch({ type: "toggleReference" })
+      return
+    }
+
+    // D / P switch the reference between drawings and photos, opening it if
+    // it's closed. Neither letter is ever part of a value.
+    if ((e.code === "KeyD" || e.code === "KeyP") && !e.altKey && !e.ctrlKey && !e.metaKey && !e.shiftKey) {
+      e.preventDefault()
+      const photos = e.code === "KeyP"
+      log(photos ? "P" : "D", fieldId)
+      setRefMedia(photos ? "photos" : "drawings")
+      if (!refShown) dispatch({ type: "toggleReference" })
+      return
+    }
+
+    // E opens the field's enlarged view: for a trait, the state viewer at the
+    // state being previewed (else the scored one, else the first); for a
+    // measurement, the figure. The panel opens too, since it owns the image.
+    if (e.code === "KeyE" && fieldId && !e.altKey && !e.ctrlKey && !e.metaKey && !e.shiftKey) {
+      e.preventDefault()
+      if (imageManifest[fieldId]?.kind === "none") return
+      log("E", fieldId)
+      // Read the state in focus now: opening the panel refocuses the field,
+      // which would reset the preview to the first state.
+      const inFocus = (e.target as HTMLElement).closest<HTMLElement>("[data-code]")?.dataset.code
+      const code = inFocus ?? (preview?.id === fieldId ? preview.code : undefined)
+      if (!refShown) dispatch({ type: "toggleReference" })
+      requestEnlarge(fieldId, code ?? undefined)
       return
     }
 

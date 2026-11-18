@@ -216,7 +216,7 @@ function DockedColumnFor({ data, onClose }: { data: ReferenceData; onClose: () =
       ) : (
         <>
           <MetricFigure data={data} className="h-[160px] @min-[440px]:h-[240px] @min-[580px]:h-[320px]" />
-          <p className="text-xs text-muted-foreground">Measurement drawing. Click the drawing to enlarge.</p>
+          <p className="text-xs text-muted-foreground">Measurement drawing. Click the drawing, or press E, to enlarge.</p>
         </>
       )}
       <StateDefinitions data={data} preview={preview} />

@@ -1,14 +1,17 @@
 import { ChevronDown, ChevronLeft, ChevronRight, Image as ImageIcon, Maximize2, X } from "lucide-react"
 import { useWorkup } from "@/workup/workup-context"
 import { useEffect, useRef, useState, type ReactNode } from "react"
+import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog"
 import { Kbd } from "@/components/ui/kbd"
-import { stateLabel } from "@/lib/variable-label"
+import { sections } from "@/domain/workup"
+import { showsCode, stateLabel } from "@/lib/variable-label"
 import { imageUrl } from "@/data"
 import type { Highlight, ImageAsset, ReferenceEntry, Variable } from "@/data/types"
 import { cn } from "@/lib/utils"
+import { useEnlargeRequest } from "@/workup/enlarge-request"
 import { effectiveMedia, examplesOf, hasDrawings, hasPhotos, setRefMedia, useRefMedia, type RefMedia } from "@/workup/ref-media"
 
 // Building blocks of the reference panel, shared by the three presenters
@@ -58,9 +61,12 @@ function MediaToggle({ entry, className }: { entry?: ReferenceEntry; className?:
           disabled={!available[m]}
           title={available[m] ? undefined : `No ${m} for this field yet`}
           aria-pressed={shown === m}
+          aria-label={m === "photos" ? "Photos" : "Drawings"}
+          aria-keyshortcuts={m[0].toUpperCase()}
           onClick={() => setRefMedia(m)}
         >
           {m}
+          <Kbd className="h-4 min-w-4 px-1 text-[10px] uppercase">{m[0]}</Kbd>
         </Button>
       ))}
     </div>
@@ -68,7 +74,7 @@ function MediaToggle({ entry, className }: { entry?: ReferenceEntry; className?:
 }
 
 // ‹ 1 / 3 › over an image, for states with several examples.
-function ExampleNav({ at, count, onStep }: { at: number; count: number; onStep: (d: number) => void }) {
+function ExampleNav({ at, count, onStep, keys }: { at: number; count: number; onStep: (d: number) => void; keys?: boolean }) {
   if (count < 2) return null
   return (
     <div className="pointer-events-none absolute inset-x-2 bottom-2 flex justify-center">
@@ -82,6 +88,7 @@ function ExampleNav({ at, count, onStep }: { at: number; count: number; onStep: 
         <Button variant="ghost" size="icon" tabIndex={-1} aria-label="Next example" className="size-6" onClick={() => onStep(1)}>
           <ChevronRight />
         </Button>
+        {keys && <Kbd className="mr-1">↑↓</Kbd>}
       </div>
     </div>
   )
@@ -115,34 +122,43 @@ export function RefImage({
   fit = "contain",
   onEnlarge,
   overlay,
+  enlargeFor,
+  enlargeLabel = "Enlarge",
 }: {
   asset: ImageAsset | null
   caption: string
   highlight?: Highlight
   className?: string
   fit?: "contain" | "cover"
-  onEnlarge?: () => void
+  onEnlarge?: (code?: string) => void
   overlay?: ReactNode
+  // The field this image belongs to: E on that field enlarges it.
+  enlargeFor?: string
+  enlargeLabel?: string
 }) {
   const [bigOwn, setBig] = useState(false)
   const big = bigOwn && !onEnlarge
-  const enlarge = () => (onEnlarge ? onEnlarge() : setBig(true))
+  const enlarge = (code?: string) => (onEnlarge ? onEnlarge(code) : setBig(true))
+  useEnlargeRequest(enlargeFor, enlarge)
   const body = (large: boolean) => <ImageBody asset={asset} caption={caption} highlight={highlight} fit={fit} large={large} />
   return (
     <>
       <div className={cn("relative overflow-hidden rounded-lg border bg-muted p-3", asset && imageUrl(asset) && "bg-white", className)}>
-        <button type="button" tabIndex={-1} className="size-full cursor-zoom-in" onClick={enlarge}>
+        <button type="button" tabIndex={-1} className="size-full cursor-zoom-in" onClick={() => enlarge()}>
           {body(false)}
         </button>
         <Button
           variant="outline"
-          size="icon"
+          size="sm"
           tabIndex={-1}
           aria-label="Enlarge"
-          className="absolute top-2 right-2"
-          onClick={enlarge}
+          aria-keyshortcuts={enlargeFor ? "E" : undefined}
+          title={enlargeFor ? `${enlargeLabel} (E)` : enlargeLabel}
+          className="absolute top-2 right-2 h-8 gap-1.5 px-2"
+          onClick={() => enlarge()}
         >
           <Maximize2 />
+          {enlargeFor && <Kbd className="h-4 min-w-4 px-1 text-[10px]">E</Kbd>}
         </Button>
         {overlay}
       </div>
@@ -285,7 +301,8 @@ export function LargeState({
   states: StateHandlers
   className?: string
 }) {
-  const [viewer, setViewer] = useState(false)
+  // Open, and on which state (E passes the one in focus when it was pressed).
+  const [viewer, setViewer] = useState<{ start: string | undefined } | null>(null)
   const preview = handlers.preview
   const states = data.variable.states ?? []
   const code = preview ?? data.value ?? states[0]?.code
@@ -297,11 +314,13 @@ export function LargeState({
         asset={ex.asset}
         caption={`${ex.media === "photos" ? "Photo" : "Drawing"} · ${stateCaption(data, code)} (${how})`}
         className={className}
-        onEnlarge={() => setViewer(true)}
+        onEnlarge={(c) => setViewer({ start: c ?? code })}
+        enlargeFor={data.variable.id}
+        enlargeLabel="Compare states"
         overlay={<ExampleNav at={ex.at} count={ex.list.length} onStep={ex.step} />}
       />
       {viewer && (
-        <StateViewer data={data} start={code} handlers={handlers} onClose={() => setViewer(false)} />
+        <StateViewer data={data} start={viewer.start} handlers={handlers} onClose={() => setViewer(null)} />
       )}
     </>
   )
@@ -330,6 +349,9 @@ function StateViewer({
   const chosen = viewing !== undefined && viewing === data.value
   const ex = useExamples(data.entry, viewing)
   const { refocus } = useWorkup()
+  const section = sections.find((x) => x.bones.some((b) => b.variableIds.includes(data.variable.id)))
+  const viewedLabel = states.find((s) => s.code === viewing)?.label
+  const scoredLabel = states.find((s) => s.code === data.value)?.label
 
   // Mirror the shown state into the shared preview, so the row and the panel
   // follow along; clear it on close.
@@ -356,6 +378,9 @@ function StateViewer({
           } else if (e.key === "Enter" && viewing) {
             e.preventDefault()
             handlers.onSelect(viewing)
+          } else if ((e.code === "KeyD" || e.code === "KeyP") && !e.altKey && !e.ctrlKey && !e.metaKey && !e.shiftKey) {
+            e.preventDefault()
+            setRefMedia(e.code === "KeyP" ? "photos" : "drawings")
           }
         }}
         // Focus the viewer itself, not its first button, so ←/→ and Enter work
@@ -370,43 +395,56 @@ function StateViewer({
           refocus()
         }}
       >
-        <div className="flex items-start gap-4 pr-8">
-          <div className="flex min-w-0 flex-1 flex-col gap-1">
-            <DialogTitle className="text-base">
-              {data.variable.name} · {stateCaption(data, viewing)}
-            </DialogTitle>
-            <DialogDescription className="text-xs">
-              {data.value ? `Chosen: state ${data.value}.` : "Not scored yet."} ←/→ or click a thumbnail to compare
-              {ex.list.length > 1 ? "; ↑/↓ for more examples of this state" : ""}; Enter chooses the one shown; Esc closes.
-            </DialogDescription>
-          </div>
-          <MediaToggle entry={data.entry} />
+        {/* Header: only what doesn't change while browsing, the trait and
+            where it sits. The state on screen is captioned under the image;
+            the score sits in the footer beside the button that changes it. */}
+        <div className="flex min-w-0 flex-col gap-0.5 pr-8">
+          {section && <span className="text-xs text-muted-foreground">{section.title}</span>}
+          <DialogTitle className="flex items-baseline gap-2 text-base">
+            {data.variable.name}
+            {showsCode(data.variable) && (
+              <span className="font-mono text-xs font-normal text-muted-foreground">{data.variable.code}</span>
+            )}
+          </DialogTitle>
+          <DialogDescription className="sr-only">
+            Compare the states of {data.variable.name} and choose one.
+          </DialogDescription>
         </div>
-        <div className="relative h-[55vh] min-h-48 rounded-lg border bg-white p-4">
-          <ImageBody asset={ex.asset} caption={stateCaption(data, viewing)} large />
-          <ExampleNav at={ex.at} count={ex.list.length} onStep={ex.step} />
-          {states.length > 1 && (
-            <>
-              <Button
-                variant="outline"
-                size="icon"
-                aria-label="Previous state"
-                className="absolute top-1/2 left-3 -translate-y-1/2"
-                onClick={() => step(-1)}
-              >
-                <ChevronLeft />
-              </Button>
-              <Button
-                variant="outline"
-                size="icon"
-                aria-label="Next state"
-                className="absolute top-1/2 right-3 -translate-y-1/2"
-                onClick={() => step(1)}
-              >
-                <ChevronRight />
-              </Button>
-            </>
-          )}
+        <div className="flex min-h-0 flex-col gap-3">
+          <div className="relative h-[50vh] min-h-48 rounded-lg border bg-white p-4">
+            <ImageBody asset={ex.asset} caption={stateCaption(data, viewing)} large />
+            {/* Drawings / Photos changes this image, so it sits on it. */}
+            <MediaToggle entry={data.entry} className="absolute top-2 right-2 rounded-md border bg-background/95 p-0.5 shadow-xs" />
+            <ExampleNav at={ex.at} count={ex.list.length} onStep={ex.step} keys />
+            {states.length > 1 &&
+              ([-1, 1] as const).map((d) => (
+                <div
+                  key={d}
+                  className={cn("absolute top-1/2 flex -translate-y-1/2 flex-col items-center gap-1", d < 0 ? "left-3" : "right-3")}
+                >
+                  <Button variant="outline" size="icon" aria-label={d < 0 ? "Previous state" : "Next state"} onClick={() => step(d)}>
+                    {d < 0 ? <ChevronLeft /> : <ChevronRight />}
+                  </Button>
+                  <Kbd>{d < 0 ? "←" : "→"}</Kbd>
+                </div>
+              ))}
+          </div>
+          {/* The state on screen, with its full description (the cards cut
+              it to two lines). Announced as it changes. */}
+          <div aria-live="polite" className="flex items-start gap-2.5">
+            <span
+              className={cn(
+                "flex h-6 min-w-6 shrink-0 items-center justify-center rounded-md border px-1.5 text-sm font-medium",
+                chosen && "border-primary bg-primary text-primary-foreground",
+              )}
+            >
+              {viewing}
+            </span>
+            <p className={cn("min-w-0 flex-1 text-sm leading-6", !viewedLabel && "text-muted-foreground italic")}>
+              {viewedLabel ? stateLabel(viewedLabel) : "No description yet"}
+            </p>
+            {chosen && <Badge className="mt-0.5 shrink-0">Scored</Badge>}
+          </div>
         </div>
         {/* Padding keeps the cards' selection rings and offset badges inside
             the scroll area, which would otherwise clip them. */}
@@ -446,14 +484,31 @@ function StateViewer({
                     <ImageIcon className="size-5 text-muted-foreground" />
                   )}
                 </span>
-                <span className={cn("line-clamp-2 px-2 py-1.5 text-xs", s.label ? "text-foreground" : "text-muted-foreground italic")}>
-                  {s.label ? stateLabel(s.label) : "No description yet"}
+                {/* Padding on the wrapper: on the clamped line itself it would
+                    show a sliver of a third line. */}
+                <span className="px-2 py-1.5 text-xs">
+                  <span className={cn("line-clamp-2", s.label ? "text-foreground" : "text-muted-foreground italic")}>
+                    {s.label ? stateLabel(s.label) : "No description yet"}
+                  </span>
                 </span>
               </button>
             )
           })}
         </div>
-        <div className="flex items-center justify-end gap-2">
+        <div className="flex items-center gap-2 border-t pt-4">
+          <p className="min-w-0 flex-1 truncate text-sm">
+            {data.value ? (
+              <>
+                <span className="text-muted-foreground">Scored:</span>{" "}
+                <span className="font-medium">
+                  {data.value}
+                  {scoredLabel ? ` · ${stateLabel(scoredLabel)}` : ""}
+                </span>
+              </>
+            ) : (
+              <span className="text-muted-foreground">Not scored yet</span>
+            )}
+          </p>
           <Button variant="outline" onClick={onClose}>
             Close <Kbd>Esc</Kbd>
           </Button>
@@ -485,12 +540,13 @@ export function MetricFigure({ data, className }: { data: ReferenceData; classNa
       caption={data.variable.dcp ? `${data.entry.caption} · DCP #${data.variable.dcp}` : data.entry.caption}
       highlight={data.entry.highlight}
       className={className}
+      enlargeFor={data.variable.id}
     />
   )
 }
 
 export const morphHint =
-  "Hover a drawing, or use ←/→ on the field, to preview a state; click a drawing (or press Enter) to choose it, and click it again to clear. Click the large image to enlarge and compare states."
+  "Hover a drawing, or use ←/→ on the field, to preview a state; click a drawing (or press Enter) to choose it, and click it again to clear. Click the large image, or press E, to enlarge and compare states."
 
 export function definitionOf(v: Variable): string {
   if (v.modality === "metric") {

@@ -13,7 +13,7 @@ import { cn } from "@/lib/utils"
 // does Help › Design updates). Since 2026-11-09 it replaces the round 1
 // tester guide, which is archived outside the repo (MOSAIC/Feedback/Round 1
 // tester guide). It lists changes newest first, each with what changed, why,
-// and a link to try it; testers can leave a note under any update and send
+// and how to try it (a link only where it lives in one section); testers can leave a note under any update and send
 // them all by email. The keys stay in view in a column to the side.
 //
 // To add an update: put a new entry at the top of UPDATES.
@@ -29,7 +29,10 @@ type Notes = Record<string, string>
 // doesn't follow testers into the updates they try.
 const tryLink = (q: Record<string, string>) => `?${new URLSearchParams({ dim: "0", inc: "skip-and-flag", ...q })}#/`
 
-type Change = { title: ReactNode; body: ReactNode; tryIt?: { label: string; href: string; how?: ReactNode } }
+// `how` says how to try a change. `goTo` adds a button only when the change
+// lives in one particular section; changes that show up on every field, or in
+// any section, get just the `how` line.
+type Change = { title: ReactNode; body: ReactNode; how?: ReactNode; goTo?: { label: string; href: string } }
 type Update = {
   id: string
   date: string // ISO
@@ -45,6 +48,62 @@ const k = (s: string) => <Kbd>{s}</Kbd>
 
 const UPDATES: Update[] = [
   {
+    id: "2026-11-18-drawings-photos-keys",
+    date: "2026-11-18",
+    title: "Reference images from the keyboard, and a clearer enlarged view",
+    intro: (
+      <>
+        You can now reach the reference images without the mouse, and the enlarged view of a trait's states is easier
+        to read.
+      </>
+    ),
+    notes: true,
+    changes: [
+      {
+        title: (
+          <>
+            {k("D")} for drawings, {k("P")} for photos
+          </>
+        ),
+        body: (
+          <>
+            On any trait with reference images, {k("D")} shows the drawings and {k("P")} the photos, in the panel and in the
+            enlarged view. If the panel is closed, either key opens it. The Drawings and Photos buttons now show their keys.
+          </>
+        ),
+        how: <>On a Morphological trait, press {k("P")}, then {k("D")}.</>,
+      },
+      {
+        title: <>{k("E")} opens the enlarged view</>,
+        body: (
+          <>
+            On a trait, {k("E")} opens the large view of its states, at the state you're on. On a measurement, it enlarges
+            the drawing. It works with the panel closed too, and {k("Esc")} takes you back to the field. The enlarge button
+            on the panel's image shows the key.
+          </>
+        ),
+        how: (
+          <>
+            On a Morphological trait, press {k("→")} to move to a state, then {k("E")}.
+          </>
+        ),
+      },
+      {
+        title: <>The enlarged view, reorganised</>,
+        body: (
+          <>
+            The top now names only the trait and its section, so it stays put while you compare. Under the large image is
+            the state on screen, with its full description, marked <em>Scored</em> if it's the one you recorded. Your
+            current score sits at the bottom beside the Choose button. Drawings and Photos have moved onto the image, and
+            each key is shown on the control it works ({k("←")} {k("→")} on the arrows, {k("↑")} {k("↓")} on a
+            state's examples).
+          </>
+        ),
+        how: <>Open any trait's enlarged view with {k("E")}.</>,
+      },
+    ],
+  },
+  {
     id: "2026-11-18-round-2-fixes",
     date: "2026-11-18",
     title: "Fixes from your second round of feedback",
@@ -57,14 +116,10 @@ const UPDATES: Update[] = [
           <>
             If you tried another way of skipping in Test mode during the first round, the prototype kept using it, and that
             way has no "come back to". That's why {k("Alt")} {k("F")} seemed to do nothing for some of you. Everyone is now
-            back on Skip and Come back to, and the Try it links on this page always use it.
+            back on Skip and Come back to, and the links on this page always use it.
           </>
         ),
-        tryIt: {
-          label: "Try it in Cranium · Morphological",
-          href: tryLink({ start: "cranium-morph", ref: "A", refon: "1" }),
-          how: <>Press {k("Alt")} {k("F")} on a trait: it turns yellow and you move to the next one.</>,
-        },
+        how: <>Press {k("Alt")} {k("F")} on a trait: it turns yellow and you move to the next one.</>,
       },
       {
         title: <>Continue moves on at the first click</>,
@@ -74,11 +129,8 @@ const UPDATES: Update[] = [
             were on instead of moving on. It now moves on, or asks about blank traits where it should.
           </>
         ),
-        tryIt: {
-          label: "Try it in Dentition · Morphological",
-          href: tryLink({ start: "dentition-morph", ref: "A", refon: "1" }),
-          how: <>Score a few traits, scroll to the bottom and click Continue.</>,
-        },
+        how: <>Score a few traits, scroll to the bottom and click Continue.</>,
+        goTo: { label: "Try it in Dentition · Morphological", href: tryLink({ start: "dentition-morph", ref: "A", refon: "1" }) },
       },
       {
         title: <>Enter saves a note</>,
@@ -88,11 +140,7 @@ const UPDATES: Update[] = [
             scored, you move on to the next one, so you can work through a section without the mouse.
           </>
         ),
-        tryIt: {
-          label: "Try it in Cranium · Morphological",
-          href: tryLink({ start: "cranium-morph", ref: "A", refon: "1" }),
-          how: <>Score a trait, press {k("↑")} to go back to it, then {k("N")}, type a note and press {k("Enter")}.</>,
-        },
+        how: <>Score a trait, press {k("↑")} to go back to it, then {k("N")}, type a note and press {k("Enter")}.</>,
       },
       {
         title: <>Leaving an enlarged drawing or photo by keyboard</>,
@@ -108,10 +156,7 @@ const UPDATES: Update[] = [
             came from, only which example you're on ("1 of 3").
           </>
         ),
-        tryIt: {
-          label: "Try it in Dentition · Morphological",
-          href: tryLink({ start: "dentition-morph", ref: "A", refon: "1" }),
-        },
+        goTo: { label: "Try it in Dentition · Morphological", href: tryLink({ start: "dentition-morph", ref: "A", refon: "1" }) },
       },
     ],
   },
@@ -131,10 +176,6 @@ const UPDATES: Update[] = [
             reference still closes it.
           </>
         ),
-        tryIt: {
-          label: "Try it in Cranium · Morphological",
-          href: tryLink({ start: "cranium-morph", ref: "A", refon: "1" }),
-        },
       },
       {
         title: <>Choose where the panel goes</>,
@@ -146,11 +187,7 @@ const UPDATES: Update[] = [
             offered, since none of you picked it.
           </>
         ),
-        tryIt: {
-          label: "Try it in Cranium · Morphological",
-          href: tryLink({ start: "cranium-morph", ref: "A", refon: "1" }),
-          how: <>Click the arrow beside Hide reference and choose Under the field.</>,
-        },
+        how: <>Click the arrow beside Hide reference and choose Under the field.</>,
       },
       {
         title: <>Drag the reference panel wider</>,
@@ -161,11 +198,7 @@ const UPDATES: Update[] = [
             Double-click the edge to go back to the usual width.
           </>
         ),
-        tryIt: {
-          label: "Try it in Cranium · Morphological",
-          href: tryLink({ start: "cranium-morph", ref: "A", refon: "1" }),
-          how: <>Drag the small grip halfway down the panel's left edge to the left.</>,
-        },
+        how: <>Drag the small grip halfway down the panel's left edge to the left.</>,
       },
       {
         title: <>Clicking in the panel no longer stops the keys</>,
@@ -176,15 +209,11 @@ const UPDATES: Update[] = [
             carry on by keyboard.
           </>
         ),
-        tryIt: {
-          label: "Try it in Cranium · Morphological",
-          href: tryLink({ start: "cranium-morph", ref: "A", refon: "1" }),
-          how: (
-            <>
-              Click a drawing in the panel, then press {k("↓")} to go to the next trait.
-            </>
-          ),
-        },
+        how: (
+          <>
+            Click a drawing in the panel, then press {k("↓")} to go to the next trait.
+          </>
+        ),
       },
       {
         title: <>Fields to come back to stand out</>,
@@ -195,15 +224,11 @@ const UPDATES: Update[] = [
             and note icons on each row are also larger.
           </>
         ),
-        tryIt: {
-          label: "Try it in Cranium · Morphological",
-          href: tryLink({ start: "cranium-morph" }),
-          how: (
-            <>
-              Press {k(FLAG_KEYS)} on a trait.
-            </>
-          ),
-        },
+        how: (
+          <>
+            Press {k(FLAG_KEYS)} on a trait.
+          </>
+        ),
       },
       {
         title: <>The Regions list keeps its header</>,
@@ -241,11 +266,7 @@ const UPDATES: Update[] = [
             and the trochanteric exostoses.
           </>
         ),
-        tryIt: {
-          label: "Try it in Cranium · Morphological",
-          href: tryLink({ start: "cranium-morph", ref: "A", refon: "1" }),
-          how: <>Switch the panel to Photos and step through the examples with ‹ ›.</>,
-        },
+        how: <>Switch the panel to Photos and step through the examples with ‹ ›.</>,
       },
     ],
   },
@@ -274,15 +295,11 @@ const UPDATES: Update[] = [
             Skipped fields and stops at each bone's header.
           </>
         ),
-        tryIt: {
-          label: "Try it in Cranium · Morphological",
-          href: tryLink({ start: "cranium-morph" }),
-          how: (
-            <>
-              Skip a trait with {k("−")}, press {k("↑")} to go back to it, then {k("−")} again to un-Skip.
-            </>
-          ),
-        },
+        how: (
+          <>
+            Skip a trait with {k("−")}, press {k("↑")} to go back to it, then {k("−")} again to un-Skip.
+          </>
+        ),
       },
       {
         title: <>Enter scores the state you're on</>,
@@ -293,15 +310,11 @@ const UPDATES: Update[] = [
             without scoring it, use {k("Tab")} or {k("↓")}.
           </>
         ),
-        tryIt: {
-          label: "Try it in Cranium · Morphological",
-          href: tryLink({ start: "cranium-morph" }),
-          how: (
-            <>
-              Press {k("→")} twice, then {k("Enter")}.
-            </>
-          ),
-        },
+        how: (
+          <>
+            Press {k("→")} twice, then {k("Enter")}.
+          </>
+        ),
       },
       {
         title: (
@@ -376,11 +389,7 @@ const UPDATES: Update[] = [
             the FoRDent dental traits.
           </>
         ),
-        tryIt: {
-          label: "Try it in Cranium · Morphological",
-          href: tryLink({ start: "cranium-morph", ref: "A", refon: "1" }),
-          how: <>Switch the panel to Photos, then move between traits.</>,
-        },
+        how: <>Switch the panel to Photos, then move between traits.</>,
       },
       {
         title: <>Several examples of one state</>,
@@ -390,10 +399,7 @@ const UPDATES: Update[] = [
             enlarged view). Dental files labelled 4.1 and 4.2 are now examples of state 4, not separate scores.
           </>
         ),
-        tryIt: {
-          label: "Try it in Dentition · Morphological",
-          href: tryLink({ start: "dentition-morph", ref: "A", refon: "1" }),
-        },
+        goTo: { label: "Try it in Dentition · Morphological", href: tryLink({ start: "dentition-morph", ref: "A", refon: "1" }) },
       },
     ],
   },
@@ -416,11 +422,7 @@ const UPDATES: Update[] = [
             compare; <strong>Choose</strong> (or {k("Enter")}) scores the one shown.
           </>
         ),
-        tryIt: {
-          label: "Try it in Cranium · Morphological",
-          href: tryLink({ start: "cranium-morph", ref: "A", refon: "1" }),
-          how: <>Click the large drawing in the panel to enlarge it.</>,
-        },
+        how: <>Click the large drawing in the panel to enlarge it.</>,
       },
     ],
   },
@@ -463,6 +465,8 @@ const KEYS: { k: ReactNode; d: string; isNew?: boolean }[] = [
   { k: <Kbd>−</Kbd>, d: "Skip the field (again to un-Skip); on a bone's header, Skip its blanks" },
   { k: <Kbd>{FLAG_KEYS}</Kbd>, d: "Mark to come back to and move on (again to unmark)" },
   { k: <Kbd>R</Kbd>, d: "Show or hide the reference panel" },
+  { k: <KbdGroup><Kbd>D</Kbd><Kbd>P</Kbd></KbdGroup>, d: "Reference drawings / photos (opens the panel if it's closed)", isNew: true },
+  { k: <Kbd>E</Kbd>, d: "Open the enlarged view of the field's reference; Esc comes back", isNew: true },
   { k: <Kbd>N</Kbd>, d: "Add or edit a note (Enter saves, ⇧Enter starts a new line, Esc cancels)", isNew: true },
   { k: <KbdGroup><Kbd>⌃</Kbd><Kbd>⌥</Kbd><Kbd>↓</Kbd></KbdGroup>, d: "Next section from anywhere (↑ for the previous)" },
   { k: <Kbd>F6</Kbd>, d: "Jump to the Regions list; Esc comes back" },
@@ -520,14 +524,21 @@ function UpdateEntry({ u, latest, notes, onNote }: { u: Update; latest: boolean;
               <h3 className="flex flex-wrap items-center gap-1.5 text-base font-medium">{c.title}</h3>
               <div className="leading-6 text-muted-foreground">{c.body}</div>
             </div>
-            {c.tryIt && (
+            {(c.goTo || c.how) && (
               <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-                <Button asChild size="sm" variant="outline" className="w-fit">
-                  <a href={c.tryIt.href}>
-                    {c.tryIt.label} <ArrowRight data-icon="inline-end" />
-                  </a>
-                </Button>
-                {c.tryIt.how && <span className="text-muted-foreground">{c.tryIt.how}</span>}
+                {c.goTo && (
+                  <Button asChild size="sm" variant="outline" className="w-fit">
+                    <a href={c.goTo.href}>
+                      {c.goTo.label} <ArrowRight data-icon="inline-end" />
+                    </a>
+                  </Button>
+                )}
+                {c.how && (
+                  <span className="text-muted-foreground">
+                    {!c.goTo && <span className="font-medium text-foreground">Try it: </span>}
+                    {c.how}
+                  </span>
+                )}
               </div>
             )}
           </section>
@@ -581,8 +592,8 @@ export function Guide() {
           </Badge>
           <h1 className="text-3xl font-semibold">MOSAIC data entry: design updates</h1>
           <p>
-            What's changed in the prototype, newest first. Each update says what changed and why, with a link that opens
-            the prototype where you can try it. Trying them is optional. If you do, a line in the box under an update
+            What's changed in the prototype, newest first. Each update says what changed and why, and how to try it;
+            where a change lives in one particular section, a button takes you there. Trying them is optional. If you do, a line in the box under an update
             helps, and you can send them all at the bottom of the page.
           </p>
           <p className="text-sm text-muted-foreground">
@@ -592,7 +603,7 @@ export function Guide() {
             <span className="hidden lg:inline">on the right</span>.
           </p>
           <Button asChild className="w-fit">
-            <a href="#/">
+            <a href={`?${new URLSearchParams({ inc: "skip-and-flag" })}#/`}>
               Go to the prototype <ArrowRight data-icon="inline-end" />
             </a>
           </Button>
