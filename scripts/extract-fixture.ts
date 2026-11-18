@@ -54,6 +54,7 @@ const DENTAL_XLSX = path.join(REF, "MOSAIC Photos/Dental Images/Morphological/MO
 // list still comes from the first copy and this one only supplies
 // descriptions.
 const DENTAL_DESC_XLSX = path.join(REF, "MOSAIC Photos 3/Dental Images/Morphological/MOSAIC_DentalVariables.xlsx")
+const DENTAL_DESC_ADDITIONS: [name: string, state: string, label: string][] = [["mand_cusp_m2", "3", "Only three cusps are present."]]
 const POSTCRANIAL_PDF = path.join(REF, "MOSAIC Postcranial Metrics Data Collection Form.pdf")
 const ILLUSTRATIONS_PDF = path.join(REF, "MOSAIC Photos 2/Cranial Images/Metric/illustrations.pdf")
 
@@ -433,7 +434,7 @@ const photoKey = (abbr: string) => {
   return DENTAL_PHOTO_ALIAS[k] ?? k
 }
 
-// DCP 2.0 figures in illustrations.pdf (UTK; local builds only) that show
+// DCP 2.0 figures in illustrations.pdf (UTK) that show
 // each cranial and mandibular measurement. The figures carry no labels, so
 // they're matched by caption and shown without a highlight.
 const ILLUSTRATION_PAGES: Record<number, string[]> = {
@@ -449,7 +450,7 @@ const ILLUSTRATION_PAGES: Record<number, string[]> = {
 // Postcranial bones in illustrations.pdf, for measurements the postcranial
 // form has no figure for.
 const ILLUSTRATION_BONES: Record<string, number> = {
-  clavicle: 13, scapula: 14, humerus: 15, radius: 16, ulna: 17, sacrum: 18, "os-coxae": 19, femur: 20, tibia: 21, fibula: 22, calcaneus: 23,
+  clavicle: 13, scapula: 14, humerus: 15, radius: 16, ulna: 17, sacrum: 18, innominate: 19, femur: 20, tibia: 21, fibula: 22, calcaneus: 23,
 }
 
 // ---------------------------------------------------------------------------
@@ -606,6 +607,12 @@ async function main() {
     if (!dentalDescriptions.has(name)) dentalDescriptions.set(name, new Map())
     dentalDescriptions.get(name)!.set(code, label)
   }
+  // Missing from the sheet (a typo there), given by Andie on 2026-11-18. Third
+  // molars borrow the second molar's descriptions, so this covers both.
+  for (const [name, code, label] of DENTAL_DESC_ADDITIONS) {
+    if (!dentalDescriptions.has(name)) dentalDescriptions.set(name, new Map())
+    if (!dentalDescriptions.get(name)!.has(code)) dentalDescriptions.get(name)!.set(code, label)
+  }
   const form = readPostcranialForm()
   const postMetricCodes = [...postMetric.keys()]
   const itemOf = (code: string) => postMetricCodes.indexOf(code) + 6
@@ -729,7 +736,9 @@ async function main() {
   const dentalFiles = new Map<string, string[]>()
   const dentalPhotos = new Map<string, { state: string; file: string; credit: string }[]>()
   for (const jaw of ["Maxilla", "Mandible"]) {
-    const seen = new Map([...photoFiles(`Dental Images/Morphological/${jaw} Line Drawings`), ...photoFiles(`Dental Images/Morphological/${jaw}`)])
+    // Later entries win: the newer "<jaw> Line Drawings/" layout replaces the
+    // first download's copy (e.g. Andie's corrected LM2CN_5, 2026-11-18).
+    const seen = new Map([...photoFiles(`Dental Images/Morphological/${jaw}`), ...photoFiles(`Dental Images/Morphological/${jaw} Line Drawings`)])
     for (const [f, full] of seen) {
       if (f.endsWith(".png")) dentalFiles.set(f, [...(dentalFiles.get(f) ?? []), full])
     }
@@ -955,10 +964,22 @@ async function main() {
       manifest[id] = { kind: "figure", figure: asset, caption }
     }
   }
+  // One figure per cranial and mandibular measurement, the measurement marked
+  // (Cranial Images/Metric, named by code; added 2026-11-18). They replace the
+  // shared DCP 2.0 pages above and cover measurements those pages don't show.
+  for (const [f, full] of [...photoFiles("Cranial Images/Metric")].sort()) {
+    const code = f.replace(/\.[a-z]+$/i, "")
+    const id = skullIds.get(code)
+    if (!id) {
+      unmatchedPhotos.push(`Cranial Images/Metric/${f}: no cranial measurement with this code`)
+      continue
+    }
+    const v = variables[id]
+    manifest[id] = { kind: "figure", figure: await toWebp(full, `dcp-measures/${code}.webp`), caption: `Measurement drawing · ${v.fullName ?? v.name}` }
+  }
   // One figure per postcranial measurement, the measurement already marked in
   // red (Postcranial Images/Metric, named by code). They replace the shared
-  // form pages and their drawn highlight boxes. Drawn from DCP 2.0, so local
-  // builds only, like the other DCP figures.
+  // form pages and their drawn highlight boxes. Drawn from DCP 2.0.
   for (const [f, full] of [...photoFiles("Postcranial Images/Metric")].sort()) {
     const code = f.replace(/\.[a-z]+$/i, "")
     const id = byCode.get(code)

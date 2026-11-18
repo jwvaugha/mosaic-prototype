@@ -4,9 +4,9 @@ Generated 2026-11-18 by `npm run fixture`. 369 Variables in 14 sections.
 
 | Section | Variables | Drawings and figures | With photos | States pending |
 | --- | --- | --- | --- | --- |
-| Cranium · Metric | 46 + 38 calculated | 0 drawn · 24 figure · 22 none |  |  |
+| Cranium · Metric | 46 + 38 calculated | 0 drawn · 29 figure · 17 none |  |  |
 | Cranium · Morphological | 40 | 21 drawn · 0 figure · 16 none | 20 (353 photos) |  |
-| Mandible · Metric | 9 | 0 drawn · 8 figure · 1 none |  |  |
+| Mandible · Metric | 9 | 0 drawn · 9 figure · 0 none |  |  |
 | Mandible · Morphological | 6 | 0 drawn · 0 figure · 6 none |  |  |
 | Dentition · Metric | 8 | 0 drawn · 0 figure · 8 none |  |  |
 | Dentition · Morphological | 79 | 77 drawn · 0 figure · 0 none | 78 (766 photos) |  |

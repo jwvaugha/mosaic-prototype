@@ -2,41 +2,47 @@
   "GOL": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/illustration-5.webp",
-      "width": 616,
-      "height": 501
+      "src": "ref-images/dcp-measures/GOL.webp",
+      "width": 1000,
+      "height": 805
     },
-    "caption": "DCP 2.0 fig. 20 · Selected cranial measurements in the mid-saggital plane"
+    "caption": "Measurement drawing · Glabello-occipital length"
   },
   "NOL": {
-    "kind": "none"
+    "kind": "figure",
+    "figure": {
+      "src": "ref-images/dcp-measures/NOL.webp",
+      "width": 1000,
+      "height": 805
+    },
+    "caption": "Measurement drawing · Nasio-occipital length"
   },
   "BNL": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/illustration-5.webp",
-      "width": 616,
-      "height": 501
+      "src": "ref-images/dcp-measures/BNL.webp",
+      "width": 1000,
+      "height": 805
     },
-    "caption": "DCP 2.0 fig. 20 · Selected cranial measurements in the mid-saggital plane"
+    "caption": "Measurement drawing · Basion-nasion length"
   },
   "BBH": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/illustration-5.webp",
-      "width": 616,
-      "height": 501
+      "src": "ref-images/dcp-measures/BBH.webp",
+      "width": 1000,
+      "height": 805
     },
-    "caption": "DCP 2.0 fig. 20 · Selected cranial measurements in the mid-saggital plane"
+    "caption": "Measurement drawing · Basion-bregma height"
   },
   "XCB": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/illustration-6.webp",
-      "width": 483,
-      "height": 780
+      "src": "ref-images/dcp-measures/XCB.webp",
+      "width": 878,
+      "height": 1000
     },
-    "caption": "DCP 2.0 fig. 21 · Maximum Cranial Breadth and Bizygomatic Breadth"
+    "caption": "Measurement drawing · Maximum cranial breadth"
   },
   "XFB": {
     "kind": "none"
@@ -44,35 +50,41 @@
   "WFB": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/illustration-8.webp",
-      "width": 586,
-      "height": 774
+      "src": "ref-images/dcp-measures/WFB.webp",
+      "width": 796,
+      "height": 1000
     },
-    "caption": "DCP 2.0 fig. 23 · Selected Cranial measurements [anterior view]"
+    "caption": "Measurement drawing · Minimum frontal breadth"
   },
   "AUB": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/illustration-7.webp",
-      "width": 597,
-      "height": 771
+      "src": "ref-images/dcp-measures/AUB.webp",
+      "width": 855,
+      "height": 1000
     },
-    "caption": "DCP 2.0 fig. 22 · External palatal measurements and Biauricular Breadth"
+    "caption": "Measurement drawing · Biauricular breadth"
   },
   "ASB": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/illustration-7.webp",
-      "width": 597,
-      "height": 771
+      "src": "ref-images/dcp-measures/ASB.webp",
+      "width": 855,
+      "height": 1000
     },
-    "caption": "DCP 2.0 fig. 22 · External palatal measurements and Biauricular Breadth"
+    "caption": "Measurement drawing · Biasterionic breadth"
   },
   "STB": {
     "kind": "none"
   },
   "MDH": {
-    "kind": "none"
+    "kind": "figure",
+    "figure": {
+      "src": "ref-images/dcp-measures/MDH.webp",
+      "width": 979,
+      "height": 1000
+    },
+    "caption": "Measurement drawing · Mastoid height"
   },
   "GLS": {
     "kind": "none"
@@ -80,29 +92,29 @@
   "FOL": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/illustration-10.webp",
-      "width": 615,
-      "height": 501
+      "src": "ref-images/dcp-measures/FOL.webp",
+      "width": 855,
+      "height": 1000
     },
-    "caption": "DCP 2.0 fig. 25 · Frontal, Parietal, and Occipital Chord measurements and Foramen Magnum Length"
+    "caption": "Measurement drawing · Foramen magnum length"
   },
   "FOB": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/illustration-7.webp",
-      "width": 597,
-      "height": 771
+      "src": "ref-images/dcp-measures/FOB.webp",
+      "width": 855,
+      "height": 1000
     },
-    "caption": "DCP 2.0 fig. 22 · External palatal measurements and Biauricular Breadth"
+    "caption": "Measurement drawing · Foramen magnum breadth"
   },
   "FRC": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/illustration-10.webp",
-      "width": 615,
-      "height": 501
+      "src": "ref-images/dcp-measures/FRC.webp",
+      "width": 1000,
+      "height": 807
     },
-    "caption": "DCP 2.0 fig. 25 · Frontal, Parietal, and Occipital Chord measurements and Foramen Magnum Length"
+    "caption": "Measurement drawing · Frontal chord"
   },
   "FRS": {
     "kind": "none"
@@ -110,11 +122,11 @@
   "PAC": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/illustration-10.webp",
-      "width": 615,
-      "height": 501
+      "src": "ref-images/dcp-measures/PAC.webp",
+      "width": 1000,
+      "height": 807
     },
-    "caption": "DCP 2.0 fig. 25 · Frontal, Parietal, and Occipital Chord measurements and Foramen Magnum Length"
+    "caption": "Measurement drawing · Parietal chord"
   },
   "PAS": {
     "kind": "none"
@@ -122,11 +134,11 @@
   "OCC": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/illustration-10.webp",
-      "width": 615,
-      "height": 501
+      "src": "ref-images/dcp-measures/OCC.webp",
+      "width": 1000,
+      "height": 807
     },
-    "caption": "DCP 2.0 fig. 25 · Frontal, Parietal, and Occipital Chord measurements and Foramen Magnum Length"
+    "caption": "Measurement drawing · Occipital chord"
   },
   "OCS": {
     "kind": "none"
@@ -134,29 +146,29 @@
   "ZYB": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/illustration-6.webp",
-      "width": 483,
-      "height": 780
+      "src": "ref-images/dcp-measures/ZYB.webp",
+      "width": 855,
+      "height": 1000
     },
-    "caption": "DCP 2.0 fig. 21 · Maximum Cranial Breadth and Bizygomatic Breadth"
+    "caption": "Measurement drawing · Bizygomatic breadth"
   },
   "BPL": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/illustration-5.webp",
-      "width": 616,
-      "height": 501
+      "src": "ref-images/dcp-measures/BPL.webp",
+      "width": 1000,
+      "height": 805
     },
-    "caption": "DCP 2.0 fig. 20 · Selected cranial measurements in the mid-saggital plane"
+    "caption": "Measurement drawing · Basion-prosthion length"
   },
   "NPH": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/illustration-8.webp",
-      "width": 586,
-      "height": 774
+      "src": "ref-images/dcp-measures/NPH.webp",
+      "width": 796,
+      "height": 1000
     },
-    "caption": "DCP 2.0 fig. 23 · Selected Cranial measurements [anterior view]"
+    "caption": "Measurement drawing · Nasion-prosthion height"
   },
   "JUB": {
     "kind": "none"
@@ -164,23 +176,29 @@
   "MAB": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/illustration-7.webp",
-      "width": 597,
-      "height": 771
+      "src": "ref-images/dcp-measures/MAB.webp",
+      "width": 855,
+      "height": 1000
     },
-    "caption": "DCP 2.0 fig. 22 · External palatal measurements and Biauricular Breadth"
+    "caption": "Measurement drawing · External palate breadth"
   },
   "MAL": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/illustration-7.webp",
-      "width": 597,
-      "height": 771
+      "src": "ref-images/dcp-measures/MAL.webp",
+      "width": 855,
+      "height": 1000
     },
-    "caption": "DCP 2.0 fig. 22 · External palatal measurements and Biauricular Breadth"
+    "caption": "Measurement drawing · External palate length"
   },
   "ZMB": {
-    "kind": "none"
+    "kind": "figure",
+    "figure": {
+      "src": "ref-images/dcp-measures/ZMB.webp",
+      "width": 1000,
+      "height": 784
+    },
+    "caption": "Measurement drawing · Bimaxillary breadth"
   },
   "SSS": {
     "kind": "none"
@@ -201,10 +219,22 @@
     "kind": "none"
   },
   "MOW": {
-    "kind": "none"
+    "kind": "figure",
+    "figure": {
+      "src": "ref-images/dcp-measures/MOW.webp",
+      "width": 1000,
+      "height": 784
+    },
+    "caption": "Measurement drawing · Midorbital width"
   },
   "UFBR": {
-    "kind": "none"
+    "kind": "figure",
+    "figure": {
+      "src": "ref-images/dcp-measures/UFBR.webp",
+      "width": 796,
+      "height": 1000
+    },
+    "caption": "Measurement drawing · Upper facial breadth"
   },
   "UFHT": {
     "kind": "figure",
@@ -218,38 +248,38 @@
   "OBH": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/illustration-9.webp",
-      "width": 482,
-      "height": 392
+      "src": "ref-images/dcp-measures/OBH.webp",
+      "width": 1000,
+      "height": 830
     },
-    "caption": "DCP 2.0 fig. 24 · Selected measurements of the orbital region"
+    "caption": "Measurement drawing · Orbit height"
   },
   "OBB": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/illustration-9.webp",
-      "width": 482,
-      "height": 392
+      "src": "ref-images/dcp-measures/OBB.webp",
+      "width": 1000,
+      "height": 830
     },
-    "caption": "DCP 2.0 fig. 24 · Selected measurements of the orbital region"
+    "caption": "Measurement drawing · Orbit breadth"
   },
   "EKB": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/illustration-9.webp",
-      "width": 482,
-      "height": 392
+      "src": "ref-images/dcp-measures/EKB.webp",
+      "width": 1000,
+      "height": 830
     },
-    "caption": "DCP 2.0 fig. 24 · Selected measurements of the orbital region"
+    "caption": "Measurement drawing · Biorbital breadth"
   },
   "DKB": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/illustration-9.webp",
-      "width": 482,
-      "height": 392
+      "src": "ref-images/dcp-measures/DKB.webp",
+      "width": 1000,
+      "height": 830
     },
-    "caption": "DCP 2.0 fig. 24 · Selected measurements of the orbital region"
+    "caption": "Measurement drawing · Interorbital breadth"
   },
   "DKS": {
     "kind": "none"
@@ -260,20 +290,20 @@
   "NLH": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/illustration-8.webp",
-      "width": 586,
-      "height": 774
+      "src": "ref-images/dcp-measures/NLH.webp",
+      "width": 796,
+      "height": 1000
     },
-    "caption": "DCP 2.0 fig. 23 · Selected Cranial measurements [anterior view]"
+    "caption": "Measurement drawing · Nasal height"
   },
   "NLB": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/illustration-8.webp",
-      "width": 586,
-      "height": 774
+      "src": "ref-images/dcp-measures/NLB.webp",
+      "width": 796,
+      "height": 1000
     },
-    "caption": "DCP 2.0 fig. 23 · Selected Cranial measurements [anterior view]"
+    "caption": "Measurement drawing · Nasal breadth"
   },
   "WNB": {
     "kind": "none"
@@ -2889,77 +2919,83 @@
   "GNI": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/illustration-11.webp",
-      "width": 465,
-      "height": 468
+      "src": "ref-images/dcp-measures/GNI.webp",
+      "width": 1000,
+      "height": 941
     },
-    "caption": "DCP 2.0 fig. 27 · Selected measurements of the mandible [anterior view]"
+    "caption": "Measurement drawing · Chin height"
   },
   "HML": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/illustration-12.webp",
-      "width": 516,
-      "height": 396
+      "src": "ref-images/dcp-measures/HML.webp",
+      "width": 1000,
+      "height": 941
     },
-    "caption": "DCP 2.0 fig. 28 · Selected measurements of the mandible [lateral view]"
+    "caption": "Measurement drawing · Height of the mandibular body at the mental foramen"
   },
   "TML": {
-    "kind": "none"
+    "kind": "figure",
+    "figure": {
+      "src": "ref-images/dcp-measures/TML.webp",
+      "width": 1000,
+      "height": 941
+    },
+    "caption": "Measurement drawing · Mandibular body breadth at the mental foramen"
   },
   "GOG": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/illustration-11.webp",
-      "width": 465,
-      "height": 468
+      "src": "ref-images/dcp-measures/GOG.webp",
+      "width": 1000,
+      "height": 941
     },
-    "caption": "DCP 2.0 fig. 27 · Selected measurements of the mandible [anterior view]"
+    "caption": "Measurement drawing · Bigonial breadth"
   },
   "CDL": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/illustration-11.webp",
-      "width": 465,
-      "height": 468
+      "src": "ref-images/dcp-measures/CDL.webp",
+      "width": 1000,
+      "height": 941
     },
-    "caption": "DCP 2.0 fig. 27 · Selected measurements of the mandible [anterior view]"
+    "caption": "Measurement drawing · Bicondylar breadth"
   },
   "WRB": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/illustration-12.webp",
-      "width": 516,
-      "height": 396
+      "src": "ref-images/dcp-measures/WRB.webp",
+      "width": 1000,
+      "height": 776
     },
-    "caption": "DCP 2.0 fig. 28 · Selected measurements of the mandible [lateral view]"
+    "caption": "Measurement drawing · Minimum ramus breadth"
   },
   "XRH": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/illustration-12.webp",
-      "width": 516,
-      "height": 396
+      "src": "ref-images/dcp-measures/XRH.webp",
+      "width": 1000,
+      "height": 776
     },
-    "caption": "DCP 2.0 fig. 28 · Selected measurements of the mandible [lateral view]"
+    "caption": "Measurement drawing · Maximum ramus height"
   },
   "MLT": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/illustration-12.webp",
-      "width": 516,
-      "height": 396
+      "src": "ref-images/dcp-measures/MLT.webp",
+      "width": 1000,
+      "height": 776
     },
-    "caption": "DCP 2.0 fig. 28 · Selected measurements of the mandible [lateral view]"
+    "caption": "Measurement drawing · Mandibular length"
   },
   "MAN": {
     "kind": "figure",
     "figure": {
-      "src": "ref-images/dcp/illustration-12.webp",
-      "width": 516,
-      "height": 396
+      "src": "ref-images/dcp-measures/MAN.webp",
+      "width": 1000,
+      "height": 776
     },
-    "caption": "DCP 2.0 fig. 28 · Selected measurements of the mandible [lateral view]"
+    "caption": "Measurement drawing · Mandibular angle"
   },
   "Mandibular_torus": {
     "kind": "none"
@@ -8697,7 +8733,7 @@
       "5": {
         "src": "ref-images/dental/LM2CN_5.webp",
         "width": 800,
-        "height": 762
+        "height": 770
       },
       "6": {
         "src": "ref-images/dental/LM2CN_6.webp",
@@ -8777,7 +8813,7 @@
       "5": {
         "src": "ref-images/dental/mand_cusp_m3_5.webp",
         "width": 800,
-        "height": 762
+        "height": 770
       },
       "6": {
         "src": "ref-images/dental/mand_cusp_m3_6.webp",

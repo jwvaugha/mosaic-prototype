@@ -63,9 +63,9 @@ const UPDATES: Update[] = [
         title: <>Measurement figures for Metric fields</>,
         body: (
           <>
-            Most postcranial measurements have their own figure with the measurement marked in red, and the cranial,
-            mandible and innominate measurements show their figures from the data-collection references. Tell us if a figure marks the wrong measurement or is
-            hard to read at the panel's size.
+            Each cranial, mandible and postcranial measurement now has its own figure with the measurement marked,
+            except for 17 cranial measurements still waiting for one. Tell us if a figure marks the wrong measurement
+            or is hard to read at the panel's size.
           </>
         ),
         how: <>Open any Metric section and focus a measurement with the reference panel on.</>,
@@ -79,6 +79,11 @@ const UPDATES: Update[] = [
           </>
         ),
         how: <>In Cranium · Morphological (Vault and palate) or Pelvis · Morphological (Pubis), focus one of these traits.</>,
+      },
+      {
+        title: <>Cusp number on the lower second and third molars</>,
+        body: <>Score 3 (only three cusps) now has its description, and score 5 has a new drawing.</>,
+        goTo: { label: "Try it in Dentition · Morphological", href: tryLink({ start: "dentition-morph", ref: "A", refon: "1" }) },
       },
     ],
   },
