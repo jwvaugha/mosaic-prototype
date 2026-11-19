@@ -183,7 +183,7 @@ function AppShell() {
         </div>
         {ref.open && ref.layout === "A" && <DockedColumn data={ref.data} onClose={ref.close} />}
       </SidebarProvider>
-      <WorkupFooter flagBadge={policy.analyzeBadge ? flaggedFields(state).length : 0} onAnalyze={onAnalyze} />
+      <WorkupFooter onAnalyze={onAnalyze} />
       <SubFooter>
         <TestModePanel
           fieldSummary={`This Workup: ${totals.recorded} recorded · ${totals.skipped} skipped · ${flaggedFields(state).length} flagged (of ${totals.total}).`}

@@ -22,8 +22,6 @@ export type IncompletionPolicy = {
   sectionCheck: "blanks" | "flags" | "none"
   // What the rail counts next to each section.
   railBadge: "blank" | "flagged"
-  // Show the flag count on the Analyze button too.
-  analyzeBadge: boolean
 }
 
 export const POLICIES: Record<IncompletionId, IncompletionPolicy> = {
@@ -35,7 +33,6 @@ export const POLICIES: Record<IncompletionId, IncompletionPolicy> = {
     allowFlag: true,
     sectionCheck: "none",
     railBadge: "flagged",
-    analyzeBadge: true,
   },
   "skip-section": {
     id: "skip-section",
@@ -45,7 +42,6 @@ export const POLICIES: Record<IncompletionId, IncompletionPolicy> = {
     allowFlag: false,
     sectionCheck: "blanks",
     railBadge: "blank",
-    analyzeBadge: false,
   },
   "flag-section": {
     id: "flag-section",
@@ -55,7 +51,6 @@ export const POLICIES: Record<IncompletionId, IncompletionPolicy> = {
     allowFlag: true,
     sectionCheck: "flags",
     railBadge: "flagged",
-    analyzeBadge: false,
   },
   "flag-end": {
     id: "flag-end",
@@ -65,6 +60,5 @@ export const POLICIES: Record<IncompletionId, IncompletionPolicy> = {
     allowFlag: true,
     sectionCheck: "none",
     railBadge: "flagged",
-    analyzeBadge: true,
   },
 }

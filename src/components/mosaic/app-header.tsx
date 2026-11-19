@@ -1,4 +1,4 @@
-import { ChevronDown, CircleUserRound, Download, Flag, HardDrive, Lightbulb, NotebookText, Pencil } from "lucide-react"
+import { ChevronDown, CircleUserRound, Download, HardDrive, Lightbulb, NotebookText, Pencil } from "lucide-react"
 import type { ReactNode } from "react"
 import { Button } from "@/components/ui/button"
 import {
@@ -62,7 +62,7 @@ export function AppHeader({ onShowIntro }: { onShowIntro?: () => void }) {
   )
 }
 
-export function WorkupFooter({ flagBadge, onAnalyze }: { flagBadge?: number; onAnalyze: () => void }) {
+export function WorkupFooter({ onAnalyze }: { onAnalyze: () => void }) {
   return (
     <footer className="z-20 flex h-14 shrink-0 items-center gap-3 border-t bg-background px-4 whitespace-nowrap lg:gap-5 lg:px-6">
       <span className="flex min-w-0 items-center gap-1.5">
@@ -86,14 +86,8 @@ export function WorkupFooter({ flagBadge, onAnalyze }: { flagBadge?: number; onA
         <Download />
         <span className="hidden md:inline">Download progress</span>
       </Button>
-      <Button size="sm" tabIndex={-1} className="relative text-xs" onClick={onAnalyze}>
+      <Button size="sm" tabIndex={-1} className="text-xs" onClick={onAnalyze}>
         Analyze
-        {!!flagBadge && (
-          <span className="absolute -top-2 -right-2 flex items-center gap-0.5 rounded-full border border-flag-border bg-flag px-1.5 text-xs font-medium text-flag-foreground">
-            <Flag className="size-3" />
-            {flagBadge}
-          </span>
-        )}
       </Button>
     </footer>
   )
