@@ -18,11 +18,18 @@ export const FLAG_REASONS: Record<FlagReason, string> = {
   other: "Other",
 }
 
+// How a flag's reason reads: the typed text for "Other", when there is some.
+export function flagReasonLabel(flag: { reason?: FlagReason; text?: string } | null): string | undefined {
+  if (!flag?.reason) return undefined
+  return flag.reason === "other" && flag.text?.trim() ? flag.text.trim() : FLAG_REASONS[flag.reason]
+}
+
 export type FieldState = {
   value: string | null
   skipped: boolean
   acknowledged: boolean
-  flag: { reason?: FlagReason } | null
+  // `text`: what the user typed for "Other".
+  flag: { reason?: FlagReason; text?: string } | null
   // Free-text note; stays on this device (requirements: Notes privacy).
   note?: string
 }
@@ -56,7 +63,7 @@ export type Action =
   | { type: "toggleSkipBone"; boneId: string }
   | { type: "skipBlanks"; section: string }
   | { type: "toggleFlag"; id: string }
-  | { type: "setFlagReason"; id: string; reason: FlagReason | undefined }
+  | { type: "setFlagReason"; id: string; reason: FlagReason | undefined; text?: string }
   | { type: "acknowledge"; id: string }
   | { type: "unacknowledge"; id: string }
   | { type: "focus"; focus: Focus }
@@ -229,7 +236,9 @@ function reduce(state: WorkupState, action: Action): WorkupState {
       return patch(state, action.id, { flag: f.flag ? null : {} })
     }
     case "setFlagReason":
-      return patch(state, action.id, { flag: { reason: action.reason } })
+      return patch(state, action.id, {
+        flag: { reason: action.reason, ...(action.reason === "other" && action.text ? { text: action.text } : {}) },
+      })
     case "acknowledge":
       return patch(state, action.id, { acknowledged: true })
     case "unacknowledge":

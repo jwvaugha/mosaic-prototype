@@ -1,6 +1,6 @@
 import { REGIONS } from "@/data/chrome"
 import {
-  FLAG_REASONS,
+  flagReasonLabel,
   railBadges,
   sectionCounts,
   sectionOf,
@@ -87,8 +87,8 @@ export function flaggedItems(state: WorkupState, sectionId?: string) {
     .filter(({ id }) => state.fields[id].flag)
     .map(({ id, bone }) => {
       const v = variable(id)
-      const reason = state.fields[id].flag?.reason
+      const reason = flagReasonLabel(state.fields[id].flag)
       const where = sectionId ? bone : whereOf(id)
-      return { id, title: nameWithCode(v), where: reason ? `${where} · ${FLAG_REASONS[reason]}` : where }
+      return { id, title: nameWithCode(v), where: reason ? `${where} · ${reason}` : where }
     })
 }

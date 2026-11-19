@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest"
 import {
   blankFields,
+  flagReasonLabel,
   fieldIds,
   fieldStatus,
   flaggedFields,
@@ -108,6 +109,19 @@ describe("come back to flags", () => {
     expect(flaggedFields(s)).toEqual(["IOB"])
     s = run(s, { type: "toggleFlag", id: "IOB" })
     expect(flaggedFields(s)).toEqual([])
+  })
+
+  it("Other keeps the typed reason, and reads as it", () => {
+    let s = run(
+      initialState(),
+      { type: "toggleFlag", id: "IOB" },
+      { type: "setFlagReason", id: "IOB", reason: "other", text: "poor light" },
+    )
+    expect(flagReasonLabel(s.fields.IOB.flag)).toBe("poor light")
+    s = run(s, { type: "setFlagReason", id: "IOB", reason: "re-measure", text: "ignored" })
+    expect(s.fields.IOB.flag).toEqual({ reason: "re-measure" })
+    s = run(s, { type: "setFlagReason", id: "IOB", reason: "other" })
+    expect(flagReasonLabel(s.fields.IOB.flag)).toBe("Other")
   })
 })
 

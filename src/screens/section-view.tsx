@@ -255,7 +255,7 @@ export function SectionView({
                     onToggleSkip: () => dispatch({ type: "toggleSkip", id }),
                     onToggleFlag: () => dispatch({ type: "toggleFlag", id }),
                     onClear: () => dispatch({ type: "clear", id }),
-                    onFlagReason: (reason) => dispatch({ type: "setFlagReason", id, reason }),
+                    onFlagReason: (reason, text) => dispatch({ type: "setFlagReason", id, reason, text }),
                   }),
                   below:
                     inlineReference?.data?.variable.id === id ? (

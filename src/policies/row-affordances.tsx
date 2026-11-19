@@ -31,7 +31,7 @@ export function rowAffordances({
   showKeyHints: boolean
   onToggleSkip: () => void
   onToggleFlag: () => void
-  onFlagReason: (r: FlagReason | undefined) => void
+  onFlagReason: (r: FlagReason | undefined, text?: string) => void
   onClear: () => void
 }): { actions: RowAction[]; gutter?: ReactNode } {
   // Any field can be Skipped (a score is cleared, with Undo) and flagged to
@@ -53,6 +53,7 @@ export function rowAffordances({
         name={name}
         flagged
         reason={field.flag.reason}
+        text={field.flag.text}
         rowFocused={focused}
         showKeyHints={showKeyHints}
         onToggle={onToggleFlag}

@@ -75,6 +75,16 @@ const UPDATES: Update[] = [
         ),
         how: <>Flag a field and look beside its row.</>,
       },
+      {
+        title: <>Type your own reason</>,
+        body: (
+          <>
+            Choosing Other… in a flag's reasons now opens a box to say why. Enter saves it, and it shows wherever the
+            flag's reason does, including the list of flagged fields before the Analysis.
+          </>
+        ),
+        how: <>Flag a field, click its flag, choose Other… and type a reason.</>,
+      },
     ],
   },
   {
